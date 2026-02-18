@@ -7,10 +7,10 @@ import type { PCCategory, PCProduct, PeripheralSubcategory } from '../data/pcPro
 type SortKey = 'price-asc' | 'price-desc' | 'name-asc' | 'updatedAt-desc'
 
 const SORT_OPTIONS: { value: SortKey; label: string }[] = [
-  { value: 'price-asc', label: 'Fiyat: Dusukten Yuksege' },
-  { value: 'price-desc', label: 'Fiyat: Yuksekten Dusuge' },
-  { value: 'name-asc', label: 'Isim: A-Z' },
-  { value: 'updatedAt-desc', label: 'En Son Guncellenen' },
+  { value: 'price-asc', label: 'Fiyat: Düşükten Yükseğe' },
+  { value: 'price-desc', label: 'Fiyat: Yüksekten Düşüğe' },
+  { value: 'name-asc', label: 'İsim: A-Z' },
+  { value: 'updatedAt-desc', label: 'En Son Güncellenen' },
 ]
 
 const PC_CATEGORY_COLORS: Record<PCCategory, string> = {
@@ -40,7 +40,7 @@ function FilterChip({ label, onRemove }: { label: string; onRemove: () => void }
   return (
     <span className="inline-flex items-center gap-1.5 bg-blue-950 border border-blue-800 text-blue-300 text-xs font-medium px-2.5 py-1 rounded-full">
       {label}
-      <button onClick={onRemove} className="hover:text-white transition-colors" aria-label="Kaldir">
+      <button onClick={onRemove} className="hover:text-white transition-colors" aria-label="Kaldır">
         x
       </button>
     </span>
@@ -77,15 +77,15 @@ function PCProductCard({ product }: { product: PCProduct }) {
               {effectivePrice.toLocaleString('tr-TR')}
               <span className="text-base font-normal text-gray-400 ml-1">TL</span>
             </p>
-            <p className="text-xs text-gray-500">Aralik: {product.priceMin.toLocaleString('tr-TR')} - {product.priceMax.toLocaleString('tr-TR')} TL</p>
-            <p className="text-[11px] text-gray-600">Gosterilen fiyat: ortalama piyasa</p>
+            <p className="text-xs text-gray-500">Aralık: {product.priceMin.toLocaleString('tr-TR')} - {product.priceMax.toLocaleString('tr-TR')} TL</p>
+            <p className="text-[11px] text-gray-600">Gösterilen fiyat: ortalama piyasa</p>
           </div>
           <a href={product.link} target="_blank" rel="noopener noreferrer" className="btn-primary text-sm shrink-0">
-            Kaynaga git
+            Kaynağa git
           </a>
         </div>
 
-        <p className="text-[11px] text-gray-600">Kaynak sayisi: {product.sourceOfferCount} satici</p>
+        <p className="text-[11px] text-gray-600">Kaynak sayısı: {product.sourceOfferCount} satıcı</p>
       </div>
     </div>
   )
@@ -119,10 +119,10 @@ function ConsoleProductCard({ product }: { product: ConsoleProduct }) {
               {avg.toLocaleString('tr-TR')}
               <span className="text-base font-normal text-gray-400 ml-1">TL</span>
             </p>
-            <p className="text-xs text-gray-500">Aralik: {product.priceMin.toLocaleString('tr-TR')} - {product.priceMax.toLocaleString('tr-TR')} TL</p>
+            <p className="text-xs text-gray-500">Aralık: {product.priceMin.toLocaleString('tr-TR')} - {product.priceMax.toLocaleString('tr-TR')} TL</p>
           </div>
           <a href={product.link} target="_blank" rel="noopener noreferrer" className="btn-primary text-sm shrink-0">
-            Magazaya git
+            Mağazaya git
           </a>
         </div>
       </div>
@@ -209,17 +209,17 @@ function PCProductsView() {
         <div className="flex items-center gap-2 text-sm text-gray-500 mb-3">
           <Link to="/" className="hover:text-gray-300 transition-colors">Ana Sayfa</Link>
           <span>/</span>
-          <span className="text-gray-300">PC Urunleri</span>
+          <span className="text-gray-300">PC Ürünleri</span>
         </div>
-        <h1 className="text-3xl font-bold text-white">PC Urunleri</h1>
-        <p className="text-gray-400 mt-1">Yuksek performans bilesenleri ve ortalama fiyat araliklari.</p>
+        <h1 className="text-3xl font-bold text-white">PC Ürünleri</h1>
+        <p className="text-gray-400 mt-1">Yüksek performans bileşenleri ve ortalama fiyat aralıkları.</p>
       </div>
 
       <div className="flex flex-col lg:flex-row gap-6">
         <aside className="lg:w-64 shrink-0 space-y-5">
           <div className="card p-4">
             <h2 className="text-sm font-semibold text-gray-300 mb-3">Ara</h2>
-            <input type="text" value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Urun ara..." className="w-full bg-gray-800 border border-gray-700 rounded-lg px-3 py-2 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 transition-colors" />
+            <input type="text" value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Ürün ara..." className="w-full bg-gray-800 border border-gray-700 rounded-lg px-3 py-2 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 transition-colors" />
           </div>
 
           <div className="card p-4">
@@ -242,7 +242,7 @@ function PCProductsView() {
           </div>
 
           <div className="card p-4">
-            <h2 className="text-sm font-semibold text-gray-300 mb-3">Cevre Birimi Alt Kategori</h2>
+            <h2 className="text-sm font-semibold text-gray-300 mb-3">Çevre Birimi Alt Kategori</h2>
             <div className="space-y-2">
               {peripheralTypes.map((type) => {
                 const count = pcProducts.filter((p) => p.category === 'Cevre Birimi' && p.peripheralSubcategory === type).length
@@ -269,7 +269,7 @@ function PCProductsView() {
           </div>
 
           <div className="card p-4">
-            <h2 className="text-sm font-semibold text-gray-300 mb-3">Magaza</h2>
+            <h2 className="text-sm font-semibold text-gray-300 mb-3">Mağaza</h2>
             <div className="space-y-2 max-h-40 overflow-auto pr-1">
               {allStores.map((store) => {
                 const active = selectedStores.includes(store)
@@ -310,9 +310,9 @@ function PCProductsView() {
 
         <div className="flex-1 min-w-0">
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 mb-5">
-            <p className="text-sm text-gray-400"><span className="text-white font-semibold">{filtered.length}</span> urun bulundu</p>
+            <p className="text-sm text-gray-400"><span className="text-white font-semibold">{filtered.length}</span> ürün bulundu</p>
             <div className="flex items-center gap-2">
-              <label className="text-xs text-gray-500">Sirala:</label>
+              <label className="text-xs text-gray-500">Sırala:</label>
               <select value={sortKey} onChange={(e) => setSortKey(e.target.value as SortKey)} className="bg-gray-800 border border-gray-700 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-blue-500 cursor-pointer">
                 {SORT_OPTIONS.map((opt) => <option key={opt.value} value={opt.value}>{opt.label}</option>)}
               </select>
@@ -331,7 +331,7 @@ function PCProductsView() {
 
           {filtered.length === 0 ? (
             <div className="card p-12 text-center">
-              <p className="text-gray-400 font-medium">Urun bulunamadi</p>
+              <p className="text-gray-400 font-medium">Ürün bulunamadı</p>
               <button onClick={clearFilters} className="btn-primary mt-4 mx-auto">Filtreleri Temizle</button>
             </div>
           ) : (
@@ -401,17 +401,17 @@ function ConsoleProductsView({ platform }: { platform: ConsolePlatform }) {
         <div className="flex items-center gap-2 text-sm text-gray-500 mb-3">
           <Link to="/" className="hover:text-gray-300 transition-colors">Ana Sayfa</Link>
           <span>/</span>
-          <span className="text-gray-300">{label} Urunleri</span>
+          <span className="text-gray-300">{label} Ürünleri</span>
         </div>
-        <h1 className="text-3xl font-bold text-white">{label} Urunleri</h1>
-        <p className="text-gray-400 mt-2">Bu sayfada sadece konsol urunleri, gamepad, kulaklik ve aksesuarlar yer alir. Oyun listesi yoktur.</p>
+        <h1 className="text-3xl font-bold text-white">{label} Ürünleri</h1>
+        <p className="text-gray-400 mt-2">Bu sayfada sadece konsol ürünleri, gamepad, kulaklık ve aksesuarlar yer alır. Oyun listesi yoktur.</p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
         <aside className="card p-4 space-y-4 lg:col-span-1">
           <div>
             <h2 className="text-sm font-semibold text-gray-300 mb-2">Ara</h2>
-            <input type="text" value={search} onChange={(e) => setSearch(e.target.value)} placeholder={`${label} urunu ara...`} className="w-full bg-gray-800 border border-gray-700 rounded-lg px-3 py-2 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-blue-500" />
+            <input type="text" value={search} onChange={(e) => setSearch(e.target.value)} placeholder={`${label} ürünü ara...`} className="w-full bg-gray-800 border border-gray-700 rounded-lg px-3 py-2 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-blue-500" />
           </div>
 
           <div>
@@ -438,7 +438,7 @@ function ConsoleProductsView({ platform }: { platform: ConsolePlatform }) {
           </label>
 
           <div>
-            <label className="text-xs text-gray-500">Sirala:</label>
+            <label className="text-xs text-gray-500">Sırala:</label>
             <select value={sortKey} onChange={(e) => setSortKey(e.target.value as SortKey)} className="mt-1 w-full bg-gray-800 border border-gray-700 rounded-lg px-3 py-2 text-sm text-white">
               {SORT_OPTIONS.map((opt) => <option key={opt.value} value={opt.value}>{opt.label}</option>)}
             </select>
@@ -448,10 +448,10 @@ function ConsoleProductsView({ platform }: { platform: ConsolePlatform }) {
         </aside>
 
         <div className="lg:col-span-3">
-          <p className="text-sm text-gray-400 mb-4"><span className="text-white font-semibold">{filtered.length}</span> urun bulundu</p>
+          <p className="text-sm text-gray-400 mb-4"><span className="text-white font-semibold">{filtered.length}</span> ürün bulundu</p>
           {filtered.length === 0 ? (
             <div className="card p-10 text-center">
-              <p className="text-gray-400">Sonuca uygun urun bulunamadi.</p>
+              <p className="text-gray-400">Sonuca uygun ürün bulunamadı.</p>
               <button onClick={clear} className="btn-primary mt-4">Temizle</button>
             </div>
           ) : (
@@ -472,9 +472,9 @@ export default function ProductsPage() {
 
   return (
     <div className="card p-10 text-center">
-      <h1 className="text-2xl font-bold text-white">Platform bulunamadi</h1>
-      <p className="text-gray-400 mt-2">Lutfen gecerli bir urun platformu sec.</p>
-      <Link to="/" className="btn-primary mt-4">Ana Sayfaya Don</Link>
+      <h1 className="text-2xl font-bold text-white">Platform bulunamadı</h1>
+      <p className="text-gray-400 mt-2">Lütfen geçerli bir ürün platformu seç.</p>
+      <Link to="/" className="btn-primary mt-4">Ana Sayfaya Dön</Link>
     </div>
   )
 }

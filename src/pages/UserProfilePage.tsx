@@ -11,9 +11,9 @@ export default function UserProfilePage() {
   if (!user) {
     return (
       <div className="card p-10 text-center max-w-2xl mx-auto">
-        <h1 className="text-2xl font-bold text-white">Kullanici bulunamadi</h1>
-        <p className="text-gray-400 mt-2">Aradigin profil bu tarayicidaki kayitlarda yok.</p>
-        <Link to="/" className="btn-primary mt-5">Ana Sayfaya Don</Link>
+        <h1 className="text-2xl font-bold text-white">Kullanıcı bulunamadı</h1>
+        <p className="text-gray-400 mt-2">Aradığın profil bu tarayıcıdaki kayıtlarda yok.</p>
+        <Link to="/" className="btn-primary mt-5">Ana Sayfaya Dön</Link>
       </div>
     )
   }
@@ -25,7 +25,7 @@ export default function UserProfilePage() {
     <div className="max-w-4xl mx-auto space-y-6">
       <section className="card p-6">
         <h1 className="text-3xl font-bold text-white">{user.name}</h1>
-        <p className="text-gray-400 mt-2">Kullanici Profili</p>
+        <p className="text-gray-400 mt-2">Kullanıcı Profili</p>
         <p className="text-sm text-gray-500 mt-4">{user.email}</p>
       </section>
 
@@ -36,12 +36,12 @@ export default function UserProfilePage() {
             {extras.steamProfileUrl}
           </a>
         ) : (
-          <p className="text-sm text-gray-400 mt-2">Steam profili paylasilmamis.</p>
+          <p className="text-sm text-gray-400 mt-2">Steam profili paylaşılmamış.</p>
         )}
       </section>
 
       <section className="card p-6">
-        <h2 className="text-lg font-semibold text-white">Steam Oyunlari</h2>
+        <h2 className="text-lg font-semibold text-white">Steam Oyunları</h2>
         {extras.steamGames.length > 0 ? (
           <div className="mt-4 overflow-x-auto">
             <table className="min-w-full text-sm">
@@ -67,7 +67,7 @@ export default function UserProfilePage() {
       </section>
 
       <section className="card p-6">
-        <h2 className="text-lg font-semibold text-white">Sitede Oynadiklari</h2>
+        <h2 className="text-lg font-semibold text-white">Sitede Oynadıkları</h2>
         {playedGames.length > 0 ? (
           <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-3">
             {playedGames.map((game) => (
@@ -78,7 +78,7 @@ export default function UserProfilePage() {
             ))}
           </div>
         ) : (
-          <p className="text-sm text-gray-400 mt-3">Sitede oynadigi oyunlar henuz eklenmemis.</p>
+          <p className="text-sm text-gray-400 mt-3">Sitede oynadığı oyunlar henüz eklenmemiş.</p>
         )}
       </section>
     </div>

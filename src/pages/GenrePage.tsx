@@ -16,12 +16,12 @@ export default function GenrePage() {
         <span className="text-gray-300">{title}</span>
       </div>
 
-      <h1 className="text-3xl font-bold text-white mb-8">{title} Oyunlari</h1>
+      <h1 className="text-3xl font-bold text-white mb-8">{title} Oyunları</h1>
 
       {list.length === 0 ? (
         <div className="card p-12 text-center">
-          <h2 className="text-xl font-bold text-white mb-2">Bu turde icerik bulunamadi</h2>
-          <Link to="/games" className="btn-primary inline-flex mt-4">Tum Turler</Link>
+          <h2 className="text-xl font-bold text-white mb-2">Bu türde içerik bulunamadı</h2>
+          <Link to="/games" className="btn-primary inline-flex mt-4">Tüm Türler</Link>
         </div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">

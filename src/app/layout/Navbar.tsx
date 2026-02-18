@@ -35,7 +35,7 @@ interface SearchItem {
 }
 
 const productMenu: NavItem = {
-  label: 'Urunler',
+  label: 'Ürünler',
   items: platforms.map((p) => ({ label: platformLabels[p], to: `/products/${p}` })),
 }
 
@@ -55,9 +55,9 @@ function kindLabel(kind: SearchKind) {
     case 'oyun':
       return 'Oyun'
     case 'urun':
-      return 'Urun'
+      return 'Ürün'
     default:
-      return 'Sonuc'
+      return 'Sonuç'
   }
 }
 
@@ -241,7 +241,7 @@ export default function Navbar() {
             setAuthVersion((value) => value + 1)
           }}
         >
-          Cikis
+          Çıkış
         </button>
       </div>
     )
@@ -316,7 +316,7 @@ export default function Navbar() {
                 }`
               }
             >
-              Oduller
+              Ödüller
             </NavLink>
 
             <NavLink
@@ -327,7 +327,7 @@ export default function Navbar() {
                 }`
               }
             >
-              Iletisim
+              İletişim
             </NavLink>
           </nav>
 
@@ -371,14 +371,14 @@ export default function Navbar() {
                   runSearchTarget(searchResults[0])
                 }
               }}
-              placeholder="Profil, kategori, oyun veya urun ara..."
+              placeholder="Profil, kategori, oyun veya ürün ara..."
               className="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-2.5 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-blue-500"
             />
 
             {searchOpen && searchQuery.trim().length >= 2 && (
               <div className="absolute left-0 right-0 top-full mt-2 bg-gray-900 border border-gray-700 rounded-xl shadow-xl overflow-hidden z-50">
                 {searchResults.length === 0 ? (
-                  <p className="px-4 py-3 text-sm text-gray-400">Sonuc bulunamadi.</p>
+                  <p className="px-4 py-3 text-sm text-gray-400">Sonuç bulunamadı.</p>
                 ) : (
                   <ul>
                     {searchResults.map((item) => (
@@ -401,7 +401,7 @@ export default function Navbar() {
 
         {mobileOpen && (
           <nav className="md:hidden pb-4 border-t border-gray-800 mt-1 pt-3 space-y-1">
-            <p className="px-3 py-1 text-xs font-semibold text-gray-500 uppercase tracking-wider">Urunler</p>
+            <p className="px-3 py-1 text-xs font-semibold text-gray-500 uppercase tracking-wider">Ürünler</p>
             {productMenu.items.map((sub) => (
               <NavLink
                 key={sub.to}
@@ -417,8 +417,8 @@ export default function Navbar() {
               </NavLink>
             ))}
             <NavLink to="/games" className="block px-4 py-2 text-sm rounded-lg mx-1 text-gray-300 hover:text-white hover:bg-gray-800" onClick={() => setMobileOpen(false)}>Oyunlar</NavLink>
-            <NavLink to="/oduller" className="block px-4 py-2 text-sm rounded-lg mx-1 text-gray-300 hover:text-white hover:bg-gray-800" onClick={() => setMobileOpen(false)}>Oduller</NavLink>
-            <NavLink to="/iletisim" className="block px-4 py-2 text-sm rounded-lg mx-1 text-gray-300 hover:text-white hover:bg-gray-800" onClick={() => setMobileOpen(false)}>Iletisim</NavLink>
+            <NavLink to="/oduller" className="block px-4 py-2 text-sm rounded-lg mx-1 text-gray-300 hover:text-white hover:bg-gray-800" onClick={() => setMobileOpen(false)}>Ödüller</NavLink>
+            <NavLink to="/iletisim" className="block px-4 py-2 text-sm rounded-lg mx-1 text-gray-300 hover:text-white hover:bg-gray-800" onClick={() => setMobileOpen(false)}>İletişim</NavLink>
             <div className="px-2 pt-2">{authBlock}</div>
           </nav>
         )}

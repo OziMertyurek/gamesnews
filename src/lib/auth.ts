@@ -30,7 +30,7 @@ function writeUsers(users: AuthUser[]) {
 export function signupUser(user: AuthUser): { ok: boolean; error?: string } {
   const users = readUsers()
   if (users.some((u) => u.email.toLowerCase() === user.email.toLowerCase())) {
-    return { ok: false, error: 'Bu e-posta zaten kayitli.' }
+    return { ok: false, error: 'Bu e-posta zaten kayıtlı.' }
   }
   users.push(user)
   writeUsers(users)
@@ -41,7 +41,7 @@ export function signupUser(user: AuthUser): { ok: boolean; error?: string } {
 export function loginUser(email: string, password: string): { ok: boolean; error?: string } {
   const users = readUsers()
   const user = users.find((u) => u.email.toLowerCase() === email.toLowerCase() && u.password === password)
-  if (!user) return { ok: false, error: 'E-posta veya sifre hatali.' }
+  if (!user) return { ok: false, error: 'E-posta veya şifre hatalı.' }
   localStorage.setItem(CURRENT_USER_KEY, JSON.stringify({ name: user.name, email: user.email }))
   return { ok: true }
 }
@@ -52,7 +52,7 @@ export function getCurrentUser(): { name: string; email: string } | null {
     if (!raw) return null
     const parsed = JSON.parse(raw)
     if (!parsed?.email) return null
-    return { name: parsed.name ?? 'Kullanici', email: parsed.email }
+    return { name: parsed.name ?? 'Kullanıcı', email: parsed.email }
   } catch {
     return null
   }

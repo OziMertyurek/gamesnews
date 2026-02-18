@@ -57,7 +57,7 @@ const platforms: PlatformCard[] = [
   {
     slug: 'pc',
     label: 'PC',
-    subtitle: 'Donanim ve bilesen',
+    subtitle: 'Donanım ve bileşen',
     bg: 'from-slate-700 via-slate-800 to-cyan-950',
     border: 'border-cyan-800/70',
     pattern: 'bg-[radial-gradient(circle_at_25%_25%,rgba(34,211,238,.22),transparent_55%)]',
@@ -87,7 +87,7 @@ const platforms: PlatformCard[] = [
   {
     slug: 'nintendo',
     label: 'Nintendo',
-    subtitle: 'Switch dunyasi',
+    subtitle: 'Switch dünyası',
     bg: 'from-red-800 via-red-900 to-rose-950',
     border: 'border-red-700/70',
     pattern: 'bg-[radial-gradient(circle_at_20%_20%,rgba(248,113,113,.24),transparent_55%)]',
@@ -98,11 +98,11 @@ const platforms: PlatformCard[] = [
 
 const sideAdSlots = {
   left: 'Sol Sabit Alan - 300x600',
-  right: 'Sag Sabit Alan - 300x600',
+  right: 'Sağ Sabit Alan - 300x600',
 }
 
 const centerAdSlots = [
-  'Orta Ust Banner - 970x250',
+  'Orta Üst Banner - 970x250',
   'Orta Alt Banner - 970x250',
 ]
 
@@ -110,37 +110,37 @@ export default function HomePage() {
   return (
     <div className="space-y-10">
       <section className="rounded-2xl bg-gradient-to-br from-blue-950 to-gray-900 border border-blue-900/50 p-10 md:p-14">
-        <p className="text-sm uppercase tracking-widest text-blue-300 mb-3">Yeni Nesil Oyun ve Urun Platformu</p>
+        <p className="text-sm uppercase tracking-widest text-blue-300 mb-3">Yeni Nesil Oyun ve Ürün Platformu</p>
         <h1 className="text-4xl md:text-6xl font-black text-white mb-5">
           <span className="text-blue-400">AllAroundGame</span>
         </h1>
         <p className="text-gray-300 text-lg max-w-2xl mb-7">
-          Mola modunu ac: bugun neye ihtiyacin varsa tek ekranda hizlica bul, kaydet ve devam et.
+          Mola modunu aç: bugün neye ihtiyacın varsa tek ekranda hızlıca bul, kaydet ve devam et.
         </p>
         <div className="flex flex-wrap gap-3">
-          <Link to="/products/pc" className="btn-primary">Urunlere Git</Link>
-          <Link to="/games" className="btn-ghost">Oyun Turleri</Link>
-          <Link to="/iletisim" className="btn-ghost">Iletisim</Link>
+          <Link to="/products/pc" className="btn-primary">Ürünlere Git</Link>
+          <Link to="/games" className="btn-ghost">Oyun Türleri</Link>
+          <Link to="/iletisim" className="btn-ghost">İletişim</Link>
         </div>
       </section>
 
       <section className="grid grid-cols-1 lg:grid-cols-3 gap-4">
         <div className="lg:col-span-2 card p-6 border-dashed border-blue-700/60 bg-blue-950/20">
-          <p className="text-xs text-blue-300 uppercase tracking-wider mb-2">Reklam Alani</p>
+          <p className="text-xs text-blue-300 uppercase tracking-wider mb-2">Reklam Alanı</p>
           <h2 className="text-2xl font-bold text-white">Premium Banner Slotu</h2>
-          <p className="text-gray-300 mt-2">Bu alanda markanizin lansman kampanyasi yayinlanabilir.</p>
-          <p className="text-blue-300 text-sm mt-4">Buraya reklam vermek icin bizimle iletisime gecin.</p>
+          <p className="text-gray-300 mt-2">Bu alanda markanızın lansman kampanyası yayınlanabilir.</p>
+          <p className="text-blue-300 text-sm mt-4">Buraya reklam vermek için bizimle iletişime geçin.</p>
         </div>
         <div className="card p-6 border-dashed border-blue-700/60 bg-blue-950/20">
-          <p className="text-xs text-blue-300 uppercase tracking-wider mb-2">Reklam Alani</p>
+          <p className="text-xs text-blue-300 uppercase tracking-wider mb-2">Reklam Alanı</p>
           <h2 className="text-xl font-bold text-white">Dikey Vitrin</h2>
-          <p className="text-gray-300 mt-2">300x600 etkili gorunum alani.</p>
-          <p className="text-blue-300 text-sm mt-4">Buraya reklam vermek icin bizimle iletisime gecin.</p>
+          <p className="text-gray-300 mt-2">300x600 etkili görünüm alanı.</p>
+          <p className="text-blue-300 text-sm mt-4">Buraya reklam vermek için bizimle iletişime geçin.</p>
         </div>
       </section>
 
       <section>
-        <h2 className="text-2xl font-bold text-white mb-4">Platformlara Gore Urun Kataloglari</h2>
+        <h2 className="text-2xl font-bold text-white mb-4">Platformlara Göre Ürün Katalogları</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
           {platforms.map((p) => (
             <Link
@@ -168,14 +168,14 @@ export default function HomePage() {
       </section>
 
       <section className="space-y-4">
-        <h2 className="text-2xl font-bold text-white">Uzun Ana Sayfa Reklam Plani</h2>
-        <p className="text-gray-400">Asagidaki bolumler sayfa kaydirildikca farkli noktalarda gozukur.</p>
+        <h2 className="text-2xl font-bold text-white">Uzun Ana Sayfa Reklam Planı</h2>
+        <p className="text-gray-400">Aşağıdaki bölümler sayfa kaydırıldıkça farklı noktalarda gözükür.</p>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
           <article className="card p-6 border-dashed border-gray-700">
             <p className="text-xs uppercase tracking-wide text-blue-300">Reklam Slotu</p>
             <h3 className="text-lg text-white font-semibold mt-2">{sideAdSlots.left}</h3>
-            <p className="text-sm text-gray-400 mt-2">Kampanya, sponsorluk veya urun vitrini yayinlanabilir.</p>
-            <p className="text-sm text-blue-300 mt-4">Buraya reklam vermek icin bizimle iletisime gecin.</p>
+            <p className="text-sm text-gray-400 mt-2">Kampanya, sponsorluk veya ürün vitrini yayınlanabilir.</p>
+            <p className="text-sm text-blue-300 mt-4">Buraya reklam vermek için bizimle iletişime geçin.</p>
           </article>
 
           <div className="space-y-4">
@@ -183,8 +183,8 @@ export default function HomePage() {
               <article key={slot} className="card p-6 border-dashed border-gray-700">
                 <p className="text-xs uppercase tracking-wide text-blue-300">Reklam Slotu</p>
                 <h3 className="text-lg text-white font-semibold mt-2">{slot}</h3>
-                <p className="text-sm text-gray-400 mt-2">Kampanya, sponsorluk veya urun vitrini yayinlanabilir.</p>
-                <p className="text-sm text-blue-300 mt-4">Buraya reklam vermek icin bizimle iletisime gecin.</p>
+                <p className="text-sm text-gray-400 mt-2">Kampanya, sponsorluk veya ürün vitrini yayınlanabilir.</p>
+                <p className="text-sm text-blue-300 mt-4">Buraya reklam vermek için bizimle iletişime geçin.</p>
               </article>
             ))}
           </div>
@@ -192,8 +192,8 @@ export default function HomePage() {
           <article className="card p-6 border-dashed border-gray-700">
             <p className="text-xs uppercase tracking-wide text-blue-300">Reklam Slotu</p>
             <h3 className="text-lg text-white font-semibold mt-2">{sideAdSlots.right}</h3>
-            <p className="text-sm text-gray-400 mt-2">Kampanya, sponsorluk veya urun vitrini yayinlanabilir.</p>
-            <p className="text-sm text-blue-300 mt-4">Buraya reklam vermek icin bizimle iletisime gecin.</p>
+            <p className="text-sm text-gray-400 mt-2">Kampanya, sponsorluk veya ürün vitrini yayınlanabilir.</p>
+            <p className="text-sm text-blue-300 mt-4">Buraya reklam vermek için bizimle iletişime geçin.</p>
           </article>
         </div>
       </section>
@@ -201,22 +201,22 @@ export default function HomePage() {
       <section className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {Array.from({ length: 6 }).map((_, i) => (
           <div key={i} className="card p-6">
-            <p className="text-xs text-gray-500 uppercase tracking-wide">Icerik Blog Alani {i + 1}</p>
-            <h3 className="text-white font-semibold mt-2">Topluluk ve etkinlik bolumu</h3>
+            <p className="text-xs text-gray-500 uppercase tracking-wide">İçerik Blog Alanı {i + 1}</p>
+            <h3 className="text-white font-semibold mt-2">Topluluk ve etkinlik bölümü</h3>
             <p className="text-gray-400 mt-2 text-sm">
-              Burasi ana sayfanin uzun akisini desteklemek icin ayrilan editoryal bloktur. Mobilde tek sutun, desktopta cok sutun calisir.
+              Burası ana sayfanın uzun akışını desteklemek için ayrılan editoryal bloktur. Mobilde tek sütun, desktopta çok sütun çalışır.
             </p>
           </div>
         ))}
       </section>
 
       <section className="rounded-2xl border border-blue-800 bg-blue-950/30 p-8 text-center">
-        <h2 className="text-2xl font-bold text-white">Markanizi burada konumlandirin</h2>
+        <h2 className="text-2xl font-bold text-white">Markanızı burada konumlandırın</h2>
         <p className="text-gray-300 mt-3">
-          Banner, sponsorlu kart ve kategori ici reklam modelleri mevcut.
+          Banner, sponsorlu kart ve kategori içi reklam modelleri mevcut.
         </p>
-        <p className="text-blue-300 mt-4">Reklam vermek icin bizimle iletisime gecin: iletisim@allaroundgame.com</p>
-        <Link to="/iletisim" className="btn-primary mt-6">Iletisim Sayfasina Git</Link>
+        <p className="text-blue-300 mt-4">Reklam vermek için bizimle iletişime geçin: iletisim@allaroundgame.com</p>
+        <Link to="/iletisim" className="btn-primary mt-6">İletişim Sayfasına Git</Link>
       </section>
     </div>
   )

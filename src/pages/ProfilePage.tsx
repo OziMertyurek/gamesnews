@@ -34,8 +34,8 @@ export default function ProfilePage() {
   if (!user) {
     return (
       <div className="card p-10 text-center max-w-xl mx-auto">
-        <h1 className="text-2xl font-bold text-white">Profil icin giris gerekli</h1>
-        <p className="text-gray-400 mt-2">Profilini gormek icin once login ol.</p>
+        <h1 className="text-2xl font-bold text-white">Profil için giriş gerekli</h1>
+        <p className="text-gray-400 mt-2">Profilini görmek için önce login ol.</p>
         <div className="flex gap-3 justify-center mt-5">
           <Link to="/login" className="btn-primary">Login</Link>
           <Link to="/signup" className="btn-ghost">Sign Up</Link>
@@ -69,14 +69,14 @@ export default function ProfilePage() {
               navigate('/login')
             }}
           >
-            Cikis Yap
+            Çıkış Yap
           </button>
         </div>
       </section>
 
       <section className="card p-6">
         <h2 className="text-lg font-semibold text-white">Steam Profili</h2>
-        <p className="text-gray-400 mt-2 text-sm">Steam API key ve profil/SteamID64 ile kutuphaneni cekebilirsin. Bilgiler yalnizca tarayicinda saklanir.</p>
+        <p className="text-gray-400 mt-2 text-sm">Steam API key ve profil/SteamID64 ile kütüphaneni çekebilirsin. Bilgiler yalnızca tarayıcında saklanır.</p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mt-4">
           <input
@@ -104,11 +104,11 @@ export default function ProfilePage() {
             className="btn-primary"
             onClick={async () => {
               saveSteamConnection(user.email, { steamProfileUrl: steamProfileUrl.trim(), steamId: steamId.trim(), steamApiKey: steamApiKey.trim() })
-              setSyncMessage('Steam baglanti bilgileri kaydedildi.')
+              setSyncMessage('Steam bağlantı bilgileri kaydedildi.')
               setRefreshKey((value) => value + 1)
             }}
           >
-            Steam Baglantisini Kaydet
+            Steam Bağlantısını Kaydet
           </button>
           <button
             className="btn-ghost"
@@ -116,20 +116,20 @@ export default function ProfilePage() {
             onClick={async () => {
               try {
                 setLoadingSteam(true)
-                setSyncMessage('Steam kutuphanesi cekiliyor...')
+                setSyncMessage('Steam kütüphanesi çekiliyor...')
                 const result = await fetchSteamOwnedGames(steamApiKey, steamId || steamProfileUrl)
                 saveSteamConnection(user.email, { steamProfileUrl: steamProfileUrl.trim(), steamId: result.steamId, steamApiKey: steamApiKey.trim() })
                 saveSteamGames(user.email, result.games)
-                setSyncMessage(`${result.games.length} oyun cekildi.`)
+                setSyncMessage(`${result.games.length} oyun çekildi.`)
                 setRefreshKey((value) => value + 1)
               } catch (error) {
-                setSyncMessage(error instanceof Error ? error.message : 'Steam verisi cekilemedi.')
+                setSyncMessage(error instanceof Error ? error.message : 'Steam verisi çekilemedi.')
               } finally {
                 setLoadingSteam(false)
               }
             }}
           >
-            {loadingSteam ? 'Cekiliyor...' : 'Steam Oyunlarini Cek'}
+            {loadingSteam ? 'Çekiliyor...' : 'Steam Oyunlarını Çek'}
           </button>
         </div>
 
@@ -138,7 +138,7 @@ export default function ProfilePage() {
       </section>
 
       <section className="card p-6">
-        <h2 className="text-lg font-semibold text-white">Steam Kutuphanem</h2>
+        <h2 className="text-lg font-semibold text-white">Steam Kütüphanem</h2>
         {extras && extras.steamGames.length > 0 ? (
           <div className="mt-4 overflow-x-auto">
             <table className="min-w-full text-sm">
@@ -159,12 +159,12 @@ export default function ProfilePage() {
             </table>
           </div>
         ) : (
-          <p className="text-sm text-gray-400 mt-3">Steam kutuphanesi henuz baglanmadi.</p>
+          <p className="text-sm text-gray-400 mt-3">Steam kütüphanesi henüz bağlanmadı.</p>
         )}
       </section>
 
       <section className="card p-6">
-        <h2 className="text-lg font-semibold text-white">Sitede Oynadiklarim</h2>
+        <h2 className="text-lg font-semibold text-white">Sitede Oynadıklarım</h2>
         {playedGames.length > 0 ? (
           <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-3">
             {playedGames.map((game) => (
@@ -175,7 +175,7 @@ export default function ProfilePage() {
             ))}
           </div>
         ) : (
-          <p className="text-sm text-gray-400 mt-3">Henuz oyun eklemedin. Oyun detayinda "Bu Oyunu Oynadim" butonunu kullan.</p>
+          <p className="text-sm text-gray-400 mt-3">Henüz oyun eklemedin. Oyun detayında "Bu Oyunu Oynadım" butonunu kullan.</p>
         )}
       </section>
     </div>

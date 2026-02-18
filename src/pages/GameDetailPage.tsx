@@ -71,9 +71,9 @@ export default function GameDetailPage() {
   if (!game) {
     return (
       <div className="card p-12 text-center">
-        <h1 className="text-2xl font-bold text-white mb-2">Oyun bulunamadi</h1>
-        <p className="text-gray-400 mb-6">Aradigin oyun su anda listede yok.</p>
-        <Link to="/games" className="btn-primary inline-flex">Oyunlara Don</Link>
+        <h1 className="text-2xl font-bold text-white mb-2">Oyun bulunamadı</h1>
+        <p className="text-gray-400 mb-6">Aradığın oyun şu anda listede yok.</p>
+        <Link to="/games" className="btn-primary inline-flex">Oyunlara Dön</Link>
       </div>
     )
   }
@@ -86,7 +86,7 @@ export default function GameDetailPage() {
 
   const estimatedMain = estimateMainHours()
   const estimatedMainExtra = Math.round(estimatedMain * 1.45)
-  const metacriticDisplay = game.metacriticScore !== null ? `${game.metacriticScore} / 100` : `${Math.round(game.score * 10)} / 100 (Site Puani)`
+  const metacriticDisplay = game.metacriticScore !== null ? `${game.metacriticScore} / 100` : `${Math.round(game.score * 10)} / 100 (Site Puanı)`
   const hltbMainDisplay = game.howLongToBeatMainHours !== null ? `${game.howLongToBeatMainHours} saat` : `~${estimatedMain} saat (Tahmini)`
   const hltbMainExtraDisplay = game.howLongToBeatMainExtraHours !== null ? `${game.howLongToBeatMainExtraHours} saat` : `~${estimatedMainExtra} saat (Tahmini)`
 
@@ -104,8 +104,8 @@ export default function GameDetailPage() {
         <div className="flex flex-wrap gap-2 mb-4">
           {awards && awards.gotyWinnerYears.length > 0 && <span className="badge bg-amber-950 text-amber-200">GOTY Kazanan</span>}
           {awards && awards.gotyNomineeYears.length > 0 && <span className="badge bg-blue-950 text-blue-200">GOTY Aday</span>}
-          {awards && awards.categoryWins.length > 0 && <span className="badge bg-emerald-950 text-emerald-200">Kategori Odulu: {awards.categoryWins.length}</span>}
-          {awards && awards.categoryNominations.length > 0 && <span className="badge bg-indigo-950 text-indigo-200">Kategori Adayligi: {awards.categoryNominations.length}</span>}
+          {awards && awards.categoryWins.length > 0 && <span className="badge bg-emerald-950 text-emerald-200">Kategori Ödülü: {awards.categoryWins.length}</span>}
+          {awards && awards.categoryNominations.length > 0 && <span className="badge bg-indigo-950 text-indigo-200">Kategori Adaylığı: {awards.categoryNominations.length}</span>}
         </div>
         <p className="text-gray-300 mb-6 max-w-3xl">{game.summary}</p>
         {awards && (awards.categoryWins.length > 0 || awards.categoryNominations.length > 0) && (
@@ -133,7 +133,7 @@ export default function GameDetailPage() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           <div className="bg-gray-800 rounded-lg p-4">
-            <p className="text-xs text-gray-500 mb-1">Cikis Yili</p>
+            <p className="text-xs text-gray-500 mb-1">Çıkış Yılı</p>
             <p className="text-white font-semibold">{game.releaseYear}</p>
           </div>
           <div className="bg-gray-800 rounded-lg p-4">
@@ -160,7 +160,7 @@ export default function GameDetailPage() {
 
         {(game.metacriticScore === null || game.howLongToBeatMainHours === null || game.howLongToBeatMainExtraHours === null) && (
           <p className="mt-3 text-xs text-gray-400">
-            Bazi dis kaynak verileri eksik oldugunda sitedeki puan, tahmini sure ve baglanti fallback'i gosterilir.
+            Bazı dış kaynak verileri eksik olduğunda sitedeki puan, tahmini süre ve bağlantı fallback'i gösterilir.
           </p>
         )}
 
@@ -178,7 +178,7 @@ export default function GameDetailPage() {
                 setPlayedOnSite(next)
               }}
             >
-              {playedOnSite ? 'Oynadim Olarak Isaretli' : 'Bu Oyunu Oynadim'}
+              {playedOnSite ? 'Oynadım Olarak İşaretli' : 'Bu Oyunu Oynadım'}
             </button>
           )}
         </div>
@@ -186,7 +186,7 @@ export default function GameDetailPage() {
 
       <section className="card p-6 mt-6">
         <h2 className="text-xl font-semibold text-white">Yorumlar</h2>
-        <p className="text-sm text-gray-400 mt-1">Kullanicilar bu oyuna yorum birakabilir.</p>
+        <p className="text-sm text-gray-400 mt-1">Kullanıcılar bu oyuna yorum bırakabilir.</p>
 
         {user ? (
           <form
@@ -223,11 +223,11 @@ export default function GameDetailPage() {
             <button className="btn-primary w-fit" type="submit">Yorum Ekle</button>
           </form>
         ) : (
-          <p className="mt-4 text-sm text-gray-400">Yorum birakmak icin giris yap.</p>
+          <p className="mt-4 text-sm text-gray-400">Yorum bırakmak için giriş yap.</p>
         )}
 
         <div className="mt-6 space-y-3">
-          {comments.length === 0 && <p className="text-sm text-gray-400">Henuz yorum yok.</p>}
+          {comments.length === 0 && <p className="text-sm text-gray-400">Henüz yorum yok.</p>}
           {comments.map((comment) => (
             <article key={comment.id} className="bg-gray-800 rounded-lg p-4">
               <div className="flex items-start justify-between gap-3">
