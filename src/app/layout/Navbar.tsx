@@ -361,7 +361,9 @@ export default function Navbar() {
         <div
           ref={searchRef}
           className={`overflow-hidden transition-all duration-300 ease-out ${
-            searchCollapsed ? 'max-h-0 pb-0 opacity-0 -translate-y-1 pointer-events-none' : 'max-h-24 pb-3 opacity-100 translate-y-0'
+            searchCollapsed
+              ? 'max-h-0 pb-0 opacity-0 -translate-y-1 pointer-events-none overflow-hidden'
+              : 'max-h-24 pb-3 opacity-100 translate-y-0 overflow-visible'
           }`}
         >
           <div className="relative">
