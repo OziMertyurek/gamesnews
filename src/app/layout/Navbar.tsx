@@ -157,11 +157,13 @@ export default function Navbar() {
 
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
-  }, [mobileOpen, searchOpen])
+  }, [mobileOpen, searchOpen, searchCollapsed])
 
   const user = getCurrentUser()
 
   const searchItems = useMemo(() => {
+    void authVersion
+
     const profileItems: SearchItem[] = listPublicUsers().map((profile) => ({
       id: `profile-${profile.email}`,
       kind: 'profil',
@@ -269,8 +271,7 @@ export default function Navbar() {
       <div className="container mx-auto px-4 max-w-7xl">
         <div className="flex items-center justify-between h-16">
           <Link to="/" className="flex items-center gap-2">
-            <span className="text-2xl font-black text-blue-500">allaround</span>
-            <span className="text-2xl font-black text-white">games</span>
+            <span className="text-2xl font-black text-blue-500">AllAroundGame</span>
           </Link>
 
           <nav className="hidden md:flex items-center gap-1">

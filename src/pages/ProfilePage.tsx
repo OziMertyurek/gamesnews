@@ -25,7 +25,7 @@ export default function ProfilePage() {
     setSteamApiKey(extras.steamApiKey)
   }, [userEmail, refreshKey])
 
-  const extras = useMemo(() => (userEmail ? getUserProfileExtras(userEmail) : null), [userEmail, refreshKey])
+  const extras = userEmail ? getUserProfileExtras(userEmail) : null
   const playedGames = useMemo(() => {
     if (!extras) return []
     return games.filter((game) => extras.playedGameSlugs.includes(game.slug))

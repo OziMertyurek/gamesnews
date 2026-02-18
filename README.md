@@ -1,4 +1,4 @@
-# allaroundgames
+# AllAroundGame
 
 React + TypeScript + Vite tabanli oyun/urun katalog projesi.
 

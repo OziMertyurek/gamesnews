@@ -112,7 +112,7 @@ export default function HomePage() {
       <section className="rounded-2xl bg-gradient-to-br from-blue-950 to-gray-900 border border-blue-900/50 p-10 md:p-14">
         <p className="text-sm uppercase tracking-widest text-blue-300 mb-3">Yeni Nesil Oyun ve Urun Platformu</p>
         <h1 className="text-4xl md:text-6xl font-black text-white mb-5">
-          <span className="text-blue-400">allaround</span>games
+          <span className="text-blue-400">AllAroundGame</span>
         </h1>
         <p className="text-gray-300 text-lg max-w-2xl mb-7">
           Mola modunu ac: bugun neye ihtiyacin varsa tek ekranda hizlica bul, kaydet ve devam et.
@@ -215,7 +215,7 @@ export default function HomePage() {
         <p className="text-gray-300 mt-3">
           Banner, sponsorlu kart ve kategori ici reklam modelleri mevcut.
         </p>
-        <p className="text-blue-300 mt-4">Reklam vermek icin bizimle iletisime gecin: iletisim@allaroundgames.com</p>
+        <p className="text-blue-300 mt-4">Reklam vermek icin bizimle iletisime gecin: iletisim@allaroundgame.com</p>
         <Link to="/iletisim" className="btn-primary mt-6">Iletisim Sayfasina Git</Link>
       </section>
     </div>

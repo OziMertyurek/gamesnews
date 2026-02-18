@@ -1,4 +1,3 @@
-/* eslint-disable */
 export interface TgaCategoryWinner {
   category: string
   game: string

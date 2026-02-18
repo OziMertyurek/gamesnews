@@ -1625,20 +1625,38 @@ function monitorPrice(index: number) {
   }
 }
 
-function peripheralPrice(kind: PeripheralSubcategory, index: number) {
-  const map = {
-    Klavye: { min: 900, step: 320, premium: 2800 },
-    Mouse: { min: 500, step: 190, premium: 1800 },
-    Kulaklik: { min: 1200, step: 360, premium: 3000 },
-  } as const
-  const config = map[kind]
-  const base = config.min + (index % 10) * config.step
-  const premiumBoost = index % 6 === 0 ? config.premium : 0
-  const price = base + premiumBoost
+function peripheralPrice(kind: PeripheralSubcategory, name: string, index: number) {
+  const baseByKind: Record<PeripheralSubcategory, number> = {
+    Klavye: 1400,
+    Mouse: 850,
+    Kulaklik: 1700,
+  }
+
+  const tierRules: Record<PeripheralSubcategory, Array<{ pattern: RegExp; boost: number }>> = {
+    Klavye: [
+      { pattern: /(pro x tkl|apex pro|k100|claymore ii|falchion|mx keys)/i, boost: 3000 },
+      { pattern: /(k70|blackwidow|huntsman|deathstalker|alloy elite|alloy origins|keychron|akko)/i, boost: 1800 },
+      { pattern: /(g512|g413|ornata|cynosa|k55|apex 3|apex 5|k835)/i, boost: 900 },
+    ],
+    Mouse: [
+      { pattern: /(superlight|viper v2 pro|mx master 3s|zowie|glorious|keris ii)/i, boost: 2200 },
+      { pattern: /(g502|deathadder v3|pulsefire haste 2|aerox 3|m65|gladius iii|basilisk v3|cobra)/i, boost: 1200 },
+      { pattern: /(g203|g102|g305|orochi v2|rival 3|harpoon|katar|tuf gaming m4|fps pro)/i, boost: 500 },
+    ],
+    Kulaklik: [
+      { pattern: /(pro x 2|virtuoso|inzone h9|arctis pro|nova 7)/i, boost: 3200 },
+      { pattern: /(cloud iii|cloud alpha|cloud flight|blackshark|barracuda|nova 3|arctis 7|g733|inzone h7|quantum 350)/i, boost: 1800 },
+      { pattern: /(cloud ii|cloud stinger|nova 1|g435|g335|kraken x|hs55|hs65|inzone h3|quantum 100)/i, boost: 800 },
+    ],
+  }
+
+  const variance = (index % 6) * 90
+  const tier = tierRules[kind].find((rule) => rule.pattern.test(name))?.boost ?? 700
+  const price = baseByKind[kind] + tier + variance
   return {
     price,
-    priceMin: Math.round(price * 0.84),
-    priceMax: Math.round(price * 1.18),
+    priceMin: Math.round(price * 0.9),
+    priceMax: Math.round(price * 1.12),
   }
 }
 
@@ -1669,7 +1687,7 @@ const peripheralEntries: Array<{ name: string; kind: PeripheralSubcategory; imag
 ]
 
 const peripheralProducts: PCProduct[] = peripheralEntries.map((entry, index) => {
-  const p = peripheralPrice(entry.kind, index)
+  const p = peripheralPrice(entry.kind, entry.name, index)
   return {
     id: `peripheral-gen-${String(index + 1).padStart(3, '0')}`,
     name: entry.name,
@@ -1833,6 +1851,141 @@ const extraSsdProducts: PCProduct[] = ssdNames.map((name, index) => {
 })
 
 pcProducts.push(...monitorProducts, ...peripheralProducts, ...extraRamProducts, ...extraSsdProducts)
+
+function toNumberMatch(name: string, regex: RegExp) {
+  const match = name.match(regex)
+  if (!match) return null
+  const value = Number(match[1])
+  return Number.isFinite(value) ? value : null
+}
+
+function hashName(name: string) {
+  let h = 0
+  for (let i = 0; i < name.length; i += 1) {
+    h = (h * 31 + name.charCodeAt(i)) >>> 0
+  }
+  return h
+}
+
+function estimatedModelPrice(product: PCProduct) {
+  const name = product.name.toLowerCase()
+  let price = 0
+
+  if (product.category === 'CPU') {
+    price = 9000
+    if (/(ryzen 9|intel i9|ultra 9|threadripper)/.test(name)) price += 14000
+    else if (/(ryzen 7|intel i7|ultra 7)/.test(name)) price += 7500
+    else if (/(ryzen 5|intel i5|ultra 5)/.test(name)) price += 3200
+    if (/(x3d|kf|k\b)/.test(name)) price += 2200
+    const cpuModel = toNumberMatch(name, /(\d{4,5})/)
+    if (cpuModel && cpuModel >= 9000) price += 4200
+    price += hashName(product.name) % 2200
+  }
+
+  if (product.category === 'GPU') {
+    price = 13000
+    const modelMap: Array<[RegExp, number]> = [
+      [/5090/, 180000],
+      [/5080/, 72000],
+      [/5070\s?ti/, 45000],
+      [/5070/, 32000],
+      [/5060\s?ti/, 20000],
+      [/5060/, 14000],
+      [/4070\s?super/, 26000],
+      [/4070/, 22000],
+      [/9070\s?xt/, 32000],
+      [/9070/, 24000],
+      [/6700\s?xt/, 12000],
+      [/3070\s?ti/, 17000],
+    ]
+    const found = modelMap.find(([re]) => re.test(name))
+    if (found) price += found[1]
+    else price += 12000
+    if (/(oc|gaming|suprim|strix|tuf)/.test(name)) price += 2300
+    price += hashName(product.name) % 3500
+  }
+
+  if (product.category === 'RAM') {
+    price = 1200
+    const gb = toNumberMatch(name, /(\d+)\s?gb/)
+    if (gb && gb >= 64) price += 5200
+    else if (gb && gb >= 48) price += 3600
+    else if (gb && gb >= 32) price += 2100
+    else if (gb && gb >= 16) price += 900
+    if (/ddr5/.test(name)) price += 1100
+    if (/rgb/.test(name)) price += 550
+    const mhz = toNumberMatch(name, /(\d{4,5})\s?mhz/)
+    if (mhz && mhz >= 6000) price += 900
+    else if (mhz && mhz >= 3600) price += 350
+    price += hashName(product.name) % 650
+  }
+
+  if (product.category === 'SSD') {
+    price = 1600
+    if (/(4tb|4096g)/.test(name)) price += 7600
+    else if (/(2tb|2048g|2000g)/.test(name)) price += 3400
+    else if (/(1tb|1024g|1000g)/.test(name)) price += 1100
+    else if (/(500gb|512g)/.test(name)) price += 250
+    if (/(nvme|m\.2|pcie|gen4|gen5)/.test(name)) price += 1100
+    if (/(pro|black|firecuda|renegade)/.test(name)) price += 700
+    price += hashName(product.name) % 900
+  }
+
+  if (product.category === 'Monitor') {
+    price = 5200
+    const inch = toNumberMatch(name, /(\d{2})/)
+    if (inch && inch >= 40) price += 7800
+    else if (inch && inch >= 34) price += 5800
+    else if (inch && inch >= 32) price += 3600
+    else if (inch && inch >= 27) price += 1900
+    else if (inch && inch >= 24) price += 900
+    if (/(4k|uhd)/.test(name)) price += 2800
+    if (/(oled|qd)/.test(name)) price += 3400
+    if (/(240|280|360)/.test(name)) price += 1800
+    price += hashName(product.name) % 1400
+  }
+
+  if (product.category === 'Cevre Birimi') {
+    if (product.peripheralSubcategory === 'Mouse') {
+      price = 900
+      if (/(superlight|v2 pro|mx master|zowie|glorious)/.test(name)) price += 2600
+      else if (/(g502|deathadder v3|pulsefire haste 2|aerox|m65|basilisk|cobra)/.test(name)) price += 1500
+      else price += 500
+      price += hashName(product.name) % 450
+    } else if (product.peripheralSubcategory === 'Klavye') {
+      price = 1300
+      if (/(apex pro|k100|pro x tkl|claymore|falchion|mx keys)/.test(name)) price += 3200
+      else if (/(k70|blackwidow|huntsman|alloy|keychron|akko)/.test(name)) price += 2000
+      else price += 850
+      price += hashName(product.name) % 650
+    } else {
+      price = 1600
+      if (/(pro x 2|virtuoso|inzone h9|arctis pro|nova 7)/.test(name)) price += 3300
+      else if (/(cloud iii|cloud alpha|blackshark|barracuda|g733|inzone h7)/.test(name)) price += 1900
+      else price += 850
+      price += hashName(product.name) % 700
+    }
+  }
+
+  return Math.max(350, Math.round(price))
+}
+
+const rangeByCategory: Record<PCCategory, { min: number; max: number }> = {
+  CPU: { min: 0.86, max: 1.16 },
+  GPU: { min: 0.84, max: 1.18 },
+  RAM: { min: 0.9, max: 1.12 },
+  SSD: { min: 0.88, max: 1.15 },
+  Monitor: { min: 0.88, max: 1.14 },
+  'Cevre Birimi': { min: 0.9, max: 1.12 },
+}
+
+for (const product of pcProducts) {
+  const estimated = estimatedModelPrice(product)
+  const range = rangeByCategory[product.category]
+  product.price = estimated
+  product.priceMin = Math.max(1, Math.round(estimated * range.min))
+  product.priceMax = Math.max(product.priceMin, Math.round(estimated * range.max))
+}
 
 export const PC_CATEGORIES: PCCategory[] = [
   'CPU',

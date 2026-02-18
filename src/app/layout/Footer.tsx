@@ -6,8 +6,7 @@ export default function Footer() {
       <div className="container mx-auto px-4 max-w-7xl py-8">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2">
-            <span className="text-xl font-black text-blue-500">allaround</span>
-            <span className="text-xl font-black text-white">games</span>
+            <span className="text-xl font-black text-blue-500">AllAroundGame</span>
             <span className="text-gray-500 text-sm ml-2">Turkiye'nin oyun platformu</span>
           </div>
           <nav className="flex flex-wrap gap-4 text-sm text-gray-400">
@@ -16,7 +15,7 @@ export default function Footer() {
             <Link to="/oduller" className="hover:text-white transition-colors">Oduller</Link>
             <Link to="/iletisim" className="hover:text-white transition-colors">Iletisim</Link>
           </nav>
-          <p className="text-xs text-gray-600">(c) {new Date().getFullYear()} allaroundgames</p>
+          <p className="text-xs text-gray-600">(c) {new Date().getFullYear()} AllAroundGame</p>
         </div>
       </div>
     </footer>

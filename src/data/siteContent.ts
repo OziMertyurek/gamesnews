@@ -63,7 +63,7 @@ export const newsItems: NewsItem[] = [
     summary: 'Denge degisiklikleri, yeni harita rotasyonu ve performans iyilestirmeleri aciklandi.',
     platform: 'pc',
     date: '2026-02-14',
-    source: 'allaroundgames Editor',
+    source: 'AllAroundGame Editor',
     link: '#',
   },
 ]
