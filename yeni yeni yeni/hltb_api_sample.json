@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="UTF-8" />
+      <title>HowLongToBeat - 404</title>
+      <style>          
+          body {
+            background: #242424;
+            color: white;
+            text-align: center;
+            font-family: Arial, 'Lucida Sans Unicode';
+          }
+          h2 {
+            font-size: 25px;
+            margin: 10px 0 10px 0;
+            padding: 0;
+            text-shadow: 1px 1px 5px black;
+          }
+          span {
+            background: #328ed6;
+            padding: 10px 20px 10px 20px;
+            color: white;
+            border-radius: 5px;
+          }
+          span a {
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
+          }
+          p {
+            padding: 0;
+            margin: 0 0 20px 0;
+          }      
+      </style>
+  </head>
+  <body>
+      <div style="position: absolute;left: 50%;top: 50%;transform: translate(-50%, -50%);margin: 0 auto;max-width: 1300px;width: 100%;">
+        <div>	
+          <h1>404 - Not Found</h1>
+          <img src="https://howlongtobeat.com/img/404/pong.gif" style="width: 90vw;max-width: 800px;border-radius: 25px;" />
+          <div style="vertical-align: middle;line-height: 40px;padding: 10px 0 10px 0;">
+            <p>
+              The page you are looking for does not exist.
+              Try going back or visiting a different link.
+            </p>
+            <span>
+              <a href="/">Back to HowLongToBeat</a>
+            </span>
+          </div>
+        </div>
+      </div>
+  </body>
+</html>

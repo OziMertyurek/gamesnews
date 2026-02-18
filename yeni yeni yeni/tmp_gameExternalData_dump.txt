@@ -1,0 +1,576 @@
+export interface GameExternalData {
+  metacriticScore: number | null
+  metacriticUrl: string
+  howLongToBeatMainHours: number | null
+  howLongToBeatUrl: string
+  gamespotArticleUrl: string
+}
+
+export const gameExternalData: Record<string, GameExternalData> = {
+  "ghostrunner-2": {
+    "metacriticScore": 80,
+    "metacriticUrl": "https://www.metacritic.com/game/ghostrunner-2/",
+    "howLongToBeatMainHours": null,
+    "howLongToBeatUrl": "https://www.google.com/search?q=site%3Ahowlongtobeat.com%20Ghostrunner%202",
+    "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Ghostrunner%202"
+  },
+  "god-of-war-ragnarok": {
+    "metacriticScore": 94,
+    "metacriticUrl": "https://www.metacritic.com/game/god-of-war-ragnarok/",
+    "howLongToBeatMainHours": null,
+    "howLongToBeatUrl": "https://www.google.com/search?q=site%3Ahowlongtobeat.com%20God%20of%20War%20Ragnarok",
+    "gamespotArticleUrl": "https://www.gamespot.com/search/?q=God%20of%20War%20Ragnarok"
+  },
+  "devil-may-cry-5": {
+    "metacriticScore": 87,
+    "metacriticUrl": "https://www.metacritic.com/game/devil-may-cry-5/",
+    "howLongToBeatMainHours": null,
+    "howLongToBeatUrl": "https://www.google.com/search?q=site%3Ahowlongtobeat.com%20Devil%20May%20Cry%205",
+    "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Devil%20May%20Cry%205"
+  },
+  "stellar-blade": {
+    "metacriticScore": 81,
+    "metacriticUrl": "https://www.metacritic.com/game/stellar-blade/",
+    "howLongToBeatMainHours": null,
+    "howLongToBeatUrl": "https://www.google.com/search?q=site%3Ahowlongtobeat.com%20Stellar%20Blade",
+    "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Stellar%20Blade"
+  },
+  "sekiro-shadows-die-twice": {
+    "metacriticScore": 90,
+    "metacriticUrl": "https://www.metacritic.com/game/sekiro-shadows-die-twice/",
+    "howLongToBeatMainHours": null,
+    "howLongToBeatUrl": "https://www.google.com/search?q=site%3Ahowlongtobeat.com%20Sekiro%3A%20Shadows%20Die%20Twice",
+    "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Sekiro%3A%20Shadows%20Die%20Twice"
+  },
+  "marvels-spider-man-2": {
+    "metacriticScore": 90,
+    "metacriticUrl": "https://www.metacritic.com/game/marvels-spider-man-2/",
+    "howLongToBeatMainHours": null,
+    "howLongToBeatUrl": "https://www.google.com/search?q=site%3Ahowlongtobeat.com%20Marvel's%20Spider-Man%202",
+    "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Marvel's%20Spider-Man%202"
+  },
+  "bayonetta-3": {
+    "metacriticScore": 86,
+    "metacriticUrl": "https://www.metacritic.com/game/bayonetta-3/",
+    "howLongToBeatMainHours": null,
+    "howLongToBeatUrl": "https://www.google.com/search?q=site%3Ahowlongtobeat.com%20Bayonetta%203",
+    "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Bayonetta%203"
+  },
+  "star-wars-jedi-survivor": {
+    "metacriticScore": 85,
+    "metacriticUrl": "https://www.metacritic.com/game/star-wars-jedi-survivor/",
+    "howLongToBeatMainHours": null,
+    "howLongToBeatUrl": "https://www.google.com/search?q=site%3Ahowlongtobeat.com%20Star%20Wars%20Jedi%3A%20Survivor",
+    "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Star%20Wars%20Jedi%3A%20Survivor"
+  },
+  "hi-fi-rush": {
+    "metacriticScore": 87,
+    "metacriticUrl": "https://www.metacritic.com/game/hi-fi-rush/",
+    "howLongToBeatMainHours": null,
+    "howLongToBeatUrl": "https://www.google.com/search?q=site%3Ahowlongtobeat.com%20Hi-Fi%20RUSH",
+    "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Hi-Fi%20RUSH"
+  },
+  "armored-core-vi": {
+    "metacriticScore": 86,
+    "metacriticUrl": "https://www.metacritic.com/game/armored-core-vi-fires-of-rubicon/",
+    "howLongToBeatMainHours": null,
+    "howLongToBeatUrl": "https://www.google.com/search?q=site%3Ahowlongtobeat.com%20Armored%20Core%20VI",
+    "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Armored%20Core%20VI"
+  },
+  "baldurs-gate-3": {
+    "metacriticScore": 96,
+    "metacriticUrl": "https://www.metacritic.com/game/baldurs-gate-3/",
+    "howLongToBeatMainHours": null,
+    "howLongToBeatUrl": "https://www.google.com/search?q=site%3Ahowlongtobeat.com%20Baldur's%20Gate%203",
+    "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Baldur's%20Gate%203"
+  },
+  "the-witcher-3-wild-hunt": {
+    "metacriticScore": 92,
+    "metacriticUrl": "https://www.metacritic.com/game/the-witcher-3-wild-hunt/",
+    "howLongToBeatMainHours": null,
+    "howLongToBeatUrl": "https://www.google.com/search?q=site%3Ahowlongtobeat.com%20The%20Witcher%203%3A%20Wild%20Hunt",
+    "gamespotArticleUrl": "https://www.gamespot.com/search/?q=The%20Witcher%203%3A%20Wild%20Hunt"
+  },
+  "cyberpunk-2077": {
+    "metacriticScore": 86,
+    "metacriticUrl": "https://www.metacritic.com/game/cyberpunk-2077/",
+    "howLongToBeatMainHours": null,
+    "howLongToBeatUrl": "https://www.google.com/search?q=site%3Ahowlongtobeat.com%20Cyberpunk%202077",
+    "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Cyberpunk%202077"
+  },
+  "persona-5-royal": {
+    "metacriticScore": 95,
+    "metacriticUrl": "https://www.metacritic.com/game/persona-5-royal/",
+    "howLongToBeatMainHours": null,
+    "howLongToBeatUrl": "https://www.google.com/search?q=site%3Ahowlongtobeat.com%20Persona%205%20Royal",
+    "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Persona%205%20Royal"
+  },
+  "divinity-original-sin-2": {
+    "metacriticScore": 93,
+    "metacriticUrl": "https://www.metacritic.com/game/divinity-original-sin-ii/",
+    "howLongToBeatMainHours": null,
+    "howLongToBeatUrl": "https://www.google.com/search?q=site%3Ahowlongtobeat.com%20Divinity%3A%20Original%20Sin%202",
+    "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Divinity%3A%20Original%20Sin%202"
+  },
+  "dragon-age-inquisition": {
+    "metacriticScore": 85,
+    "metacriticUrl": "https://www.metacritic.com/game/dragon-age-inquisition/",
+    "howLongToBeatMainHours": null,
+    "howLongToBeatUrl": "https://www.google.com/search?q=site%3Ahowlongtobeat.com%20Dragon%20Age%3A%20Inquisition",
+    "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Dragon%20Age%3A%20Inquisition"
+  },
+  "kingdom-come-deliverance": {
+    "metacriticScore": 76,
+    "metacriticUrl": "https://www.metacritic.com/game/kingdom-come-deliverance/",
+    "howLongToBeatMainHours": null,
+    "howLongToBeatUrl": "https://www.google.com/search?q=site%3Ahowlongtobeat.com%20Kingdom%20Come%3A%20Deliverance",
+    "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Kingdom%20Come%3A%20Deliverance"
+  },
+  "final-fantasy-vii-rebirth": {
+    "metacriticScore": 92,
+    "metacriticUrl": "https://www.metacritic.com/game/final-fantasy-vii-rebirth/",
+    "howLongToBeatMainHours": null,
+    "howLongToBeatUrl": "https://www.google.com/search?q=site%3Ahowlongtobeat.com%20Final%20Fantasy%20VII%20Rebirth",
+    "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Final%20Fantasy%20VII%20Rebirth"
+  },
+  "skyrim-special-edition": {
+    "metacriticScore": 84,
+    "metacriticUrl": "https://www.metacritic.com/game/the-elder-scrolls-v-skyrim-special-edition/",
+    "howLongToBeatMainHours": null,
+    "howLongToBeatUrl": "https://www.google.com/search?q=site%3Ahowlongtobeat.com%20The%20Elder%20Scrolls%20V%3A%20Skyrim%20Special%20Edition",
+    "gamespotArticleUrl": "https://www.gamespot.com/search/?q=The%20Elder%20Scrolls%20V%3A%20Skyrim%20Special%20Edition"
+  },
+  "disco-elysium": {
+    "metacriticScore": 91,
+    "metacriticUrl": "https://www.metacritic.com/game/disco-elysium/",
+    "howLongToBeatMainHours": null,
+    "howLongToBeatUrl": "https://www.google.com/search?q=site%3Ahowlongtobeat.com%20Disco%20Elysium",
+    "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Disco%20Elysium"
+  },
+  "total-war-warhammer-iii": {
+    "metacriticScore": 86,
+    "metacriticUrl": "https://www.metacritic.com/game/total-war-warhammer-iii/",
+    "howLongToBeatMainHours": null,
+    "howLongToBeatUrl": "https://www.google.com/search?q=site%3Ahowlongtobeat.com%20Total%20War%3A%20WARHAMMER%20III",
+    "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Total%20War%3A%20WARHAMMER%20III"
+  },
+  "civilization-vi": {
+    "metacriticScore": 88,
+    "metacriticUrl": "https://www.metacritic.com/game/sid-meiers-civilization-vi/",
+    "howLongToBeatMainHours": null,
+    "howLongToBeatUrl": "https://www.google.com/search?q=site%3Ahowlongtobeat.com%20Civilization%20VI",
+    "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Civilization%20VI"
+  },
+  "age-of-empires-iv": {
+    "metacriticScore": 81,
+    "metacriticUrl": "https://www.metacritic.com/game/age-of-empires-iv/",
+    "howLongToBeatMainHours": null,
+    "howLongToBeatUrl": "https://www.google.com/search?q=site%3Ahowlongtobeat.com%20Age%20of%20Empires%20IV",
+    "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Age%20of%20Empires%20IV"
+  },
+  "xcom-2": {
+    "metacriticScore": 88,
+    "metacriticUrl": "https://www.metacritic.com/game/xcom-2/",
+    "howLongToBeatMainHours": null,
+    "howLongToBeatUrl": "https://www.google.com/search?q=site%3Ahowlongtobeat.com%20XCOM%202",
+    "gamespotArticleUrl": "https://www.gamespot.com/search/?q=XCOM%202"
+  },
+  "crusader-kings-iii": {
+    "metacriticScore": 91,
+    "metacriticUrl": "https://www.metacritic.com/game/crusader-kings-iii/",
+    "howLongToBeatMainHours": null,
+    "howLongToBeatUrl": "https://www.google.com/search?q=site%3Ahowlongtobeat.com%20Crusader%20Kings%20III",
+    "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Crusader%20Kings%20III"
+  },
+  "stellaris": {
+    "metacriticScore": 78,
+    "metacriticUrl": "https://www.metacritic.com/game/stellaris/",
+    "howLongToBeatMainHours": null,
+    "howLongToBeatUrl": "https://www.google.com/search?q=site%3Ahowlongtobeat.com%20Stellaris",
+    "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Stellaris"
+  },
+  "company-of-heroes-3": {
+    "metacriticScore": 81,
+    "metacriticUrl": "https://www.metacritic.com/game/company-of-heroes-3/",
+    "howLongToBeatMainHours": null,
+    "howLongToBeatUrl": "https://www.google.com/search?q=site%3Ahowlongtobeat.com%20Company%20of%20Heroes%203",
+    "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Company%20of%20Heroes%203"
+  },
+  "frostpunk": {
+    "metacriticScore": 84,
+    "metacriticUrl": "https://www.metacritic.com/game/frostpunk/",
+    "howLongToBeatMainHours": null,
+    "howLongToBeatUrl": "https://www.google.com/search?q=site%3Ahowlongtobeat.com%20Frostpunk",
+    "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Frostpunk"
+  },
+  "starcraft-ii": {
+    "metacriticScore": 93,
+    "metacriticUrl": "https://www.metacritic.com/game/starcraft-ii-wings-of-liberty/",
+    "howLongToBeatMainHours": null,
+    "howLongToBeatUrl": "https://www.google.com/search?q=site%3Ahowlongtobeat.com%20StarCraft%20II",
+    "gamespotArticleUrl": "https://www.gamespot.com/search/?q=StarCraft%20II"
+  },
+  "into-the-breach": {
+    "metacriticScore": 90,
+    "metacriticUrl": "https://www.metacritic.com/game/into-the-breach/",
+    "howLongToBeatMainHours": null,
+    "howLongToBeatUrl": "https://www.google.com/search?q=site%3Ahowlongtobeat.com%20Into%20the%20Breach",
+    "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Into%20the%20Breach"
+  },
+  "ea-sports-fc-25": {
+    "metacriticScore": 76,
+    "metacriticUrl": "https://www.metacritic.com/game/ea-sports-fc-25/",
+    "howLongToBeatMainHours": null,
+    "howLongToBeatUrl": "https://www.google.com/search?q=site%3Ahowlongtobeat.com%20EA%20SPORTS%20FC%2025",
+    "gamespotArticleUrl": "https://www.gamespot.com/search/?q=EA%20SPORTS%20FC%2025"
+  },
+  "nba-2k25": {
+    "metacriticScore": 79,
+    "metacriticUrl": "https://www.metacritic.com/game/nba-2k25/",
+    "howLongToBeatMainHours": null,
+    "howLongToBeatUrl": "https://www.google.com/search?q=site%3Ahowlongtobeat.com%20NBA%202K25",
+    "gamespotArticleUrl": "https://www.gamespot.com/search/?q=NBA%202K25"
+  },
+  "madden-nfl-25": {
+    "metacriticScore": 70,
+    "metacriticUrl": "https://www.metacritic.com/game/madden-nfl-25/",
+    "howLongToBeatMainHours": null,
+    "howLongToBeatUrl": "https://www.google.com/search?q=site%3Ahowlongtobeat.com%20Madden%20NFL%2025",
+    "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Madden%20NFL%2025"
+  },
+  "mlb-the-show-24": {
+    "metacriticScore": 80,
+    "metacriticUrl": "https://www.metacritic.com/game/mlb-the-show-24/",
+    "howLongToBeatMainHours": null,
+    "howLongToBeatUrl": "https://www.google.com/search?q=site%3Ahowlongtobeat.com%20MLB%20The%20Show%2024",
+    "gamespotArticleUrl": "https://www.gamespot.com/search/?q=MLB%20The%20Show%2024"
+  },
+  "f1-24": {
+    "metacriticScore": 72,
+    "metacriticUrl": "https://www.metacritic.com/game/f1-24/",
+    "howLongToBeatMainHours": null,
+    "howLongToBeatUrl": "https://www.google.com/search?q=site%3Ahowlongtobeat.com%20F1%2024",
+    "gamespotArticleUrl": "https://www.gamespot.com/search/?q=F1%2024"
+  },
+  "pga-tour-2k23": {
+    "metacriticScore": 76,
+    "metacriticUrl": "https://www.metacritic.com/game/pga-tour-2k23/",
+    "howLongToBeatMainHours": null,
+    "howLongToBeatUrl": "https://www.google.com/search?q=site%3Ahowlongtobeat.com%20PGA%20TOUR%202K23",
+    "gamespotArticleUrl": "https://www.gamespot.com/search/?q=PGA%20TOUR%202K23"
+  },
+  "topspin-2k25": {
+    "metacriticScore": 76,
+    "metacriticUrl": "https://www.metacritic.com/game/topspin-2k25/",
+    "howLongToBeatMainHours": null,
+    "howLongToBeatUrl": "https://www.google.com/search?q=site%3Ahowlongtobeat.com%20TopSpin%202K25",
+    "gamespotArticleUrl": "https://www.gamespot.com/search/?q=TopSpin%202K25"
+  },
+  "nhl-24": {
+    "metacriticScore": 71,
+    "metacriticUrl": "https://www.metacritic.com/game/nhl-24/",
+    "howLongToBeatMainHours": null,
+    "howLongToBeatUrl": "https://www.google.com/search?q=site%3Ahowlongtobeat.com%20NHL%2024",
+    "gamespotArticleUrl": "https://www.gamespot.com/search/?q=NHL%2024"
+  },
+  "ea-sports-wrc": {
+    "metacriticScore": 80,
+    "metacriticUrl": "https://www.metacritic.com/game/ea-sports-wrc/",
+    "howLongToBeatMainHours": null,
+    "howLongToBeatUrl": "https://www.google.com/search?q=site%3Ahowlongtobeat.com%20EA%20SPORTS%20WRC",
+    "gamespotArticleUrl": "https://www.gamespot.com/search/?q=EA%20SPORTS%20WRC"
+  },
+  "riders-republic": {
+    "metacriticScore": 77,
+    "metacriticUrl": "https://www.metacritic.com/game/riders-republic/",
+    "howLongToBeatMainHours": null,
+    "howLongToBeatUrl": "https://www.google.com/search?q=site%3Ahowlongtobeat.com%20Riders%20Republic",
+    "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Riders%20Republic"
+  },
+  "forza-horizon-5": {
+    "metacriticScore": 92,
+    "metacriticUrl": "https://www.metacritic.com/game/forza-horizon-5/",
+    "howLongToBeatMainHours": null,
+    "howLongToBeatUrl": "https://www.google.com/search?q=site%3Ahowlongtobeat.com%20Forza%20Horizon%205",
+    "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Forza%20Horizon%205"
+  },
+  "gran-turismo-7": {
+    "metacriticScore": 87,
+    "metacriticUrl": "https://www.metacritic.com/game/gran-turismo-7/",
+    "howLongToBeatMainHours": null,
+    "howLongToBeatUrl": "https://www.google.com/search?q=site%3Ahowlongtobeat.com%20Gran%20Turismo%207",
+    "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Gran%20Turismo%207"
+  },
+  "need-for-speed-unbound": {
+    "metacriticScore": 77,
+    "metacriticUrl": "https://www.metacritic.com/game/need-for-speed-unbound/",
+    "howLongToBeatMainHours": null,
+    "howLongToBeatUrl": "https://www.google.com/search?q=site%3Ahowlongtobeat.com%20Need%20for%20Speed%20Unbound",
+    "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Need%20for%20Speed%20Unbound"
+  },
+  "forza-motorsport": {
+    "metacriticScore": 84,
+    "metacriticUrl": "https://www.metacritic.com/game/forza-motorsport/",
+    "howLongToBeatMainHours": null,
+    "howLongToBeatUrl": "https://www.google.com/search?q=site%3Ahowlongtobeat.com%20Forza%20Motorsport",
+    "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Forza%20Motorsport"
+  },
+  "dirt-rally-2": {
+    "metacriticScore": 84,
+    "metacriticUrl": "https://www.metacritic.com/game/dirt-rally-20/",
+    "howLongToBeatMainHours": null,
+    "howLongToBeatUrl": "https://www.google.com/search?q=site%3Ahowlongtobeat.com%20DiRT%20Rally%202.0",
+    "gamespotArticleUrl": "https://www.gamespot.com/search/?q=DiRT%20Rally%202.0"
+  },
+  "assetto-corsa-competizione": {
+    "metacriticScore": 77,
+    "metacriticUrl": "https://www.metacritic.com/game/assetto-corsa-competizione/",
+    "howLongToBeatMainHours": null,
+    "howLongToBeatUrl": "https://www.google.com/search?q=site%3Ahowlongtobeat.com%20Assetto%20Corsa%20Competizione",
+    "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Assetto%20Corsa%20Competizione"
+  },
+  "the-crew-motorfest": {
+    "metacriticScore": 76,
+    "metacriticUrl": "https://www.metacritic.com/game/the-crew-motorfest/",
+    "howLongToBeatMainHours": null,
+    "howLongToBeatUrl": "https://www.google.com/search?q=site%3Ahowlongtobeat.com%20The%20Crew%20Motorfest",
+    "gamespotArticleUrl": "https://www.gamespot.com/search/?q=The%20Crew%20Motorfest"
+  },
+  "mario-kart-8-deluxe": {
+    "metacriticScore": 92,
+    "metacriticUrl": "https://www.metacritic.com/game/mario-kart-8-deluxe/",
+    "howLongToBeatMainHours": null,
+    "howLongToBeatUrl": "https://www.google.com/search?q=site%3Ahowlongtobeat.com%20Mario%20Kart%208%20Deluxe",
+    "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Mario%20Kart%208%20Deluxe"
+  },
+  "f1-23": {
+    "metacriticScore": 82,
+    "metacriticUrl": "https://www.metacritic.com/game/f1-23/",
+    "howLongToBeatMainHours": null,
+    "howLongToBeatUrl": "https://www.google.com/search?q=site%3Ahowlongtobeat.com%20F1%2023",
+    "gamespotArticleUrl": "https://www.gamespot.com/search/?q=F1%2023"
+  },
+  "hot-wheels-unleashed-2": {
+    "metacriticScore": 77,
+    "metacriticUrl": "https://www.metacritic.com/game/hot-wheels-unleashed-2-turbocharged/",
+    "howLongToBeatMainHours": null,
+    "howLongToBeatUrl": "https://www.google.com/search?q=site%3Ahowlongtobeat.com%20Hot%20Wheels%20Unleashed%202",
+    "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Hot%20Wheels%20Unleashed%202"
+  },
+  "resident-evil-4-remake": {
+    "metacriticScore": 93,
+    "metacriticUrl": "https://www.metacritic.com/game/resident-evil-4/",
+    "howLongToBeatMainHours": null,
+    "howLongToBeatUrl": "https://www.google.com/search?q=site%3Ahowlongtobeat.com%20Resident%20Evil%204",
+    "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Resident%20Evil%204"
+  },
+  "alan-wake-2": {
+    "metacriticScore": 83,
+    "metacriticUrl": "https://www.metacritic.com/game/alan-wake/",
+    "howLongToBeatMainHours": null,
+    "howLongToBeatUrl": "https://www.google.com/search?q=site%3Ahowlongtobeat.com%20Alan%20Wake%202",
+    "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Alan%20Wake%202"
+  },
+  "dead-space-remake": {
+    "metacriticScore": 89,
+    "metacriticUrl": "https://www.metacritic.com/game/dead-space/",
+    "howLongToBeatMainHours": null,
+    "howLongToBeatUrl": "https://www.google.com/search?q=site%3Ahowlongtobeat.com%20Dead%20Space",
+    "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Dead%20Space"
+  },
+  "amnesia-the-bunker": {
+    "metacriticScore": 77,
+    "metacriticUrl": "https://www.metacritic.com/game/amnesia-the-bunker/",
+    "howLongToBeatMainHours": null,
+    "howLongToBeatUrl": "https://www.google.com/search?q=site%3Ahowlongtobeat.com%20Amnesia%3A%20The%20Bunker",
+    "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Amnesia%3A%20The%20Bunker"
+  },
+  "the-outlast-trials": {
+    "metacriticScore": 75,
+    "metacriticUrl": "https://www.metacritic.com/game/the-outlast-trials/",
+    "howLongToBeatMainHours": null,
+    "howLongToBeatUrl": "https://www.google.com/search?q=site%3Ahowlongtobeat.com%20The%20Outlast%20Trials",
+    "gamespotArticleUrl": "https://www.gamespot.com/search/?q=The%20Outlast%20Trials"
+  },
+  "phasmophobia": {
+    "metacriticScore": 76,
+    "metacriticUrl": "https://www.metacritic.com/game/phasmophobia/",
+    "howLongToBeatMainHours": null,
+    "howLongToBeatUrl": "https://www.google.com/search?q=site%3Ahowlongtobeat.com%20Phasmophobia",
+    "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Phasmophobia"
+  },
+  "sons-of-the-forest": {
+    "metacriticScore": 86,
+    "metacriticUrl": "https://www.metacritic.com/game/sons-of-the-forest/",
+    "howLongToBeatMainHours": null,
+    "howLongToBeatUrl": "https://www.google.com/search?q=site%3Ahowlongtobeat.com%20Sons%20of%20the%20Forest",
+    "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Sons%20of%20the%20Forest"
+  },
+  "layers-of-fear-2023": {
+    "metacriticScore": 75,
+    "metacriticUrl": "https://www.metacritic.com/game/layers-of-fear/",
+    "howLongToBeatMainHours": null,
+    "howLongToBeatUrl": "https://www.google.com/search?q=site%3Ahowlongtobeat.com%20Layers%20of%20Fear",
+    "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Layers%20of%20Fear"
+  },
+  "the-evil-within-2": {
+    "metacriticScore": 76,
+    "metacriticUrl": "https://www.metacritic.com/game/the-evil-within-2/",
+    "howLongToBeatMainHours": null,
+    "howLongToBeatUrl": "https://www.google.com/search?q=site%3Ahowlongtobeat.com%20The%20Evil%20Within%202",
+    "gamespotArticleUrl": "https://www.gamespot.com/search/?q=The%20Evil%20Within%202"
+  },
+  "silent-hill-2-remake": {
+    "metacriticScore": 86,
+    "metacriticUrl": "https://www.metacritic.com/game/silent-hill-2/",
+    "howLongToBeatMainHours": null,
+    "howLongToBeatUrl": "https://www.google.com/search?q=site%3Ahowlongtobeat.com%20Silent%20Hill%202",
+    "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Silent%20Hill%202"
+  },
+  "call-of-duty-black-ops-6": {
+    "metacriticScore": 82,
+    "metacriticUrl": "https://www.metacritic.com/game/call-of-duty-black-ops-6/",
+    "howLongToBeatMainHours": null,
+    "howLongToBeatUrl": "https://www.google.com/search?q=site%3Ahowlongtobeat.com%20Call%20of%20Duty%3A%20Black%20Ops%206",
+    "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Call%20of%20Duty%3A%20Black%20Ops%206"
+  },
+  "counter-strike-2": {
+    "metacriticScore": 82,
+    "metacriticUrl": "https://www.metacritic.com/game/counter-strike-2/",
+    "howLongToBeatMainHours": null,
+    "howLongToBeatUrl": "https://www.google.com/search?q=site%3Ahowlongtobeat.com%20Counter-Strike%202",
+    "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Counter-Strike%202"
+  },
+  "valorant": {
+    "metacriticScore": 80,
+    "metacriticUrl": "https://www.metacritic.com/game/valorant/",
+    "howLongToBeatMainHours": null,
+    "howLongToBeatUrl": "https://www.google.com/search?q=site%3Ahowlongtobeat.com%20VALORANT",
+    "gamespotArticleUrl": "https://www.gamespot.com/search/?q=VALORANT"
+  },
+  "rainbow-six-siege": {
+    "metacriticScore": 73,
+    "metacriticUrl": "https://www.metacritic.com/game/tom-clancys-rainbow-six-siege/",
+    "howLongToBeatMainHours": null,
+    "howLongToBeatUrl": "https://www.google.com/search?q=site%3Ahowlongtobeat.com%20Tom%20Clancy's%20Rainbow%20Six%20Siege",
+    "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Tom%20Clancy's%20Rainbow%20Six%20Siege"
+  },
+  "doom-eternal": {
+    "metacriticScore": 88,
+    "metacriticUrl": "https://www.metacritic.com/game/doom-eternal/",
+    "howLongToBeatMainHours": null,
+    "howLongToBeatUrl": "https://www.google.com/search?q=site%3Ahowlongtobeat.com%20DOOM%20Eternal",
+    "gamespotArticleUrl": "https://www.gamespot.com/search/?q=DOOM%20Eternal"
+  },
+  "battlefield-2042": {
+    "metacriticScore": 68,
+    "metacriticUrl": "https://www.metacritic.com/game/battlefield-2042/",
+    "howLongToBeatMainHours": null,
+    "howLongToBeatUrl": "https://www.google.com/search?q=site%3Ahowlongtobeat.com%20Battlefield%202042",
+    "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Battlefield%202042"
+  },
+  "apex-legends": {
+    "metacriticScore": 89,
+    "metacriticUrl": "https://www.metacritic.com/game/apex-legends/",
+    "howLongToBeatMainHours": null,
+    "howLongToBeatUrl": "https://www.google.com/search?q=site%3Ahowlongtobeat.com%20Apex%20Legends",
+    "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Apex%20Legends"
+  },
+  "destiny-2": {
+    "metacriticScore": 85,
+    "metacriticUrl": "https://www.metacritic.com/game/destiny-2/",
+    "howLongToBeatMainHours": null,
+    "howLongToBeatUrl": "https://www.google.com/search?q=site%3Ahowlongtobeat.com%20Destiny%202",
+    "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Destiny%202"
+  },
+  "helldivers-2": {
+    "metacriticScore": 82,
+    "metacriticUrl": "https://www.metacritic.com/game/helldivers-2/",
+    "howLongToBeatMainHours": null,
+    "howLongToBeatUrl": "https://www.google.com/search?q=site%3Ahowlongtobeat.com%20Helldivers%202",
+    "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Helldivers%202"
+  },
+  "the-finals": {
+    "metacriticScore": 80,
+    "metacriticUrl": "https://www.metacritic.com/game/the-finals/",
+    "howLongToBeatMainHours": null,
+    "howLongToBeatUrl": "https://www.google.com/search?q=site%3Ahowlongtobeat.com%20THE%20FINALS",
+    "gamespotArticleUrl": "https://www.gamespot.com/search/?q=THE%20FINALS"
+  },
+  "cocoon": {
+    "metacriticScore": 88,
+    "metacriticUrl": "https://www.metacritic.com/game/cocoon/",
+    "howLongToBeatMainHours": null,
+    "howLongToBeatUrl": "https://www.google.com/search?q=site%3Ahowlongtobeat.com%20COCOON",
+    "gamespotArticleUrl": "https://www.gamespot.com/search/?q=COCOON"
+  },
+  "portal-2": {
+    "metacriticScore": 95,
+    "metacriticUrl": "https://www.metacritic.com/game/portal-2/",
+    "howLongToBeatMainHours": null,
+    "howLongToBeatUrl": "https://www.google.com/search?q=site%3Ahowlongtobeat.com%20Portal%202",
+    "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Portal%202"
+  },
+  "the-tal-os-principle-2": {
+    "metacriticScore": 88,
+    "metacriticUrl": "https://www.metacritic.com/game/the-talos-principle-2/",
+    "howLongToBeatMainHours": null,
+    "howLongToBeatUrl": "https://www.google.com/search?q=site%3Ahowlongtobeat.com%20The%20Talos%20Principle%202",
+    "gamespotArticleUrl": "https://www.gamespot.com/search/?q=The%20Talos%20Principle%202"
+  },
+  "baba-is-you": {
+    "metacriticScore": 84,
+    "metacriticUrl": "https://www.metacritic.com/game/baba-is-you/",
+    "howLongToBeatMainHours": null,
+    "howLongToBeatUrl": "https://www.google.com/search?q=site%3Ahowlongtobeat.com%20Baba%20Is%20You",
+    "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Baba%20Is%20You"
+  },
+  "the-witness": {
+    "metacriticScore": 87,
+    "metacriticUrl": "https://www.metacritic.com/game/the-witness/",
+    "howLongToBeatMainHours": null,
+    "howLongToBeatUrl": "https://www.google.com/search?q=site%3Ahowlongtobeat.com%20The%20Witness",
+    "gamespotArticleUrl": "https://www.gamespot.com/search/?q=The%20Witness"
+  },
+  "tetris-effect-connected": {
+    "metacriticScore": 88,
+    "metacriticUrl": "https://www.metacritic.com/game/tetris-effect-connected/",
+    "howLongToBeatMainHours": null,
+    "howLongToBeatUrl": "https://www.google.com/search?q=site%3Ahowlongtobeat.com%20Tetris%20Effect%3A%20Connected",
+    "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Tetris%20Effect%3A%20Connected"
+  },
+  "humanity": {
+    "metacriticScore": 86,
+    "metacriticUrl": "https://www.metacritic.com/game/humanity/",
+    "howLongToBeatMainHours": null,
+    "howLongToBeatUrl": "https://www.google.com/search?q=site%3Ahowlongtobeat.com%20HUMANITY",
+    "gamespotArticleUrl": "https://www.gamespot.com/search/?q=HUMANITY"
+  },
+  "superliminal": {
+    "metacriticScore": 74,
+    "metacriticUrl": "https://www.metacritic.com/game/superliminal/",
+    "howLongToBeatMainHours": null,
+    "howLongToBeatUrl": "https://www.google.com/search?q=site%3Ahowlongtobeat.com%20Superliminal",
+    "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Superliminal"
+  },
+  "unpacking": {
+    "metacriticScore": 83,
+    "metacriticUrl": "https://www.metacritic.com/game/unpacking/",
+    "howLongToBeatMainHours": null,
+    "howLongToBeatUrl": "https://www.google.com/search?q=site%3Ahowlongtobeat.com%20Unpacking",
+    "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Unpacking"
+  },
+  "viewfinder": {
+    "metacriticScore": 84,
+    "metacriticUrl": "https://www.metacritic.com/game/viewfinder/",
+    "howLongToBeatMainHours": null,
+    "howLongToBeatUrl": "https://www.google.com/search?q=site%3Ahowlongtobeat.com%20Viewfinder",
+    "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Viewfinder"
+  }
+}
+
+
+
+
+
+

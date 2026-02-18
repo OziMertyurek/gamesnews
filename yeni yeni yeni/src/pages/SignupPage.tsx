@@ -1,0 +1,53 @@
+import { useState } from 'react'
+import type { FormEvent } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import { signupUser } from '../lib/auth'
+
+export default function SignupPage() {
+  const navigate = useNavigate()
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [error, setError] = useState('')
+
+  function onSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault()
+    setError('')
+    const result = signupUser({ name, email, password })
+    if (!result.ok) {
+      setError(result.error ?? 'Kayit basarisiz.')
+      return
+    }
+    navigate('/profil')
+  }
+
+  return (
+    <div className="max-w-lg mx-auto card p-6">
+      <h1 className="text-2xl font-bold text-white">Sign Up</h1>
+      <p className="text-gray-400 mt-2">Hemen profil olustur.</p>
+
+      <form className="space-y-4 mt-6" onSubmit={onSubmit}>
+        <div>
+          <label className="block text-sm text-gray-300 mb-1">Ad Soyad</label>
+          <input type="text" required value={name} onChange={(e) => setName(e.target.value)} className="w-full bg-gray-800 border border-gray-700 rounded-lg px-3 py-2 text-white" />
+        </div>
+        <div>
+          <label className="block text-sm text-gray-300 mb-1">E-posta</label>
+          <input type="email" required value={email} onChange={(e) => setEmail(e.target.value)} className="w-full bg-gray-800 border border-gray-700 rounded-lg px-3 py-2 text-white" />
+        </div>
+        <div>
+          <label className="block text-sm text-gray-300 mb-1">Sifre</label>
+          <input type="password" required minLength={6} value={password} onChange={(e) => setPassword(e.target.value)} className="w-full bg-gray-800 border border-gray-700 rounded-lg px-3 py-2 text-white" />
+        </div>
+
+        {error && <p className="text-sm text-red-400">{error}</p>}
+
+        <button type="submit" className="btn-primary w-full justify-center">Hesap Olustur</button>
+      </form>
+
+      <p className="text-sm text-gray-400 mt-4">
+        Zaten uyeyim. <Link to="/login" className="text-blue-400 hover:text-blue-300">Login</Link>
+      </p>
+    </div>
+  )
+}

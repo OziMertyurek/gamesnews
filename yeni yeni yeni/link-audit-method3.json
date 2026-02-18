@@ -1,0 +1,2536 @@
+{
+  "summary": {
+    "totalChecked": 341,
+    "failed": 80
+  },
+  "failed": [
+    {
+      "url": "https://www.gamespot.com/search/?q=Age%20of%20Empires%20IV",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Age%20of%20Empires%20IV"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Alan%20Wake%202",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Alan%20Wake%202"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Amnesia%3A%20The%20Bunker",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Amnesia%3A%20The%20Bunker"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Apex%20Legends",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Apex%20Legends"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Armored%20Core%20VI",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Armored%20Core%20VI"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Assetto%20Corsa%20Competizione",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Assetto%20Corsa%20Competizione"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Baba%20Is%20You",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Baba%20Is%20You"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Baldur",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Baldur"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Battlefield%202042",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Battlefield%202042"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Bayonetta%203",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Bayonetta%203"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Call%20of%20Duty%3A%20Black%20Ops%206",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Call%20of%20Duty%3A%20Black%20Ops%206"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Civilization%20VI",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Civilization%20VI"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=COCOON",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=COCOON"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Company%20of%20Heroes%203",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Company%20of%20Heroes%203"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Counter-Strike%202",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Counter-Strike%202"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Crusader%20Kings%20III",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Crusader%20Kings%20III"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Cyberpunk%202077",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Cyberpunk%202077"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Dead%20Space",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Dead%20Space"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Destiny%202",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Destiny%202"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Devil%20May%20Cry%205",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Devil%20May%20Cry%205"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=DiRT%20Rally%202.0",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=DiRT%20Rally%202.0"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Disco%20Elysium",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Disco%20Elysium"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Divinity%3A%20Original%20Sin%202",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Divinity%3A%20Original%20Sin%202"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=DOOM%20Eternal",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=DOOM%20Eternal"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Dragon%20Age%3A%20Inquisition",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Dragon%20Age%3A%20Inquisition"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=EA%20SPORTS%20FC%2025",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=EA%20SPORTS%20FC%2025"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=EA%20SPORTS%20WRC",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=EA%20SPORTS%20WRC"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=F1%2023",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=F1%2023"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=F1%2024",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=F1%2024"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Final%20Fantasy%20VII%20Rebirth",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Final%20Fantasy%20VII%20Rebirth"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Forza%20Horizon%205",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Forza%20Horizon%205"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Forza%20Motorsport",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Forza%20Motorsport"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Frostpunk",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Frostpunk"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Ghostrunner%202",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Ghostrunner%202"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=God%20of%20War%20Ragnarok",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=God%20of%20War%20Ragnarok"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Gran%20Turismo%207",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Gran%20Turismo%207"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Helldivers%202",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Helldivers%202"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Hi-Fi%20RUSH",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Hi-Fi%20RUSH"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Hot%20Wheels%20Unleashed%202",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Hot%20Wheels%20Unleashed%202"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=HUMANITY",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=HUMANITY"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Into%20the%20Breach",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Into%20the%20Breach"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Kingdom%20Come%3A%20Deliverance",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Kingdom%20Come%3A%20Deliverance"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Layers%20of%20Fear",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Layers%20of%20Fear"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Madden%20NFL%2025",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Madden%20NFL%2025"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Mario%20Kart%208%20Deluxe",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Mario%20Kart%208%20Deluxe"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Marvel",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Marvel"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=MLB%20The%20Show%2024",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=MLB%20The%20Show%2024"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=NBA%202K25",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=NBA%202K25"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Need%20for%20Speed%20Unbound",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Need%20for%20Speed%20Unbound"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=NHL%2024",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=NHL%2024"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Persona%205%20Royal",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Persona%205%20Royal"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=PGA%20TOUR%202K23",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=PGA%20TOUR%202K23"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Phasmophobia",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Phasmophobia"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Portal%202",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Portal%202"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Resident%20Evil%204",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Resident%20Evil%204"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Riders%20Republic",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Riders%20Republic"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Sekiro%3A%20Shadows%20Die%20Twice",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Sekiro%3A%20Shadows%20Die%20Twice"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Silent%20Hill%202",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Silent%20Hill%202"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Sons%20of%20the%20Forest",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Sons%20of%20the%20Forest"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Star%20Wars%20Jedi%3A%20Survivor",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Star%20Wars%20Jedi%3A%20Survivor"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=StarCraft%20II",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=StarCraft%20II"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Stellar%20Blade",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Stellar%20Blade"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Stellaris",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Stellaris"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Superliminal",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Superliminal"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Tetris%20Effect%3A%20Connected",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Tetris%20Effect%3A%20Connected"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=The%20Crew%20Motorfest",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=The%20Crew%20Motorfest"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=The%20Elder%20Scrolls%20V%3A%20Skyrim%20Special%20Edition",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=The%20Elder%20Scrolls%20V%3A%20Skyrim%20Special%20Edition"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=The%20Evil%20Within%202",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=The%20Evil%20Within%202"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=THE%20FINALS",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=THE%20FINALS"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=The%20Outlast%20Trials",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=The%20Outlast%20Trials"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=The%20Talos%20Principle%202",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=The%20Talos%20Principle%202"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=The%20Witcher%203%3A%20Wild%20Hunt",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=The%20Witcher%203%3A%20Wild%20Hunt"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=The%20Witness",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=The%20Witness"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Tom%20Clancy",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Tom%20Clancy"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=TopSpin%202K25",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=TopSpin%202K25"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Total%20War%3A%20WARHAMMER%20III",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Total%20War%3A%20WARHAMMER%20III"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Unpacking",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Unpacking"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=VALORANT",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=VALORANT"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Viewfinder",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Viewfinder"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=XCOM%202",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=XCOM%202"
+    }
+  ],
+  "results": [
+    {
+      "url": "https://howlongtobeat.com/?q=Age%20of%20Empires%20IV",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://howlongtobeat.com/?q=Age%20of%20Empires%20IV"
+    },
+    {
+      "url": "https://howlongtobeat.com/?q=Alan%20Wake%202",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://howlongtobeat.com/?q=Alan%20Wake%202"
+    },
+    {
+      "url": "https://howlongtobeat.com/?q=Amnesia%3A%20The%20Bunker",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://howlongtobeat.com/?q=Amnesia%3A%20The%20Bunker"
+    },
+    {
+      "url": "https://howlongtobeat.com/?q=Apex%20Legends",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://howlongtobeat.com/?q=Apex%20Legends"
+    },
+    {
+      "url": "https://howlongtobeat.com/?q=Armored%20Core%20VI",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://howlongtobeat.com/?q=Armored%20Core%20VI"
+    },
+    {
+      "url": "https://howlongtobeat.com/?q=Assetto%20Corsa%20Competizione",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://howlongtobeat.com/?q=Assetto%20Corsa%20Competizione"
+    },
+    {
+      "url": "https://howlongtobeat.com/?q=Baba%20Is%20You",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://howlongtobeat.com/?q=Baba%20Is%20You"
+    },
+    {
+      "url": "https://howlongtobeat.com/?q=Baldur",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://howlongtobeat.com/?q=Baldur"
+    },
+    {
+      "url": "https://howlongtobeat.com/?q=Battlefield%202042",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://howlongtobeat.com/?q=Battlefield%202042"
+    },
+    {
+      "url": "https://howlongtobeat.com/?q=Bayonetta%203",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://howlongtobeat.com/?q=Bayonetta%203"
+    },
+    {
+      "url": "https://howlongtobeat.com/?q=Call%20of%20Duty%3A%20Black%20Ops%206",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://howlongtobeat.com/?q=Call%20of%20Duty%3A%20Black%20Ops%206"
+    },
+    {
+      "url": "https://howlongtobeat.com/?q=Civilization%20VI",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://howlongtobeat.com/?q=Civilization%20VI"
+    },
+    {
+      "url": "https://howlongtobeat.com/?q=COCOON",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://howlongtobeat.com/?q=COCOON"
+    },
+    {
+      "url": "https://howlongtobeat.com/?q=Company%20of%20Heroes%203",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://howlongtobeat.com/?q=Company%20of%20Heroes%203"
+    },
+    {
+      "url": "https://howlongtobeat.com/?q=Counter-Strike%202",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://howlongtobeat.com/?q=Counter-Strike%202"
+    },
+    {
+      "url": "https://howlongtobeat.com/?q=Crusader%20Kings%20III",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://howlongtobeat.com/?q=Crusader%20Kings%20III"
+    },
+    {
+      "url": "https://howlongtobeat.com/?q=Cyberpunk%202077",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://howlongtobeat.com/?q=Cyberpunk%202077"
+    },
+    {
+      "url": "https://howlongtobeat.com/?q=Dead%20Space",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://howlongtobeat.com/?q=Dead%20Space"
+    },
+    {
+      "url": "https://howlongtobeat.com/?q=Destiny%202",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://howlongtobeat.com/?q=Destiny%202"
+    },
+    {
+      "url": "https://howlongtobeat.com/?q=Devil%20May%20Cry%205",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://howlongtobeat.com/?q=Devil%20May%20Cry%205"
+    },
+    {
+      "url": "https://howlongtobeat.com/?q=DiRT%20Rally%202.0",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://howlongtobeat.com/?q=DiRT%20Rally%202.0"
+    },
+    {
+      "url": "https://howlongtobeat.com/?q=Disco%20Elysium",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://howlongtobeat.com/?q=Disco%20Elysium"
+    },
+    {
+      "url": "https://howlongtobeat.com/?q=Divinity%3A%20Original%20Sin%202",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://howlongtobeat.com/?q=Divinity%3A%20Original%20Sin%202"
+    },
+    {
+      "url": "https://howlongtobeat.com/?q=DOOM%20Eternal",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://howlongtobeat.com/?q=DOOM%20Eternal"
+    },
+    {
+      "url": "https://howlongtobeat.com/?q=Dragon%20Age%3A%20Inquisition",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://howlongtobeat.com/?q=Dragon%20Age%3A%20Inquisition"
+    },
+    {
+      "url": "https://howlongtobeat.com/?q=EA%20SPORTS%20FC%2025",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://howlongtobeat.com/?q=EA%20SPORTS%20FC%2025"
+    },
+    {
+      "url": "https://howlongtobeat.com/?q=EA%20SPORTS%20WRC",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://howlongtobeat.com/?q=EA%20SPORTS%20WRC"
+    },
+    {
+      "url": "https://howlongtobeat.com/?q=F1%2023",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://howlongtobeat.com/?q=F1%2023"
+    },
+    {
+      "url": "https://howlongtobeat.com/?q=F1%2024",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://howlongtobeat.com/?q=F1%2024"
+    },
+    {
+      "url": "https://howlongtobeat.com/?q=Final%20Fantasy%20VII%20Rebirth",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://howlongtobeat.com/?q=Final%20Fantasy%20VII%20Rebirth"
+    },
+    {
+      "url": "https://howlongtobeat.com/?q=Forza%20Horizon%205",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://howlongtobeat.com/?q=Forza%20Horizon%205"
+    },
+    {
+      "url": "https://howlongtobeat.com/?q=Forza%20Motorsport",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://howlongtobeat.com/?q=Forza%20Motorsport"
+    },
+    {
+      "url": "https://howlongtobeat.com/?q=Frostpunk",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://howlongtobeat.com/?q=Frostpunk"
+    },
+    {
+      "url": "https://howlongtobeat.com/?q=Ghostrunner%202",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://howlongtobeat.com/?q=Ghostrunner%202"
+    },
+    {
+      "url": "https://howlongtobeat.com/?q=God%20of%20War%20Ragnarok",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://howlongtobeat.com/?q=God%20of%20War%20Ragnarok"
+    },
+    {
+      "url": "https://howlongtobeat.com/?q=Gran%20Turismo%207",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://howlongtobeat.com/?q=Gran%20Turismo%207"
+    },
+    {
+      "url": "https://howlongtobeat.com/?q=Helldivers%202",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://howlongtobeat.com/?q=Helldivers%202"
+    },
+    {
+      "url": "https://howlongtobeat.com/?q=Hi-Fi%20RUSH",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://howlongtobeat.com/?q=Hi-Fi%20RUSH"
+    },
+    {
+      "url": "https://howlongtobeat.com/?q=Hot%20Wheels%20Unleashed%202",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://howlongtobeat.com/?q=Hot%20Wheels%20Unleashed%202"
+    },
+    {
+      "url": "https://howlongtobeat.com/?q=HUMANITY",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://howlongtobeat.com/?q=HUMANITY"
+    },
+    {
+      "url": "https://howlongtobeat.com/?q=Into%20the%20Breach",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://howlongtobeat.com/?q=Into%20the%20Breach"
+    },
+    {
+      "url": "https://howlongtobeat.com/?q=Kingdom%20Come%3A%20Deliverance",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://howlongtobeat.com/?q=Kingdom%20Come%3A%20Deliverance"
+    },
+    {
+      "url": "https://howlongtobeat.com/?q=Layers%20of%20Fear",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://howlongtobeat.com/?q=Layers%20of%20Fear"
+    },
+    {
+      "url": "https://howlongtobeat.com/?q=Madden%20NFL%2025",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://howlongtobeat.com/?q=Madden%20NFL%2025"
+    },
+    {
+      "url": "https://howlongtobeat.com/?q=Mario%20Kart%208%20Deluxe",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://howlongtobeat.com/?q=Mario%20Kart%208%20Deluxe"
+    },
+    {
+      "url": "https://howlongtobeat.com/?q=Marvel",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://howlongtobeat.com/?q=Marvel"
+    },
+    {
+      "url": "https://howlongtobeat.com/?q=MLB%20The%20Show%2024",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://howlongtobeat.com/?q=MLB%20The%20Show%2024"
+    },
+    {
+      "url": "https://howlongtobeat.com/?q=NBA%202K25",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://howlongtobeat.com/?q=NBA%202K25"
+    },
+    {
+      "url": "https://howlongtobeat.com/?q=Need%20for%20Speed%20Unbound",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://howlongtobeat.com/?q=Need%20for%20Speed%20Unbound"
+    },
+    {
+      "url": "https://howlongtobeat.com/?q=NHL%2024",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://howlongtobeat.com/?q=NHL%2024"
+    },
+    {
+      "url": "https://howlongtobeat.com/?q=Persona%205%20Royal",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://howlongtobeat.com/?q=Persona%205%20Royal"
+    },
+    {
+      "url": "https://howlongtobeat.com/?q=PGA%20TOUR%202K23",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://howlongtobeat.com/?q=PGA%20TOUR%202K23"
+    },
+    {
+      "url": "https://howlongtobeat.com/?q=Phasmophobia",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://howlongtobeat.com/?q=Phasmophobia"
+    },
+    {
+      "url": "https://howlongtobeat.com/?q=Portal%202",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://howlongtobeat.com/?q=Portal%202"
+    },
+    {
+      "url": "https://howlongtobeat.com/?q=Resident%20Evil%204",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://howlongtobeat.com/?q=Resident%20Evil%204"
+    },
+    {
+      "url": "https://howlongtobeat.com/?q=Riders%20Republic",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://howlongtobeat.com/?q=Riders%20Republic"
+    },
+    {
+      "url": "https://howlongtobeat.com/?q=Sekiro%3A%20Shadows%20Die%20Twice",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://howlongtobeat.com/?q=Sekiro%3A%20Shadows%20Die%20Twice"
+    },
+    {
+      "url": "https://howlongtobeat.com/?q=Silent%20Hill%202",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://howlongtobeat.com/?q=Silent%20Hill%202"
+    },
+    {
+      "url": "https://howlongtobeat.com/?q=Sons%20of%20the%20Forest",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://howlongtobeat.com/?q=Sons%20of%20the%20Forest"
+    },
+    {
+      "url": "https://howlongtobeat.com/?q=Star%20Wars%20Jedi%3A%20Survivor",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://howlongtobeat.com/?q=Star%20Wars%20Jedi%3A%20Survivor"
+    },
+    {
+      "url": "https://howlongtobeat.com/?q=StarCraft%20II",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://howlongtobeat.com/?q=StarCraft%20II"
+    },
+    {
+      "url": "https://howlongtobeat.com/?q=Stellar%20Blade",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://howlongtobeat.com/?q=Stellar%20Blade"
+    },
+    {
+      "url": "https://howlongtobeat.com/?q=Stellaris",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://howlongtobeat.com/?q=Stellaris"
+    },
+    {
+      "url": "https://howlongtobeat.com/?q=Superliminal",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://howlongtobeat.com/?q=Superliminal"
+    },
+    {
+      "url": "https://howlongtobeat.com/?q=Tetris%20Effect%3A%20Connected",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://howlongtobeat.com/?q=Tetris%20Effect%3A%20Connected"
+    },
+    {
+      "url": "https://howlongtobeat.com/?q=The%20Crew%20Motorfest",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://howlongtobeat.com/?q=The%20Crew%20Motorfest"
+    },
+    {
+      "url": "https://howlongtobeat.com/?q=The%20Elder%20Scrolls%20V%3A%20Skyrim%20Special%20Edition",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://howlongtobeat.com/?q=The%20Elder%20Scrolls%20V%3A%20Skyrim%20Special%20Edition"
+    },
+    {
+      "url": "https://howlongtobeat.com/?q=The%20Evil%20Within%202",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://howlongtobeat.com/?q=The%20Evil%20Within%202"
+    },
+    {
+      "url": "https://howlongtobeat.com/?q=THE%20FINALS",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://howlongtobeat.com/?q=THE%20FINALS"
+    },
+    {
+      "url": "https://howlongtobeat.com/?q=The%20Outlast%20Trials",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://howlongtobeat.com/?q=The%20Outlast%20Trials"
+    },
+    {
+      "url": "https://howlongtobeat.com/?q=The%20Talos%20Principle%202",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://howlongtobeat.com/?q=The%20Talos%20Principle%202"
+    },
+    {
+      "url": "https://howlongtobeat.com/?q=The%20Witcher%203%3A%20Wild%20Hunt",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://howlongtobeat.com/?q=The%20Witcher%203%3A%20Wild%20Hunt"
+    },
+    {
+      "url": "https://howlongtobeat.com/?q=The%20Witness",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://howlongtobeat.com/?q=The%20Witness"
+    },
+    {
+      "url": "https://howlongtobeat.com/?q=Tom%20Clancy",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://howlongtobeat.com/?q=Tom%20Clancy"
+    },
+    {
+      "url": "https://howlongtobeat.com/?q=TopSpin%202K25",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://howlongtobeat.com/?q=TopSpin%202K25"
+    },
+    {
+      "url": "https://howlongtobeat.com/?q=Total%20War%3A%20WARHAMMER%20III",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://howlongtobeat.com/?q=Total%20War%3A%20WARHAMMER%20III"
+    },
+    {
+      "url": "https://howlongtobeat.com/?q=Unpacking",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://howlongtobeat.com/?q=Unpacking"
+    },
+    {
+      "url": "https://howlongtobeat.com/?q=VALORANT",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://howlongtobeat.com/?q=VALORANT"
+    },
+    {
+      "url": "https://howlongtobeat.com/?q=Viewfinder",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://howlongtobeat.com/?q=Viewfinder"
+    },
+    {
+      "url": "https://howlongtobeat.com/?q=XCOM%202",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://howlongtobeat.com/?q=XCOM%202"
+    },
+    {
+      "url": "https://placehold.co/300x200/1e293b/6ee7b7?text=DDR4+16GB",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://placehold.co/300x200/1e293b/6ee7b7?text=DDR4+16GB"
+    },
+    {
+      "url": "https://placehold.co/300x200/1e293b/6ee7b7?text=DDR5+32GB",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://placehold.co/300x200/1e293b/6ee7b7?text=DDR5+32GB"
+    },
+    {
+      "url": "https://placehold.co/300x200/1e293b/6ee7b7?text=DDR5+64GB",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://placehold.co/300x200/1e293b/6ee7b7?text=DDR5+64GB"
+    },
+    {
+      "url": "https://placehold.co/300x200/1e293b/93c5fd?text=i5-14600K",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://placehold.co/300x200/1e293b/93c5fd?text=i5-14600K"
+    },
+    {
+      "url": "https://placehold.co/300x200/1e293b/93c5fd?text=i7-14700K",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://placehold.co/300x200/1e293b/93c5fd?text=i7-14700K"
+    },
+    {
+      "url": "https://placehold.co/300x200/1e293b/93c5fd?text=Ryzen+5+7600",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://placehold.co/300x200/1e293b/93c5fd?text=Ryzen+5+7600"
+    },
+    {
+      "url": "https://placehold.co/300x200/1e293b/93c5fd?text=Ryzen+7+7700X",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://placehold.co/300x200/1e293b/93c5fd?text=Ryzen+7+7700X"
+    },
+    {
+      "url": "https://placehold.co/300x200/1e293b/a78bfa?text=RTX+4060",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://placehold.co/300x200/1e293b/a78bfa?text=RTX+4060"
+    },
+    {
+      "url": "https://placehold.co/300x200/1e293b/a78bfa?text=RTX+4070+Ti+S",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://placehold.co/300x200/1e293b/a78bfa?text=RTX+4070+Ti+S"
+    },
+    {
+      "url": "https://placehold.co/300x200/1e293b/a78bfa?text=RX+7600",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://placehold.co/300x200/1e293b/a78bfa?text=RX+7600"
+    },
+    {
+      "url": "https://placehold.co/300x200/1e293b/a78bfa?text=RX+7800+XT",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://placehold.co/300x200/1e293b/a78bfa?text=RX+7800+XT"
+    },
+    {
+      "url": "https://placehold.co/300x200/1e293b/f87171?text=LG+27GP850",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://placehold.co/300x200/1e293b/f87171?text=LG+27GP850"
+    },
+    {
+      "url": "https://placehold.co/300x200/1e293b/f87171?text=Odyssey+G5",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://placehold.co/300x200/1e293b/f87171?text=Odyssey+G5"
+    },
+    {
+      "url": "https://placehold.co/300x200/1e293b/f87171?text=ROG+Swift",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://placehold.co/300x200/1e293b/f87171?text=ROG+Swift"
+    },
+    {
+      "url": "https://placehold.co/300x200/1e293b/fb923c?text=Arctis+Nova+Pro",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://placehold.co/300x200/1e293b/fb923c?text=Arctis+Nova+Pro"
+    },
+    {
+      "url": "https://placehold.co/300x200/1e293b/fb923c?text=DeathAdder+V3",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://placehold.co/300x200/1e293b/fb923c?text=DeathAdder+V3"
+    },
+    {
+      "url": "https://placehold.co/300x200/1e293b/fb923c?text=G+Pro+X+SL2",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://placehold.co/300x200/1e293b/fb923c?text=G+Pro+X+SL2"
+    },
+    {
+      "url": "https://placehold.co/300x200/1e293b/fb923c?text=K70+RGB+Pro",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://placehold.co/300x200/1e293b/fb923c?text=K70+RGB+Pro"
+    },
+    {
+      "url": "https://placehold.co/300x200/1e293b/fcd34d?text=990+Pro+1TB",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://placehold.co/300x200/1e293b/fcd34d?text=990+Pro+1TB"
+    },
+    {
+      "url": "https://placehold.co/300x200/1e293b/fcd34d?text=P3+Plus+500GB",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://placehold.co/300x200/1e293b/fcd34d?text=P3+Plus+500GB"
+    },
+    {
+      "url": "https://placehold.co/300x200/1e293b/fcd34d?text=SN850X+2TB",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://placehold.co/300x200/1e293b/fcd34d?text=SN850X+2TB"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Age%20of%20Empires%20IV",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Age%20of%20Empires%20IV"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Alan%20Wake%202",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Alan%20Wake%202"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Amnesia%3A%20The%20Bunker",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Amnesia%3A%20The%20Bunker"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Apex%20Legends",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Apex%20Legends"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Armored%20Core%20VI",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Armored%20Core%20VI"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Assetto%20Corsa%20Competizione",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Assetto%20Corsa%20Competizione"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Baba%20Is%20You",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Baba%20Is%20You"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Baldur",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Baldur"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Battlefield%202042",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Battlefield%202042"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Bayonetta%203",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Bayonetta%203"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Call%20of%20Duty%3A%20Black%20Ops%206",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Call%20of%20Duty%3A%20Black%20Ops%206"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Civilization%20VI",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Civilization%20VI"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=COCOON",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=COCOON"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Company%20of%20Heroes%203",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Company%20of%20Heroes%203"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Counter-Strike%202",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Counter-Strike%202"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Crusader%20Kings%20III",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Crusader%20Kings%20III"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Cyberpunk%202077",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Cyberpunk%202077"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Dead%20Space",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Dead%20Space"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Destiny%202",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Destiny%202"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Devil%20May%20Cry%205",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Devil%20May%20Cry%205"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=DiRT%20Rally%202.0",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=DiRT%20Rally%202.0"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Disco%20Elysium",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Disco%20Elysium"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Divinity%3A%20Original%20Sin%202",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Divinity%3A%20Original%20Sin%202"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=DOOM%20Eternal",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=DOOM%20Eternal"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Dragon%20Age%3A%20Inquisition",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Dragon%20Age%3A%20Inquisition"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=EA%20SPORTS%20FC%2025",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=EA%20SPORTS%20FC%2025"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=EA%20SPORTS%20WRC",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=EA%20SPORTS%20WRC"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=F1%2023",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=F1%2023"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=F1%2024",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=F1%2024"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Final%20Fantasy%20VII%20Rebirth",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Final%20Fantasy%20VII%20Rebirth"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Forza%20Horizon%205",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Forza%20Horizon%205"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Forza%20Motorsport",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Forza%20Motorsport"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Frostpunk",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Frostpunk"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Ghostrunner%202",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Ghostrunner%202"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=God%20of%20War%20Ragnarok",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=God%20of%20War%20Ragnarok"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Gran%20Turismo%207",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Gran%20Turismo%207"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Helldivers%202",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Helldivers%202"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Hi-Fi%20RUSH",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Hi-Fi%20RUSH"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Hot%20Wheels%20Unleashed%202",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Hot%20Wheels%20Unleashed%202"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=HUMANITY",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=HUMANITY"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Into%20the%20Breach",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Into%20the%20Breach"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Kingdom%20Come%3A%20Deliverance",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Kingdom%20Come%3A%20Deliverance"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Layers%20of%20Fear",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Layers%20of%20Fear"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Madden%20NFL%2025",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Madden%20NFL%2025"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Mario%20Kart%208%20Deluxe",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Mario%20Kart%208%20Deluxe"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Marvel",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Marvel"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=MLB%20The%20Show%2024",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=MLB%20The%20Show%2024"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=NBA%202K25",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=NBA%202K25"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Need%20for%20Speed%20Unbound",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Need%20for%20Speed%20Unbound"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=NHL%2024",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=NHL%2024"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Persona%205%20Royal",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Persona%205%20Royal"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=PGA%20TOUR%202K23",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=PGA%20TOUR%202K23"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Phasmophobia",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Phasmophobia"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Portal%202",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Portal%202"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Resident%20Evil%204",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Resident%20Evil%204"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Riders%20Republic",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Riders%20Republic"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Sekiro%3A%20Shadows%20Die%20Twice",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Sekiro%3A%20Shadows%20Die%20Twice"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Silent%20Hill%202",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Silent%20Hill%202"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Sons%20of%20the%20Forest",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Sons%20of%20the%20Forest"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Star%20Wars%20Jedi%3A%20Survivor",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Star%20Wars%20Jedi%3A%20Survivor"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=StarCraft%20II",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=StarCraft%20II"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Stellar%20Blade",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Stellar%20Blade"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Stellaris",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Stellaris"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Superliminal",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Superliminal"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Tetris%20Effect%3A%20Connected",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Tetris%20Effect%3A%20Connected"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=The%20Crew%20Motorfest",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=The%20Crew%20Motorfest"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=The%20Elder%20Scrolls%20V%3A%20Skyrim%20Special%20Edition",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=The%20Elder%20Scrolls%20V%3A%20Skyrim%20Special%20Edition"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=The%20Evil%20Within%202",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=The%20Evil%20Within%202"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=THE%20FINALS",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=THE%20FINALS"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=The%20Outlast%20Trials",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=The%20Outlast%20Trials"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=The%20Talos%20Principle%202",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=The%20Talos%20Principle%202"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=The%20Witcher%203%3A%20Wild%20Hunt",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=The%20Witcher%203%3A%20Wild%20Hunt"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=The%20Witness",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=The%20Witness"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Tom%20Clancy",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Tom%20Clancy"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=TopSpin%202K25",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=TopSpin%202K25"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Total%20War%3A%20WARHAMMER%20III",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Total%20War%3A%20WARHAMMER%20III"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Unpacking",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Unpacking"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=VALORANT",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=VALORANT"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=Viewfinder",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=Viewfinder"
+    },
+    {
+      "url": "https://www.gamespot.com/search/?q=XCOM%202",
+      "ok": false,
+      "status": 403,
+      "finalUrl": "https://www.gamespot.com/search/?q=XCOM%202"
+    },
+    {
+      "url": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Age%20of%20Empires%20IV",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Age%20of%20Empires%20IV"
+    },
+    {
+      "url": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Alan%20Wake%202",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Alan%20Wake%202"
+    },
+    {
+      "url": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Amnesia%3A%20The%20Bunker",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Amnesia%3A%20The%20Bunker"
+    },
+    {
+      "url": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Apex%20Legends",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Apex%20Legends"
+    },
+    {
+      "url": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Armored%20Core%20VI",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Armored%20Core%20VI"
+    },
+    {
+      "url": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Assetto%20Corsa%20Competizione",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Assetto%20Corsa%20Competizione"
+    },
+    {
+      "url": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Baba%20Is%20You",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Baba%20Is%20You"
+    },
+    {
+      "url": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Baldur",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Baldur"
+    },
+    {
+      "url": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Battlefield%202042",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Battlefield%202042"
+    },
+    {
+      "url": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Bayonetta%203",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Bayonetta%203"
+    },
+    {
+      "url": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Call%20of%20Duty%3A%20Black%20Ops%206",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Call%20of%20Duty%3A%20Black%20Ops%206"
+    },
+    {
+      "url": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Civilization%20VI",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Civilization%20VI"
+    },
+    {
+      "url": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20COCOON",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20COCOON"
+    },
+    {
+      "url": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Company%20of%20Heroes%203",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Company%20of%20Heroes%203"
+    },
+    {
+      "url": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Counter-Strike%202",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Counter-Strike%202"
+    },
+    {
+      "url": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Crusader%20Kings%20III",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Crusader%20Kings%20III"
+    },
+    {
+      "url": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Cyberpunk%202077",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Cyberpunk%202077"
+    },
+    {
+      "url": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Dead%20Space",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Dead%20Space"
+    },
+    {
+      "url": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Destiny%202",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Destiny%202"
+    },
+    {
+      "url": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Devil%20May%20Cry%205",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Devil%20May%20Cry%205"
+    },
+    {
+      "url": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20DiRT%20Rally%202.0",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20DiRT%20Rally%202.0"
+    },
+    {
+      "url": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Disco%20Elysium",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Disco%20Elysium"
+    },
+    {
+      "url": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Divinity%3A%20Original%20Sin%202",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Divinity%3A%20Original%20Sin%202"
+    },
+    {
+      "url": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20DOOM%20Eternal",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20DOOM%20Eternal"
+    },
+    {
+      "url": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Dragon%20Age%3A%20Inquisition",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Dragon%20Age%3A%20Inquisition"
+    },
+    {
+      "url": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20EA%20SPORTS%20FC%2025",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20EA%20SPORTS%20FC%2025"
+    },
+    {
+      "url": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20EA%20SPORTS%20WRC",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20EA%20SPORTS%20WRC"
+    },
+    {
+      "url": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20F1%2023",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20F1%2023"
+    },
+    {
+      "url": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20F1%2024",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20F1%2024"
+    },
+    {
+      "url": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Final%20Fantasy%20VII%20Rebirth",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Final%20Fantasy%20VII%20Rebirth"
+    },
+    {
+      "url": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Forza%20Horizon%205",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Forza%20Horizon%205"
+    },
+    {
+      "url": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Forza%20Motorsport",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Forza%20Motorsport"
+    },
+    {
+      "url": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Frostpunk",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Frostpunk"
+    },
+    {
+      "url": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Ghostrunner%202",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Ghostrunner%202"
+    },
+    {
+      "url": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20God%20of%20War%20Ragnarok",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20God%20of%20War%20Ragnarok"
+    },
+    {
+      "url": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Gran%20Turismo%207",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Gran%20Turismo%207"
+    },
+    {
+      "url": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Helldivers%202",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Helldivers%202"
+    },
+    {
+      "url": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Hi-Fi%20RUSH",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Hi-Fi%20RUSH"
+    },
+    {
+      "url": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Hot%20Wheels%20Unleashed%202",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Hot%20Wheels%20Unleashed%202"
+    },
+    {
+      "url": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20HUMANITY",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20HUMANITY"
+    },
+    {
+      "url": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Into%20the%20Breach",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Into%20the%20Breach"
+    },
+    {
+      "url": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Kingdom%20Come%3A%20Deliverance",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Kingdom%20Come%3A%20Deliverance"
+    },
+    {
+      "url": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Layers%20of%20Fear",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Layers%20of%20Fear"
+    },
+    {
+      "url": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Madden%20NFL%2025",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Madden%20NFL%2025"
+    },
+    {
+      "url": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Mario%20Kart%208%20Deluxe",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Mario%20Kart%208%20Deluxe"
+    },
+    {
+      "url": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Marvel",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Marvel"
+    },
+    {
+      "url": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20MLB%20The%20Show%2024",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20MLB%20The%20Show%2024"
+    },
+    {
+      "url": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20NBA%202K25",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20NBA%202K25"
+    },
+    {
+      "url": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Need%20for%20Speed%20Unbound",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Need%20for%20Speed%20Unbound"
+    },
+    {
+      "url": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20NHL%2024",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20NHL%2024"
+    },
+    {
+      "url": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Persona%205%20Royal",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Persona%205%20Royal"
+    },
+    {
+      "url": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20PGA%20TOUR%202K23",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20PGA%20TOUR%202K23"
+    },
+    {
+      "url": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Phasmophobia",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Phasmophobia"
+    },
+    {
+      "url": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Portal%202",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Portal%202"
+    },
+    {
+      "url": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Resident%20Evil%204",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Resident%20Evil%204"
+    },
+    {
+      "url": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Riders%20Republic",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Riders%20Republic"
+    },
+    {
+      "url": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Sekiro%3A%20Shadows%20Die%20Twice",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Sekiro%3A%20Shadows%20Die%20Twice"
+    },
+    {
+      "url": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Silent%20Hill%202",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Silent%20Hill%202"
+    },
+    {
+      "url": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Sons%20of%20the%20Forest",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Sons%20of%20the%20Forest"
+    },
+    {
+      "url": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Star%20Wars%20Jedi%3A%20Survivor",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Star%20Wars%20Jedi%3A%20Survivor"
+    },
+    {
+      "url": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20StarCraft%20II",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20StarCraft%20II"
+    },
+    {
+      "url": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Stellar%20Blade",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Stellar%20Blade"
+    },
+    {
+      "url": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Stellaris",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Stellaris"
+    },
+    {
+      "url": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Superliminal",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Superliminal"
+    },
+    {
+      "url": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Tetris%20Effect%3A%20Connected",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Tetris%20Effect%3A%20Connected"
+    },
+    {
+      "url": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20The%20Crew%20Motorfest",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20The%20Crew%20Motorfest"
+    },
+    {
+      "url": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20The%20Elder%20Scrolls%20V%3A%20Skyrim%20Special%20Edition",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20The%20Elder%20Scrolls%20V%3A%20Skyrim%20Special%20Edition"
+    },
+    {
+      "url": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20The%20Evil%20Within%202",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20The%20Evil%20Within%202"
+    },
+    {
+      "url": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20THE%20FINALS",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20THE%20FINALS"
+    },
+    {
+      "url": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20The%20Outlast%20Trials",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20The%20Outlast%20Trials"
+    },
+    {
+      "url": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20The%20Talos%20Principle%202",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20The%20Talos%20Principle%202"
+    },
+    {
+      "url": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20The%20Witcher%203%3A%20Wild%20Hunt",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20The%20Witcher%203%3A%20Wild%20Hunt"
+    },
+    {
+      "url": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20The%20Witness",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20The%20Witness"
+    },
+    {
+      "url": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Tom%20Clancy",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Tom%20Clancy"
+    },
+    {
+      "url": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20TopSpin%202K25",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20TopSpin%202K25"
+    },
+    {
+      "url": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Total%20War%3A%20WARHAMMER%20III",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Total%20War%3A%20WARHAMMER%20III"
+    },
+    {
+      "url": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Unpacking",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Unpacking"
+    },
+    {
+      "url": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20VALORANT",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20VALORANT"
+    },
+    {
+      "url": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Viewfinder",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20Viewfinder"
+    },
+    {
+      "url": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20XCOM%202",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.google.com/search?tbm=nws&q=site%3Aign.com%2Farticles%20XCOM%202"
+    },
+    {
+      "url": "https://www.metacritic.com/game/age-of-empires-iv/",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.metacritic.com/game/age-of-empires-iv/"
+    },
+    {
+      "url": "https://www.metacritic.com/game/alan-wake/",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.metacritic.com/game/alan-wake/"
+    },
+    {
+      "url": "https://www.metacritic.com/game/amnesia-the-bunker/",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.metacritic.com/game/amnesia-the-bunker/"
+    },
+    {
+      "url": "https://www.metacritic.com/game/apex-legends/",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.metacritic.com/game/apex-legends/"
+    },
+    {
+      "url": "https://www.metacritic.com/game/armored-core-vi-fires-of-rubicon/",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.metacritic.com/game/armored-core-vi-fires-of-rubicon/"
+    },
+    {
+      "url": "https://www.metacritic.com/game/assetto-corsa-competizione/",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.metacritic.com/game/assetto-corsa-competizione/"
+    },
+    {
+      "url": "https://www.metacritic.com/game/baba-is-you/",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.metacritic.com/game/baba-is-you/"
+    },
+    {
+      "url": "https://www.metacritic.com/game/baldurs-gate-3/",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.metacritic.com/game/baldurs-gate-3/"
+    },
+    {
+      "url": "https://www.metacritic.com/game/battlefield-2042/",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.metacritic.com/game/battlefield-2042/"
+    },
+    {
+      "url": "https://www.metacritic.com/game/bayonetta-3/",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.metacritic.com/game/bayonetta-3/"
+    },
+    {
+      "url": "https://www.metacritic.com/game/call-of-duty-black-ops-6/",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.metacritic.com/game/call-of-duty-black-ops-6/"
+    },
+    {
+      "url": "https://www.metacritic.com/game/cocoon/",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.metacritic.com/game/cocoon/"
+    },
+    {
+      "url": "https://www.metacritic.com/game/company-of-heroes-3/",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.metacritic.com/game/company-of-heroes-3/"
+    },
+    {
+      "url": "https://www.metacritic.com/game/counter-strike-2/",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.metacritic.com/game/counter-strike-2/"
+    },
+    {
+      "url": "https://www.metacritic.com/game/crusader-kings-iii/",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.metacritic.com/game/crusader-kings-iii/"
+    },
+    {
+      "url": "https://www.metacritic.com/game/cyberpunk-2077/",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.metacritic.com/game/cyberpunk-2077/"
+    },
+    {
+      "url": "https://www.metacritic.com/game/dead-space/",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.metacritic.com/game/dead-space/"
+    },
+    {
+      "url": "https://www.metacritic.com/game/destiny-2/",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.metacritic.com/game/destiny-2/"
+    },
+    {
+      "url": "https://www.metacritic.com/game/devil-may-cry-5/",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.metacritic.com/game/devil-may-cry-5/"
+    },
+    {
+      "url": "https://www.metacritic.com/game/dirt-rally-20/",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.metacritic.com/game/dirt-rally-20/"
+    },
+    {
+      "url": "https://www.metacritic.com/game/disco-elysium/",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.metacritic.com/game/disco-elysium/"
+    },
+    {
+      "url": "https://www.metacritic.com/game/divinity-original-sin-ii/",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.metacritic.com/game/divinity-original-sin-ii/"
+    },
+    {
+      "url": "https://www.metacritic.com/game/doom-eternal/",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.metacritic.com/game/doom-eternal/"
+    },
+    {
+      "url": "https://www.metacritic.com/game/dragon-age-inquisition/",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.metacritic.com/game/dragon-age-inquisition/"
+    },
+    {
+      "url": "https://www.metacritic.com/game/ea-sports-fc-25/",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.metacritic.com/game/ea-sports-fc-25/"
+    },
+    {
+      "url": "https://www.metacritic.com/game/ea-sports-wrc/",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.metacritic.com/game/ea-sports-wrc/"
+    },
+    {
+      "url": "https://www.metacritic.com/game/f1-23/",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.metacritic.com/game/f1-23/"
+    },
+    {
+      "url": "https://www.metacritic.com/game/f1-24/",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.metacritic.com/game/f1-24/"
+    },
+    {
+      "url": "https://www.metacritic.com/game/final-fantasy-vii-rebirth/",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.metacritic.com/game/final-fantasy-vii-rebirth/"
+    },
+    {
+      "url": "https://www.metacritic.com/game/forza-horizon-5/",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.metacritic.com/game/forza-horizon-5/"
+    },
+    {
+      "url": "https://www.metacritic.com/game/forza-motorsport/",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.metacritic.com/game/forza-motorsport/"
+    },
+    {
+      "url": "https://www.metacritic.com/game/frostpunk/",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.metacritic.com/game/frostpunk/"
+    },
+    {
+      "url": "https://www.metacritic.com/game/ghostrunner-2/",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.metacritic.com/game/ghostrunner-2/"
+    },
+    {
+      "url": "https://www.metacritic.com/game/god-of-war-ragnarok/",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.metacritic.com/game/god-of-war-ragnarok/"
+    },
+    {
+      "url": "https://www.metacritic.com/game/gran-turismo-7/",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.metacritic.com/game/gran-turismo-7/"
+    },
+    {
+      "url": "https://www.metacritic.com/game/helldivers-2/",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.metacritic.com/game/helldivers-2/"
+    },
+    {
+      "url": "https://www.metacritic.com/game/hi-fi-rush/",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.metacritic.com/game/hi-fi-rush/"
+    },
+    {
+      "url": "https://www.metacritic.com/game/hot-wheels-unleashed-2-turbocharged/",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.metacritic.com/game/hot-wheels-unleashed-2-turbocharged/"
+    },
+    {
+      "url": "https://www.metacritic.com/game/humanity/",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.metacritic.com/game/humanity/"
+    },
+    {
+      "url": "https://www.metacritic.com/game/into-the-breach/",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.metacritic.com/game/into-the-breach/"
+    },
+    {
+      "url": "https://www.metacritic.com/game/kingdom-come-deliverance/",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.metacritic.com/game/kingdom-come-deliverance/"
+    },
+    {
+      "url": "https://www.metacritic.com/game/layers-of-fear/",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.metacritic.com/game/layers-of-fear/"
+    },
+    {
+      "url": "https://www.metacritic.com/game/madden-nfl-25/",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.metacritic.com/game/madden-nfl-25/"
+    },
+    {
+      "url": "https://www.metacritic.com/game/mario-kart-8-deluxe/",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.metacritic.com/game/mario-kart-8-deluxe/"
+    },
+    {
+      "url": "https://www.metacritic.com/game/marvels-spider-man-2/",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.metacritic.com/game/marvels-spider-man-2/"
+    },
+    {
+      "url": "https://www.metacritic.com/game/mlb-the-show-24/",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.metacritic.com/game/mlb-the-show-24/"
+    },
+    {
+      "url": "https://www.metacritic.com/game/nba-2k25/",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.metacritic.com/game/nba-2k25/"
+    },
+    {
+      "url": "https://www.metacritic.com/game/need-for-speed-unbound/",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.metacritic.com/game/need-for-speed-unbound/"
+    },
+    {
+      "url": "https://www.metacritic.com/game/nhl-24/",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.metacritic.com/game/nhl-24/"
+    },
+    {
+      "url": "https://www.metacritic.com/game/persona-5-royal/",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.metacritic.com/game/persona-5-royal/"
+    },
+    {
+      "url": "https://www.metacritic.com/game/pga-tour-2k23/",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.metacritic.com/game/pga-tour-2k23/"
+    },
+    {
+      "url": "https://www.metacritic.com/game/phasmophobia/",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.metacritic.com/game/phasmophobia/"
+    },
+    {
+      "url": "https://www.metacritic.com/game/portal-2/",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.metacritic.com/game/portal-2/"
+    },
+    {
+      "url": "https://www.metacritic.com/game/resident-evil-4/",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.metacritic.com/game/resident-evil-4/"
+    },
+    {
+      "url": "https://www.metacritic.com/game/riders-republic/",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.metacritic.com/game/riders-republic/"
+    },
+    {
+      "url": "https://www.metacritic.com/game/sekiro-shadows-die-twice/",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.metacritic.com/game/sekiro-shadows-die-twice/"
+    },
+    {
+      "url": "https://www.metacritic.com/game/sid-meiers-civilization-vi/",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.metacritic.com/game/sid-meiers-civilization-vi/"
+    },
+    {
+      "url": "https://www.metacritic.com/game/silent-hill-2/",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.metacritic.com/game/silent-hill-2/"
+    },
+    {
+      "url": "https://www.metacritic.com/game/sons-of-the-forest/",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.metacritic.com/game/sons-of-the-forest/"
+    },
+    {
+      "url": "https://www.metacritic.com/game/star-wars-jedi-survivor/",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.metacritic.com/game/star-wars-jedi-survivor/"
+    },
+    {
+      "url": "https://www.metacritic.com/game/starcraft-ii-wings-of-liberty/",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.metacritic.com/game/starcraft-ii-wings-of-liberty/"
+    },
+    {
+      "url": "https://www.metacritic.com/game/stellar-blade/",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.metacritic.com/game/stellar-blade/"
+    },
+    {
+      "url": "https://www.metacritic.com/game/stellaris/",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.metacritic.com/game/stellaris/"
+    },
+    {
+      "url": "https://www.metacritic.com/game/superliminal/",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.metacritic.com/game/superliminal/"
+    },
+    {
+      "url": "https://www.metacritic.com/game/tetris-effect-connected/",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.metacritic.com/game/tetris-effect-connected/"
+    },
+    {
+      "url": "https://www.metacritic.com/game/the-crew-motorfest/",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.metacritic.com/game/the-crew-motorfest/"
+    },
+    {
+      "url": "https://www.metacritic.com/game/the-elder-scrolls-v-skyrim-special-edition/",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.metacritic.com/game/the-elder-scrolls-v-skyrim-special-edition/"
+    },
+    {
+      "url": "https://www.metacritic.com/game/the-evil-within-2/",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.metacritic.com/game/the-evil-within-2/"
+    },
+    {
+      "url": "https://www.metacritic.com/game/the-finals/",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.metacritic.com/game/the-finals/"
+    },
+    {
+      "url": "https://www.metacritic.com/game/the-outlast-trials/",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.metacritic.com/game/the-outlast-trials/"
+    },
+    {
+      "url": "https://www.metacritic.com/game/the-talos-principle-2/",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.metacritic.com/game/the-talos-principle-2/"
+    },
+    {
+      "url": "https://www.metacritic.com/game/the-witcher-3-wild-hunt/",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.metacritic.com/game/the-witcher-3-wild-hunt/"
+    },
+    {
+      "url": "https://www.metacritic.com/game/the-witness/",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.metacritic.com/game/the-witness/"
+    },
+    {
+      "url": "https://www.metacritic.com/game/tom-clancys-rainbow-six-siege/",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.metacritic.com/game/tom-clancys-rainbow-six-siege/"
+    },
+    {
+      "url": "https://www.metacritic.com/game/topspin-2k25/",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.metacritic.com/game/topspin-2k25/"
+    },
+    {
+      "url": "https://www.metacritic.com/game/total-war-warhammer-iii/",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.metacritic.com/game/total-war-warhammer-iii/"
+    },
+    {
+      "url": "https://www.metacritic.com/game/unpacking/",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.metacritic.com/game/unpacking/"
+    },
+    {
+      "url": "https://www.metacritic.com/game/valorant/",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.metacritic.com/game/valorant/"
+    },
+    {
+      "url": "https://www.metacritic.com/game/viewfinder/",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.metacritic.com/game/viewfinder/"
+    },
+    {
+      "url": "https://www.metacritic.com/game/xcom-2/",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.metacritic.com/game/xcom-2/"
+    }
+  ]
+}
