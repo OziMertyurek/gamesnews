@@ -17,7 +17,7 @@ export interface ConsoleProduct {
   specs: string
 }
 
-const stores = ['Akakce Coklu Satici', 'Hepsiburada', 'Trendyol', 'N11', 'Amazon TR']
+const stores = ['Akakce Coklu Satici', 'Hepsiburada', 'Trendyol', 'N11', 'Amazon TR', 'MediaMarkt', 'Teknosa']
 
 const platformTitles: Record<ConsolePlatform, string> = {
   ps: 'PlayStation',
@@ -59,9 +59,13 @@ const catalogByPlatform: Record<ConsolePlatform, CatalogItem[]> = {
     { category: 'Kulaklik', name: 'Sony PULSE 3D Wireless Headset', image: REAL_IMAGES.headphones, brand: 'Sony' },
     { category: 'Kulaklik', name: 'Sony INZONE H9 Wireless Gaming Headset', image: REAL_IMAGES.headphones, brand: 'Sony' },
     { category: 'Kulaklik', name: 'Razer Kaira for PlayStation', image: REAL_IMAGES.headphones, brand: 'Razer' },
+    { category: 'Kulaklik', name: 'Sony PULSE Elite Wireless Headset', image: REAL_IMAGES.headphones, brand: 'Sony' },
     { category: 'Aksesuar', name: 'Sony PlayStation Portal Remote Player', image: REAL_IMAGES.portal, brand: 'Sony' },
     { category: 'Aksesuar', name: 'Sony PlayStation VR2', image: REAL_IMAGES.psvr2, brand: 'Sony' },
     { category: 'Aksesuar', name: 'Sony PlayStation HD Camera', image: REAL_IMAGES.psCamera, brand: 'Sony' },
+    { category: 'Aksesuar', name: 'Sony DualSense Charging Station', image: REAL_IMAGES.dock, brand: 'Sony' },
+    { category: 'Aksesuar', name: 'Sony PlayStation Access Controller', image: REAL_IMAGES.gameController, brand: 'Sony' },
+    { category: 'Aksesuar', name: 'Sony PlayStation Media Remote', image: REAL_IMAGES.gameController, brand: 'Sony' },
   ],
   xbox: [
     { category: 'Konsol', name: 'Microsoft Xbox Series X', image: REAL_IMAGES.xboxSeries, brand: 'Microsoft' },
@@ -70,26 +74,33 @@ const catalogByPlatform: Record<ConsolePlatform, CatalogItem[]> = {
     { category: 'Gamepad', name: 'Xbox Wireless Controller', image: REAL_IMAGES.xboxController, brand: 'Microsoft' },
     { category: 'Gamepad', name: 'Xbox Elite Wireless Controller Series 2', image: REAL_IMAGES.xboxController, brand: 'Microsoft' },
     { category: 'Gamepad', name: 'Razer Wolverine V2 Chroma for Xbox', image: REAL_IMAGES.xboxController, brand: 'Razer' },
+    { category: 'Gamepad', name: 'Xbox Adaptive Controller', image: REAL_IMAGES.xboxController, brand: 'Microsoft' },
     { category: 'Kulaklik', name: 'Xbox Wireless Headset', image: REAL_IMAGES.headphones, brand: 'Microsoft' },
     { category: 'Kulaklik', name: 'SteelSeries Arctis Nova 7X', image: REAL_IMAGES.headphones, brand: 'SteelSeries' },
     { category: 'Kulaklik', name: 'HyperX CloudX Stinger Core', image: REAL_IMAGES.headphones, brand: 'HyperX' },
+    { category: 'Kulaklik', name: 'Razer Kaira Pro for Xbox', image: REAL_IMAGES.headphones, brand: 'Razer' },
     { category: 'Aksesuar', name: 'Seagate Storage Expansion Card for Xbox Series X|S', image: REAL_IMAGES.sdCard, brand: 'Seagate' },
     { category: 'Aksesuar', name: 'Xbox Play and Charge Kit', image: REAL_IMAGES.gameController, brand: 'Microsoft' },
     { category: 'Aksesuar', name: 'PowerA Charging Stand for Xbox Wireless Controllers', image: REAL_IMAGES.dock, brand: 'PowerA' },
+    { category: 'Aksesuar', name: 'WD_BLACK C50 Expansion Card for Xbox', image: REAL_IMAGES.sdCard, brand: 'WD_BLACK' },
   ],
   nintendo: [
     { category: 'Konsol', name: 'Nintendo Switch OLED Model', image: REAL_IMAGES.switchLogo, brand: 'Nintendo' },
     { category: 'Konsol', name: 'Nintendo Switch', image: REAL_IMAGES.switchLogo, brand: 'Nintendo' },
     { category: 'Konsol', name: 'Nintendo Switch Lite', image: REAL_IMAGES.switchLogo, brand: 'Nintendo' },
+    { category: 'Konsol', name: 'Nintendo Switch OLED Mario Red Edition', image: REAL_IMAGES.switchLogo, brand: 'Nintendo' },
     { category: 'Gamepad', name: 'Nintendo Switch Pro Controller', image: REAL_IMAGES.switchPro, brand: 'Nintendo' },
     { category: 'Gamepad', name: 'Nintendo Joy-Con (L/R) Wireless Controllers', image: REAL_IMAGES.joyCon, brand: 'Nintendo' },
     { category: 'Gamepad', name: '8BitDo Ultimate Bluetooth Controller', image: REAL_IMAGES.switchPro, brand: '8BitDo' },
+    { category: 'Gamepad', name: 'PowerA Enhanced Wireless Controller for Nintendo Switch', image: REAL_IMAGES.switchPro, brand: 'PowerA' },
     { category: 'Kulaklik', name: 'Logitech G435 LIGHTSPEED', image: REAL_IMAGES.headphones, brand: 'Logitech' },
     { category: 'Kulaklik', name: 'SteelSeries Arctis 1 Wireless', image: REAL_IMAGES.headphones, brand: 'SteelSeries' },
     { category: 'Kulaklik', name: 'Razer Barracuda X', image: REAL_IMAGES.headphones, brand: 'Razer' },
+    { category: 'Kulaklik', name: 'JBL Quantum 350 Wireless', image: REAL_IMAGES.headphones, brand: 'JBL' },
     { category: 'Aksesuar', name: 'Nintendo Switch Dock Set', image: REAL_IMAGES.dock, brand: 'Nintendo' },
     { category: 'Aksesuar', name: 'HORI Split Pad Pro', image: REAL_IMAGES.gameController, brand: 'HORI' },
     { category: 'Aksesuar', name: 'SanDisk microSDXC for Nintendo Switch', image: REAL_IMAGES.sdCard, brand: 'SanDisk' },
+    { category: 'Aksesuar', name: 'Nintendo Joy-Con Charging Grip', image: REAL_IMAGES.dock, brand: 'Nintendo' },
   ],
 }
 
@@ -115,7 +126,7 @@ function buildConsoleProducts(platform: ConsolePlatform): ConsoleProduct[] {
       priceMin: Math.max(minBase, low),
       priceMax: Math.min(maxBase, high),
       store: stores[index % stores.length],
-      link: `https://www.google.com/search?q=${encodeURIComponent(`${item.name} fiyat`)}`,
+      link: `https://www.akakce.com/arama/?q=${encodeURIComponent(item.name)}`,
       image: item.image,
       brand: item.brand,
       updatedAt: '2026-02-18',
