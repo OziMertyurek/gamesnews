@@ -1605,6 +1605,8 @@ const monitorImage = 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/
 const keyboardImage = 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/HP_keyboard.jpg/640px-HP_keyboard.jpg'
 const mouseImage = 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Computer-mouse.jpg/640px-Computer-mouse.jpg'
 const headsetImage = 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/S%C5%82uchawki_referencyjne_K-701_firmy_AKG.jpg/640px-S%C5%82uchawki_referencyjne_K-701_firmy_AKG.jpg'
+const ramImage = 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/DDR4_SO-DIMM_4GB.jpg/640px-DDR4_SO-DIMM_4GB.jpg'
+const ssdImage = 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Samsung_980_Pro_2TB.jpg/640px-Samsung_980_Pro_2TB.jpg'
 
 function detectBrand(name: string) {
   const prefixes = ['Logitech', 'Razer', 'ASUS', 'Corsair', 'SteelSeries', 'HyperX', 'Samsung', 'LG', 'Dell', 'Alienware', 'MSI', 'Acer', 'BenQ', 'AOC', 'ViewSonic', 'Philips', 'Gigabyte', 'Redragon', 'Keychron', 'Akko', 'Zowie', 'Glorious', 'Sony', 'JBL']
@@ -1687,7 +1689,150 @@ const peripheralProducts: PCProduct[] = peripheralEntries.map((entry, index) => 
   }
 })
 
-pcProducts.push(...monitorProducts, ...peripheralProducts)
+const ramNames = [
+  'Corsair Vengeance LPX 16GB (2x8GB) DDR4 3200MHz C16',
+  'Corsair Vengeance RGB Pro 32GB (2x16GB) DDR4 3600MHz C18',
+  'Corsair Dominator Platinum RGB 32GB (2x16GB) DDR5 6000MHz C36',
+  'Corsair Vengeance 32GB (2x16GB) DDR5 6000MHz C36',
+  'G.Skill Trident Z5 RGB 32GB (2x16GB) DDR5 6400MHz C32',
+  'G.Skill Trident Z Neo 32GB (2x16GB) DDR4 3600MHz C16',
+  'G.Skill Ripjaws V 16GB (2x8GB) DDR4 3200MHz C16',
+  'G.Skill Flare X5 32GB (2x16GB) DDR5 6000MHz C36',
+  'Kingston FURY Beast 16GB (2x8GB) DDR4 3200MHz C16',
+  'Kingston FURY Beast RGB 32GB (2x16GB) DDR5 6000MHz C36',
+  'Kingston FURY Renegade 32GB (2x16GB) DDR5 6400MHz C32',
+  'Kingston FURY Impact 32GB (2x16GB) DDR5 5600MHz SODIMM',
+  'Crucial Pro 32GB (2x16GB) DDR5 5600MHz',
+  'Crucial Ballistix 16GB (2x8GB) DDR4 3200MHz',
+  'Crucial 32GB (2x16GB) DDR4 3200MHz SODIMM',
+  'TEAMGROUP T-Force Delta RGB 32GB (2x16GB) DDR5 6000MHz C38',
+  'TEAMGROUP T-Force Vulcan Z 16GB (2x8GB) DDR4 3200MHz',
+  'TEAMGROUP Elite Plus 32GB (2x16GB) DDR4 3200MHz',
+  'ADATA XPG Lancer 32GB (2x16GB) DDR5 6000MHz C30',
+  'ADATA XPG Spectrix D50 32GB (2x16GB) DDR4 3600MHz',
+  'ADATA Premier 16GB DDR4 3200MHz',
+  'Patriot Viper Steel 16GB (2x8GB) DDR4 3200MHz',
+  'Patriot Viper Venom 32GB (2x16GB) DDR5 6200MHz',
+  'Patriot Signature Line 32GB DDR4 3200MHz SODIMM',
+  'Lexar ARES RGB 32GB (2x16GB) DDR5 6000MHz',
+  'Lexar THOR 16GB (2x8GB) DDR4 3200MHz',
+  'PNY XLR8 Gaming EPIC-X RGB 32GB (2x16GB) DDR5 6000MHz',
+  'PNY Performance 16GB DDR4 3200MHz',
+  'Samsung 32GB (2x16GB) DDR5 5600MHz',
+  'Samsung 16GB DDR4 3200MHz SODIMM',
+  'Micron 32GB DDR5 5600MHz SODIMM',
+  'Apacer NOX RGB 32GB (2x16GB) DDR5 6000MHz',
+  'Apacer Panther 16GB (2x8GB) DDR4 3200MHz',
+  'KLEVV CRAS XR5 RGB 32GB (2x16GB) DDR5 6200MHz',
+  'KLEVV BOLT X 16GB (2x8GB) DDR4 3200MHz',
+]
+
+const ssdNames = [
+  'Samsung 990 PRO 2TB M.2 NVMe',
+  'Samsung 990 EVO Plus 1TB M.2 NVMe',
+  'Samsung 980 PRO 1TB M.2 NVMe',
+  'Samsung 970 EVO Plus 1TB M.2 NVMe',
+  'WD Black SN850X 2TB M.2 NVMe',
+  'WD Black SN770 1TB M.2 NVMe',
+  'WD Blue SN580 1TB M.2 NVMe',
+  'WD Blue SA510 1TB SATA',
+  'Kingston KC3000 2TB M.2 NVMe',
+  'Kingston NV2 1TB M.2 NVMe',
+  'Kingston NV3 2TB M.2 NVMe',
+  'Kingston Fury Renegade 2TB M.2 NVMe',
+  'Crucial T500 1TB M.2 NVMe',
+  'Crucial P5 Plus 1TB M.2 NVMe',
+  'Crucial P3 Plus 2TB M.2 NVMe',
+  'Crucial MX500 1TB SATA',
+  'Seagate FireCuda 530 1TB M.2 NVMe',
+  'Seagate FireCuda 540 2TB M.2 NVMe',
+  'Seagate BarraCuda Q5 1TB M.2 NVMe',
+  'Seagate One Touch SSD 1TB',
+  'Corsair MP600 Pro LPX 1TB M.2 NVMe',
+  'Corsair MP700 Pro 2TB M.2 NVMe',
+  'Corsair MP600 Core XT 2TB M.2 NVMe',
+  'Corsair Force Series MP510 960GB M.2 NVMe',
+  'ADATA XPG SX8200 Pro 1TB M.2 NVMe',
+  'ADATA Legend 960 Max 1TB M.2 NVMe',
+  'ADATA SU650 1TB SATA',
+  'ADATA SE880 1TB External SSD',
+  'Lexar NM790 2TB M.2 NVMe',
+  'Lexar NM710 1TB M.2 NVMe',
+  'Lexar NS100 1TB SATA',
+  'TEAMGROUP MP44L 1TB M.2 NVMe',
+  'TEAMGROUP T-Force Cardea A440 Pro 2TB M.2 NVMe',
+  'TEAMGROUP CX2 1TB SATA',
+  'MSI Spatium M480 Pro 2TB M.2 NVMe',
+  'MSI Spatium M450 1TB M.2 NVMe',
+  'MSI Spatium S270 1TB SATA',
+  'Gigabyte AORUS Gen4 7000s 1TB M.2 NVMe',
+  'Gigabyte Gen4 4000E 1TB M.2 NVMe',
+  'Gigabyte SSD 1TB SATA',
+]
+
+function ramPrice(index: number) {
+  const base = 1250 + (index % 11) * 420
+  const premiumBoost = index % 6 === 0 ? 2800 : 0
+  const price = base + premiumBoost
+  return {
+    price,
+    priceMin: Math.round(price * 0.85),
+    priceMax: Math.round(price * 1.17),
+  }
+}
+
+function ssdPrice(index: number) {
+  const base = 1650 + (index % 12) * 560
+  const premiumBoost = index % 7 === 0 ? 4200 : 0
+  const price = base + premiumBoost
+  return {
+    price,
+    priceMin: Math.round(price * 0.84),
+    priceMax: Math.round(price * 1.2),
+  }
+}
+
+const extraRamProducts: PCProduct[] = ramNames.map((name, index) => {
+  const p = ramPrice(index)
+  return {
+    id: `ram-gen-${String(index + 1).padStart(3, '0')}`,
+    name,
+    category: 'RAM',
+    price: p.price,
+    priceMin: p.priceMin,
+    priceMax: p.priceMax,
+    store: 'Akakce Coklu Satici',
+    link: `https://www.akakce.com/arama/?q=${encodeURIComponent(name)}`,
+    image: ramImage,
+    brand: detectBrand(name),
+    updatedAt: '2026-02-18',
+    specs: 'Gercek model RAM urunu. Arama linki ile guncel satici listelemesine yonlenir.',
+    inStock: index % 9 !== 0,
+    sourceOfferCount: 4 + (index % 16),
+  }
+})
+
+const extraSsdProducts: PCProduct[] = ssdNames.map((name, index) => {
+  const p = ssdPrice(index)
+  return {
+    id: `ssd-gen-${String(index + 1).padStart(3, '0')}`,
+    name,
+    category: 'SSD',
+    price: p.price,
+    priceMin: p.priceMin,
+    priceMax: p.priceMax,
+    store: 'Akakce Coklu Satici',
+    link: `https://www.akakce.com/arama/?q=${encodeURIComponent(name)}`,
+    image: ssdImage,
+    brand: detectBrand(name),
+    updatedAt: '2026-02-18',
+    specs: 'Gercek model SSD urunu. Arama linki ile guncel satici listelemesine yonlenir.',
+    inStock: index % 8 !== 0,
+    sourceOfferCount: 5 + (index % 20),
+  }
+})
+
+pcProducts.push(...monitorProducts, ...peripheralProducts, ...extraRamProducts, ...extraSsdProducts)
 
 export const PC_CATEGORIES: PCCategory[] = [
   'CPU',

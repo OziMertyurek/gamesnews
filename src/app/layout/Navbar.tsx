@@ -269,8 +269,8 @@ export default function Navbar() {
       <div className="container mx-auto px-4 max-w-7xl">
         <div className="flex items-center justify-between h-16">
           <Link to="/" className="flex items-center gap-2">
-            <span className="text-2xl font-black text-blue-500">Games</span>
-            <span className="text-2xl font-black text-white">News</span>
+            <span className="text-2xl font-black text-blue-500">allaround</span>
+            <span className="text-2xl font-black text-white">games</span>
           </Link>
 
           <nav className="hidden md:flex items-center gap-1">

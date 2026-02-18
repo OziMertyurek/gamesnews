@@ -1,4 +1,4 @@
-# GamesNews
+# allaroundgames
 
 React + TypeScript + Vite tabanli oyun/urun katalog projesi.
 

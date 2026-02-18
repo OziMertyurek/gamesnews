@@ -31,6 +31,11 @@ const CONSOLE_CATEGORY_COLORS: Record<ConsoleCategory, string> = {
 
 const FALLBACK_IMAGE = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="600" height="400" viewBox="0 0 600 400"><rect width="600" height="400" fill="%230f172a"/><rect x="140" y="90" width="320" height="220" rx="16" fill="%231e293b" stroke="%23334155" stroke-width="4"/><circle cx="215" cy="170" r="26" fill="%23334155"/><path d="M190 270l74-70 46 42 44-32 56 60H190z" fill="%23334155"/></svg>'
 
+function resolveEffectivePrice(priceMin: number, priceMax: number, fallback: number) {
+  if (priceMin > 0 && priceMax >= priceMin) return Math.round((priceMin + priceMax) / 2)
+  return fallback
+}
+
 function FilterChip({ label, onRemove }: { label: string; onRemove: () => void }) {
   return (
     <span className="inline-flex items-center gap-1.5 bg-blue-950 border border-blue-800 text-blue-300 text-xs font-medium px-2.5 py-1 rounded-full">
@@ -43,6 +48,8 @@ function FilterChip({ label, onRemove }: { label: string; onRemove: () => void }
 }
 
 function PCProductCard({ product }: { product: PCProduct }) {
+  const effectivePrice = resolveEffectivePrice(product.priceMin, product.priceMax, product.price)
+
   return (
     <div className="card flex flex-col group hover:border-blue-700 transition-colors duration-200">
       <div className="relative overflow-hidden bg-gray-800">
@@ -67,10 +74,11 @@ function PCProductCard({ product }: { product: PCProduct }) {
         <div className="mt-auto pt-3 border-t border-gray-800 flex items-end justify-between gap-2">
           <div>
             <p className="text-2xl font-bold text-white">
-              {product.price.toLocaleString('tr-TR')}
+              {effectivePrice.toLocaleString('tr-TR')}
               <span className="text-base font-normal text-gray-400 ml-1">TL</span>
             </p>
             <p className="text-xs text-gray-500">Aralik: {product.priceMin.toLocaleString('tr-TR')} - {product.priceMax.toLocaleString('tr-TR')} TL</p>
+            <p className="text-[11px] text-gray-600">Gosterilen fiyat: ortalama piyasa</p>
           </div>
           <a href={product.link} target="_blank" rel="noopener noreferrer" className="btn-primary text-sm shrink-0">
             Kaynaga git
@@ -84,7 +92,7 @@ function PCProductCard({ product }: { product: PCProduct }) {
 }
 
 function ConsoleProductCard({ product }: { product: ConsoleProduct }) {
-  const avg = Math.round((product.priceMin + product.priceMax) / 2)
+  const avg = resolveEffectivePrice(product.priceMin, product.priceMax, Math.round((product.priceMin + product.priceMax) / 2))
   return (
     <div className="card flex flex-col group hover:border-blue-700 transition-colors duration-200">
       <div className="relative overflow-hidden bg-gray-800">
@@ -161,15 +169,15 @@ function PCProductsView() {
     if (selectedStores.length) result = result.filter((p) => selectedStores.includes(p.store))
     if (selectedBrands.length) result = result.filter((p) => selectedBrands.includes(p.brand))
     if (inStockOnly) result = result.filter((p) => p.inStock)
-    if (priceMin !== '') result = result.filter((p) => p.price >= Number(priceMin))
-    if (priceMax !== '') result = result.filter((p) => p.price <= Number(priceMax))
+    if (priceMin !== '') result = result.filter((p) => resolveEffectivePrice(p.priceMin, p.priceMax, p.price) >= Number(priceMin))
+    if (priceMax !== '') result = result.filter((p) => resolveEffectivePrice(p.priceMin, p.priceMax, p.price) <= Number(priceMax))
 
     switch (sortKey) {
       case 'price-asc':
-        result.sort((a, b) => a.price - b.price)
+        result.sort((a, b) => resolveEffectivePrice(a.priceMin, a.priceMax, a.price) - resolveEffectivePrice(b.priceMin, b.priceMax, b.price))
         break
       case 'price-desc':
-        result.sort((a, b) => b.price - a.price)
+        result.sort((a, b) => resolveEffectivePrice(b.priceMin, b.priceMax, b.price) - resolveEffectivePrice(a.priceMin, a.priceMax, a.price))
         break
       case 'name-asc':
         result.sort((a, b) => a.name.localeCompare(b.name, 'tr'))
@@ -363,10 +371,10 @@ function ConsoleProductsView({ platform }: { platform: ConsolePlatform }) {
 
     switch (sortKey) {
       case 'price-asc':
-        result.sort((a, b) => a.priceMin - b.priceMin)
+        result.sort((a, b) => resolveEffectivePrice(a.priceMin, a.priceMax, a.priceMin) - resolveEffectivePrice(b.priceMin, b.priceMax, b.priceMin))
         break
       case 'price-desc':
-        result.sort((a, b) => b.priceMax - a.priceMax)
+        result.sort((a, b) => resolveEffectivePrice(b.priceMin, b.priceMax, b.priceMax) - resolveEffectivePrice(a.priceMin, a.priceMax, a.priceMax))
         break
       case 'name-asc':
         result.sort((a, b) => a.name.localeCompare(b.name, 'tr'))

@@ -41,6 +41,9 @@ export default function GamesPage() {
       <section>
         <h1 className="text-3xl font-bold text-white mb-2">Oyunlar</h1>
         <p className="text-gray-400 mb-8">Tum oyunlar kategorilere ayrilmis listede.</p>
+        <div className="mb-5">
+          <Link to="/games/alfabetik" className="btn-primary">A-Z Oyun Dizini</Link>
+        </div>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {genres.map((g) => (
             <Link key={g.slug} to={`/games/genres/${g.slug}`} className="card p-6 text-center hover:border-blue-700 hover:scale-105 transition-all duration-200">

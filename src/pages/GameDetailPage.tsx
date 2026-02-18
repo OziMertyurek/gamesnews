@@ -25,12 +25,17 @@ export default function GameDetailPage() {
 
   useEffect(() => {
     if (!game) return
-    setComments(getGameComments(game.slug))
-    if (user) {
-      setPlayedOnSite(isPlayedInSiteGames(user.email, game.slug))
-    } else {
-      setPlayedOnSite(false)
-    }
+
+    const frame = window.requestAnimationFrame(() => {
+      setComments(getGameComments(game.slug))
+      if (user) {
+        setPlayedOnSite(isPlayedInSiteGames(user.email, game.slug))
+      } else {
+        setPlayedOnSite(false)
+      }
+    })
+
+    return () => window.cancelAnimationFrame(frame)
   }, [game, user])
 
   if (!game) {
@@ -42,6 +47,10 @@ export default function GameDetailPage() {
       </div>
     )
   }
+
+  const metacriticDisplay = game.metacriticScore !== null ? `${game.metacriticScore} / 100` : `${Math.round(game.score * 10)} / 100 (Site Puani)`
+  const hltbMainDisplay = game.howLongToBeatMainHours !== null ? `${game.howLongToBeatMainHours} saat` : 'Kaynakta bulunamadi'
+  const hltbMainExtraDisplay = game.howLongToBeatMainExtraHours !== null ? `${game.howLongToBeatMainExtraHours} saat` : 'Kaynakta bulunamadi'
 
   return (
     <div>
@@ -99,20 +108,26 @@ export default function GameDetailPage() {
           </div>
           <div className="bg-gray-800 rounded-lg p-4">
             <p className="text-xs text-gray-500 mb-1">Metacritic</p>
-            <p className="text-white font-semibold">{game.metacriticScore !== null ? `${game.metacriticScore} / 100` : 'Veri yok'}</p>
+            <p className="text-white font-semibold">{metacriticDisplay}</p>
           </div>
           <div className="bg-gray-800 rounded-lg p-4">
             <p className="text-xs text-gray-500 mb-1">HowLongToBeat (Main)</p>
-            <p className="text-white font-semibold">{game.howLongToBeatMainHours !== null ? `${game.howLongToBeatMainHours} saat` : 'Veri yok'}</p>
+            <p className="text-white font-semibold">{hltbMainDisplay}</p>
           </div>
           <div className="bg-gray-800 rounded-lg p-4">
             <p className="text-xs text-gray-500 mb-1">HowLongToBeat (Main + Extra)</p>
-            <p className="text-white font-semibold">{game.howLongToBeatMainExtraHours !== null ? `${game.howLongToBeatMainExtraHours} saat` : 'Veri yok'}</p>
+            <p className="text-white font-semibold">{hltbMainExtraDisplay}</p>
           </div>
         </div>
 
+        {(game.metacriticScore === null || game.howLongToBeatMainHours === null || game.howLongToBeatMainExtraHours === null) && (
+          <p className="mt-3 text-xs text-gray-400">
+            Bazi dis kaynak verileri eksik oldugunda sitedeki puan ve baglantilarla fallback gosterilir.
+          </p>
+        )}
+
         <div className="mt-6 flex flex-wrap gap-3">
-          <a className="btn-ghost" href={game.metacriticUrl} target="_blank" rel="noreferrer">Metacritic</a>
+          <a className="btn-ghost" href={game.metacriticUrl} target="_blank" rel="noreferrer">{game.metacriticScore === null ? 'Metacritic Ara' : 'Metacritic'}</a>
           <a className="btn-ghost" href={game.howLongToBeatUrl} target="_blank" rel="noreferrer">HowLongToBeat</a>
           <a className="btn-ghost" href={game.gamespotArticleUrl} target="_blank" rel="noreferrer">GameSpot Haberi</a>
           <a className="btn-primary" href={game.youtubeTrailerUrl} target="_blank" rel="noreferrer">Trailer</a>

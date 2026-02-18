@@ -712,8 +712,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "howLongToBeatCompletionistHours": 6
   },
   "armored-core-vi-fires-of-rubicon": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Armored%20Core%20VI%20Fires%20of%20Rubicon/",
+    "metacriticScore": 86,
+    "metacriticUrl": "https://www.metacritic.com/game/armored-core-vi-fires-of-rubicon/",
     "howLongToBeatMainHours": 18,
     "howLongToBeatMainExtraHours": 28,
     "howLongToBeatCompletionistHours": 51,
@@ -721,8 +721,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Armored%20Core%20VI%20Fires%20of%20Rubicon"
   },
   "nier-automata": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Nier%20Automata/",
+    "metacriticScore": 88,
+    "metacriticUrl": "https://www.metacritic.com/game/nier-automata/",
     "howLongToBeatMainHours": 21,
     "howLongToBeatMainExtraHours": 38,
     "howLongToBeatCompletionistHours": 61,
@@ -730,8 +730,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Nier%20Automata"
   },
   "sifu": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Sifu/",
+    "metacriticScore": 81,
+    "metacriticUrl": "https://www.metacritic.com/game/sifu/",
     "howLongToBeatMainHours": 8,
     "howLongToBeatMainExtraHours": 14,
     "howLongToBeatCompletionistHours": 22,
@@ -739,8 +739,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Sifu"
   },
   "metal-gear-rising-revengeance": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Metal%20Gear%20Rising%20Revengeance/",
+    "metacriticScore": 80,
+    "metacriticUrl": "https://www.metacritic.com/game/metal-gear-rising-revengeance/",
     "howLongToBeatMainHours": 7,
     "howLongToBeatMainExtraHours": 12,
     "howLongToBeatCompletionistHours": 42,
@@ -748,8 +748,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Metal%20Gear%20Rising%20Revengeance"
   },
   "batman-arkham-knight": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Batman%20Arkham%20Knight/",
+    "metacriticScore": 87,
+    "metacriticUrl": "https://www.metacritic.com/game/batman-arkham-knight/",
     "howLongToBeatMainHours": 17,
     "howLongToBeatMainExtraHours": 31,
     "howLongToBeatCompletionistHours": 51,
@@ -757,8 +757,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Batman%20Arkham%20Knight"
   },
   "assassin-s-creed-mirage": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Assassin's%20Creed%20Mirage/",
+    "metacriticScore": 76,
+    "metacriticUrl": "https://www.metacritic.com/game/assassins-creed-mirage/",
     "howLongToBeatMainHours": 16,
     "howLongToBeatMainExtraHours": 23,
     "howLongToBeatCompletionistHours": 31,
@@ -766,8 +766,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Assassin's%20Creed%20Mirage"
   },
   "hades": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Hades/",
+    "metacriticScore": 93,
+    "metacriticUrl": "https://www.metacritic.com/game/hades/",
     "howLongToBeatMainHours": 23,
     "howLongToBeatMainExtraHours": 49,
     "howLongToBeatCompletionistHours": 95,
@@ -775,8 +775,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Hades"
   },
   "hades-ii": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Hades%20II/",
+    "metacriticScore": 95,
+    "metacriticUrl": "https://www.metacritic.com/game/hades-ii/",
     "howLongToBeatMainHours": 30,
     "howLongToBeatMainExtraHours": 50,
     "howLongToBeatCompletionistHours": 104,
@@ -784,8 +784,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Hades%20II"
   },
   "control": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Control/",
+    "metacriticScore": 82,
+    "metacriticUrl": "https://www.metacritic.com/game/control/",
     "howLongToBeatMainHours": 12,
     "howLongToBeatMainExtraHours": 19,
     "howLongToBeatCompletionistHours": 29,
@@ -793,8 +793,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Control"
   },
   "sunset-overdrive": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Sunset%20Overdrive/",
+    "metacriticScore": 81,
+    "metacriticUrl": "https://www.metacritic.com/game/sunset-overdrive/",
     "howLongToBeatMainHours": 10,
     "howLongToBeatMainExtraHours": 18,
     "howLongToBeatCompletionistHours": 34,
@@ -802,8 +802,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Sunset%20Overdrive"
   },
   "lies-of-p": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Lies%20of%20P/",
+    "metacriticScore": 80,
+    "metacriticUrl": "https://www.metacritic.com/game/lies-of-p/",
     "howLongToBeatMainHours": 28,
     "howLongToBeatMainExtraHours": 36,
     "howLongToBeatCompletionistHours": 58,
@@ -811,8 +811,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Lies%20of%20P"
   },
   "ninja-gaiden-master-collection": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Ninja%20Gaiden%20Master%20Collection/",
+    "metacriticScore": 73,
+    "metacriticUrl": "https://www.metacritic.com/game/ninja-gaiden-master-collection/",
     "howLongToBeatMainHours": 27,
     "howLongToBeatMainExtraHours": 36,
     "howLongToBeatCompletionistHours": 110,
@@ -820,8 +820,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Ninja%20Gaiden%20Master%20Collection"
   },
   "remnant-ii": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Remnant%20II/",
+    "metacriticScore": 80,
+    "metacriticUrl": "https://www.metacritic.com/game/remnant-ii/",
     "howLongToBeatMainHours": 18,
     "howLongToBeatMainExtraHours": 29,
     "howLongToBeatCompletionistHours": 82,
@@ -829,8 +829,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Remnant%20II"
   },
   "ratchet-and-clank-rift-apart": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Ratchet%20and%20Clank%20Rift%20Apart/",
+    "metacriticScore": 88,
+    "metacriticUrl": "https://www.metacritic.com/game/ratchet-and-clank-rift-apart/",
     "howLongToBeatMainHours": 11,
     "howLongToBeatMainExtraHours": 15,
     "howLongToBeatCompletionistHours": 18,
@@ -838,8 +838,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Ratchet%20and%20Clank%20Rift%20Apart"
   },
   "monster-hunter-rise": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Monster%20Hunter%20Rise/",
+    "metacriticScore": 88,
+    "metacriticUrl": "https://www.metacritic.com/game/monster-hunter-rise/",
     "howLongToBeatMainHours": 23,
     "howLongToBeatMainExtraHours": 82,
     "howLongToBeatCompletionistHours": 182,
@@ -847,8 +847,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Monster%20Hunter%20Rise"
   },
   "monster-hunter-world": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Monster%20Hunter%20World/",
+    "metacriticScore": 90,
+    "metacriticUrl": "https://www.metacritic.com/game/monster-hunter-world/",
     "howLongToBeatMainHours": 46,
     "howLongToBeatMainExtraHours": 115,
     "howLongToBeatCompletionistHours": 429,
@@ -856,8 +856,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Monster%20Hunter%20World"
   },
   "darksiders-iii": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Darksiders%20III/",
+    "metacriticScore": 64,
+    "metacriticUrl": "https://www.metacritic.com/game/darksiders-iii/",
     "howLongToBeatMainHours": 14,
     "howLongToBeatMainExtraHours": 19,
     "howLongToBeatCompletionistHours": 32,
@@ -865,8 +865,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Darksiders%20III"
   },
   "middle-earth-shadow-of-war": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Middle-earth%20Shadow%20of%20War/",
+    "metacriticScore": 80,
+    "metacriticUrl": "https://www.metacritic.com/game/middle-earth-shadow-of-war/",
     "howLongToBeatMainHours": 21,
     "howLongToBeatMainExtraHours": 37,
     "howLongToBeatCompletionistHours": 57,
@@ -874,8 +874,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Middle-earth%20Shadow%20of%20War"
   },
   "prince-of-persia-the-lost-crown": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Prince%20of%20Persia%20The%20Lost%20Crown/",
+    "metacriticScore": 86,
+    "metacriticUrl": "https://www.metacritic.com/game/prince-of-persia-the-lost-crown/",
     "howLongToBeatMainHours": 17,
     "howLongToBeatMainExtraHours": 24,
     "howLongToBeatCompletionistHours": 31,
@@ -883,8 +883,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Prince%20of%20Persia%20The%20Lost%20Crown"
   },
   "returnal": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Returnal/",
+    "metacriticScore": 86,
+    "metacriticUrl": "https://www.metacritic.com/game/returnal/",
     "howLongToBeatMainHours": 19,
     "howLongToBeatMainExtraHours": 31,
     "howLongToBeatCompletionistHours": 64,
@@ -892,8 +892,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Returnal"
   },
   "the-elder-scrolls-v-skyrim": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/The%20Elder%20Scrolls%20V%20Skyrim/",
+    "metacriticScore": 96,
+    "metacriticUrl": "https://www.metacritic.com/game/the-elder-scrolls-v-skyrim/",
     "howLongToBeatMainHours": 35,
     "howLongToBeatMainExtraHours": 110,
     "howLongToBeatCompletionistHours": 237,
@@ -901,8 +901,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=The%20Elder%20Scrolls%20V%20Skyrim"
   },
   "elden-ring": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Elden%20Ring/",
+    "metacriticScore": 96,
+    "metacriticUrl": "https://www.metacritic.com/game/elden-ring/",
     "howLongToBeatMainHours": 60,
     "howLongToBeatMainExtraHours": 101,
     "howLongToBeatCompletionistHours": 136,
@@ -910,8 +910,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Elden%20Ring"
   },
   "mass-effect-legendary-edition": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Mass%20Effect%20Legendary%20Edition/",
+    "metacriticScore": 87,
+    "metacriticUrl": "https://www.metacritic.com/game/mass-effect-legendary-edition/",
     "howLongToBeatMainHours": 61,
     "howLongToBeatMainExtraHours": 102,
     "howLongToBeatCompletionistHours": 138,
@@ -919,8 +919,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Mass%20Effect%20Legendary%20Edition"
   },
   "pathfinder-wrath-of-the-righteous": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Pathfinder%20Wrath%20of%20the%20Righteous/",
+    "metacriticScore": 83,
+    "metacriticUrl": "https://www.metacritic.com/game/pathfinder-wrath-of-the-righteous/",
     "howLongToBeatMainHours": 56,
     "howLongToBeatMainExtraHours": 137,
     "howLongToBeatCompletionistHours": 259,
@@ -928,8 +928,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Pathfinder%20Wrath%20of%20the%20Righteous"
   },
   "pillars-of-eternity-ii-deadfire": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Pillars%20of%20Eternity%20II%20Deadfire/",
+    "metacriticScore": 88,
+    "metacriticUrl": "https://www.metacritic.com/game/pillars-of-eternity-ii-deadfire/",
     "howLongToBeatMainHours": 42,
     "howLongToBeatMainExtraHours": 65,
     "howLongToBeatCompletionistHours": 98,
@@ -937,8 +937,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Pillars%20of%20Eternity%20II%20Deadfire"
   },
   "dragon-s-dogma-2": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Dragon's%20Dogma%202/",
+    "metacriticScore": 86,
+    "metacriticUrl": "https://www.metacritic.com/game/dragons-dogma-2/",
     "howLongToBeatMainHours": 31,
     "howLongToBeatMainExtraHours": 56,
     "howLongToBeatCompletionistHours": 94,
@@ -946,8 +946,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Dragon's%20Dogma%202"
   },
   "starfield": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Starfield/",
+    "metacriticScore": 83,
+    "metacriticUrl": "https://www.metacritic.com/game/starfield/",
     "howLongToBeatMainHours": 24,
     "howLongToBeatMainExtraHours": 75,
     "howLongToBeatCompletionistHours": 148,
@@ -955,8 +955,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Starfield"
   },
   "octopath-traveler-ii": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Octopath%20Traveler%20II/",
+    "metacriticScore": 85,
+    "metacriticUrl": "https://www.metacritic.com/game/octopath-traveler-ii/",
     "howLongToBeatMainHours": 60,
     "howLongToBeatMainExtraHours": 83,
     "howLongToBeatCompletionistHours": 95,
@@ -964,8 +964,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Octopath%20Traveler%20II"
   },
   "xenoblade-chronicles-3": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Xenoblade%20Chronicles%203/",
+    "metacriticScore": 89,
+    "metacriticUrl": "https://www.metacritic.com/game/xenoblade-chronicles-3/",
     "howLongToBeatMainHours": 62,
     "howLongToBeatMainExtraHours": 102,
     "howLongToBeatCompletionistHours": 174,
@@ -973,8 +973,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Xenoblade%20Chronicles%203"
   },
   "yakuza-like-a-dragon": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Yakuza%20Like%20a%20Dragon/",
+    "metacriticScore": 84,
+    "metacriticUrl": "https://www.metacritic.com/game/yakuza-like-a-dragon/",
     "howLongToBeatMainHours": 46,
     "howLongToBeatMainExtraHours": 68,
     "howLongToBeatCompletionistHours": 103,
@@ -982,8 +982,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Yakuza%20Like%20a%20Dragon"
   },
   "like-a-dragon-infinite-wealth": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Like%20a%20Dragon%20Infinite%20Wealth/",
+    "metacriticScore": 89,
+    "metacriticUrl": "https://www.metacritic.com/game/like-a-dragon-infinite-wealth/",
     "howLongToBeatMainHours": 57,
     "howLongToBeatMainExtraHours": 84,
     "howLongToBeatCompletionistHours": 118,
@@ -991,8 +991,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Like%20a%20Dragon%20Infinite%20Wealth"
   },
   "diablo-iv": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Diablo%20IV/",
+    "metacriticScore": 86,
+    "metacriticUrl": "https://www.metacritic.com/game/diablo-iv/",
     "howLongToBeatMainHours": 26,
     "howLongToBeatMainExtraHours": 49,
     "howLongToBeatCompletionistHours": 190,
@@ -1000,8 +1000,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Diablo%20IV"
   },
   "grim-dawn": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Grim%20Dawn/",
+    "metacriticScore": 83,
+    "metacriticUrl": "https://www.metacritic.com/game/grim-dawn/",
     "howLongToBeatMainHours": 22,
     "howLongToBeatMainExtraHours": 48,
     "howLongToBeatCompletionistHours": 244,
@@ -1009,8 +1009,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Grim%20Dawn"
   },
   "wasteland-3": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Wasteland%203/",
+    "metacriticScore": 85,
+    "metacriticUrl": "https://www.metacritic.com/game/wasteland-3/",
     "howLongToBeatMainHours": 36,
     "howLongToBeatMainExtraHours": 50,
     "howLongToBeatCompletionistHours": 75,
@@ -1018,8 +1018,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Wasteland%203"
   },
   "fallout-new-vegas": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Fallout%20New%20Vegas/",
+    "metacriticScore": 84,
+    "metacriticUrl": "https://www.metacritic.com/game/fallout-new-vegas/",
     "howLongToBeatMainHours": 27,
     "howLongToBeatMainExtraHours": 60,
     "howLongToBeatCompletionistHours": 131,
@@ -1027,8 +1027,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Fallout%20New%20Vegas"
   },
   "fallout-4": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Fallout%204/",
+    "metacriticScore": 87,
+    "metacriticUrl": "https://www.metacritic.com/game/fallout-4/",
     "howLongToBeatMainHours": 28,
     "howLongToBeatMainExtraHours": 83,
     "howLongToBeatCompletionistHours": 161,
@@ -1036,8 +1036,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Fallout%204"
   },
   "chrono-trigger": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Chrono%20Trigger/",
+    "metacriticScore": 92,
+    "metacriticUrl": "https://www.metacritic.com/game/chrono-trigger/",
     "howLongToBeatMainHours": 23,
     "howLongToBeatMainExtraHours": 27,
     "howLongToBeatCompletionistHours": 42,
@@ -1045,8 +1045,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Chrono%20Trigger"
   },
   "sea-of-stars": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Sea%20of%20Stars/",
+    "metacriticScore": 87,
+    "metacriticUrl": "https://www.metacritic.com/game/sea-of-stars/",
     "howLongToBeatMainHours": 28,
     "howLongToBeatMainExtraHours": 35,
     "howLongToBeatCompletionistHours": 44,
@@ -1054,8 +1054,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Sea%20of%20Stars"
   },
   "tales-of-arise": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Tales%20of%20Arise/",
+    "metacriticScore": 87,
+    "metacriticUrl": "https://www.metacritic.com/game/tales-of-arise/",
     "howLongToBeatMainHours": 41,
     "howLongToBeatMainExtraHours": 57,
     "howLongToBeatCompletionistHours": 74,
@@ -1063,8 +1063,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Tales%20of%20Arise"
   },
   "metaphor-refantazio": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Metaphor%20ReFantazio/",
+    "metacriticScore": 94,
+    "metacriticUrl": "https://www.metacritic.com/game/metaphor-refantazio/",
     "howLongToBeatMainHours": 65,
     "howLongToBeatMainExtraHours": 88,
     "howLongToBeatCompletionistHours": 109,
@@ -1072,8 +1072,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Metaphor%20ReFantazio"
   },
   "kingdom-hearts-iii": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Kingdom%20Hearts%20III/",
+    "metacriticScore": 83,
+    "metacriticUrl": "https://www.metacritic.com/game/kingdom-hearts-iii/",
     "howLongToBeatMainHours": 29,
     "howLongToBeatMainExtraHours": 40,
     "howLongToBeatCompletionistHours": 65,
@@ -1081,8 +1081,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Kingdom%20Hearts%20III"
   },
   "hearts-of-iron-iv": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Hearts%20of%20Iron%20IV/",
+    "metacriticScore": 83,
+    "metacriticUrl": "https://www.metacritic.com/game/hearts-of-iron-iv/",
     "howLongToBeatMainHours": 52,
     "howLongToBeatMainExtraHours": 367,
     "howLongToBeatCompletionistHours": 1107,
@@ -1090,8 +1090,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Hearts%20of%20Iron%20IV"
   },
   "europa-universalis-iv": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Europa%20Universalis%20IV/",
+    "metacriticScore": 87,
+    "metacriticUrl": "https://www.metacritic.com/game/europa-universalis-iv/",
     "howLongToBeatMainHours": 95,
     "howLongToBeatMainExtraHours": 357,
     "howLongToBeatCompletionistHours": 1626,
@@ -1099,7 +1099,7 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Europa%20Universalis%20IV"
   },
   "warcraft-iii-reforged": {
-    "metacriticScore": null,
+    "metacriticScore": 59,
     "metacriticUrl": "https://www.metacritic.com/search/Warcraft%20III%20Reforged/",
     "howLongToBeatMainHours": 30,
     "howLongToBeatMainExtraHours": 42,
@@ -1108,8 +1108,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Warcraft%20III%20Reforged"
   },
   "northgard": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Northgard/",
+    "metacriticScore": 81,
+    "metacriticUrl": "https://www.metacritic.com/game/northgard/",
     "howLongToBeatMainHours": 14,
     "howLongToBeatMainExtraHours": 36,
     "howLongToBeatCompletionistHours": 89,
@@ -1117,8 +1117,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Northgard"
   },
   "endless-legend": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Endless%20Legend/",
+    "metacriticScore": 82,
+    "metacriticUrl": "https://www.metacritic.com/game/endless-legend/",
     "howLongToBeatMainHours": 16,
     "howLongToBeatMainExtraHours": 34,
     "howLongToBeatCompletionistHours": 145,
@@ -1126,8 +1126,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Endless%20Legend"
   },
   "age-of-wonders-4": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Age%20of%20Wonders%204/",
+    "metacriticScore": 83,
+    "metacriticUrl": "https://www.metacritic.com/game/age-of-wonders-4/",
     "howLongToBeatMainHours": 19,
     "howLongToBeatMainExtraHours": 75,
     "howLongToBeatCompletionistHours": 132,
@@ -1135,8 +1135,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Age%20of%20Wonders%204"
   },
   "phoenix-point": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Phoenix%20Point/",
+    "metacriticScore": 74,
+    "metacriticUrl": "https://www.metacritic.com/game/phoenix-point/",
     "howLongToBeatMainHours": 35,
     "howLongToBeatMainExtraHours": 73,
     "howLongToBeatCompletionistHours": 146,
@@ -1144,8 +1144,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Phoenix%20Point"
   },
   "desperados-iii": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Desperados%20III/",
+    "metacriticScore": 86,
+    "metacriticUrl": "https://www.metacritic.com/game/desperados-iii/",
     "howLongToBeatMainHours": 27,
     "howLongToBeatMainExtraHours": 37,
     "howLongToBeatCompletionistHours": 64,
@@ -1153,8 +1153,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Desperados%20III"
   },
   "shadow-tactics-blades-of-the-shogun": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Shadow%20Tactics%20Blades%20of%20the%20Shogun/",
+    "metacriticScore": 85,
+    "metacriticUrl": "https://www.metacritic.com/game/shadow-tactics-blades-of-the-shogun/",
     "howLongToBeatMainHours": 25,
     "howLongToBeatMainExtraHours": 30,
     "howLongToBeatCompletionistHours": 57,
@@ -1162,8 +1162,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Shadow%20Tactics%20Blades%20of%20the%20Shogun"
   },
   "command-and-conquer-remastered-collection": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Command%20and%20Conquer%20Remastered%20Collection/",
+    "metacriticScore": 82,
+    "metacriticUrl": "https://www.metacritic.com/game/command-and-conquer-remastered-collection/",
     "howLongToBeatMainHours": 32,
     "howLongToBeatMainExtraHours": 63,
     "howLongToBeatCompletionistHours": 80,
@@ -1171,8 +1171,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Command%20and%20Conquer%20Remastered%20Collection"
   },
   "anno-1800": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Anno%201800/",
+    "metacriticScore": 81,
+    "metacriticUrl": "https://www.metacritic.com/game/anno-1800/",
     "howLongToBeatMainHours": 15,
     "howLongToBeatMainExtraHours": 45,
     "howLongToBeatCompletionistHours": 140,
@@ -1180,8 +1180,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Anno%201800"
   },
   "factorio": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Factorio/",
+    "metacriticScore": 90,
+    "metacriticUrl": "https://www.metacritic.com/game/factorio/",
     "howLongToBeatMainHours": 50,
     "howLongToBeatMainExtraHours": 92,
     "howLongToBeatCompletionistHours": 218,
@@ -1189,8 +1189,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Factorio"
   },
   "rimworld": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/RimWorld/",
+    "metacriticScore": 87,
+    "metacriticUrl": "https://www.metacritic.com/game/rimworld/",
     "howLongToBeatMainHours": 64,
     "howLongToBeatMainExtraHours": 116,
     "howLongToBeatCompletionistHours": 303,
@@ -1198,8 +1198,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=RimWorld"
   },
   "dune-spice-wars": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Dune%20Spice%20Wars/",
+    "metacriticScore": 73,
+    "metacriticUrl": "https://www.metacritic.com/game/dune-spice-wars/",
     "howLongToBeatMainHours": 12,
     "howLongToBeatMainExtraHours": 27,
     "howLongToBeatCompletionistHours": 88,
@@ -1207,8 +1207,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Dune%20Spice%20Wars"
   },
   "iron-harvest": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Iron%20Harvest/",
+    "metacriticScore": 75,
+    "metacriticUrl": "https://www.metacritic.com/game/iron-harvest/",
     "howLongToBeatMainHours": 20,
     "howLongToBeatMainExtraHours": 31,
     "howLongToBeatCompletionistHours": 41,
@@ -1216,8 +1216,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Iron%20Harvest"
   },
   "they-are-billions": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/They%20Are%20Billions/",
+    "metacriticScore": 72,
+    "metacriticUrl": "https://www.metacritic.com/game/they-are-billions/",
     "howLongToBeatMainHours": 67,
     "howLongToBeatMainExtraHours": 98,
     "howLongToBeatCompletionistHours": 160,
@@ -1225,8 +1225,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=They%20Are%20Billions"
   },
   "total-war-three-kingdoms": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Total%20War%20Three%20Kingdoms/",
+    "metacriticScore": 85,
+    "metacriticUrl": "https://www.metacritic.com/game/total-war-three-kingdoms/",
     "howLongToBeatMainHours": 46,
     "howLongToBeatMainExtraHours": 69,
     "howLongToBeatCompletionistHours": 673,
@@ -1234,8 +1234,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Total%20War%20Three%20Kingdoms"
   },
   "stronghold-definitive-edition": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Stronghold%20Definitive%20Edition/",
+    "metacriticScore": 80,
+    "metacriticUrl": "https://www.metacritic.com/game/stronghold-definitive-edition/",
     "howLongToBeatMainHours": 18,
     "howLongToBeatMainExtraHours": 33,
     "howLongToBeatCompletionistHours": 34,
@@ -1243,8 +1243,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Stronghold%20Definitive%20Edition"
   },
   "battle-brothers": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Battle%20Brothers/",
+    "metacriticScore": 80,
+    "metacriticUrl": "https://www.metacritic.com/game/battle-brothers/",
     "howLongToBeatMainHours": 32,
     "howLongToBeatMainExtraHours": 59,
     "howLongToBeatCompletionistHours": 103,
@@ -1252,8 +1252,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Battle%20Brothers"
   },
   "against-the-storm": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Against%20the%20Storm/",
+    "metacriticScore": 91,
+    "metacriticUrl": "https://www.metacritic.com/game/against-the-storm/",
     "howLongToBeatMainHours": 35,
     "howLongToBeatMainExtraHours": 101,
     "howLongToBeatCompletionistHours": 253,
@@ -1261,8 +1261,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Against%20the%20Storm"
   },
   "nba-2k25": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/NBA%202K25/",
+    "metacriticScore": 79,
+    "metacriticUrl": "https://www.metacritic.com/game/nba-2k25/",
     "howLongToBeatMainHours": 22,
     "howLongToBeatMainExtraHours": 45,
     "howLongToBeatCompletionistHours": null,
@@ -1270,8 +1270,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=NBA%202K25"
   },
   "wwe-2k24": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/WWE%202K24/",
+    "metacriticScore": 81,
+    "metacriticUrl": "https://www.metacritic.com/game/wwe-2k24/",
     "howLongToBeatMainHours": 10,
     "howLongToBeatMainExtraHours": 50,
     "howLongToBeatCompletionistHours": 132,
@@ -1279,8 +1279,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=WWE%202K24"
   },
   "madden-nfl-25": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Madden%20NFL%2025/",
+    "metacriticScore": 70,
+    "metacriticUrl": "https://www.metacritic.com/game/madden-nfl-25/",
     "howLongToBeatMainHours": 29,
     "howLongToBeatMainExtraHours": 46,
     "howLongToBeatCompletionistHours": null,
@@ -1288,8 +1288,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Madden%20NFL%2025"
   },
   "rocket-league": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Rocket%20League/",
+    "metacriticScore": 85,
+    "metacriticUrl": "https://www.metacritic.com/game/rocket-league/",
     "howLongToBeatMainHours": 5,
     "howLongToBeatMainExtraHours": 26,
     "howLongToBeatCompletionistHours": 105,
@@ -1297,8 +1297,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Rocket%20League"
   },
   "steep": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Steep/",
+    "metacriticScore": 71,
+    "metacriticUrl": "https://www.metacritic.com/game/steep/",
     "howLongToBeatMainHours": 12,
     "howLongToBeatMainExtraHours": 24,
     "howLongToBeatCompletionistHours": 39,
@@ -1306,8 +1306,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Steep"
   },
   "ufc-5": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/UFC%205/",
+    "metacriticScore": 78,
+    "metacriticUrl": "https://www.metacritic.com/game/ea-sports-ufc-5/",
     "howLongToBeatMainHours": 9,
     "howLongToBeatMainExtraHours": 12,
     "howLongToBeatCompletionistHours": 34,
@@ -1315,8 +1315,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=UFC%205"
   },
   "cricket-24": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Cricket%2024/",
+    "metacriticScore": 57,
+    "metacriticUrl": "https://www.metacritic.com/game/cricket-24/",
     "howLongToBeatMainHours": 12,
     "howLongToBeatMainExtraHours": null,
     "howLongToBeatCompletionistHours": 60,
@@ -1324,8 +1324,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Cricket%2024"
   },
   "super-mega-baseball-4": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Super%20Mega%20Baseball%204/",
+    "metacriticScore": 79,
+    "metacriticUrl": "https://www.metacritic.com/game/super-mega-baseball-4/",
     "howLongToBeatMainHours": 12,
     "howLongToBeatMainExtraHours": 26,
     "howLongToBeatCompletionistHours": null,
@@ -1333,8 +1333,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Super%20Mega%20Baseball%204"
   },
   "ao-tennis-2": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/AO%20Tennis%202/",
+    "metacriticScore": 69,
+    "metacriticUrl": "https://www.metacritic.com/game/ao-tennis-2/",
     "howLongToBeatMainHours": 15,
     "howLongToBeatMainExtraHours": 22,
     "howLongToBeatCompletionistHours": 92,
@@ -1342,8 +1342,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=AO%20Tennis%202"
   },
   "tennis-world-tour-2": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Tennis%20World%20Tour%202/",
+    "metacriticScore": 56,
+    "metacriticUrl": "https://www.metacritic.com/game/tennis-world-tour-2/",
     "howLongToBeatMainHours": 10,
     "howLongToBeatMainExtraHours": 12,
     "howLongToBeatCompletionistHours": null,
@@ -1351,8 +1351,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Tennis%20World%20Tour%202"
   },
   "golf-with-your-friends": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Golf%20With%20Your%20Friends/",
+    "metacriticScore": 68,
+    "metacriticUrl": "https://www.metacritic.com/game/golf-with-your-friends/",
     "howLongToBeatMainHours": 6,
     "howLongToBeatMainExtraHours": 11,
     "howLongToBeatCompletionistHours": 26,
@@ -1360,8 +1360,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Golf%20With%20Your%20Friends"
   },
   "session-skate-sim": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Session%20Skate%20Sim/",
+    "metacriticScore": 67,
+    "metacriticUrl": "https://www.metacritic.com/game/session-skate-sim/",
     "howLongToBeatMainHours": 6,
     "howLongToBeatMainExtraHours": 40,
     "howLongToBeatCompletionistHours": 51,
@@ -1369,8 +1369,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Session%20Skate%20Sim"
   },
   "skater-xl": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Skater%20XL/",
+    "metacriticScore": 57,
+    "metacriticUrl": "https://www.metacritic.com/game/skater-xl/",
     "howLongToBeatMainHours": 13,
     "howLongToBeatMainExtraHours": 247,
     "howLongToBeatCompletionistHours": null,
@@ -1378,8 +1378,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Skater%20XL"
   },
   "fifa-23": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/FIFA%2023/",
+    "metacriticScore": 76,
+    "metacriticUrl": "https://www.metacritic.com/game/fifa-23/",
     "howLongToBeatMainHours": 90,
     "howLongToBeatMainExtraHours": 101,
     "howLongToBeatCompletionistHours": 189,
@@ -1387,8 +1387,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=FIFA%2023"
   },
   "f1-manager-2024": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/F1%20Manager%202024/",
+    "metacriticScore": 81,
+    "metacriticUrl": "https://www.metacritic.com/game/f1-manager-2024/",
     "howLongToBeatMainHours": 20,
     "howLongToBeatMainExtraHours": 56,
     "howLongToBeatCompletionistHours": 92,
@@ -1396,8 +1396,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=F1%20Manager%202024"
   },
   "football-manager-2024": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Football%20Manager%202024/",
+    "metacriticScore": 84,
+    "metacriticUrl": "https://www.metacritic.com/game/football-manager-2024/",
     "howLongToBeatMainHours": 139,
     "howLongToBeatMainExtraHours": 256,
     "howLongToBeatCompletionistHours": 500,
@@ -1405,8 +1405,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Football%20Manager%202024"
   },
   "pro-cycling-manager-2024": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Pro%20Cycling%20Manager%202024/",
+    "metacriticScore": 65,
+    "metacriticUrl": "https://www.metacritic.com/game/pro-cycling-manager-2024/",
     "howLongToBeatMainHours": null,
     "howLongToBeatMainExtraHours": null,
     "howLongToBeatCompletionistHours": null,
@@ -1414,8 +1414,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Pro%20Cycling%20Manager%202024"
   },
   "descenders": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Descenders/",
+    "metacriticScore": 75,
+    "metacriticUrl": "https://www.metacritic.com/game/descenders/",
     "howLongToBeatMainHours": 5,
     "howLongToBeatMainExtraHours": 13,
     "howLongToBeatCompletionistHours": 70,
@@ -1423,8 +1423,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Descenders"
   },
   "olliolli-world": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/OlliOlli%20World/",
+    "metacriticScore": 84,
+    "metacriticUrl": "https://www.metacritic.com/game/olliolli-world/",
     "howLongToBeatMainHours": 5,
     "howLongToBeatMainExtraHours": 12,
     "howLongToBeatCompletionistHours": 56,
@@ -1432,8 +1432,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=OlliOlli%20World"
   },
   "nba-2k24": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/NBA%202K24/",
+    "metacriticScore": 68,
+    "metacriticUrl": "https://www.metacritic.com/game/nba-2k24/",
     "howLongToBeatMainHours": 41,
     "howLongToBeatMainExtraHours": 48,
     "howLongToBeatCompletionistHours": 159,
@@ -1441,8 +1441,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=NBA%202K24"
   },
   "dirt-rally-2-0": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/DiRT%20Rally%202.0/",
+    "metacriticScore": 84,
+    "metacriticUrl": "https://www.metacritic.com/game/dirt-rally-20/",
     "howLongToBeatMainHours": 13,
     "howLongToBeatMainExtraHours": 48,
     "howLongToBeatCompletionistHours": 126,
@@ -1450,8 +1450,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=DiRT%20Rally%202.0"
   },
   "wrc-generations": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/WRC%20Generations/",
+    "metacriticScore": 74,
+    "metacriticUrl": "https://www.metacritic.com/game/wrc-generations/",
     "howLongToBeatMainHours": 14,
     "howLongToBeatMainExtraHours": 28,
     "howLongToBeatCompletionistHours": 54,
@@ -1459,8 +1459,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=WRC%20Generations"
   },
   "grid-legends": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/GRID%20Legends/",
+    "metacriticScore": 76,
+    "metacriticUrl": "https://www.metacritic.com/game/grid-legends/",
     "howLongToBeatMainHours": 6,
     "howLongToBeatMainExtraHours": 28,
     "howLongToBeatCompletionistHours": 78,
@@ -1468,8 +1468,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=GRID%20Legends"
   },
   "project-cars-2": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Project%20CARS%202/",
+    "metacriticScore": 82,
+    "metacriticUrl": "https://www.metacritic.com/game/project-cars-2/",
     "howLongToBeatMainHours": 26,
     "howLongToBeatMainExtraHours": 71,
     "howLongToBeatCompletionistHours": 98,
@@ -1477,8 +1477,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Project%20CARS%202"
   },
   "need-for-speed-heat": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Need%20for%20Speed%20Heat/",
+    "metacriticScore": 72,
+    "metacriticUrl": "https://www.metacritic.com/game/need-for-speed-heat/",
     "howLongToBeatMainHours": 14,
     "howLongToBeatMainExtraHours": 25,
     "howLongToBeatCompletionistHours": 52,
@@ -1486,8 +1486,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Need%20for%20Speed%20Heat"
   },
   "burnout-paradise-remastered": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Burnout%20Paradise%20Remastered/",
+    "metacriticScore": 82,
+    "metacriticUrl": "https://www.metacritic.com/game/burnout-paradise-remastered/",
     "howLongToBeatMainHours": 11,
     "howLongToBeatMainExtraHours": 20,
     "howLongToBeatCompletionistHours": 37,
@@ -1495,8 +1495,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Burnout%20Paradise%20Remastered"
   },
   "trackmania": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Trackmania/",
+    "metacriticScore": 74,
+    "metacriticUrl": "https://www.metacritic.com/game/trackmania/",
     "howLongToBeatMainHours": 9,
     "howLongToBeatMainExtraHours": 67,
     "howLongToBeatCompletionistHours": 381,
@@ -1504,8 +1504,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Trackmania"
   },
   "ride-5": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Ride%205/",
+    "metacriticScore": 75,
+    "metacriticUrl": "https://www.metacritic.com/game/ride-5/",
     "howLongToBeatMainHours": 10,
     "howLongToBeatMainExtraHours": 50,
     "howLongToBeatCompletionistHours": 267,
@@ -1513,8 +1513,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Ride%205"
   },
   "motogp-24": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/MotoGP%2024/",
+    "metacriticScore": 76,
+    "metacriticUrl": "https://www.metacritic.com/game/motogp-24/",
     "howLongToBeatMainHours": 15,
     "howLongToBeatMainExtraHours": 29,
     "howLongToBeatCompletionistHours": null,
@@ -1522,8 +1522,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=MotoGP%2024"
   },
   "kartrider-drift": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/KartRider%20Drift/",
+    "metacriticScore": 76,
+    "metacriticUrl": "https://www.metacritic.com/game/kartrider-drift/",
     "howLongToBeatMainHours": 29,
     "howLongToBeatMainExtraHours": null,
     "howLongToBeatCompletionistHours": 37,
@@ -1531,8 +1531,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=KartRider%20Drift"
   },
   "test-drive-unlimited-solar-crown": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Test%20Drive%20Unlimited%20Solar%20Crown/",
+    "metacriticScore": 53,
+    "metacriticUrl": "https://www.metacritic.com/game/test-drive-unlimited-solar-crown/",
     "howLongToBeatMainHours": 27,
     "howLongToBeatMainExtraHours": 54,
     "howLongToBeatCompletionistHours": 75,
@@ -1540,8 +1540,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Test%20Drive%20Unlimited%20Solar%20Crown"
   },
   "nascar-heat-5": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/NASCAR%20Heat%205/",
+    "metacriticScore": 69,
+    "metacriticUrl": "https://www.metacritic.com/game/nascar-heat-5/",
     "howLongToBeatMainHours": 34,
     "howLongToBeatMainExtraHours": 46,
     "howLongToBeatCompletionistHours": 81,
@@ -1550,7 +1550,7 @@ export const gameExternalData: Record<string, GameExternalData> = {
   },
   "beamng-drive": {
     "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/BeamNG.drive/",
+    "metacriticUrl": "https://www.metacritic.com/game/beamngdrive/",
     "howLongToBeatMainHours": 7,
     "howLongToBeatMainExtraHours": 8,
     "howLongToBeatCompletionistHours": 16,
@@ -1559,7 +1559,7 @@ export const gameExternalData: Record<string, GameExternalData> = {
   },
   "automobilista-2": {
     "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Automobilista%202/",
+    "metacriticUrl": "https://www.metacritic.com/game/automobilista-2/",
     "howLongToBeatMainHours": null,
     "howLongToBeatMainExtraHours": 43,
     "howLongToBeatCompletionistHours": 300,
@@ -1567,8 +1567,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Automobilista%202"
   },
   "iracing": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/iRacing/",
+    "metacriticScore": 79,
+    "metacriticUrl": "https://www.metacritic.com/game/iracing/",
     "howLongToBeatMainHours": 100,
     "howLongToBeatMainExtraHours": null,
     "howLongToBeatCompletionistHours": 288,
@@ -1576,8 +1576,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=iRacing"
   },
   "wreckfest": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Wreckfest/",
+    "metacriticScore": 81,
+    "metacriticUrl": "https://www.metacritic.com/game/wreckfest/",
     "howLongToBeatMainHours": 18,
     "howLongToBeatMainExtraHours": 26,
     "howLongToBeatCompletionistHours": 32,
@@ -1585,8 +1585,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Wreckfest"
   },
   "split-second": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Split%20Second/",
+    "metacriticScore": 82,
+    "metacriticUrl": "https://www.metacritic.com/game/split-second/",
     "howLongToBeatMainHours": 10,
     "howLongToBeatMainExtraHours": 13,
     "howLongToBeatCompletionistHours": 20,
@@ -1594,8 +1594,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Split%20Second"
   },
   "blur": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Blur/",
+    "metacriticScore": 82,
+    "metacriticUrl": "https://www.metacritic.com/game/blur/",
     "howLongToBeatMainHours": 10,
     "howLongToBeatMainExtraHours": 14,
     "howLongToBeatCompletionistHours": 20,
@@ -1603,8 +1603,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Blur"
   },
   "art-of-rally": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Art%20of%20Rally/",
+    "metacriticScore": 79,
+    "metacriticUrl": "https://www.metacritic.com/game/art-of-rally/",
     "howLongToBeatMainHours": 16,
     "howLongToBeatMainExtraHours": 20,
     "howLongToBeatCompletionistHours": 31,
@@ -1612,8 +1612,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Art%20of%20Rally"
   },
   "resident-evil-4": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Resident%20Evil%204/",
+    "metacriticScore": 93,
+    "metacriticUrl": "https://www.metacritic.com/game/resident-evil-4/",
     "howLongToBeatMainHours": 16,
     "howLongToBeatMainExtraHours": 22,
     "howLongToBeatCompletionistHours": 65,
@@ -1621,8 +1621,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Resident%20Evil%204"
   },
   "dead-space": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Dead%20Space/",
+    "metacriticScore": 89,
+    "metacriticUrl": "https://www.metacritic.com/game/dead-space/",
     "howLongToBeatMainHours": 12,
     "howLongToBeatMainExtraHours": 16,
     "howLongToBeatCompletionistHours": 30,
@@ -1630,8 +1630,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Dead%20Space"
   },
   "layers-of-fear": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Layers%20of%20Fear/",
+    "metacriticScore": 75,
+    "metacriticUrl": "https://www.metacritic.com/game/layers-of-fear/",
     "howLongToBeatMainHours": 3,
     "howLongToBeatMainExtraHours": 5,
     "howLongToBeatCompletionistHours": 12,
@@ -1639,8 +1639,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Layers%20of%20Fear"
   },
   "silent-hill-2": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Silent%20Hill%202/",
+    "metacriticScore": 86,
+    "metacriticUrl": "https://www.metacritic.com/game/silent-hill-2/",
     "howLongToBeatMainHours": 16,
     "howLongToBeatMainExtraHours": 19,
     "howLongToBeatCompletionistHours": 32,
@@ -1648,8 +1648,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Silent%20Hill%202"
   },
   "resident-evil-2": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Resident%20Evil%202/",
+    "metacriticScore": 91,
+    "metacriticUrl": "https://www.metacritic.com/game/resident-evil-2/",
     "howLongToBeatMainHours": 9,
     "howLongToBeatMainExtraHours": 15,
     "howLongToBeatCompletionistHours": 37,
@@ -1657,8 +1657,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Resident%20Evil%202"
   },
   "resident-evil-7-biohazard": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Resident%20Evil%207%20Biohazard/",
+    "metacriticScore": 86,
+    "metacriticUrl": "https://www.metacritic.com/game/resident-evil-7-biohazard/",
     "howLongToBeatMainHours": 9,
     "howLongToBeatMainExtraHours": 12,
     "howLongToBeatCompletionistHours": 28,
@@ -1666,8 +1666,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Resident%20Evil%207%20Biohazard"
   },
   "resident-evil-village": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Resident%20Evil%20Village/",
+    "metacriticScore": 84,
+    "metacriticUrl": "https://www.metacritic.com/game/resident-evil-village/",
     "howLongToBeatMainHours": 10,
     "howLongToBeatMainExtraHours": 13,
     "howLongToBeatCompletionistHours": 38,
@@ -1675,8 +1675,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Resident%20Evil%20Village"
   },
   "fatal-frame-maiden-of-black-water": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Fatal%20Frame%20Maiden%20of%20Black%20Water/",
+    "metacriticScore": 67,
+    "metacriticUrl": "https://www.metacritic.com/game/fatal-frame-maiden-of-black-water/",
     "howLongToBeatMainHours": 15,
     "howLongToBeatMainExtraHours": 19,
     "howLongToBeatCompletionistHours": 44,
@@ -1684,8 +1684,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Fatal%20Frame%20Maiden%20of%20Black%20Water"
   },
   "alien-isolation": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Alien%20Isolation/",
+    "metacriticScore": 79,
+    "metacriticUrl": "https://www.metacritic.com/game/alien-isolation/",
     "howLongToBeatMainHours": 18,
     "howLongToBeatMainExtraHours": 23,
     "howLongToBeatCompletionistHours": 34,
@@ -1693,8 +1693,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Alien%20Isolation"
   },
   "little-nightmares-ii": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Little%20Nightmares%20II/",
+    "metacriticScore": 82,
+    "metacriticUrl": "https://www.metacritic.com/game/little-nightmares-ii/",
     "howLongToBeatMainHours": 6,
     "howLongToBeatMainExtraHours": 7,
     "howLongToBeatCompletionistHours": 9,
@@ -1702,8 +1702,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Little%20Nightmares%20II"
   },
   "signalis": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Signalis/",
+    "metacriticScore": 81,
+    "metacriticUrl": "https://www.metacritic.com/game/signalis/",
     "howLongToBeatMainHours": 9,
     "howLongToBeatMainExtraHours": 11,
     "howLongToBeatCompletionistHours": 14,
@@ -1711,8 +1711,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Signalis"
   },
   "visage": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Visage/",
+    "metacriticScore": 81,
+    "metacriticUrl": "https://www.metacritic.com/game/visage/",
     "howLongToBeatMainHours": 9,
     "howLongToBeatMainExtraHours": 12,
     "howLongToBeatCompletionistHours": 14,
@@ -1720,8 +1720,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Visage"
   },
   "madison": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Madison/",
+    "metacriticScore": 75,
+    "metacriticUrl": "https://www.metacritic.com/game/madison/",
     "howLongToBeatMainHours": 6,
     "howLongToBeatMainExtraHours": 7,
     "howLongToBeatCompletionistHours": 8,
@@ -1729,8 +1729,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Madison"
   },
   "darkwood": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Darkwood/",
+    "metacriticScore": 80,
+    "metacriticUrl": "https://www.metacritic.com/game/darkwood/",
     "howLongToBeatMainHours": 18,
     "howLongToBeatMainExtraHours": 27,
     "howLongToBeatCompletionistHours": 41,
@@ -1738,8 +1738,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Darkwood"
   },
   "the-mortuary-assistant": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/The%20Mortuary%20Assistant/",
+    "metacriticScore": 75,
+    "metacriticUrl": "https://www.metacritic.com/game/the-mortuary-assistant/",
     "howLongToBeatMainHours": 2,
     "howLongToBeatMainExtraHours": 7,
     "howLongToBeatCompletionistHours": 19,
@@ -1747,8 +1747,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=The%20Mortuary%20Assistant"
   },
   "until-dawn": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Until%20Dawn/",
+    "metacriticScore": 70,
+    "metacriticUrl": "https://www.metacritic.com/game/until-dawn/",
     "howLongToBeatMainHours": 8,
     "howLongToBeatMainExtraHours": 9,
     "howLongToBeatCompletionistHours": 19,
@@ -1756,8 +1756,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Until%20Dawn"
   },
   "the-quarry": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/The%20Quarry/",
+    "metacriticScore": 79,
+    "metacriticUrl": "https://www.metacritic.com/game/the-quarry/",
     "howLongToBeatMainHours": 9,
     "howLongToBeatMainExtraHours": 11,
     "howLongToBeatCompletionistHours": 34,
@@ -1765,8 +1765,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=The%20Quarry"
   },
   "dying-light-2-stay-human": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Dying%20Light%202%20Stay%20Human/",
+    "metacriticScore": 76,
+    "metacriticUrl": "https://www.metacritic.com/game/dying-light-2-stay-human/",
     "howLongToBeatMainHours": 24,
     "howLongToBeatMainExtraHours": 49,
     "howLongToBeatCompletionistHours": 103,
@@ -1774,8 +1774,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Dying%20Light%202%20Stay%20Human"
   },
   "left-4-dead-2": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Left%204%20Dead%202/",
+    "metacriticScore": 89,
+    "metacriticUrl": "https://www.metacritic.com/game/left-4-dead-2/",
     "howLongToBeatMainHours": 10,
     "howLongToBeatMainExtraHours": 28,
     "howLongToBeatCompletionistHours": 60,
@@ -1783,8 +1783,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Left%204%20Dead%202"
   },
   "dead-by-daylight": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Dead%20by%20Daylight/",
+    "metacriticScore": 64,
+    "metacriticUrl": "https://www.metacritic.com/game/dead-by-daylight/",
     "howLongToBeatMainHours": 79,
     "howLongToBeatMainExtraHours": 356,
     "howLongToBeatCompletionistHours": 763,
@@ -1792,8 +1792,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Dead%20by%20Daylight"
   },
   "killing-floor-2": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Killing%20Floor%202/",
+    "metacriticScore": 75,
+    "metacriticUrl": "https://www.metacritic.com/game/killing-floor-2/",
     "howLongToBeatMainHours": 16,
     "howLongToBeatMainExtraHours": 87,
     "howLongToBeatCompletionistHours": 118,
@@ -1801,8 +1801,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Killing%20Floor%202"
   },
   "scorn": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Scorn/",
+    "metacriticScore": 70,
+    "metacriticUrl": "https://www.metacritic.com/game/scorn/",
     "howLongToBeatMainHours": 5,
     "howLongToBeatMainExtraHours": 6,
     "howLongToBeatCompletionistHours": 6,
@@ -1810,8 +1810,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Scorn"
   },
   "martha-is-dead": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Martha%20Is%20Dead/",
+    "metacriticScore": 73,
+    "metacriticUrl": "https://www.metacritic.com/game/martha-is-dead/",
     "howLongToBeatMainHours": 6,
     "howLongToBeatMainExtraHours": 7,
     "howLongToBeatCompletionistHours": 8,
@@ -1819,8 +1819,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Martha%20Is%20Dead"
   },
   "overwatch-2": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Overwatch%202/",
+    "metacriticScore": 79,
+    "metacriticUrl": "https://www.metacritic.com/game/overwatch-2/",
     "howLongToBeatMainHours": 39,
     "howLongToBeatMainExtraHours": 115,
     "howLongToBeatCompletionistHours": 752,
@@ -1828,8 +1828,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Overwatch%202"
   },
   "titanfall-2": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Titanfall%202/",
+    "metacriticScore": 89,
+    "metacriticUrl": "https://www.metacritic.com/game/titanfall-2/",
     "howLongToBeatMainHours": 6,
     "howLongToBeatMainExtraHours": 8,
     "howLongToBeatCompletionistHours": 16,
@@ -1837,8 +1837,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Titanfall%202"
   },
   "escape-from-tarkov": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Escape%20from%20Tarkov/",
+    "metacriticScore": 73,
+    "metacriticUrl": "https://www.metacritic.com/game/escape-from-tarkov/",
     "howLongToBeatMainHours": 189,
     "howLongToBeatMainExtraHours": 259,
     "howLongToBeatCompletionistHours": 556,
@@ -1846,8 +1846,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Escape%20from%20Tarkov"
   },
   "ready-or-not": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Ready%20or%20Not/",
+    "metacriticScore": 80,
+    "metacriticUrl": "https://www.metacritic.com/game/ready-or-not/",
     "howLongToBeatMainHours": 16,
     "howLongToBeatMainExtraHours": 28,
     "howLongToBeatCompletionistHours": 59,
@@ -1855,8 +1855,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Ready%20or%20Not"
   },
   "pubg-battlegrounds": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/PUBG%20Battlegrounds/",
+    "metacriticScore": 86,
+    "metacriticUrl": "https://www.metacritic.com/game/playerunknowns-battlegrounds/",
     "howLongToBeatMainHours": 91,
     "howLongToBeatMainExtraHours": 258,
     "howLongToBeatCompletionistHours": 545,
@@ -1864,8 +1864,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=PUBG%20Battlegrounds"
   },
   "fortnite": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Fortnite/",
+    "metacriticScore": 78,
+    "metacriticUrl": "https://www.metacritic.com/game/fortnite/",
     "howLongToBeatMainHours": 61,
     "howLongToBeatMainExtraHours": 151,
     "howLongToBeatCompletionistHours": 494,
@@ -1873,8 +1873,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Fortnite"
   },
   "warframe": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Warframe/",
+    "metacriticScore": 64,
+    "metacriticUrl": "https://www.metacritic.com/game/warframe/",
     "howLongToBeatMainHours": 114,
     "howLongToBeatMainExtraHours": 653,
     "howLongToBeatCompletionistHours": 1510,
@@ -1882,8 +1882,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Warframe"
   },
   "halo-infinite": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Halo%20Infinite/",
+    "metacriticScore": 87,
+    "metacriticUrl": "https://www.metacritic.com/game/halo-infinite/",
     "howLongToBeatMainHours": 11,
     "howLongToBeatMainExtraHours": 19,
     "howLongToBeatCompletionistHours": 29,
@@ -1891,8 +1891,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Halo%20Infinite"
   },
   "wolfenstein-ii-the-new-colossus": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Wolfenstein%20II%20The%20New%20Colossus/",
+    "metacriticScore": 87,
+    "metacriticUrl": "https://www.metacritic.com/game/wolfenstein-ii-the-new-colossus/",
     "howLongToBeatMainHours": 11,
     "howLongToBeatMainExtraHours": 17,
     "howLongToBeatCompletionistHours": 34,
@@ -1900,8 +1900,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Wolfenstein%20II%20The%20New%20Colossus"
   },
   "far-cry-6": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Far%20Cry%206/",
+    "metacriticScore": 73,
+    "metacriticUrl": "https://www.metacritic.com/game/far-cry-6/",
     "howLongToBeatMainHours": 25,
     "howLongToBeatMainExtraHours": 42,
     "howLongToBeatCompletionistHours": 64,
@@ -1909,8 +1909,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Far%20Cry%206"
   },
   "borderlands-3": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Borderlands%203/",
+    "metacriticScore": 81,
+    "metacriticUrl": "https://www.metacritic.com/game/borderlands-3/",
     "howLongToBeatMainHours": 23,
     "howLongToBeatMainExtraHours": 46,
     "howLongToBeatCompletionistHours": 83,
@@ -1918,8 +1918,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Borderlands%203"
   },
   "deep-rock-galactic": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Deep%20Rock%20Galactic/",
+    "metacriticScore": 85,
+    "metacriticUrl": "https://www.metacritic.com/game/deep-rock-galactic/",
     "howLongToBeatMainHours": 45,
     "howLongToBeatMainExtraHours": 137,
     "howLongToBeatCompletionistHours": 483,
@@ -1927,8 +1927,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Deep%20Rock%20Galactic"
   },
   "arma-3": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Arma%203/",
+    "metacriticScore": 74,
+    "metacriticUrl": "https://www.metacritic.com/game/arma-3/",
     "howLongToBeatMainHours": 20,
     "howLongToBeatMainExtraHours": 42,
     "howLongToBeatCompletionistHours": 120,
@@ -1936,8 +1936,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Arma%203"
   },
   "insurgency-sandstorm": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Insurgency%20Sandstorm/",
+    "metacriticScore": 78,
+    "metacriticUrl": "https://www.metacritic.com/game/insurgency-sandstorm/",
     "howLongToBeatMainHours": 22,
     "howLongToBeatMainExtraHours": 66,
     "howLongToBeatCompletionistHours": 293,
@@ -1946,7 +1946,7 @@ export const gameExternalData: Record<string, GameExternalData> = {
   },
   "quake-champions": {
     "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Quake%20Champions/",
+    "metacriticUrl": "https://www.metacritic.com/game/quake-champions/",
     "howLongToBeatMainHours": 16,
     "howLongToBeatMainExtraHours": 40,
     "howLongToBeatCompletionistHours": null,
@@ -1954,8 +1954,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Quake%20Champions"
   },
   "splitgate": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Splitgate/",
+    "metacriticScore": 71,
+    "metacriticUrl": "https://www.metacritic.com/game/splitgate/",
     "howLongToBeatMainHours": 14,
     "howLongToBeatMainExtraHours": 132,
     "howLongToBeatCompletionistHours": null,
@@ -1963,8 +1963,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Splitgate"
   },
   "paladins": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Paladins/",
+    "metacriticScore": 74,
+    "metacriticUrl": "https://www.metacritic.com/game/paladins-champions-of-the-realm/",
     "howLongToBeatMainHours": 60,
     "howLongToBeatMainExtraHours": 211,
     "howLongToBeatCompletionistHours": 479,
@@ -1972,8 +1972,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Paladins"
   },
   "xdefiant": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/XDefiant/",
+    "metacriticScore": 67,
+    "metacriticUrl": "https://www.metacritic.com/game/xdefiant/",
     "howLongToBeatMainHours": 12,
     "howLongToBeatMainExtraHours": 23,
     "howLongToBeatCompletionistHours": 32,
@@ -1981,8 +1981,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=XDefiant"
   },
   "payday-3": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Payday%203/",
+    "metacriticScore": 66,
+    "metacriticUrl": "https://www.metacritic.com/game/payday-3/",
     "howLongToBeatMainHours": 7,
     "howLongToBeatMainExtraHours": 20,
     "howLongToBeatCompletionistHours": 79,
@@ -1990,8 +1990,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Payday%203"
   },
   "remnant-from-the-ashes": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Remnant%20From%20the%20Ashes/",
+    "metacriticScore": 78,
+    "metacriticUrl": "https://www.metacritic.com/game/remnant-from-the-ashes/",
     "howLongToBeatMainHours": 13,
     "howLongToBeatMainExtraHours": 21,
     "howLongToBeatCompletionistHours": 59,
@@ -1999,8 +1999,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Remnant%20From%20the%20Ashes"
   },
   "the-gardens-between": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/The%20Gardens%20Between/",
+    "metacriticScore": 79,
+    "metacriticUrl": "https://www.metacritic.com/game/the-gardens-between/",
     "howLongToBeatMainHours": 2,
     "howLongToBeatMainExtraHours": 3,
     "howLongToBeatCompletionistHours": 3,
@@ -2008,8 +2008,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=The%20Gardens%20Between"
   },
   "gorogoa": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Gorogoa/",
+    "metacriticScore": 84,
+    "metacriticUrl": "https://www.metacritic.com/game/gorogoa/",
     "howLongToBeatMainHours": 2,
     "howLongToBeatMainExtraHours": 2,
     "howLongToBeatCompletionistHours": 3,
@@ -2017,8 +2017,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Gorogoa"
   },
   "return-of-the-obra-dinn": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Return%20of%20the%20Obra%20Dinn/",
+    "metacriticScore": 89,
+    "metacriticUrl": "https://www.metacritic.com/game/return-of-the-obra-dinn/",
     "howLongToBeatMainHours": 8,
     "howLongToBeatMainExtraHours": 9,
     "howLongToBeatCompletionistHours": 10,
@@ -2026,8 +2026,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Return%20of%20the%20Obra%20Dinn"
   },
   "the-pedestrian": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/The%20Pedestrian/",
+    "metacriticScore": 81,
+    "metacriticUrl": "https://www.metacritic.com/game/the-pedestrian/",
     "howLongToBeatMainHours": 4,
     "howLongToBeatMainExtraHours": 4,
     "howLongToBeatCompletionistHours": 4,
@@ -2035,8 +2035,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=The%20Pedestrian"
   },
   "patrick-s-parabox": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Patrick's%20Parabox/",
+    "metacriticScore": 84,
+    "metacriticUrl": "https://www.metacritic.com/game/patricks-parabox/",
     "howLongToBeatMainHours": 6,
     "howLongToBeatMainExtraHours": 10,
     "howLongToBeatCompletionistHours": 17,
@@ -2044,8 +2044,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Patrick's%20Parabox"
   },
   "q-u-b-e-2": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Q.U.B.E.%202/",
+    "metacriticScore": 76,
+    "metacriticUrl": "https://www.metacritic.com/game/qube-2/",
     "howLongToBeatMainHours": 5,
     "howLongToBeatMainExtraHours": 7,
     "howLongToBeatCompletionistHours": 8,
@@ -2053,8 +2053,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Q.U.B.E.%202"
   },
   "the-turing-test": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/The%20Turing%20Test/",
+    "metacriticScore": 74,
+    "metacriticUrl": "https://www.metacritic.com/game/the-turing-test/",
     "howLongToBeatMainHours": 5,
     "howLongToBeatMainExtraHours": 6,
     "howLongToBeatCompletionistHours": 6,
@@ -2062,8 +2062,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=The%20Turing%20Test"
   },
   "manifold-garden": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Manifold%20Garden/",
+    "metacriticScore": 85,
+    "metacriticUrl": "https://www.metacritic.com/game/manifold-garden/",
     "howLongToBeatMainHours": 5,
     "howLongToBeatMainExtraHours": 6,
     "howLongToBeatCompletionistHours": 8,
@@ -2071,8 +2071,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Manifold%20Garden"
   },
   "monument-valley-2": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Monument%20Valley%202/",
+    "metacriticScore": 83,
+    "metacriticUrl": "https://www.metacritic.com/game/monument-valley-2/",
     "howLongToBeatMainHours": 2,
     "howLongToBeatMainExtraHours": 2,
     "howLongToBeatCompletionistHours": 2,
@@ -2080,8 +2080,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Monument%20Valley%202"
   },
   "dorfromantik": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Dorfromantik/",
+    "metacriticScore": 84,
+    "metacriticUrl": "https://www.metacritic.com/game/dorfromantik/",
     "howLongToBeatMainHours": 5,
     "howLongToBeatMainExtraHours": 19,
     "howLongToBeatCompletionistHours": 60,
@@ -2089,8 +2089,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Dorfromantik"
   },
   "world-of-goo": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/World%20of%20Goo/",
+    "metacriticScore": 90,
+    "metacriticUrl": "https://www.metacritic.com/game/world-of-goo/",
     "howLongToBeatMainHours": 6,
     "howLongToBeatMainExtraHours": 8,
     "howLongToBeatCompletionistHours": 14,
@@ -2098,8 +2098,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=World%20of%20Goo"
   },
   "mini-motorways": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Mini%20Motorways/",
+    "metacriticScore": 87,
+    "metacriticUrl": "https://www.metacritic.com/game/mini-motorways/",
     "howLongToBeatMainHours": 6,
     "howLongToBeatMainExtraHours": 12,
     "howLongToBeatCompletionistHours": 43,
@@ -2107,8 +2107,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Mini%20Motorways"
   },
   "mini-metro": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Mini%20Metro/",
+    "metacriticScore": 86,
+    "metacriticUrl": "https://www.metacritic.com/game/mini-metro/",
     "howLongToBeatMainHours": 6,
     "howLongToBeatMainExtraHours": 13,
     "howLongToBeatCompletionistHours": 43,
@@ -2116,8 +2116,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Mini%20Metro"
   },
   "fez": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Fez/",
+    "metacriticScore": 89,
+    "metacriticUrl": "https://www.metacritic.com/game/fez/",
     "howLongToBeatMainHours": 6,
     "howLongToBeatMainExtraHours": 8,
     "howLongToBeatCompletionistHours": 12,
@@ -2125,8 +2125,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Fez"
   },
   "braid-anniversary-edition": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Braid%20Anniversary%20Edition/",
+    "metacriticScore": 86,
+    "metacriticUrl": "https://www.metacritic.com/game/braid-anniversary-edition/",
     "howLongToBeatMainHours": 4,
     "howLongToBeatMainExtraHours": 6,
     "howLongToBeatCompletionistHours": 10,
@@ -2134,8 +2134,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Braid%20Anniversary%20Edition"
   },
   "the-swapper": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/The%20Swapper/",
+    "metacriticScore": 87,
+    "metacriticUrl": "https://www.metacritic.com/game/the-swapper/",
     "howLongToBeatMainHours": 5,
     "howLongToBeatMainExtraHours": 5,
     "howLongToBeatCompletionistHours": 6,
@@ -2143,8 +2143,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=The%20Swapper"
   },
   "inside": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Inside/",
+    "metacriticScore": 93,
+    "metacriticUrl": "https://www.metacritic.com/game/inside/",
     "howLongToBeatMainHours": 4,
     "howLongToBeatMainExtraHours": 4,
     "howLongToBeatCompletionistHours": 5,
@@ -2152,8 +2152,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Inside"
   },
   "limbo": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Limbo/",
+    "metacriticScore": 90,
+    "metacriticUrl": "https://www.metacritic.com/game/limbo/",
     "howLongToBeatMainHours": 4,
     "howLongToBeatMainExtraHours": 4,
     "howLongToBeatCompletionistHours": 7,
@@ -2161,8 +2161,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Limbo"
   },
   "we-were-here-forever": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/We%20Were%20Here%20Forever/",
+    "metacriticScore": 76,
+    "metacriticUrl": "https://www.metacritic.com/game/we-were-here-forever/",
     "howLongToBeatMainHours": 10,
     "howLongToBeatMainExtraHours": 11,
     "howLongToBeatCompletionistHours": 14,
@@ -2170,8 +2170,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=We%20Were%20Here%20Forever"
   },
   "it-takes-two": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/It%20Takes%20Two/",
+    "metacriticScore": 88,
+    "metacriticUrl": "https://www.metacritic.com/game/it-takes-two/",
     "howLongToBeatMainHours": 13,
     "howLongToBeatMainExtraHours": 14,
     "howLongToBeatCompletionistHours": 16,
@@ -2180,7 +2180,7 @@ export const gameExternalData: Record<string, GameExternalData> = {
   },
   "efootball-2025": {
     "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/eFootball%202025/",
+    "metacriticUrl": "https://www.metacritic.com/game/efootball-2025/",
     "howLongToBeatMainHours": 40,
     "howLongToBeatMainExtraHours": 124,
     "howLongToBeatCompletionistHours": 327,
@@ -2188,8 +2188,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=eFootball%202025"
   },
   "tony-hawk-s-pro-skater-1-2": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Tony%20Hawk's%20Pro%20Skater%201%2B2/",
+    "metacriticScore": 89,
+    "metacriticUrl": "https://www.metacritic.com/game/tony-hawks-pro-skater-1-plus-2/",
     "howLongToBeatMainHours": 7,
     "howLongToBeatMainExtraHours": 12,
     "howLongToBeatCompletionistHours": 35,
@@ -2197,8 +2197,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Tony%20Hawk's%20Pro%20Skater%201%2B2"
   },
   "pes-2021-season-update": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/PES%202021%20Season%20Update/",
+    "metacriticScore": 73,
+    "metacriticUrl": "https://www.metacritic.com/game/efootball-pes-2021/",
     "howLongToBeatMainHours": 40,
     "howLongToBeatMainExtraHours": 124,
     "howLongToBeatCompletionistHours": 327,
@@ -2206,8 +2206,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=PES%202021%20Season%20Update"
   },
   "sonic-and-all-stars-racing-transformed": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Sonic%20%26%20All-Stars%20Racing%20Transformed/",
+    "metacriticScore": 82,
+    "metacriticUrl": "https://www.metacritic.com/game/sonic-and-all-stars-racing-transformed/",
     "howLongToBeatMainHours": 8,
     "howLongToBeatMainExtraHours": 18,
     "howLongToBeatCompletionistHours": 44,
@@ -2215,8 +2215,8 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Sonic%20%26%20All-Stars%20Racing%20Transformed"
   },
   "outlast-2": {
-    "metacriticScore": null,
-    "metacriticUrl": "https://www.metacritic.com/search/Outlast%202/",
+    "metacriticScore": 75,
+    "metacriticUrl": "https://www.metacritic.com/game/outlast-2/",
     "howLongToBeatMainHours": 7,
     "howLongToBeatMainExtraHours": 9,
     "howLongToBeatCompletionistHours": 14,

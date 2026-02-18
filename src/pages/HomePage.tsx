@@ -14,11 +14,9 @@ function PcIcon() {
 function PlayStationIcon() {
   return (
     <svg viewBox="0 0 64 64" className="w-10 h-10 text-blue-100" fill="none" aria-hidden>
-      <path d="M20 16l10 29V27l14 5" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
-      <circle cx="47" cy="19" r="4.5" stroke="currentColor" strokeWidth="2.5" />
-      <path d="M46 32l5 5m0-5l-5 5" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
-      <path d="M16 36h8M20 32v8" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
-      <rect x="35" y="41" width="7" height="7" stroke="currentColor" strokeWidth="2.5" />
+      <path d="M19 13v26l9 3V21c5 1 9 3 12 6V17c-3-2-8-4-14-4h-7z" fill="currentColor" />
+      <path d="M16 43l13-4c3-1 6-.8 9 .5l10 4-13 4c-3 1-6 .8-9-.5l-10-4z" fill="currentColor" opacity="0.78" />
+      <path d="M36 34l12-4v6l-12 4v-6z" fill="currentColor" opacity="0.55" />
     </svg>
   )
 }
@@ -27,8 +25,8 @@ function XboxIcon() {
   return (
     <svg viewBox="0 0 64 64" className="w-10 h-10 text-emerald-100" fill="none" aria-hidden>
       <circle cx="32" cy="32" r="22" stroke="currentColor" strokeWidth="3" />
-      <path d="M18 20c5 0 8 2 14 8m14-8c-5 0-8 2-14 8" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
-      <path d="M18 44c5 0 8-2 14-8m14 8c-5 0-8-2-14-8" stroke="currentColor" strokeWidth="3" strokeLinecap="round" opacity="0.75" />
+      <path d="M16 19c7 1 12 5 16 12 4-7 9-11 16-12" stroke="currentColor" strokeWidth="3.2" strokeLinecap="round" />
+      <path d="M16 45c7-1 12-5 16-12 4 7 9 11 16 12" stroke="currentColor" strokeWidth="3.2" strokeLinecap="round" />
     </svg>
   )
 }
@@ -114,10 +112,10 @@ export default function HomePage() {
       <section className="rounded-2xl bg-gradient-to-br from-blue-950 to-gray-900 border border-blue-900/50 p-10 md:p-14">
         <p className="text-sm uppercase tracking-widest text-blue-300 mb-3">Yeni Nesil Oyun ve Urun Platformu</p>
         <h1 className="text-4xl md:text-6xl font-black text-white mb-5">
-          <span className="text-blue-400">Games</span>News
+          <span className="text-blue-400">allaround</span>games
         </h1>
         <p className="text-gray-300 text-lg max-w-2xl mb-7">
-          Urun karsilastirmalari, tur bazli oyun listeleri, platform bazli katalog ve reklam is birlikleri tek sayfada.
+          Mola modunu ac: bugun neye ihtiyacin varsa tek ekranda hizlica bul, kaydet ve devam et.
         </p>
         <div className="flex flex-wrap gap-3">
           <Link to="/products/pc" className="btn-primary">Urunlere Git</Link>
@@ -217,7 +215,7 @@ export default function HomePage() {
         <p className="text-gray-300 mt-3">
           Banner, sponsorlu kart ve kategori ici reklam modelleri mevcut.
         </p>
-        <p className="text-blue-300 mt-4">Reklam vermek icin bizimle iletisime gecin: iletisim@gamesnews-network.com</p>
+        <p className="text-blue-300 mt-4">Reklam vermek icin bizimle iletisime gecin: iletisim@allaroundgames.com</p>
         <Link to="/iletisim" className="btn-primary mt-6">Iletisim Sayfasina Git</Link>
       </section>
     </div>

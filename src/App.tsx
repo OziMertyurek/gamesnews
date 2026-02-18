@@ -3,6 +3,7 @@ import Layout from './app/layout/Layout'
 import HomePage from './pages/HomePage'
 import ProductsPage from './pages/ProductsPage'
 import GamesPage from './pages/GamesPage'
+import GamesAZPage from './pages/GamesAZPage'
 import GenrePage from './pages/GenrePage'
 import GameDetailPage from './pages/GameDetailPage'
 import ContactPage from './pages/ContactPage'
@@ -20,6 +21,7 @@ function App() {
         <Route index element={<HomePage />} />
         <Route path="products/:platform" element={<ProductsPage />} />
         <Route path="games" element={<GamesPage />} />
+        <Route path="games/alfabetik" element={<GamesAZPage />} />
         <Route path="oduller" element={<AwardsPage />} />
         <Route path="games/genres/:genre" element={<GenrePage />} />
         <Route path="games/:slug" element={<GameDetailPage />} />
