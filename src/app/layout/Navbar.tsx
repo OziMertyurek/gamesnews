@@ -119,6 +119,17 @@ export default function Navbar() {
             </NavLink>
 
             <NavLink
+              to="/oduller"
+              className={({ isActive }) =>
+                `px-4 py-2 text-sm font-medium rounded-lg transition-colors ${
+                  isActive ? 'text-blue-400 bg-blue-950' : 'text-gray-300 hover:text-white hover:bg-gray-800'
+                }`
+              }
+            >
+              Oduller
+            </NavLink>
+
+            <NavLink
               to="/iletisim"
               className={({ isActive }) =>
                 `px-4 py-2 text-sm font-medium rounded-lg transition-colors ${
@@ -165,6 +176,7 @@ export default function Navbar() {
               </NavLink>
             ))}
             <NavLink to="/games" className="block px-4 py-2 text-sm rounded-lg mx-1 text-gray-300 hover:text-white hover:bg-gray-800" onClick={() => setMobileOpen(false)}>Oyunlar</NavLink>
+            <NavLink to="/oduller" className="block px-4 py-2 text-sm rounded-lg mx-1 text-gray-300 hover:text-white hover:bg-gray-800" onClick={() => setMobileOpen(false)}>Oduller</NavLink>
             <NavLink to="/iletisim" className="block px-4 py-2 text-sm rounded-lg mx-1 text-gray-300 hover:text-white hover:bg-gray-800" onClick={() => setMobileOpen(false)}>Iletisim</NavLink>
             <div className="px-2 pt-2">{authBlock}</div>
           </nav>

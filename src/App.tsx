@@ -10,6 +10,7 @@ import LoginPage from './pages/LoginPage'
 import SignupPage from './pages/SignupPage'
 import ProfilePage from './pages/ProfilePage'
 import NotFoundPage from './pages/NotFoundPage'
+import AwardsPage from './pages/AwardsPage'
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route index element={<HomePage />} />
         <Route path="products/:platform" element={<ProductsPage />} />
         <Route path="games" element={<GamesPage />} />
+        <Route path="oduller" element={<AwardsPage />} />
         <Route path="games/genres/:genre" element={<GenrePage />} />
         <Route path="games/:slug" element={<GameDetailPage />} />
         <Route path="iletisim" element={<ContactPage />} />

@@ -13,9 +13,10 @@ export default function Footer() {
           <nav className="flex flex-wrap gap-4 text-sm text-gray-400">
             <Link to="/products/pc" className="hover:text-white transition-colors">Urunler</Link>
             <Link to="/games" className="hover:text-white transition-colors">Oyunlar</Link>
+            <Link to="/oduller" className="hover:text-white transition-colors">Oduller</Link>
             <Link to="/iletisim" className="hover:text-white transition-colors">Iletisim</Link>
           </nav>
-          <p className="text-xs text-gray-600">© {new Date().getFullYear()} GamesNews</p>
+          <p className="text-xs text-gray-600">(c) {new Date().getFullYear()} GamesNews</p>
         </div>
       </div>
     </footer>

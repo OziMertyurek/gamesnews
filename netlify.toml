@@ -3,6 +3,11 @@
   publish = "dist"
 
 [[redirects]]
+  from = "/api/steam-owned-games"
+  to = "/.netlify/functions/steam-owned-games"
+  status = 200
+
+[[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
