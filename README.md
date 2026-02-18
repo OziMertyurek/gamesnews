@@ -1,73 +1,56 @@
-# React + TypeScript + Vite
+# GamesNews
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React + TypeScript + Vite tabanli oyun/urun katalog projesi.
 
-Currently, two official plugins are available:
+## Gereksinimler
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Node.js 20+
+- npm 10+
 
-## React Compiler
+## Lokal Gelistirme
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Uretim Build
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm run lint
+npm run build
+npm run preview
 ```
+
+## GitHub
+
+Bu proje `main` branch ile `origin` remote'una baglidir:
+
+- Repo: `https://github.com/OziMertyurek/gamesnews.git`
+
+Guncel degisiklikleri gondermek icin:
+
+```bash
+git add .
+git commit -m "update"
+git push
+```
+
+## Vercel ile Yayin
+
+1. Vercel'de `Add New Project` -> bu repoyu sec.
+2. Framework: `Vite` (otomatik gelir).
+3. Build Command: `npm run build`
+4. Output Directory: `dist`
+5. Deploy.
+
+Not: `vercel.json` icindeki rewrite kurali sayesinde React Router sayfa yenilemelerinde 404 vermez.
+
+## Netlify ile Yayin
+
+1. Netlify'da `Add new site` -> `Import an existing project`.
+2. Build command: `npm run build`
+3. Publish directory: `dist`
+4. Deploy.
+
+Not: `netlify.toml` icindeki redirect kurali SPA route'larini `index.html`'e yonlendirir.
