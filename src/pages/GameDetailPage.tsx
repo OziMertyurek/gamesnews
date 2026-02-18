@@ -12,6 +12,36 @@ const platformLabels: Record<string, string> = {
   nintendo: 'Nintendo',
 }
 
+const genreBaseHours: Record<string, number> = {
+  action: 14,
+  rpg: 42,
+  strategy: 28,
+  sports: 16,
+  racing: 14,
+  horror: 11,
+  shooter: 12,
+  puzzle: 9,
+  platform: 12,
+  pinball: 6,
+  'racing-driving': 15,
+  roguelike: 20,
+  'role-playing': 40,
+  sandbox: 24,
+  simulation: 26,
+  social: 8,
+  stealth: 15,
+  'strategy-tactical': 30,
+  survival: 24,
+  'tower-defense': 14,
+  trivia: 5,
+  'vehicular-combat': 16,
+  'visual-novel': 18,
+  management: 28,
+  'music-rhythm': 10,
+  'open-world': 34,
+  'interactive-art': 7,
+}
+
 export default function GameDetailPage() {
   const { slug } = useParams<{ slug: string }>()
   const game = games.find((item) => item.slug === slug)
@@ -48,9 +78,17 @@ export default function GameDetailPage() {
     )
   }
 
+  const estimateMainHours = () => {
+    const base = genreBaseHours[game.genre] ?? 14
+    const scoreBoost = Math.max(0, game.score - 7) * 2.2
+    return Math.round(base + scoreBoost)
+  }
+
+  const estimatedMain = estimateMainHours()
+  const estimatedMainExtra = Math.round(estimatedMain * 1.45)
   const metacriticDisplay = game.metacriticScore !== null ? `${game.metacriticScore} / 100` : `${Math.round(game.score * 10)} / 100 (Site Puani)`
-  const hltbMainDisplay = game.howLongToBeatMainHours !== null ? `${game.howLongToBeatMainHours} saat` : 'Kaynakta bulunamadi'
-  const hltbMainExtraDisplay = game.howLongToBeatMainExtraHours !== null ? `${game.howLongToBeatMainExtraHours} saat` : 'Kaynakta bulunamadi'
+  const hltbMainDisplay = game.howLongToBeatMainHours !== null ? `${game.howLongToBeatMainHours} saat` : `~${estimatedMain} saat (Tahmini)`
+  const hltbMainExtraDisplay = game.howLongToBeatMainExtraHours !== null ? `${game.howLongToBeatMainExtraHours} saat` : `~${estimatedMainExtra} saat (Tahmini)`
 
   return (
     <div>
@@ -122,7 +160,7 @@ export default function GameDetailPage() {
 
         {(game.metacriticScore === null || game.howLongToBeatMainHours === null || game.howLongToBeatMainExtraHours === null) && (
           <p className="mt-3 text-xs text-gray-400">
-            Bazi dis kaynak verileri eksik oldugunda sitedeki puan ve baglantilarla fallback gosterilir.
+            Bazi dis kaynak verileri eksik oldugunda sitedeki puan, tahmini sure ve baglanti fallback'i gosterilir.
           </p>
         )}
 

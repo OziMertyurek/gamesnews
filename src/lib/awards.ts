@@ -29,8 +29,45 @@ function titleMatch(candidate: string, title: string) {
 
 function isGameCategory(category: string) {
   const key = normalize(category)
-  const blocked = ['esportsathlete', 'esportsteam', 'contentcreator', 'bestperformance']
-  return !blocked.some((item) => key.includes(item))
+  const blocked = [
+    'esports',
+    'contentcreator',
+    'bestperformance',
+    'adaptation',
+    'playersvoice',
+    'studentgame',
+    'host',
+    'moment',
+    'player',
+  ]
+  if (blocked.some((item) => key.includes(item))) return false
+
+  const allowed = [
+    'gameoftheyear',
+    'gamedirection',
+    'narrative',
+    'artdirection',
+    'scoreandmusic',
+    'audiodesign',
+    'innovationinaccessibility',
+    'gamesforimpact',
+    'ongoing',
+    'communitysupport',
+    'indie',
+    'debutindie',
+    'mobile',
+    'vrar',
+    'actionadventure',
+    'action',
+    'rpg',
+    'fighting',
+    'family',
+    'simstrategy',
+    'sportsracing',
+    'multiplayer',
+    'anticipated',
+  ]
+  return allowed.some((item) => key.includes(item))
 }
 
 export function getGameAwardSummary(title: string): GameAwardSummary {

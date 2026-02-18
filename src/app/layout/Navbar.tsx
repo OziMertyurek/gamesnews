@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { Link, NavLink, useNavigate } from 'react-router-dom'
 import { getCurrentUser, listPublicUsers, logoutUser } from '../../lib/auth'
-import { games } from '../../data/siteContent'
+import { gameGenres, games } from '../../data/siteContent'
 import { pcProducts } from '../../data/pcProducts'
 import { CONSOLE_LABELS, consoleProducts } from '../../data/consoleProducts'
 
@@ -12,17 +12,6 @@ const platformLabels: Record<(typeof platforms)[number], string> = {
   xbox: 'Xbox',
   nintendo: 'Nintendo',
 }
-
-const genreSearchItems = [
-  { slug: 'action', label: 'Aksiyon' },
-  { slug: 'rpg', label: 'RPG' },
-  { slug: 'strategy', label: 'Strateji' },
-  { slug: 'sports', label: 'Spor' },
-  { slug: 'racing', label: 'Yaris' },
-  { slug: 'horror', label: 'Korku' },
-  { slug: 'shooter', label: 'Nisanci' },
-  { slug: 'puzzle', label: 'Bulmaca' },
-]
 
 interface DropdownItem {
   label: string
@@ -172,7 +161,7 @@ export default function Navbar() {
       to: `/kullanici/${encodeURIComponent(profile.email)}`,
     }))
 
-    const categoryItems: SearchItem[] = genreSearchItems.map((genre) => ({
+    const categoryItems: SearchItem[] = gameGenres.map((genre) => ({
       id: `genre-${genre.slug}`,
       kind: 'kategori',
       title: genre.label,

@@ -1,22 +1,11 @@
 import { useParams, Link } from 'react-router-dom'
-import { games } from '../data/siteContent'
+import { gameGenres, games } from '../data/siteContent'
 import { getGameAwardSummary } from '../lib/awards'
-
-const genreLabels: Record<string, string> = {
-  action: 'Aksiyon',
-  rpg: 'RPG',
-  strategy: 'Strateji',
-  sports: 'Spor',
-  racing: 'Yaris',
-  horror: 'Korku',
-  shooter: 'Nisanci',
-  puzzle: 'Bulmaca',
-}
 
 export default function GenrePage() {
   const { genre } = useParams<{ genre: string }>()
   const safeGenre = genre ?? ''
-  const title = genreLabels[safeGenre] ?? safeGenre.toUpperCase()
+  const title = gameGenres.find((item) => item.slug === safeGenre)?.label ?? safeGenre.toUpperCase()
   const list = games.filter((game) => game.genre === safeGenre)
 
   return (
