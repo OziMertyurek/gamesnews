@@ -599,3 +599,193 @@ Sprint 3 (Ürünleşme):
 
 Bu rapor, mevcut kod tabanının hem “ne yapıldı” hem “neden böyle yapıldı” hem de “bundan sonra nasıl ürünleşir” sorularına teknik düzeyde yanıt vermek üzere hazırlanmıştır.
 
+
+---
+
+## 18) V2 Ek Bolum - Konusma Gecmisi Senkron Analizi
+
+Bu bolum, kullanicinin paylastigi uzun gecmis uzerinden hazirlandi. Amac:
+
+1. Hangi islerin hangi projede yapildigini ayirmak.
+2. "Yapildi ama gorunmuyor" tipindeki durumlarin kok nedenini belgelemek.
+3. Gelecek calismalar icin tek, temiz bir yol haritasi cikarmak.
+
+## 18.1 Gozlenen ana durum
+
+Konusma gecmisinde en az 3 farkli calisma akisi var:
+
+1. `gamesnews / allaroundgame` (React + Vite, oyun + urun + profil + odul)
+2. `antigravity-site` altinda duz HTML sayfalar (index/about/urunler/sertifikalar)
+3. `remmed-next` (Next.js App Router, form API, admin benzeri akis)
+
+Bu 3 akis zaman zaman birbiriyle karismis. Sonuc:
+
+1. Farkli klasorlerde ayni isimli sayfalar oldugu icin yanlis dosya acilmis.
+2. Kullanici beklentisi "tek proje" iken fiilen birden fazla repo/klasor ilerlemis.
+3. Degisiklik dogru yapilsa bile yanlis hedefte kontrol edildigi icin "olmadi" algisi olusmus.
+
+---
+
+## 19) Gecmisten cikan teknik olay kaydi (olay gunlugu)
+
+Bu baslikta, paylasilan gecmisteki kritik olaylar ozetlenmistir.
+
+## 19.1 gamesnews/allaroundgame akisinda kayitli olaylar
+
+1. HLTB/Metacritic "Veri yok" sorunu:
+   - Neden: slug eslesme kirilmasi, external data anahtar uyumsuzlugu.
+   - Cozum: normalize + alias + fuzzy fallback.
+2. Urun kartlarinda sahte/generic isim sorunu:
+   - Neden: placeholder uretilen veri.
+   - Cozum: scrape/gercek model adlariyla veri yenileme.
+3. Arama/Navigasyon sorunlari:
+   - Dropdown kaybolma, clipping, overlay.
+   - Cozum: hover gap duzeltmesi, z-index/overflow revizyonu.
+4. Link guvenilirligi:
+   - IGN/GameSpot/HLTB link formatlari tekrar tekrar revize edildi.
+   - Cozum: dogrudan endpoint yerine bazi yerlerde site-ara fallback.
+5. TGA odul tarafi:
+   - Veri var ama oyun disi kayit sizmasi ve eslesme kalitesi sorunu.
+   - Cozum: filtreleme + en son kullanici karariyla ilgili section sadeleme/kaldirma.
+6. Turkce karakter:
+   - UI metin standardizasyonu sonradan toplu yapildi.
+
+## 19.2 antigravity-site (duz HTML) akisinda kayitli olaylar
+
+1. Sablondan gelen icerik ile proje plani uyumsuzlugu.
+2. Renk sistemi (brand/base) uygulanip sonra geri alinmasi.
+3. Ana sayfa ve about/urunler sayfalarinin kurumsal icerige donusturulmesi.
+4. "Stok gosterme" modelinden "teklif odakli" modele gecis.
+5. Sayfa sadelestirme, ortak CSS standardi ve okunabilirlik iyilestirmesi.
+
+## 19.3 remmed-next akisinda kayitli olaylar
+
+1. Next.js iskeletinin kurulmasi.
+2. Ortak shell + urun veri modeli + urun filtreleme.
+3. Teklif formunun API route'a baglanmasi (`/api/teklif`).
+4. Resend entegrasyonuna hazir env tabanli mail akisinin kurulmasi.
+5. SEO/manifest/sitemap/robots gibi production hazirliklarin eklenmesi.
+6. Admin panel benzeri islevler (CSV export dahil) tarafinda gelisim.
+
+---
+
+## 20) Kok neden analizi - neden cok kez "olmadi" gorundu?
+
+## 20.1 Yanlis calisma dizini
+
+En kritik kok neden:
+
+1. Kullanici bazen `yeni yeni yeni` dizinindeki React projeyi,
+2. bazen `antigravity-site` altindaki HTML/Next.js projeyi acip test etti.
+
+Bu sebeple "duzeltildi" bilgisi dogru olsa bile farkli proje acildiginda degisiklik gorunmedi.
+
+## 20.2 Cache ve dev server etkisi
+
+1. Tarayici cache (hard refresh ihtiyaci)
+2. Eski dev server process'i
+3. Farkli portta calisan onceki instance
+
+## 20.3 Veri modeli degisimi sonrasi baglantilarin kirilmasi
+
+1. Slug degisince external map kirildi.
+2. Kaynak sitelerin anti-bot davranislari (403/429/404 benzeri) linklerin stabilitesini etkiledi.
+
+---
+
+## 21) V2 Birlesik durum tablosu (hangi is hangi projede)
+
+## 21.1 allaroundgame (aktif repo, bu raporun ana konusu)
+
+Durum:
+
+1. Uretime yakin frontend prototip.
+2. Oyun/urun/profil/yorum/odul modulleri var.
+3. Steam proxy ve deploy altyapisi mevcut.
+4. Son rapor dosyalari repoda commitli.
+
+## 21.2 antigravity-site duz HTML
+
+Durum:
+
+1. Kurumsal tanitim/teklif akisi icin statik sayfa seti olusturulmus.
+2. Icerik medikal tekstilden medikal urune dogru yeniden kurgulanmis.
+3. Stok yerine teklif modeli uygulanmis.
+
+## 21.3 remmed-next
+
+Durum:
+
+1. Next.js tabanli daha sistematik surum.
+2. API route + env + SEO altyapisi var.
+3. Uretim icin env, domain, mail sender dogrulamasi gerektiriyor.
+
+---
+
+## 22) V2 Teknik tespitler ve kalite notlari
+
+1. Veri dogrulugu:
+   - Harici kaynak bagimliligi nedeniyle "her link her zaman acilir" garantisi yok.
+2. Encoding:
+   - Bazi veri dosyalarinda bozuk karakter izi gecmisten kalma.
+3. Mimari:
+   - Ayni urun fikrinin 3 farkli kod tabaninda ilerlemesi operasyonel maliyet yaratiyor.
+4. Test:
+   - Manuel test agirlikli, otomasyon eksik.
+
+---
+
+## 23) V2 karar - tek urun hat secimi (onerilen)
+
+Net onerilen teknik karar:
+
+1. Tek urun hattina in:
+   - Ya `allaroundgame` (oyun platformu) devam,
+   - ya `remmed-next` (medikal urun) devam.
+2. Diger akislari archive klasorune alip aktif olmayanlari freeze et.
+3. Aktif urun icin:
+   - tek repo
+   - tek deploy
+   - tek backlog
+   - tek dokumantasyon politikasi
+
+---
+
+## 24) V2 uygulanabilir kapatma plani (operasyonel)
+
+1. Gun 1:
+   - Aktif proje secimi ve klasor temizligi.
+2. Gun 2:
+   - ENV/secret standardi, README tekilleme.
+3. Gun 3:
+   - Route ve link audit otomasyonu.
+4. Gun 4:
+   - Test smoke paketi (kritik 10 akis).
+5. Gun 5:
+   - Final deploy + post-deploy checklist.
+
+---
+
+## 25) V2 izleme metrikleri (oneri)
+
+1. Build basari orani (%)
+2. Kirik link sayisi
+3. "Veri yok" gorunme orani
+4. Ortalama ilk acilis suresi
+5. Form basari orani (teklif gonderim)
+6. Arama sonuc tiklama orani
+
+---
+
+## 26) V2 Sonuc
+
+Paylasilan tum gecmisle birlikte teknik resim net:
+
+1. Gelisim hizli ve kapsamli ilerlemis.
+2. Asil sorun koddan cok "baglam/proje karisimi" olmus.
+3. Simdi en kritik ihtiyac:
+   - tek urun hattina inmek
+   - kalan teknik borcu planli sekilde kapatmak
+   - dokumantasyon ve deploy akislarini sadelemek
+
+Bu V2 ek bolum, onceki detayli raporu tarihsel gerceklikle tamamlar ve bundan sonraki sureci daha ongorulebilir hale getirir.
