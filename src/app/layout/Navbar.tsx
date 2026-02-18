@@ -73,18 +73,43 @@ function kindLabel(kind: SearchKind) {
 }
 
 export default function Navbar() {
+  const headerRef = useRef<HTMLElement | null>(null)
+  const searchRef = useRef<HTMLDivElement | null>(null)
+  const lastScrollYRef = useRef(0)
+  const lastToggleYRef = useRef(0)
+  const lastToggleAtRef = useRef(0)
   const navigate = useNavigate()
   const [openMenu, setOpenMenu] = useState<string | null>(null)
   const [mobileOpen, setMobileOpen] = useState(false)
   const [authVersion, setAuthVersion] = useState(0)
   const [searchQuery, setSearchQuery] = useState('')
   const [searchOpen, setSearchOpen] = useState(false)
-  const searchRef = useRef<HTMLDivElement | null>(null)
+  const [searchCollapsed, setSearchCollapsed] = useState(false)
 
   useEffect(() => {
     const onStorage = () => setAuthVersion((value) => value + 1)
     window.addEventListener('storage', onStorage)
     return () => window.removeEventListener('storage', onStorage)
+  }, [])
+
+  useEffect(() => {
+    const header = headerRef.current
+    if (!header) return
+
+    const setHeaderOffset = () => {
+      const height = header.offsetHeight || 96
+      document.documentElement.style.setProperty('--header-offset', `${height + 12}px`)
+    }
+
+    setHeaderOffset()
+    const observer = new ResizeObserver(setHeaderOffset)
+    observer.observe(header)
+    window.addEventListener('resize', setHeaderOffset)
+
+    return () => {
+      observer.disconnect()
+      window.removeEventListener('resize', setHeaderOffset)
+    }
   }, [])
 
   useEffect(() => {
@@ -96,6 +121,43 @@ export default function Navbar() {
     window.addEventListener('mousedown', onPointerDown)
     return () => window.removeEventListener('mousedown', onPointerDown)
   }, [])
+
+  useEffect(() => {
+    lastScrollYRef.current = window.scrollY
+    lastToggleYRef.current = window.scrollY
+
+    const onScroll = () => {
+      const current = window.scrollY
+      const delta = current - lastScrollYRef.current
+      const scrollingDown = delta > 2
+      const scrollingUp = delta < -2
+      const now = performance.now()
+
+      if (current < 20) {
+        setSearchCollapsed(false)
+      } else if (!searchOpen && !mobileOpen) {
+        // Header height degisimi anlik scroll farki uretebildigi icin
+        // ac/kapa kararini esik ve kisa kilit suresi ile stabilize et.
+        const sinceLastToggle = now - lastToggleAtRef.current
+        const movedFromToggle = current - lastToggleYRef.current
+
+        if (!searchCollapsed && scrollingDown && current > 120 && movedFromToggle > 16 && sinceLastToggle > 220) {
+          setSearchCollapsed(true)
+          lastToggleYRef.current = current
+          lastToggleAtRef.current = now
+        } else if (searchCollapsed && scrollingUp && movedFromToggle < -10 && sinceLastToggle > 180) {
+          setSearchCollapsed(false)
+          lastToggleYRef.current = current
+          lastToggleAtRef.current = now
+        }
+      }
+
+      lastScrollYRef.current = current
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [mobileOpen, searchOpen])
 
   const user = getCurrentUser()
 
@@ -120,7 +182,7 @@ export default function Navbar() {
       id: `game-${game.slug}`,
       kind: 'oyun',
       title: game.title,
-      subtitle: `${game.genre} • ${game.releaseYear}`,
+      subtitle: `${game.genre} - ${game.releaseYear}`,
       to: `/games/${game.slug}`,
     }))
 
@@ -128,7 +190,7 @@ export default function Navbar() {
       id: `pc-product-${product.id}`,
       kind: 'urun',
       title: product.name,
-      subtitle: `PC • ${product.category}`,
+      subtitle: `PC - ${product.category}`,
       href: product.link,
     }))
 
@@ -136,7 +198,7 @@ export default function Navbar() {
       id: `console-product-${product.id}`,
       kind: 'urun',
       title: product.name,
-      subtitle: `${CONSOLE_LABELS[product.platform]} • ${product.category}`,
+      subtitle: `${CONSOLE_LABELS[product.platform]} - ${product.category}`,
       href: product.link,
     }))
 
@@ -203,7 +265,7 @@ export default function Navbar() {
   }
 
   return (
-    <header className="bg-gray-900 border-b border-gray-800 sticky top-0 z-50">
+    <header ref={headerRef} className="bg-gray-900 border-b border-gray-800 sticky top-0 z-50">
       <div className="container mx-auto px-4 max-w-7xl">
         <div className="flex items-center justify-between h-16">
           <Link to="/" className="flex items-center gap-2">
@@ -296,7 +358,12 @@ export default function Navbar() {
           </button>
         </div>
 
-        <div className="pb-3" ref={searchRef}>
+        <div
+          ref={searchRef}
+          className={`overflow-hidden transition-all duration-300 ease-out ${
+            searchCollapsed ? 'max-h-0 pb-0 opacity-0 -translate-y-1 pointer-events-none' : 'max-h-24 pb-3 opacity-100 translate-y-0'
+          }`}
+        >
           <div className="relative">
             <input
               type="text"
@@ -324,23 +391,13 @@ export default function Navbar() {
                   <ul>
                     {searchResults.map((item) => (
                       <li key={item.id} className="border-b border-gray-800 last:border-none">
-                        {item.to ? (
-                          <button
-                            className="w-full text-left px-4 py-3 hover:bg-gray-800 transition-colors"
-                            onClick={() => runSearchTarget(item)}
-                          >
-                            <p className="text-sm text-white font-medium">{item.title}</p>
-                            <p className="text-xs text-gray-400 mt-0.5">{kindLabel(item.kind)} • {item.subtitle}</p>
-                          </button>
-                        ) : (
-                          <button
-                            className="w-full text-left px-4 py-3 hover:bg-gray-800 transition-colors"
-                            onClick={() => runSearchTarget(item)}
-                          >
-                            <p className="text-sm text-white font-medium">{item.title}</p>
-                            <p className="text-xs text-gray-400 mt-0.5">{kindLabel(item.kind)} • {item.subtitle}</p>
-                          </button>
-                        )}
+                        <button
+                          className="w-full text-left px-4 py-3 hover:bg-gray-800 transition-colors"
+                          onClick={() => runSearchTarget(item)}
+                        >
+                          <p className="text-sm text-white font-medium">{item.title}</p>
+                          <p className="text-xs text-gray-400 mt-0.5">{kindLabel(item.kind)} - {item.subtitle}</p>
+                        </button>
                       </li>
                     ))}
                   </ul>

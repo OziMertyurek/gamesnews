@@ -4,7 +4,7 @@ import Footer from './Footer'
 
 function SideAdSlot({ title, side }: { title: string; side: 'left' | 'right' }) {
   return (
-    <aside className={`hidden 2xl:block fixed top-24 z-40 w-40 ${side === 'left' ? 'left-6' : 'right-6'}`}>
+    <aside className={`hidden 2xl:block fixed z-40 w-40 ${side === 'left' ? 'left-6' : 'right-6'}`} style={{ top: 'var(--header-offset, 96px)' }}>
       <div className="card p-4 border-dashed border-blue-700/60 bg-blue-950/20 min-h-[520px]">
         <p className="text-[11px] text-blue-300 uppercase tracking-wider">Reklam Alani</p>
         <h3 className="text-white font-semibold mt-2">{title}</h3>

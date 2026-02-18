@@ -1,10 +1,101 @@
-import { Link } from 'react-router-dom'
+﻿import { Link } from 'react-router-dom'
+import type { ReactNode } from 'react'
 
-const platforms = [
-  { slug: 'pc', label: 'PC', color: 'from-blue-900 to-blue-950' },
-  { slug: 'ps', label: 'PlayStation', color: 'from-indigo-900 to-indigo-950' },
-  { slug: 'xbox', label: 'Xbox', color: 'from-green-900 to-green-950' },
-  { slug: 'nintendo', label: 'Nintendo', color: 'from-red-900 to-red-950' },
+function PcIcon() {
+  return (
+    <svg viewBox="0 0 64 64" className="w-10 h-10 text-cyan-100" fill="none" aria-hidden>
+      <rect x="8" y="11" width="48" height="32" rx="5" stroke="currentColor" strokeWidth="3" />
+      <path d="M25 52h14M21 47h22" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+      <path d="M16 37h32" stroke="currentColor" strokeWidth="2" opacity="0.55" />
+    </svg>
+  )
+}
+
+function PlayStationIcon() {
+  return (
+    <svg viewBox="0 0 64 64" className="w-10 h-10 text-blue-100" fill="none" aria-hidden>
+      <path d="M20 16l10 29V27l14 5" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
+      <circle cx="47" cy="19" r="4.5" stroke="currentColor" strokeWidth="2.5" />
+      <path d="M46 32l5 5m0-5l-5 5" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+      <path d="M16 36h8M20 32v8" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+      <rect x="35" y="41" width="7" height="7" stroke="currentColor" strokeWidth="2.5" />
+    </svg>
+  )
+}
+
+function XboxIcon() {
+  return (
+    <svg viewBox="0 0 64 64" className="w-10 h-10 text-emerald-100" fill="none" aria-hidden>
+      <circle cx="32" cy="32" r="22" stroke="currentColor" strokeWidth="3" />
+      <path d="M18 20c5 0 8 2 14 8m14-8c-5 0-8 2-14 8" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+      <path d="M18 44c5 0 8-2 14-8m14 8c-5 0-8-2-14-8" stroke="currentColor" strokeWidth="3" strokeLinecap="round" opacity="0.75" />
+    </svg>
+  )
+}
+
+function NintendoIcon() {
+  return (
+    <svg viewBox="0 0 64 64" className="w-10 h-10 text-red-100" fill="none" aria-hidden>
+      <rect x="10" y="12" width="44" height="40" rx="12" stroke="currentColor" strokeWidth="3" />
+      <path d="M32 14v36" stroke="currentColor" strokeWidth="2.5" opacity="0.8" />
+      <circle cx="23" cy="24" r="3.4" fill="currentColor" />
+      <rect x="39" y="30" width="6" height="11" rx="3" fill="currentColor" />
+    </svg>
+  )
+}
+
+type PlatformCard = {
+  slug: 'pc' | 'ps' | 'xbox' | 'nintendo'
+  label: string
+  subtitle: string
+  bg: string
+  border: string
+  pattern: string
+  glow: string
+  icon: ReactNode
+}
+
+const platforms: PlatformCard[] = [
+  {
+    slug: 'pc',
+    label: 'PC',
+    subtitle: 'Donanim ve bilesen',
+    bg: 'from-slate-700 via-slate-800 to-cyan-950',
+    border: 'border-cyan-800/70',
+    pattern: 'bg-[radial-gradient(circle_at_25%_25%,rgba(34,211,238,.22),transparent_55%)]',
+    glow: 'bg-cyan-300/20',
+    icon: <PcIcon />,
+  },
+  {
+    slug: 'ps',
+    label: 'PlayStation',
+    subtitle: 'Konsol ve aksesuar',
+    bg: 'from-blue-900 via-blue-950 to-indigo-950',
+    border: 'border-blue-700/70',
+    pattern: 'bg-[radial-gradient(circle_at_75%_20%,rgba(59,130,246,.28),transparent_55%)]',
+    glow: 'bg-blue-300/20',
+    icon: <PlayStationIcon />,
+  },
+  {
+    slug: 'xbox',
+    label: 'Xbox',
+    subtitle: 'Konsol ve gamepad',
+    bg: 'from-emerald-900 via-green-950 to-emerald-950',
+    border: 'border-emerald-700/70',
+    pattern: 'bg-[radial-gradient(circle_at_80%_25%,rgba(16,185,129,.24),transparent_55%)]',
+    glow: 'bg-emerald-300/20',
+    icon: <XboxIcon />,
+  },
+  {
+    slug: 'nintendo',
+    label: 'Nintendo',
+    subtitle: 'Switch dunyasi',
+    bg: 'from-red-800 via-red-900 to-rose-950',
+    border: 'border-red-700/70',
+    pattern: 'bg-[radial-gradient(circle_at_20%_20%,rgba(248,113,113,.24),transparent_55%)]',
+    glow: 'bg-red-300/20',
+    icon: <NintendoIcon />,
+  },
 ]
 
 const sideAdSlots = {
@@ -52,15 +143,27 @@ export default function HomePage() {
 
       <section>
         <h2 className="text-2xl font-bold text-white mb-4">Platformlara Gore Urun Kataloglari</h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
           {platforms.map((p) => (
             <Link
               key={p.slug}
               to={`/products/${p.slug}`}
-              className={`card bg-gradient-to-br ${p.color} p-6 text-center hover:scale-[1.02] transition-transform duration-200`}
+              className={`card relative overflow-hidden border ${p.border} p-6 bg-gradient-to-br ${p.bg} hover:scale-[1.02] hover:-translate-y-0.5 transition-all duration-200`}
             >
-              <p className="text-2xl font-bold text-white">{p.label.slice(0, 2).toUpperCase()}</p>
-              <p className="mt-2 font-semibold text-white">{p.label}</p>
+              <div className={`absolute inset-0 ${p.pattern}`} />
+              <div className="absolute -right-8 -top-8 w-24 h-24 rounded-full border border-white/10" />
+              <div className="absolute -left-5 -bottom-6 w-20 h-20 rounded-full border border-white/10" />
+              <div className={`absolute right-4 top-4 w-14 h-14 rounded-full blur-xl ${p.glow}`} />
+
+              <div className="relative z-10 flex items-center gap-3">
+                <div className="w-12 h-12 rounded-xl bg-black/20 border border-white/15 grid place-items-center">
+                  {p.icon}
+                </div>
+                <div>
+                  <p className="text-lg font-bold text-white leading-tight">{p.label}</p>
+                  <p className="text-xs text-white/70 mt-1">{p.subtitle}</p>
+                </div>
+              </div>
             </Link>
           ))}
         </div>
