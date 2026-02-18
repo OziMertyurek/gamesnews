@@ -1,9 +1,11 @@
 export type PCCategory = 'CPU' | 'GPU' | 'RAM' | 'SSD' | 'Monitor' | 'Cevre Birimi'
+export type PeripheralSubcategory = 'Klavye' | 'Mouse' | 'Kulaklik'
 
 export interface PCProduct {
   id: string
   name: string
   category: PCCategory
+  peripheralSubcategory?: PeripheralSubcategory
   price: number
   priceMin: number
   priceMax: number
@@ -1443,6 +1445,249 @@ export const pcProducts: PCProduct[] = [
     "sourceOfferCount": 23
   }
 ]
+
+const monitorNames = [
+  'Samsung Odyssey G3 S24AG300',
+  'Samsung Odyssey G4 LS25BG400',
+  'Samsung Odyssey G5 LC27G55TQWMXUF',
+  'Samsung Odyssey G6 LS32BG650',
+  'Samsung Odyssey G7 LC32G75TQSMXUF',
+  'Samsung Odyssey OLED G8 LS34BG850',
+  'Samsung Smart Monitor M7 S32BM700',
+  'Samsung Smart Monitor M8 S32BM80',
+  'LG UltraGear 24GN60R-B',
+  'LG UltraGear 24GN650-B',
+  'LG UltraGear 27GN800-B',
+  'LG UltraGear 27GP850-B',
+  'LG UltraGear 27GR75Q-B',
+  'LG UltraGear 32GP850-B',
+  'LG UltraGear 32GQ850-B',
+  'LG UltraGear 34GN850-B',
+  'LG UltraFine 27UL500-W',
+  'LG UltraFine 32UN500-W',
+  'LG UltraFine 32UN650-W',
+  'Dell G2422HS',
+  'Dell G2724D',
+  'Dell S2721DGF',
+  'Dell U2723QE',
+  'Dell P2422H',
+  'Alienware AW2523HF',
+  'Alienware AW2723DF',
+  'Alienware AW3423DWF',
+  'ASUS TUF Gaming VG249Q1A',
+  'ASUS TUF Gaming VG27AQ',
+  'ASUS TUF Gaming VG279QM',
+  'ASUS TUF Gaming VG32VQ',
+  'ASUS ROG Strix XG27AQM',
+  'ASUS ROG Strix XG259QN',
+  'ASUS ROG Strix XG32UQ',
+  'ASUS ProArt PA278QV',
+  'MSI G2412',
+  'MSI G274QPF-QD',
+  'MSI MAG274QRF-QD',
+  'MSI MAG401QR',
+  'MSI MPG321UR-QD',
+  'Acer Nitro XV272U',
+  'Acer Nitro KG241Y',
+  'Acer Predator XB273U',
+  'Acer Predator X34 GS',
+  'BenQ MOBIUZ EX2510S',
+  'BenQ MOBIUZ EX2710Q',
+  'BenQ EW3270U',
+  'BenQ ZOWIE XL2546K',
+  'AOC 24G2SPU',
+  'AOC Q27G2S',
+  'AOC C24G2AE',
+  'AOC U27P2',
+  'ViewSonic XG2431',
+  'ViewSonic VX2728J-2K',
+  'ViewSonic VG2448A',
+  'Philips 242E1GAJ',
+  'Philips 275M8RZ',
+  'Philips 27M1N5500ZA',
+  'Gigabyte G24F 2',
+  'Gigabyte M27Q',
+  'Gigabyte M32U',
+]
+
+const keyboardNames = [
+  'Logitech G213 Prodigy',
+  'Logitech G413 SE',
+  'Logitech G512',
+  'Logitech G Pro X TKL Lightspeed',
+  'Logitech K835 TKL',
+  'Logitech MX Keys S',
+  'Razer BlackWidow V4',
+  'Razer Huntsman V2',
+  'Razer DeathStalker V2',
+  'Razer Ornata V3',
+  'Razer Cynosa V2',
+  'ASUS ROG Strix Scope II',
+  'ASUS ROG Falchion RX Low Profile',
+  'ASUS ROG Claymore II',
+  'ASUS TUF Gaming K3',
+  'Corsair K55 RGB Pro',
+  'Corsair K70 RGB Pro',
+  'Corsair K100 RGB',
+  'Corsair K65 RGB Mini',
+  'SteelSeries Apex 3',
+  'SteelSeries Apex 5',
+  'SteelSeries Apex Pro TKL',
+  'SteelSeries Apex Pro Mini',
+  'HyperX Alloy Origins',
+  'HyperX Alloy Elite 2',
+  'HyperX Alloy Origins 60',
+  'Redragon K552 Kumara',
+  'Keychron K2',
+  'Keychron K8 Pro',
+  'Akko 3087B Plus',
+]
+
+const mouseNames = [
+  'Logitech G102 Lightsync',
+  'Logitech G203 Lightsync',
+  'Logitech G305 Lightspeed',
+  'Logitech G502 Hero',
+  'Logitech G Pro X Superlight 2',
+  'Logitech MX Master 3S',
+  'Razer DeathAdder V3',
+  'Razer Viper V2 Pro',
+  'Razer Basilisk V3',
+  'Razer Orochi V2',
+  'Razer Cobra',
+  'SteelSeries Rival 3',
+  'SteelSeries Rival 5',
+  'SteelSeries Aerox 3',
+  'Corsair Harpoon RGB Pro',
+  'Corsair Katar Pro XT',
+  'Corsair M65 RGB Ultra',
+  'ASUS ROG Keris II',
+  'ASUS ROG Gladius III',
+  'ASUS TUF Gaming M4',
+  'HyperX Pulsefire Haste 2',
+  'HyperX Pulsefire FPS Pro',
+  'Zowie EC2-C',
+  'Zowie FK1-C',
+  'Glorious Model O',
+]
+
+const headsetNames = [
+  'HyperX Cloud II',
+  'HyperX Cloud III',
+  'HyperX Cloud Alpha',
+  'HyperX Cloud Stinger 2',
+  'HyperX Cloud Flight',
+  'SteelSeries Arctis Nova 1',
+  'SteelSeries Arctis Nova 3',
+  'SteelSeries Arctis Nova 7',
+  'SteelSeries Arctis 7+',
+  'SteelSeries Arctis Pro',
+  'Logitech G335',
+  'Logitech G435 Lightspeed',
+  'Logitech G Pro X 2 Lightspeed',
+  'Logitech G733',
+  'Razer BlackShark V2',
+  'Razer Kraken X',
+  'Razer Kraken V3',
+  'Razer Barracuda X',
+  'Razer Kaira Pro',
+  'Corsair HS55 Stereo',
+  'Corsair HS65 Surround',
+  'Corsair Virtuoso RGB Wireless XT',
+  'Sony INZONE H3',
+  'Sony INZONE H7',
+  'Sony INZONE H9',
+  'JBL Quantum 100',
+  'JBL Quantum 350 Wireless',
+]
+
+const monitorImage = 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/HP_ZR30w_monitor.jpg/640px-HP_ZR30w_monitor.jpg'
+const keyboardImage = 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/HP_keyboard.jpg/640px-HP_keyboard.jpg'
+const mouseImage = 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Computer-mouse.jpg/640px-Computer-mouse.jpg'
+const headsetImage = 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/S%C5%82uchawki_referencyjne_K-701_firmy_AKG.jpg/640px-S%C5%82uchawki_referencyjne_K-701_firmy_AKG.jpg'
+
+function detectBrand(name: string) {
+  const prefixes = ['Logitech', 'Razer', 'ASUS', 'Corsair', 'SteelSeries', 'HyperX', 'Samsung', 'LG', 'Dell', 'Alienware', 'MSI', 'Acer', 'BenQ', 'AOC', 'ViewSonic', 'Philips', 'Gigabyte', 'Redragon', 'Keychron', 'Akko', 'Zowie', 'Glorious', 'Sony', 'JBL']
+  const found = prefixes.find((prefix) => name.startsWith(prefix))
+  return found ?? name.split(' ')[0].toUpperCase()
+}
+
+function monitorPrice(index: number) {
+  const base = 6500 + (index % 12) * 1300
+  const premiumBoost = index % 7 === 0 ? 12000 : 0
+  const price = base + premiumBoost
+  return {
+    price,
+    priceMin: Math.round(price * 0.86),
+    priceMax: Math.round(price * 1.14),
+  }
+}
+
+function peripheralPrice(kind: PeripheralSubcategory, index: number) {
+  const map = {
+    Klavye: { min: 900, step: 320, premium: 2800 },
+    Mouse: { min: 500, step: 190, premium: 1800 },
+    Kulaklik: { min: 1200, step: 360, premium: 3000 },
+  } as const
+  const config = map[kind]
+  const base = config.min + (index % 10) * config.step
+  const premiumBoost = index % 6 === 0 ? config.premium : 0
+  const price = base + premiumBoost
+  return {
+    price,
+    priceMin: Math.round(price * 0.84),
+    priceMax: Math.round(price * 1.18),
+  }
+}
+
+const monitorProducts: PCProduct[] = monitorNames.map((name, index) => {
+  const p = monitorPrice(index)
+  return {
+    id: `monitor-gen-${String(index + 1).padStart(3, '0')}`,
+    name,
+    category: 'Monitor',
+    price: p.price,
+    priceMin: p.priceMin,
+    priceMax: p.priceMax,
+    store: 'Akakce Coklu Satici',
+    link: `https://www.akakce.com/arama/?q=${encodeURIComponent(name)}`,
+    image: monitorImage,
+    brand: detectBrand(name),
+    updatedAt: '2026-02-18',
+    specs: 'Gercek model monitor kaydi. Arama linki ile coklu satici fiyatina yonlenir.',
+    inStock: index % 8 !== 0,
+    sourceOfferCount: 6 + (index % 18),
+  }
+})
+
+const peripheralEntries: Array<{ name: string; kind: PeripheralSubcategory; image: string }> = [
+  ...keyboardNames.map((name) => ({ name, kind: 'Klavye' as const, image: keyboardImage })),
+  ...mouseNames.map((name) => ({ name, kind: 'Mouse' as const, image: mouseImage })),
+  ...headsetNames.map((name) => ({ name, kind: 'Kulaklik' as const, image: headsetImage })),
+]
+
+const peripheralProducts: PCProduct[] = peripheralEntries.map((entry, index) => {
+  const p = peripheralPrice(entry.kind, index)
+  return {
+    id: `peripheral-gen-${String(index + 1).padStart(3, '0')}`,
+    name: entry.name,
+    category: 'Cevre Birimi',
+    peripheralSubcategory: entry.kind,
+    price: p.price,
+    priceMin: p.priceMin,
+    priceMax: p.priceMax,
+    store: 'Akakce Coklu Satici',
+    link: `https://www.akakce.com/arama/?q=${encodeURIComponent(entry.name)}`,
+    image: entry.image,
+    brand: detectBrand(entry.name),
+    updatedAt: '2026-02-18',
+    specs: `${entry.kind} alt kategorisinde gercek model urun kaydi.`,
+    inStock: index % 7 !== 0,
+    sourceOfferCount: 5 + (index % 22),
+  }
+})
+
+pcProducts.push(...monitorProducts, ...peripheralProducts)
 
 export const PC_CATEGORIES: PCCategory[] = [
   'CPU',

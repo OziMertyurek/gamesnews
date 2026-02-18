@@ -2,7 +2,7 @@ import { useMemo, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { PC_CATEGORIES, pcProducts } from '../data/pcProducts'
 import { CONSOLE_CATEGORIES, CONSOLE_LABELS, consoleProducts, type ConsoleCategory, type ConsolePlatform, type ConsoleProduct } from '../data/consoleProducts'
-import type { PCCategory, PCProduct } from '../data/pcProducts'
+import type { PCCategory, PCProduct, PeripheralSubcategory } from '../data/pcProducts'
 
 type SortKey = 'price-asc' | 'price-desc' | 'name-asc' | 'updatedAt-desc'
 
@@ -29,7 +29,7 @@ const CONSOLE_CATEGORY_COLORS: Record<ConsoleCategory, string> = {
   Aksesuar: 'bg-amber-900/60 text-amber-300 border-amber-700',
 }
 
-const FALLBACK_IMAGE = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="600" height="400" viewBox="0 0 600 400"><rect width="600" height="400" fill="%230f172a"/><text x="300" y="200" fill="%23e5e7eb" font-family="Arial, sans-serif" font-size="28" text-anchor="middle">Gorsel Yok</text></svg>'
+const FALLBACK_IMAGE = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="600" height="400" viewBox="0 0 600 400"><rect width="600" height="400" fill="%230f172a"/><rect x="140" y="90" width="320" height="220" rx="16" fill="%231e293b" stroke="%23334155" stroke-width="4"/><circle cx="215" cy="170" r="26" fill="%23334155"/><path d="M190 270l74-70 46 42 44-32 56 60H190z" fill="%23334155"/></svg>'
 
 function FilterChip({ label, onRemove }: { label: string; onRemove: () => void }) {
   return (
@@ -60,6 +60,7 @@ function PCProductCard({ product }: { product: PCProduct }) {
 
       <div className="p-4 flex flex-col flex-1 gap-3">
         <span className={`badge border self-start ${PC_CATEGORY_COLORS[product.category]}`}>{product.category}</span>
+        {product.peripheralSubcategory && <span className="badge border self-start bg-indigo-900/60 text-indigo-300 border-indigo-700">{product.peripheralSubcategory}</span>}
         <h3 className="font-semibold text-white text-sm leading-snug line-clamp-2">{product.name}</h3>
         <p className="text-xs text-gray-400 line-clamp-2">{product.specs}</p>
 
@@ -123,11 +124,13 @@ function ConsoleProductCard({ product }: { product: ConsoleProduct }) {
 
 function PCProductsView() {
   const [selectedCategories, setSelectedCategories] = useState<PCCategory[]>([])
+  const [selectedPeripheralTypes, setSelectedPeripheralTypes] = useState<PeripheralSubcategory[]>([])
   const [selectedStores, setSelectedStores] = useState<string[]>([])
   const [selectedBrands, setSelectedBrands] = useState<string[]>([])
   const [inStockOnly, setInStockOnly] = useState(false)
   const [sortKey, setSortKey] = useState<SortKey>('price-asc')
   const [search, setSearch] = useState('')
+  const peripheralTypes: PeripheralSubcategory[] = ['Klavye', 'Mouse', 'Kulaklik']
   const [priceMin, setPriceMin] = useState('')
   const [priceMax, setPriceMax] = useState('')
 
@@ -143,10 +146,18 @@ function PCProductsView() {
 
     if (search.trim()) {
       const q = search.toLowerCase()
-      result = result.filter((p) => p.name.toLowerCase().includes(q) || p.specs.toLowerCase().includes(q) || p.brand.toLowerCase().includes(q))
+      result = result.filter((p) =>
+        p.name.toLowerCase().includes(q) ||
+        p.specs.toLowerCase().includes(q) ||
+        p.brand.toLowerCase().includes(q) ||
+        (p.peripheralSubcategory?.toLowerCase().includes(q) ?? false),
+      )
     }
 
     if (selectedCategories.length) result = result.filter((p) => selectedCategories.includes(p.category))
+    if (selectedPeripheralTypes.length) {
+      result = result.filter((p) => p.peripheralSubcategory && selectedPeripheralTypes.includes(p.peripheralSubcategory))
+    }
     if (selectedStores.length) result = result.filter((p) => selectedStores.includes(p.store))
     if (selectedBrands.length) result = result.filter((p) => selectedBrands.includes(p.brand))
     if (inStockOnly) result = result.filter((p) => p.inStock)
@@ -169,10 +180,11 @@ function PCProductsView() {
     }
 
     return result
-  }, [search, selectedCategories, selectedStores, selectedBrands, inStockOnly, sortKey, priceMin, priceMax])
+  }, [search, selectedCategories, selectedPeripheralTypes, selectedStores, selectedBrands, inStockOnly, sortKey, priceMin, priceMax])
 
   const clearFilters = () => {
     setSelectedCategories([])
+    setSelectedPeripheralTypes([])
     setSelectedStores([])
     setSelectedBrands([])
     setInStockOnly(false)
@@ -181,7 +193,7 @@ function PCProductsView() {
     setSearch('')
   }
 
-  const hasActiveFilters = selectedCategories.length > 0 || selectedStores.length > 0 || selectedBrands.length > 0 || inStockOnly || priceMin !== '' || priceMax !== '' || search.trim() !== ''
+  const hasActiveFilters = selectedCategories.length > 0 || selectedPeripheralTypes.length > 0 || selectedStores.length > 0 || selectedBrands.length > 0 || inStockOnly || priceMin !== '' || priceMax !== '' || search.trim() !== ''
 
   return (
     <div>
@@ -213,6 +225,25 @@ function PCProductsView() {
                     <div className="flex items-center gap-2">
                       <input type="checkbox" checked={active} onChange={() => toggleFilter(selectedCategories, setSelectedCategories, cat)} className="w-4 h-4 rounded accent-blue-500 cursor-pointer" />
                       <span className={`text-sm transition-colors ${active ? 'text-white font-medium' : 'text-gray-400 group-hover:text-gray-200'}`}>{cat}</span>
+                    </div>
+                    <span className="text-xs text-gray-600 bg-gray-800 px-1.5 py-0.5 rounded">{count}</span>
+                  </label>
+                )
+              })}
+            </div>
+          </div>
+
+          <div className="card p-4">
+            <h2 className="text-sm font-semibold text-gray-300 mb-3">Cevre Birimi Alt Kategori</h2>
+            <div className="space-y-2">
+              {peripheralTypes.map((type) => {
+                const count = pcProducts.filter((p) => p.category === 'Cevre Birimi' && p.peripheralSubcategory === type).length
+                const active = selectedPeripheralTypes.includes(type)
+                return (
+                  <label key={type} className="flex items-center justify-between cursor-pointer group">
+                    <div className="flex items-center gap-2">
+                      <input type="checkbox" checked={active} onChange={() => toggleFilter(selectedPeripheralTypes, setSelectedPeripheralTypes, type)} className="w-4 h-4 rounded accent-blue-500 cursor-pointer" />
+                      <span className={`text-sm transition-colors ${active ? 'text-white font-medium' : 'text-gray-400 group-hover:text-gray-200'}`}>{type}</span>
                     </div>
                     <span className="text-xs text-gray-600 bg-gray-800 px-1.5 py-0.5 rounded">{count}</span>
                   </label>
@@ -284,6 +315,7 @@ function PCProductsView() {
             <div className="flex flex-wrap gap-2 mb-4">
               {search && <FilterChip label={`"${search}"`} onRemove={() => setSearch('')} />}
               {selectedCategories.map((cat) => <FilterChip key={cat} label={cat} onRemove={() => toggleFilter(selectedCategories, setSelectedCategories, cat)} />)}
+              {selectedPeripheralTypes.map((type) => <FilterChip key={type} label={type} onRemove={() => toggleFilter(selectedPeripheralTypes, setSelectedPeripheralTypes, type)} />)}
               {selectedStores.map((store) => <FilterChip key={store} label={store} onRemove={() => toggleFilter(selectedStores, setSelectedStores, store)} />)}
               {selectedBrands.map((brand) => <FilterChip key={brand} label={brand} onRemove={() => toggleFilter(selectedBrands, setSelectedBrands, brand)} />)}
             </div>
