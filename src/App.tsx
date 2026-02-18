@@ -9,6 +9,7 @@ import ContactPage from './pages/ContactPage'
 import LoginPage from './pages/LoginPage'
 import SignupPage from './pages/SignupPage'
 import ProfilePage from './pages/ProfilePage'
+import UserProfilePage from './pages/UserProfilePage'
 import NotFoundPage from './pages/NotFoundPage'
 import AwardsPage from './pages/AwardsPage'
 
@@ -26,6 +27,7 @@ function App() {
         <Route path="login" element={<LoginPage />} />
         <Route path="signup" element={<SignupPage />} />
         <Route path="profil" element={<ProfilePage />} />
+        <Route path="kullanici/:email" element={<UserProfilePage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Route>
     </Routes>

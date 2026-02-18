@@ -4,6 +4,11 @@ export interface AuthUser {
   password: string
 }
 
+export interface PublicUser {
+  name: string
+  email: string
+}
+
 const USERS_KEY = 'gn_users'
 const CURRENT_USER_KEY = 'gn_current_user'
 
@@ -55,4 +60,22 @@ export function getCurrentUser(): { name: string; email: string } | null {
 
 export function logoutUser() {
   localStorage.removeItem(CURRENT_USER_KEY)
+}
+
+export function listPublicUsers(): PublicUser[] {
+  return readUsers().map((user) => ({
+    name: user.name,
+    email: user.email,
+  }))
+}
+
+export function getPublicUserByEmail(email: string): PublicUser | null {
+  const normalized = email.trim().toLowerCase()
+  if (!normalized) return null
+  const found = readUsers().find((user) => user.email.toLowerCase() === normalized)
+  if (!found) return null
+  return {
+    name: found.name,
+    email: found.email,
+  }
 }

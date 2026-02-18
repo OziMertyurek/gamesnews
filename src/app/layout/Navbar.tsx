@@ -1,6 +1,9 @@
-import { useEffect, useMemo, useState } from 'react'
-import { Link, NavLink } from 'react-router-dom'
-import { getCurrentUser, logoutUser } from '../../lib/auth'
+import { useEffect, useMemo, useRef, useState } from 'react'
+import { Link, NavLink, useNavigate } from 'react-router-dom'
+import { getCurrentUser, listPublicUsers, logoutUser } from '../../lib/auth'
+import { games } from '../../data/siteContent'
+import { pcProducts } from '../../data/pcProducts'
+import { CONSOLE_LABELS, consoleProducts } from '../../data/consoleProducts'
 
 const platforms = ['pc', 'ps', 'xbox', 'nintendo'] as const
 const platformLabels: Record<(typeof platforms)[number], string> = {
@@ -9,6 +12,17 @@ const platformLabels: Record<(typeof platforms)[number], string> = {
   xbox: 'Xbox',
   nintendo: 'Nintendo',
 }
+
+const genreSearchItems = [
+  { slug: 'action', label: 'Aksiyon' },
+  { slug: 'rpg', label: 'RPG' },
+  { slug: 'strategy', label: 'Strateji' },
+  { slug: 'sports', label: 'Spor' },
+  { slug: 'racing', label: 'Yaris' },
+  { slug: 'horror', label: 'Korku' },
+  { slug: 'shooter', label: 'Nisanci' },
+  { slug: 'puzzle', label: 'Bulmaca' },
+]
 
 interface DropdownItem {
   label: string
@@ -20,15 +34,52 @@ interface NavItem {
   items: DropdownItem[]
 }
 
+type SearchKind = 'profil' | 'kategori' | 'oyun' | 'urun'
+
+interface SearchItem {
+  id: string
+  kind: SearchKind
+  title: string
+  subtitle: string
+  to?: string
+  href?: string
+}
+
 const productMenu: NavItem = {
   label: 'Urunler',
   items: platforms.map((p) => ({ label: platformLabels[p], to: `/products/${p}` })),
 }
 
+function normalize(value: string) {
+  return value
+    .toLowerCase()
+    .normalize('NFKD')
+    .replace(/[\u0300-\u036f]/g, '')
+}
+
+function kindLabel(kind: SearchKind) {
+  switch (kind) {
+    case 'profil':
+      return 'Profil'
+    case 'kategori':
+      return 'Kategori'
+    case 'oyun':
+      return 'Oyun'
+    case 'urun':
+      return 'Urun'
+    default:
+      return 'Sonuc'
+  }
+}
+
 export default function Navbar() {
+  const navigate = useNavigate()
   const [openMenu, setOpenMenu] = useState<string | null>(null)
   const [mobileOpen, setMobileOpen] = useState(false)
-  const [, setAuthVersion] = useState(0)
+  const [authVersion, setAuthVersion] = useState(0)
+  const [searchQuery, setSearchQuery] = useState('')
+  const [searchOpen, setSearchOpen] = useState(false)
+  const searchRef = useRef<HTMLDivElement | null>(null)
 
   useEffect(() => {
     const onStorage = () => setAuthVersion((value) => value + 1)
@@ -36,7 +87,86 @@ export default function Navbar() {
     return () => window.removeEventListener('storage', onStorage)
   }, [])
 
+  useEffect(() => {
+    const onPointerDown = (event: MouseEvent) => {
+      if (!searchRef.current) return
+      if (event.target instanceof Node && searchRef.current.contains(event.target)) return
+      setSearchOpen(false)
+    }
+    window.addEventListener('mousedown', onPointerDown)
+    return () => window.removeEventListener('mousedown', onPointerDown)
+  }, [])
+
   const user = getCurrentUser()
+
+  const searchItems = useMemo(() => {
+    const profileItems: SearchItem[] = listPublicUsers().map((profile) => ({
+      id: `profile-${profile.email}`,
+      kind: 'profil',
+      title: profile.name,
+      subtitle: profile.email,
+      to: `/kullanici/${encodeURIComponent(profile.email)}`,
+    }))
+
+    const categoryItems: SearchItem[] = genreSearchItems.map((genre) => ({
+      id: `genre-${genre.slug}`,
+      kind: 'kategori',
+      title: genre.label,
+      subtitle: 'Oyun Kategorisi',
+      to: `/games/genres/${genre.slug}`,
+    }))
+
+    const gameItems: SearchItem[] = games.map((game) => ({
+      id: `game-${game.slug}`,
+      kind: 'oyun',
+      title: game.title,
+      subtitle: `${game.genre} • ${game.releaseYear}`,
+      to: `/games/${game.slug}`,
+    }))
+
+    const pcProductItems: SearchItem[] = pcProducts.map((product) => ({
+      id: `pc-product-${product.id}`,
+      kind: 'urun',
+      title: product.name,
+      subtitle: `PC • ${product.category}`,
+      href: product.link,
+    }))
+
+    const consoleProductItems: SearchItem[] = consoleProducts.map((product) => ({
+      id: `console-product-${product.id}`,
+      kind: 'urun',
+      title: product.name,
+      subtitle: `${CONSOLE_LABELS[product.platform]} • ${product.category}`,
+      href: product.link,
+    }))
+
+    return [...profileItems, ...categoryItems, ...gameItems, ...pcProductItems, ...consoleProductItems]
+  }, [authVersion])
+
+  const searchResults = useMemo(() => {
+    const q = normalize(searchQuery.trim())
+    if (q.length < 2) return []
+
+    return searchItems
+      .map((item) => {
+        const title = normalize(item.title)
+        const subtitle = normalize(item.subtitle)
+        if (!title.includes(q) && !subtitle.includes(q)) return null
+
+        let score = 0
+        if (title.startsWith(q)) score += 40
+        if (title.includes(q)) score += 20
+        if (subtitle.includes(q)) score += 8
+        if (item.kind === 'profil') score += 6
+        if (item.kind === 'oyun') score += 4
+
+        return { item, score }
+      })
+      .filter((entry): entry is { item: SearchItem; score: number } => entry !== null)
+      .sort((a, b) => b.score - a.score)
+      .slice(0, 10)
+      .map((entry) => entry.item)
+  }, [searchItems, searchQuery])
 
   const authBlock = useMemo(() => {
     if (!user) {
@@ -63,6 +193,14 @@ export default function Navbar() {
       </div>
     )
   }, [user])
+
+  function runSearchTarget(item: SearchItem) {
+    if (item.to) navigate(item.to)
+    if (item.href) window.open(item.href, '_blank', 'noopener,noreferrer')
+    setSearchOpen(false)
+    setSearchQuery('')
+    setMobileOpen(false)
+  }
 
   return (
     <header className="bg-gray-900 border-b border-gray-800 sticky top-0 z-50">
@@ -156,6 +294,60 @@ export default function Navbar() {
               )}
             </svg>
           </button>
+        </div>
+
+        <div className="pb-3" ref={searchRef}>
+          <div className="relative">
+            <input
+              type="text"
+              value={searchQuery}
+              onFocus={() => setSearchOpen(true)}
+              onChange={(event) => {
+                setSearchQuery(event.target.value)
+                setSearchOpen(true)
+              }}
+              onKeyDown={(event) => {
+                if (event.key === 'Enter' && searchResults[0]) {
+                  event.preventDefault()
+                  runSearchTarget(searchResults[0])
+                }
+              }}
+              placeholder="Profil, kategori, oyun veya urun ara..."
+              className="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-2.5 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-blue-500"
+            />
+
+            {searchOpen && searchQuery.trim().length >= 2 && (
+              <div className="absolute left-0 right-0 top-full mt-2 bg-gray-900 border border-gray-700 rounded-xl shadow-xl overflow-hidden z-50">
+                {searchResults.length === 0 ? (
+                  <p className="px-4 py-3 text-sm text-gray-400">Sonuc bulunamadi.</p>
+                ) : (
+                  <ul>
+                    {searchResults.map((item) => (
+                      <li key={item.id} className="border-b border-gray-800 last:border-none">
+                        {item.to ? (
+                          <button
+                            className="w-full text-left px-4 py-3 hover:bg-gray-800 transition-colors"
+                            onClick={() => runSearchTarget(item)}
+                          >
+                            <p className="text-sm text-white font-medium">{item.title}</p>
+                            <p className="text-xs text-gray-400 mt-0.5">{kindLabel(item.kind)} • {item.subtitle}</p>
+                          </button>
+                        ) : (
+                          <button
+                            className="w-full text-left px-4 py-3 hover:bg-gray-800 transition-colors"
+                            onClick={() => runSearchTarget(item)}
+                          >
+                            <p className="text-sm text-white font-medium">{item.title}</p>
+                            <p className="text-xs text-gray-400 mt-0.5">{kindLabel(item.kind)} • {item.subtitle}</p>
+                          </button>
+                        )}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            )}
+          </div>
         </div>
 
         {mobileOpen && (
