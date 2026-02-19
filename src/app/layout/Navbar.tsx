@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import { Link, NavLink, useNavigate } from 'react-router-dom'
 import { getCurrentUser, listPublicUsers, logoutUser } from '../../lib/auth'
 import { gameGenres, games } from '../../data/siteContent'
-import { dedupeGamesByTitle } from '../../lib/gameCatalog'
+import { dedupeGamesByTitle, filterGenresWithGames } from '../../lib/gameCatalog'
 
 type SearchKind = 'profil' | 'kategori' | 'oyun'
 
@@ -131,7 +131,8 @@ export default function Navbar() {
       to: `/kullanici/${encodeURIComponent(profile.email)}`,
     }))
 
-    const categoryItems: SearchItem[] = gameGenres.map((genre) => ({
+    const nonEmptyGenres = filterGenresWithGames(gameGenres, games)
+    const categoryItems: SearchItem[] = nonEmptyGenres.map((genre) => ({
       id: `genre-${genre.slug}`,
       kind: 'kategori',
       title: genre.label,

@@ -1,4 +1,4 @@
-import type { GameItem } from '../data/siteContent'
+import type { GameGenre, GameItem } from '../data/siteContent'
 
 function normalizeTitle(value: string) {
   return value.toLowerCase().replace(/[^a-z0-9]+/g, '')
@@ -24,4 +24,9 @@ export function dedupeGamesByTitle(items: GameItem[]) {
   }
 
   return [...map.values()]
+}
+
+export function filterGenresWithGames(genres: GameGenre[], items: GameItem[]) {
+  const genresWithGames = new Set(items.map((game) => game.genre))
+  return genres.filter((genre) => genresWithGames.has(genre.slug))
 }

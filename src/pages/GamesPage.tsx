@@ -24,7 +24,8 @@ import {
   GiSteeringWheel,
 } from 'react-icons/gi'
 import { MdOutlineArchitecture, MdOutlineDashboard, MdOutlinePsychology, MdSportsEsports } from 'react-icons/md'
-import { gameGenres } from '../data/siteContent'
+import { gameGenres, games } from '../data/siteContent'
+import { filterGenresWithGames } from '../lib/gameCatalog'
 
 const genreVisuals: Record<
   string,
@@ -133,7 +134,8 @@ function getGenreVisual(slug: string) {
 }
 
 export default function GamesPage() {
-  const sortedGenres = [...gameGenres].sort((a, b) =>
+  const nonEmptyGenres = filterGenresWithGames(gameGenres, games)
+  const sortedGenres = [...nonEmptyGenres].sort((a, b) =>
     a.label.localeCompare(b.label, 'tr', { sensitivity: 'base', ignorePunctuation: true }),
   )
 
