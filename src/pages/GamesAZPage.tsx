@@ -1,3 +1,4 @@
+import { useMemo } from 'react'
 import { Link } from 'react-router-dom'
 import { games } from '../data/siteContent'
 import { dedupeGamesByTitle } from '../lib/gameCatalog'
@@ -10,21 +11,33 @@ function firstLetter(value: string) {
 }
 
 export default function GamesAZPage() {
-  const sorted = dedupeGamesByTitle(games).sort((a, b) => a.title.localeCompare(b.title, 'en', { sensitivity: 'base' }))
-  const grouped = new Map<string, typeof sorted>()
+  const sorted = useMemo(
+    () => dedupeGamesByTitle(games).sort((a, b) => a.title.localeCompare(b.title, 'en', { sensitivity: 'base' })),
+    [],
+  )
 
-  for (const game of sorted) {
-    const letter = firstLetter(game.title)
-    const list = grouped.get(letter) ?? []
-    list.push(game)
-    grouped.set(letter, list)
-  }
+  const grouped = useMemo(() => {
+    const groupedMap = new Map<string, typeof sorted>()
 
-  const letters = [...grouped.keys()].sort((a, b) => {
-    if (a === '#') return 1
-    if (b === '#') return -1
-    return a.localeCompare(b)
-  })
+    for (const game of sorted) {
+      const letter = firstLetter(game.title)
+      const list = groupedMap.get(letter) ?? []
+      list.push(game)
+      groupedMap.set(letter, list)
+    }
+
+    return groupedMap
+  }, [sorted])
+
+  const letters = useMemo(
+    () =>
+      [...grouped.keys()].sort((a, b) => {
+        if (a === '#') return 1
+        if (b === '#') return -1
+        return a.localeCompare(b)
+      }),
+    [grouped],
+  )
 
   return (
     <div className="space-y-6">
@@ -41,7 +54,7 @@ export default function GamesAZPage() {
       </section>
 
       {letters.map((letter) => (
-        <section key={letter} className="card p-5">
+        <section key={letter} className="card p-5 cv-auto">
           <h2 className="text-xl font-bold text-blue-300">{letter}</h2>
           <div className="mt-4 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2">
             {(grouped.get(letter) ?? []).map((game) => (

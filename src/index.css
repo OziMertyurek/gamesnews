@@ -27,4 +27,9 @@
   .badge {
     @apply text-xs font-semibold px-2.5 py-0.5 rounded-full;
   }
+
+  .cv-auto {
+    content-visibility: auto;
+    contain-intrinsic-size: 900px;
+  }
 }
