@@ -5,6 +5,7 @@ import Layout from './app/layout/Layout'
 const HomePage = lazy(() => import('./pages/HomePage'))
 const GamesPage = lazy(() => import('./pages/GamesPage'))
 const GamesAZPage = lazy(() => import('./pages/GamesAZPage'))
+const ConsolePlatformPage = lazy(() => import('./pages/ConsolePlatformPage'))
 const GenrePage = lazy(() => import('./pages/GenrePage'))
 const GameDetailPage = lazy(() => import('./pages/GameDetailPage'))
 const ContactPage = lazy(() => import('./pages/ContactPage'))
@@ -17,11 +18,14 @@ const AwardsPage = lazy(() => import('./pages/AwardsPage'))
 
 function App() {
   return (
-    <Suspense fallback={<div className="container py-10 text-sm text-gray-400">Sayfa yukleniyor...</div>}>
+    <Suspense fallback={<div className="container py-10 text-sm text-gray-400">Sayfa yükleniyor...</div>}>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
           <Route path="games" element={<GamesPage />} />
+          <Route path="konsollar/nintendo" element={<ConsolePlatformPage />} />
+          <Route path="konsollar/playstation" element={<ConsolePlatformPage />} />
+          <Route path="konsollar/xbox" element={<ConsolePlatformPage />} />
           <Route path="games/alfabetik" element={<GamesAZPage />} />
           <Route path="oduller" element={<AwardsPage />} />
           <Route path="games/genres/:genre" element={<GenrePage />} />

@@ -1,8 +1,6 @@
-import { useEffect, useMemo, useRef, useState } from 'react'
-import { Link, NavLink, useNavigate } from 'react-router-dom'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom'
 import { getCurrentUser, listPublicUsers, logoutUser } from '../../lib/auth'
-import { gameGenres, games } from '../../data/siteContent'
-import { dedupeGamesByTitle, filterGenresWithGames } from '../../lib/gameCatalog'
 
 type SearchKind = 'profil' | 'kategori' | 'oyun'
 
@@ -30,22 +28,60 @@ function kindLabel(kind: SearchKind) {
     case 'oyun':
       return 'Oyun'
     default:
-      return 'Sonuc'
+      return 'Sonuç'
   }
 }
 
 export default function Navbar() {
   const headerRef = useRef<HTMLElement | null>(null)
   const searchRef = useRef<HTMLDivElement | null>(null)
+  const searchCatalogLoadingRef = useRef(false)
   const lastScrollYRef = useRef(0)
   const lastToggleYRef = useRef(0)
   const lastToggleAtRef = useRef(0)
   const navigate = useNavigate()
+  const location = useLocation()
   const [mobileOpen, setMobileOpen] = useState(false)
   const [authVersion, setAuthVersion] = useState(0)
   const [searchQuery, setSearchQuery] = useState('')
   const [searchOpen, setSearchOpen] = useState(false)
   const [searchCollapsed, setSearchCollapsed] = useState(false)
+  const [catalogSearchItems, setCatalogSearchItems] = useState<SearchItem[]>([])
+  const [consolesOpen, setConsolesOpen] = useState(false)
+  const consolesActive = location.pathname.startsWith('/konsollar/')
+
+  const loadCatalogSearchItems = useCallback(async () => {
+    if (searchCatalogLoadingRef.current || catalogSearchItems.length > 0) return
+    searchCatalogLoadingRef.current = true
+
+    try {
+      const [{ gameGenres, games }, { dedupeGamesByTitle, filterGenresWithGames }] = await Promise.all([
+        import('../../data/siteContent'),
+        import('../../lib/gameCatalog'),
+      ])
+
+      const nonEmptyGenres = filterGenresWithGames(gameGenres, games)
+      const categoryItems: SearchItem[] = nonEmptyGenres.map((genre) => ({
+        id: `genre-${genre.slug}`,
+        kind: 'kategori',
+        title: genre.label,
+        subtitle: 'Oyun Kategorisi',
+        to: `/games/genres/${genre.slug}`,
+      }))
+
+      const gameItems: SearchItem[] = dedupeGamesByTitle(games).map((game) => ({
+        id: `game-${game.slug}`,
+        kind: 'oyun',
+        title: game.title,
+        subtitle: `${game.genre} - ${game.releaseYear}`,
+        to: `/games/${game.slug}`,
+      }))
+
+      setCatalogSearchItems([...categoryItems, ...gameItems])
+    } finally {
+      searchCatalogLoadingRef.current = false
+    }
+  }, [catalogSearchItems.length])
 
   useEffect(() => {
     const onStorage = () => setAuthVersion((value) => value + 1)
@@ -120,36 +156,22 @@ export default function Navbar() {
 
   const user = getCurrentUser()
 
-  const searchItems = useMemo(() => {
+  const profileItems = useMemo(() => {
     void authVersion
 
-    const profileItems: SearchItem[] = listPublicUsers().map((profile) => ({
+    return listPublicUsers().map((profile) => ({
       id: `profile-${profile.email}`,
       kind: 'profil',
       title: profile.name,
       subtitle: profile.email,
       to: `/kullanici/${encodeURIComponent(profile.email)}`,
     }))
-
-    const nonEmptyGenres = filterGenresWithGames(gameGenres, games)
-    const categoryItems: SearchItem[] = nonEmptyGenres.map((genre) => ({
-      id: `genre-${genre.slug}`,
-      kind: 'kategori',
-      title: genre.label,
-      subtitle: 'Oyun Kategorisi',
-      to: `/games/genres/${genre.slug}`,
-    }))
-
-    const gameItems: SearchItem[] = dedupeGamesByTitle(games).map((game) => ({
-      id: `game-${game.slug}`,
-      kind: 'oyun',
-      title: game.title,
-      subtitle: `${game.genre} - ${game.releaseYear}`,
-      to: `/games/${game.slug}`,
-    }))
-
-    return [...profileItems, ...categoryItems, ...gameItems]
   }, [authVersion])
+
+  const searchItems = useMemo(
+    () => [...profileItems, ...catalogSearchItems],
+    [profileItems, catalogSearchItems],
+  )
 
   const searchResults = useMemo(() => {
     const q = normalize(searchQuery.trim())
@@ -196,7 +218,7 @@ export default function Navbar() {
             setAuthVersion((value) => value + 1)
           }}
         >
-          Cikis
+          Çıkış
         </button>
       </div>
     )
@@ -245,6 +267,33 @@ export default function Navbar() {
               Oyunlar
             </NavLink>
 
+            <div
+              className="relative"
+              onMouseEnter={() => setConsolesOpen(true)}
+              onMouseLeave={() => setConsolesOpen(false)}
+            >
+              <button
+                className={`px-4 py-2 text-sm font-medium rounded-lg transition-colors ${
+                  consolesActive ? 'text-blue-400 bg-blue-950' : 'text-gray-300 hover:text-white hover:bg-gray-800'
+                }`}
+                type="button"
+                onClick={() => setConsolesOpen((value) => !value)}
+                aria-expanded={consolesOpen}
+                aria-haspopup="menu"
+              >
+                Konsollar
+              </button>
+              <div
+                className={`absolute left-0 top-full z-[70] min-w-[180px] rounded-lg border border-gray-700 bg-gray-900 shadow-xl transition-all duration-150 ${
+                  consolesOpen ? 'opacity-100 pointer-events-auto translate-y-0' : 'opacity-0 pointer-events-none -translate-y-1'
+                }`}
+              >
+                <NavLink to="/konsollar/nintendo" className="block px-3 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-white rounded-t-lg" onClick={() => setConsolesOpen(false)}>Nintendo</NavLink>
+                <NavLink to="/konsollar/playstation" className="block px-3 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-white" onClick={() => setConsolesOpen(false)}>PlayStation</NavLink>
+                <NavLink to="/konsollar/xbox" className="block px-3 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-white rounded-b-lg" onClick={() => setConsolesOpen(false)}>Xbox</NavLink>
+              </div>
+            </div>
+
             <NavLink
               to="/oduller"
               className={({ isActive }) =>
@@ -253,7 +302,7 @@ export default function Navbar() {
                 }`
               }
             >
-              Oduller
+              Ödüller
             </NavLink>
 
             <NavLink
@@ -264,7 +313,7 @@ export default function Navbar() {
                 }`
               }
             >
-              Iletisim
+              İletişim
             </NavLink>
           </nav>
 
@@ -297,10 +346,16 @@ export default function Navbar() {
             <input
               type="text"
               value={searchQuery}
-              onFocus={() => setSearchOpen(true)}
+              onFocus={() => {
+                setSearchOpen(true)
+                void loadCatalogSearchItems()
+              }}
               onChange={(event) => {
                 setSearchQuery(event.target.value)
                 setSearchOpen(true)
+                if (event.target.value.trim().length > 0) {
+                  void loadCatalogSearchItems()
+                }
               }}
               onKeyDown={(event) => {
                 if (event.key === 'Enter' && searchResults[0]) {
@@ -315,7 +370,7 @@ export default function Navbar() {
             {searchOpen && searchQuery.trim().length >= 2 && (
               <div className="absolute left-0 right-0 top-full mt-2 bg-gray-900 border border-gray-700 rounded-xl shadow-xl overflow-hidden z-50">
                 {searchResults.length === 0 ? (
-                  <p className="px-4 py-3 text-sm text-gray-400">Sonuc bulunamadi.</p>
+                  <p className="px-4 py-3 text-sm text-gray-400">Sonuç bulunamadı.</p>
                 ) : (
                   <ul>
                     {searchResults.map((item) => (
@@ -339,8 +394,14 @@ export default function Navbar() {
         {mobileOpen && (
           <nav className="md:hidden pb-4 border-t border-gray-800 mt-1 pt-3 space-y-1">
             <NavLink to="/games" className="block px-4 py-2 text-sm rounded-lg mx-1 text-gray-300 hover:text-white hover:bg-gray-800" onClick={() => setMobileOpen(false)}>Oyunlar</NavLink>
-            <NavLink to="/oduller" className="block px-4 py-2 text-sm rounded-lg mx-1 text-gray-300 hover:text-white hover:bg-gray-800" onClick={() => setMobileOpen(false)}>Oduller</NavLink>
-            <NavLink to="/iletisim" className="block px-4 py-2 text-sm rounded-lg mx-1 text-gray-300 hover:text-white hover:bg-gray-800" onClick={() => setMobileOpen(false)}>Iletisim</NavLink>
+            <div className="px-4 pt-1">
+              <p className="text-[11px] uppercase tracking-wide text-gray-500">Konsollar</p>
+              <NavLink to="/konsollar/nintendo" className="block px-2 py-1.5 text-sm rounded-lg text-gray-300 hover:text-white hover:bg-gray-800" onClick={() => setMobileOpen(false)}>Nintendo</NavLink>
+              <NavLink to="/konsollar/playstation" className="block px-2 py-1.5 text-sm rounded-lg text-gray-300 hover:text-white hover:bg-gray-800" onClick={() => setMobileOpen(false)}>PlayStation</NavLink>
+              <NavLink to="/konsollar/xbox" className="block px-2 py-1.5 text-sm rounded-lg text-gray-300 hover:text-white hover:bg-gray-800" onClick={() => setMobileOpen(false)}>Xbox</NavLink>
+            </div>
+            <NavLink to="/oduller" className="block px-4 py-2 text-sm rounded-lg mx-1 text-gray-300 hover:text-white hover:bg-gray-800" onClick={() => setMobileOpen(false)}>Ödüller</NavLink>
+            <NavLink to="/iletisim" className="block px-4 py-2 text-sm rounded-lg mx-1 text-gray-300 hover:text-white hover:bg-gray-800" onClick={() => setMobileOpen(false)}>İletişim</NavLink>
             <div className="px-2 pt-2">{authBlock}</div>
           </nav>
         )}

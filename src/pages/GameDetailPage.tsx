@@ -133,7 +133,7 @@ export default function GameDetailPage() {
       })
       .catch((error) => {
         if (!active) return
-        setRequirementsError(error instanceof Error ? error.message : 'Sistem gereksinimi alinamadi.')
+        setRequirementsError(error instanceof Error ? error.message : 'Sistem gereksinimi alınamadı.')
       })
       .finally(() => {
         if (!active) return
@@ -205,9 +205,9 @@ export default function GameDetailPage() {
   if (!game) {
     return (
       <div className="card p-12 text-center">
-        <h1 className="text-2xl font-bold text-white mb-2">Oyun bulunamadi</h1>
-        <p className="text-gray-400 mb-6">Aradigin oyun su anda listede yok.</p>
-        <Link to="/games" className="btn-primary inline-flex">Oyunlara Don</Link>
+        <h1 className="text-2xl font-bold text-white mb-2">Oyun bulunamadı</h1>
+        <p className="text-gray-400 mb-6">Aradığın oyun su anda listede yok.</p>
+        <Link to="/games" className="btn-primary inline-flex">Oyunlara Dön</Link>
       </div>
     )
   }
@@ -221,15 +221,15 @@ export default function GameDetailPage() {
 
   const statusLabel =
     compatibility.status === 'karsilar'
-      ? 'Karsiliyor'
+      ? 'Karşılıyor'
       : compatibility.status === 'sinirda'
-        ? 'Sinirda'
-        : 'Karsilamiyor'
+        ? 'Sınırda'
+        : 'Karşılamıyor'
 
   const shareSummary =
     `${safeGame.title} | Durum: ${statusLabel} | Hedef FPS: ${compatibility.targetFps} | ` +
-    `Dusuk:${compatibility.avgFpsLow} Orta:${compatibility.avgFpsMedium} Yuksek:${compatibility.avgFpsHigh} | ` +
-    `Onerilen Ayar: ${compatibility.suggestedPreset}`
+    `Düşük:${compatibility.avgFpsLow} Orta:${compatibility.avgFpsMedium} Yüksek:${compatibility.avgFpsHigh} | ` +
+    `Önerilen Ayar: ${compatibility.suggestedPreset}`
 
   return (
     <div>
@@ -245,14 +245,14 @@ export default function GameDetailPage() {
         <div className="flex flex-wrap gap-2 mb-4">
           {awards && awards.gotyWinnerYears.length > 0 && <span className="badge bg-amber-950 text-amber-200">GOTY Kazanan</span>}
           {awards && awards.gotyNomineeYears.length > 0 && <span className="badge bg-blue-950 text-blue-200">GOTY Aday</span>}
-          {awards && awards.categoryWins.length > 0 && <span className="badge bg-emerald-950 text-emerald-200">Kategori Odulu: {awards.categoryWins.length}</span>}
-          {awards && awards.categoryNominations.length > 0 && <span className="badge bg-indigo-950 text-indigo-200">Kategori Adayligi: {awards.categoryNominations.length}</span>}
+          {awards && awards.categoryWins.length > 0 && <span className="badge bg-emerald-950 text-emerald-200">Kategori Ödülü: {awards.categoryWins.length}</span>}
+          {awards && awards.categoryNominations.length > 0 && <span className="badge bg-indigo-950 text-indigo-200">Kategori Adaylığı: {awards.categoryNominations.length}</span>}
         </div>
         <p className="text-gray-300 mb-6 max-w-3xl">{safeGame.summary}</p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           <div className="bg-gray-800 rounded-lg p-4">
-            <p className="text-xs text-gray-500 mb-1">Cikis Yili</p>
+            <p className="text-xs text-gray-500 mb-1">Çıkış Yılı</p>
             <p className="text-white font-semibold">{safeGame.releaseYear}</p>
           </div>
           <div className="bg-gray-800 rounded-lg p-4">
@@ -306,7 +306,7 @@ export default function GameDetailPage() {
                 setPlayedOnSite(next)
               }}
             >
-              {playedOnSite ? 'Oynadim Olarak Isaretli' : 'Bu Oyunu Oynadim'}
+              {playedOnSite ? 'Oynadım Olarak İşaretli' : 'Bu Oyunu Oynadım'}
             </button>
           )}
         </div>
@@ -319,14 +319,14 @@ export default function GameDetailPage() {
         </div>
 
         <p className="text-sm text-gray-400 mt-1">
-          Bu oyun icin onerilen akicilik esigi: en az {compatibility.targetFps} FPS.
+          Bu oyun için önerilen akıcılık eşiği: en az {compatibility.targetFps} FPS.
         </p>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-4">
           <div className="bg-gray-800 rounded-lg p-4">
             <p className="text-sm text-gray-300 font-semibold mb-3">Minimum</p>
             {requirementsLoading ? (
-              <p className="text-sm text-gray-400">Steam verisi aliniyor...</p>
+              <p className="text-sm text-gray-400">Steam verisi alınıyor...</p>
             ) : steamRequirements?.minimumLines.length ? (
               <ul className="space-y-1 text-sm text-gray-200">
                 {steamRequirements.minimumLines.map((line) => (
@@ -334,14 +334,14 @@ export default function GameDetailPage() {
                 ))}
               </ul>
             ) : (
-              <p className="text-sm text-gray-400">Minimum gereksinim bilgisi bulunamadi.</p>
+              <p className="text-sm text-gray-400">Minimum gereksinim bilgisi bulunamadı.</p>
             )}
           </div>
 
           <div className="bg-gray-800 rounded-lg p-4">
-            <p className="text-sm text-gray-300 font-semibold mb-3">Onerilen</p>
+            <p className="text-sm text-gray-300 font-semibold mb-3">Önerilen</p>
             {requirementsLoading ? (
-              <p className="text-sm text-gray-400">Steam verisi aliniyor...</p>
+              <p className="text-sm text-gray-400">Steam verisi alınıyor...</p>
             ) : steamRequirements?.recommendedLines.length ? (
               <ul className="space-y-1 text-sm text-gray-200">
                 {steamRequirements.recommendedLines.map((line) => (
@@ -349,12 +349,12 @@ export default function GameDetailPage() {
                 ))}
               </ul>
             ) : (
-              <p className="text-sm text-gray-400">Onerilen gereksinim bilgisi bulunamadi.</p>
+              <p className="text-sm text-gray-400">Önerilen gereksinim bilgisi bulunamadı.</p>
             )}
           </div>
         </div>
         {!requirementsLoading && requirementsError && (
-          <p className="mt-3 text-xs text-amber-300">Steam gereksinim verisi alinamadi: {requirementsError}</p>
+          <p className="mt-3 text-xs text-amber-300">Steam gereksinim verisi alınamadı: {requirementsError}</p>
         )}
         {!requirementsLoading && steamRequirements?.appName && (
           <p className="mt-2 text-xs text-gray-500">Kaynak: Steam ({steamRequirements.appName})</p>
@@ -380,7 +380,7 @@ export default function GameDetailPage() {
               ))}
             </datalist>
             <span className="mt-1 block text-xs text-gray-500">
-              {cpuMatchedScore ? 'Model bulundu.' : `Model bulunamadi. Farkli yazim deneyin. (${cpuModels.length} CPU modeli var)`}
+              {cpuMatchedScore ? 'Model bulundu.' : `Model bulunamadı. Farklı yazım deneyin. (${cpuModels.length} CPU modeli var)`}
             </span>
           </label>
 
@@ -403,7 +403,7 @@ export default function GameDetailPage() {
               ))}
             </datalist>
             <span className="mt-1 block text-xs text-gray-500">
-              {gpuMatchedScore ? 'Model bulundu.' : `Model bulunamadi. Farkli yazim deneyin. (${gpuModels.length} GPU modeli var)`}
+              {gpuMatchedScore ? 'Model bulundu.' : `Model bulunamadı. Farklı yazım deneyin. (${gpuModels.length} GPU modeli var)`}
             </span>
           </label>
 
@@ -420,7 +420,7 @@ export default function GameDetailPage() {
           </label>
 
           <label className="text-sm text-gray-300">
-            Cozunurluk
+            Çözünürlük
             <select
               className="mt-1 w-full bg-gray-800 border border-gray-700 rounded px-3 py-2 text-sm"
               value={userSystem.resolution}
@@ -435,7 +435,7 @@ export default function GameDetailPage() {
 
         <div className="grid grid-cols-1 md:grid-cols-4 gap-3 mt-5">
           <div className="bg-gray-800 rounded-lg p-4">
-            <p className="text-xs text-gray-500">Dusuk</p>
+            <p className="text-xs text-gray-500">Düşük</p>
             <p className="text-xl font-bold text-white">~{compatibility.avgFpsLow} FPS</p>
           </div>
           <div className="bg-gray-800 rounded-lg p-4">
@@ -443,11 +443,11 @@ export default function GameDetailPage() {
             <p className="text-xl font-bold text-white">~{compatibility.avgFpsMedium} FPS</p>
           </div>
           <div className="bg-gray-800 rounded-lg p-4">
-            <p className="text-xs text-gray-500">Yuksek</p>
+            <p className="text-xs text-gray-500">Yüksek</p>
             <p className="text-xl font-bold text-white">~{compatibility.avgFpsHigh} FPS</p>
           </div>
           <div className="bg-gray-800 rounded-lg p-4">
-            <p className="text-xs text-gray-500">Onerilen Ayar</p>
+            <p className="text-xs text-gray-500">Önerilen Ayar</p>
             <p className="text-xl font-bold text-blue-300">{compatibility.suggestedPreset}</p>
           </div>
         </div>
@@ -468,7 +468,7 @@ export default function GameDetailPage() {
               setCopied(false)
             }}
           >
-            Sistemi Sifirla
+            Sistemi Sıfırla
           </button>
           <button
             className="btn-primary"
@@ -481,19 +481,19 @@ export default function GameDetailPage() {
               }
             }}
           >
-            Sonucu Paylas
+            Sonucu Paylaş
           </button>
-          {copied && <span className="text-sm text-emerald-300 self-center">Kopyalandi.</span>}
+          {copied && <span className="text-sm text-emerald-300 self-center">Kopyalandı.</span>}
         </div>
 
         <p className="mt-3 text-xs text-gray-500">
-          Not: FPS degeri tahmindir. Gercek performans surucu, patch, sahne yogunlugu ve arka plan uygulamalarina gore degisir.
+          Not: FPS değeri tahmindir. Gerçek performans sürücü, patch, sahne yoğunluğu ve arka plan uygulamalarına göre değişir.
         </p>
       </section>
 
       <section className="card p-6 mt-6">
         <h2 className="text-xl font-semibold text-white">Yorumlar</h2>
-        <p className="text-sm text-gray-400 mt-1">Kullanicilar bu oyuna yorum birakabilir.</p>
+        <p className="text-sm text-gray-400 mt-1">Kullanıcılar bu oyuna yorum bırakabilir.</p>
 
         {user ? (
           <form
@@ -530,11 +530,11 @@ export default function GameDetailPage() {
             <button className="btn-primary w-fit" type="submit">Yorum Ekle</button>
           </form>
         ) : (
-          <p className="mt-4 text-sm text-gray-400">Yorum birakmak icin giris yap.</p>
+          <p className="mt-4 text-sm text-gray-400">Yorum bırakmak için giriş yap.</p>
         )}
 
         <div className="mt-6 space-y-3">
-          {comments.length === 0 && <p className="text-sm text-gray-400">Henuz yorum yok.</p>}
+          {comments.length === 0 && <p className="text-sm text-gray-400">Henüz yorum yok.</p>}
           {comments.map((comment) => (
             <article key={comment.id} className="bg-gray-800 rounded-lg p-4">
               <div className="flex items-start justify-between gap-3">
@@ -562,3 +562,4 @@ export default function GameDetailPage() {
     </div>
   )
 }
+

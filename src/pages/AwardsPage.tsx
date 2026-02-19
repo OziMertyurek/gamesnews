@@ -16,8 +16,8 @@ export default function AwardsPage() {
   return (
     <div className="space-y-8">
       <section className="card p-6">
-        <h1 className="text-3xl font-bold text-white">The Game Awards Arsivi</h1>
-        <p className="text-gray-400 mt-2">2018'den gunumuze kazananlar ve kategori bazli adaylar.</p>
+        <h1 className="text-3xl font-bold text-white">The Game Awards Arşivi</h1>
+        <p className="text-gray-400 mt-2">2018'den günümüze kazananlar ve kategori bazlı adaylar.</p>
 
         <div className="mt-5 flex flex-wrap gap-2">
           {availableYears.map((year) => (
@@ -54,7 +54,7 @@ export default function AwardsPage() {
               <a href={yearData.source} target="_blank" rel="noreferrer" className="text-blue-300 hover:text-blue-200 text-sm mt-2 inline-block">
                 {yearData.source}
               </a>
-              <p className="text-gray-400 text-sm mt-4">Kategori kazananlari: {yearData.categoryWinners.length}</p>
+              <p className="text-gray-400 text-sm mt-4">Kategori kazananları: {yearData.categoryWinners.length}</p>
             </div>
           </div>
 
@@ -64,7 +64,7 @@ export default function AwardsPage() {
                 <tr className="text-left text-gray-400 border-b border-gray-700">
                   <th className="py-2 pr-4">Kategori</th>
                   <th className="py-2 pr-4">Kazanan</th>
-                  <th className="py-2 pr-4">Studyo/Not</th>
+                  <th className="py-2 pr-4">Stüdyo/Not</th>
                 </tr>
               </thead>
               <tbody>
@@ -83,8 +83,8 @@ export default function AwardsPage() {
 
       <section className="card p-6 space-y-5">
         <div>
-          <h2 className="text-xl font-semibold text-white">{tgaCurrentAwardsYear} Kategori Adaylari</h2>
-          <p className="text-sm text-gray-400">Kategori sec, kazanan ve aday listesini gor.</p>
+          <h2 className="text-xl font-semibold text-white">{tgaCurrentAwardsYear} Kategori Adayları</h2>
+          <p className="text-sm text-gray-400">Kategori seç, kazanan ve aday listesini gör.</p>
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2">
@@ -101,7 +101,7 @@ export default function AwardsPage() {
 
         {selectedCategory && (
           <div className="rounded-lg bg-gray-800 p-4">
-            <p className="text-xs text-gray-500 uppercase tracking-wide">Secili kategori</p>
+            <p className="text-xs text-gray-500 uppercase tracking-wide">Seçili kategori</p>
             <h3 className="text-lg font-semibold text-white mt-2">{selectedCategory.category}</h3>
             <p className="text-sm text-gray-400 mt-2">Kazanan</p>
             <p className="text-white font-medium">{selectedCategory.winner ?? 'Veri yok'}</p>
@@ -116,8 +116,8 @@ export default function AwardsPage() {
       </section>
 
       <section className="card p-6">
-        <h2 className="text-xl font-semibold text-white">Kategori Kazanma Dagilimi (2018-guncel)</h2>
-        <p className="text-sm text-gray-400 mt-1">En cok kategori kazanan 10 oyun.</p>
+        <h2 className="text-xl font-semibold text-white">Kategori Kazanma Dağılımı (2018-güncel)</h2>
+        <p className="text-sm text-gray-400 mt-1">En çok kategori kazanan 10 oyun.</p>
         <div className="mt-4 space-y-3">
           {leaderboard.map((entry) => (
             <div key={entry.title}>

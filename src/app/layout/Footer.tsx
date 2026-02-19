@@ -13,12 +13,12 @@ export default function Footer() {
               loading="lazy"
               decoding="async"
             />
-            <span className="text-gray-500 text-sm ml-2">Turkiye'nin oyun platformu</span>
+            <span className="text-gray-500 text-sm ml-2">Türkiye'nin oyun platformu</span>
           </div>
           <nav className="flex flex-wrap gap-4 text-sm text-gray-400">
             <Link to="/games" className="hover:text-white transition-colors">Oyunlar</Link>
-            <Link to="/oduller" className="hover:text-white transition-colors">Oduller</Link>
-            <Link to="/iletisim" className="hover:text-white transition-colors">Iletisim</Link>
+            <Link to="/oduller" className="hover:text-white transition-colors">Ödüller</Link>
+            <Link to="/iletisim" className="hover:text-white transition-colors">İletişim</Link>
           </nav>
           <p className="text-xs text-gray-600">(c) {new Date().getFullYear()} AllAroundGame</p>
         </div>
