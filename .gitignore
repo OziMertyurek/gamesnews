@@ -34,6 +34,8 @@ tmp_*/
 tmp_*
 ddg_*.html
 hltb_*.html
+hltb_*.json
+hltb_*.xml
 metacritic_search_sample.html
 link-audit-method*.json
 link-audit-method*.txt
