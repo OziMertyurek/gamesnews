@@ -992,7 +992,7 @@ export const gameExternalData: Record<string, GameExternalData> = {
   },
   "diablo-iv": {
     "metacriticScore": 86,
-    "metacriticUrl": "https://www.metacritic.com/game/diablo-iv/",
+    "metacriticUrl": "https://www.metacritic.com/search/diablo%20iv/",
     "howLongToBeatMainHours": 26,
     "howLongToBeatMainExtraHours": 49,
     "howLongToBeatCompletionistHours": 190,

@@ -1,28 +1,7 @@
 import { gameExternalData } from './gameExternalData'
+import { gameExpansionTitles } from './gameExpansionTitles'
 
 export type Platform = 'pc' | 'ps' | 'xbox' | 'nintendo'
-export type StoreSlug = 'steam' | 'epic' | 'xbox'
-
-export interface NewsItem {
-  id: string
-  title: string
-  summary: string
-  platform: Platform
-  date: string
-  source: string
-  link: string
-}
-
-export interface StoreDeal {
-  id: string
-  store: StoreSlug
-  gameTitle: string
-  discountPercent: number
-  salePriceTry: number
-  originalPriceTry: number
-  endsAt: string
-  link: string
-}
 
 export interface GameItem {
   slug: string
@@ -62,31 +41,6 @@ type BaseGameItem = Omit<
   | 'youtubeGameplayUrl'
 >
 
-export const newsItems: NewsItem[] = [
-  {
-    id: 'n1',
-    title: 'Yeni sezon yama notlari yayinlandi',
-    summary: 'Denge degisiklikleri, yeni harita rotasyonu ve performans iyilestirmeleri aciklandi.',
-    platform: 'pc',
-    date: '2026-02-14',
-    source: 'AllAroundGame Editor',
-    link: '#',
-  },
-]
-
-export const storeDeals: StoreDeal[] = [
-  {
-    id: 's1',
-    store: 'steam',
-    gameTitle: 'Cyberpunk 2077',
-    discountPercent: 55,
-    salePriceTry: 539,
-    originalPriceTry: 1199,
-    endsAt: '2026-02-20',
-    link: '#',
-  },
-]
-
 const platformSets: Platform[][] = [
   ['pc', 'ps', 'xbox'],
   ['pc', 'xbox'],
@@ -99,26 +53,90 @@ const platformSets: Platform[][] = [
 export const gameGenres: GameGenre[] = [
   { slug: 'pinball', label: 'Pinball', badge: 'PB' },
   { slug: 'platform', label: 'Platform', badge: 'PL' },
-  { slug: 'puzzle', label: 'Puzzle', badge: 'PZ' },
-  { slug: 'racing-driving', label: 'Racing/Driving', badge: 'RD' },
+  { slug: 'puzzle', label: 'Bulmaca', badge: 'PZ' },
+  { slug: 'racing-driving', label: 'Yaris / Surus', badge: 'RD' },
   { slug: 'roguelike', label: 'Roguelike', badge: 'RG' },
-  { slug: 'role-playing', label: 'Role-Playing', badge: 'RP' },
+  { slug: 'role-playing', label: 'Rol Yapma', badge: 'RP' },
   { slug: 'sandbox', label: 'Sandbox', badge: 'SB' },
-  { slug: 'shooter', label: 'Shooter', badge: 'SH' },
-  { slug: 'simulation', label: 'Simulation', badge: 'SM' },
-  { slug: 'social', label: 'Social', badge: 'SC' },
-  { slug: 'sports', label: 'Sports', badge: 'SP' },
-  { slug: 'stealth', label: 'Stealth', badge: 'ST' },
-  { slug: 'strategy-tactical', label: 'Strategy/Tactical', badge: 'TT' },
-  { slug: 'survival', label: 'Survival', badge: 'SV' },
-  { slug: 'tower-defense', label: 'Tower Defense', badge: 'TD' },
-  { slug: 'trivia', label: 'Trivia', badge: 'TV' },
-  { slug: 'vehicular-combat', label: 'Vehicular Combat', badge: 'VC' },
-  { slug: 'visual-novel', label: 'Visual Novel', badge: 'VN' },
-  { slug: 'management', label: 'Management', badge: 'MG' },
-  { slug: 'music-rhythm', label: 'Music/Rhythm', badge: 'MR' },
-  { slug: 'open-world', label: 'Open World', badge: 'OW' },
-  { slug: 'interactive-art', label: 'Interactive Art', badge: 'IA' },
+  { slug: 'shooter', label: 'Nisanci', badge: 'SH' },
+  { slug: 'simulation', label: 'Simulasyon', badge: 'SM' },
+  { slug: 'social', label: 'Sosyal', badge: 'SC' },
+  { slug: 'sports', label: 'Spor', badge: 'SP' },
+  { slug: 'stealth', label: 'Gizlilik', badge: 'ST' },
+  { slug: 'strategy-tactical', label: 'Strateji / Taktik', badge: 'TT' },
+  { slug: 'survival', label: 'Hayatta Kalma', badge: 'SV' },
+  { slug: 'tower-defense', label: 'Kule Savunmasi', badge: 'TD' },
+  { slug: 'trivia', label: 'Bilgi Yarismasi', badge: 'TV' },
+  { slug: 'vehicular-combat', label: 'Aracli Catismali', badge: 'VC' },
+  { slug: 'visual-novel', label: 'Gorsel Roman', badge: 'VN' },
+  { slug: 'management', label: 'Yonetim', badge: 'MG' },
+  { slug: 'music-rhythm', label: 'Muzik / Ritim', badge: 'MR' },
+  { slug: 'open-world', label: 'Acik Dunya', badge: 'OW' },
+  { slug: 'interactive-art', label: 'Etkilesimli Sanat', badge: 'IA' },
+  { slug: 'first-person-shooter', label: 'Birinci Sahis Nisanci', badge: 'FPS' },
+  { slug: 'third-person-shooter', label: 'Ucuncu Sahis Nisanci', badge: 'TPS' },
+  { slug: 'hack-slash', label: 'Hack & Slash', badge: 'HS' },
+  { slug: 'metroidvania', label: 'Metroidvania', badge: 'MV' },
+  { slug: 'action-rpg', label: 'Aksiyon Rol Yapma', badge: 'ARPG' },
+  { slug: 'jrpg', label: 'JRPG', badge: 'JRPG' },
+  { slug: 'turn-based-rpg', label: 'Sira Tabanli Rol Yapma', badge: 'TRPG' },
+  { slug: 'party-based-rpg', label: 'Parti Tabanli Rol Yapma', badge: 'PRPG' },
+  { slug: 'turn-based-strategy', label: 'Sira Tabanli Strateji', badge: 'TBS' },
+  { slug: 'real-time-strategy', label: 'Gercek Zamanli Strateji', badge: 'RTS' },
+  { slug: 'city-builder', label: 'Sehir Kurma', badge: 'CB' },
+  { slug: 'grand-strategy-4x', label: 'Buyuk Strateji ve 4X', badge: '4X' },
+  { slug: 'card-board', label: 'Kart ve Kutu', badge: 'CBG' },
+  { slug: 'sports-manager', label: 'Spor Menajerligi', badge: 'SMG' },
+  { slug: 'racing-simulation', label: 'Yaris Simulasyonu', badge: 'RSM' },
+  { slug: 'fishing-hunting', label: 'Balikcilik ve Avlanma', badge: 'FH' },
+  { slug: 'mystery-detective', label: 'Gizem ve Dedektiflik', badge: 'MD' },
+  { slug: 'sci-fi-cyberpunk', label: 'Bilim Kurgu ve Cyberpunk', badge: 'SFC' },
+  { slug: 'anime', label: 'Anime', badge: 'AN' },
+  { slug: 'casual', label: 'Basit Eglence', badge: 'CS' },
+  { slug: 'hidden-object', label: 'Gizli Nesne', badge: 'HO' },
+  { slug: 'horror', label: 'Korku', badge: 'HR' },
+  { slug: 'birinci-sahis-nisanci', label: 'Birinci Sahis Nisanci', badge: 'B1N' },
+  { slug: 'ucuncu-sahis-nisanci', label: 'Ucuncu Sahis Nisanci', badge: 'U3N' },
+  { slug: 'arcade-ve-ritim', label: 'Arcade ve Ritim', badge: 'AVR' },
+  { slug: 'platform-ve-runner', label: 'Platform ve Runner', badge: 'PVR' },
+  { slug: 'shoot-em-up', label: 'Shoot Em Up', badge: 'SEU' },
+  { slug: 'dovus-ve-dovus-sanatlari', label: 'Dovus ve Dovus Sanatlari', badge: 'DDS' },
+  { slug: 'gizli-nesne', label: 'Gizli Nesne', badge: 'GN' },
+  { slug: 'basit-eglence', label: 'Basit Eglence', badge: 'BE' },
+  { slug: 'macera-ryo', label: 'Macera RYO', badge: 'MRYO' },
+  { slug: 'gorsel-romanlar', label: 'Gorsel Romanlar', badge: 'GR' },
+  { slug: 'zengin-hikaye', label: 'Zengin Hikaye', badge: 'ZH' },
+  { slug: 'aksiyon-rol-yapma', label: 'Aksiyon Rol Yapma', badge: 'ARY' },
+  { slug: 'strateji-ve-taktiksel-rol-yapma', label: 'Strateji ve Taktiksel Rol Yapma', badge: 'STRP' },
+  { slug: 'jryo', label: 'JRYO', badge: 'JRYO' },
+  { slug: 'rogue-like-ve-rogue-lite', label: 'Rogue-Like ve Rogue-Lite', badge: 'RLRL' },
+  { slug: 'sira-tabanli-rol-yapma', label: 'Sira Tabanli Rol Yapma', badge: 'STRY' },
+  { slug: 'parti-tabanli', label: 'Parti Tabanli', badge: 'PT' },
+  { slug: 'insa-ve-otomasyon-simulatorleri', label: 'Insa ve Otomasyon Simulatorleri', badge: 'IOS' },
+  { slug: 'hobi-ve-is-simulatorleri', label: 'Hobi ve Is Simulatorleri', badge: 'HIS' },
+  { slug: 'iliski-simulatorleri', label: 'Iliski Simulatorleri', badge: 'ILS' },
+  { slug: 'ciftcilik-ve-uretim-simulatorleri', label: 'Ciftcilik ve Uretim Simulatorleri', badge: 'CUS' },
+  { slug: 'uzay-ve-ucus-simulatorleri', label: 'Uzay ve Ucus Simulatorleri', badge: 'UUS' },
+  { slug: 'yasam-ve-surukleyici-simulasyonlar', label: 'Yasam ve Surukleyici Simulasyonlar', badge: 'YSS' },
+  { slug: 'sandbox-ve-fizik-simulasyonlari', label: 'Sandbox ve Fizik Simulasyonlari', badge: 'SFS' },
+  { slug: 'sira-tabanli-strateji', label: 'Sira Tabanli Strateji', badge: 'STS' },
+  { slug: 'gercek-zamanli-strateji', label: 'Gercek Zamanli Strateji', badge: 'GZS' },
+  { slug: 'kule-savunmasi', label: 'Kule Savunmasi', badge: 'KS' },
+  { slug: 'kart-ve-kutu', label: 'Kart ve Kutu', badge: 'KVK' },
+  { slug: 'sehir-ve-yerlesim-insasi-oyunlari', label: 'Sehir ve Yerlesim Insasi Oyunlari', badge: 'SYI' },
+  { slug: 'buyuk-strateji-ve-4x', label: 'Buyuk Strateji ve 4X', badge: 'B4X' },
+  { slug: 'askeri-strateji', label: 'Askeri Strateji', badge: 'AS' },
+  { slug: 'spor-simulatorleri-ve-menajerligi', label: 'Spor Simulatorleri ve Menajerligi', badge: 'SSM' },
+  { slug: 'yaris', label: 'Yaris', badge: 'YR' },
+  { slug: 'yaris-simulasyonu', label: 'Yaris Simulasyonu', badge: 'YS' },
+  { slug: 'balikcilik-ve-avlanma', label: 'Balikcilik ve Avlanma', badge: 'BVA' },
+  { slug: 'takim-sporlari', label: 'Takim Sporlari', badge: 'TSP' },
+  { slug: 'bireysel-sporlar', label: 'Bireysel Sporlar', badge: 'BSP' },
+  { slug: 'bilim-kurgu-ve-cyberpunk', label: 'Bilim Kurgu ve Cyberpunk', badge: 'BKC' },
+  { slug: 'bosluk', label: 'Bosluk', badge: 'BOS' },
+  { slug: 'hayatta-kalma', label: 'Hayatta Kalma', badge: 'HK' },
+  { slug: 'gizem-ve-dedektiflik', label: 'Gizem ve Dedektiflik', badge: 'GVD' },
+  { slug: 'yetiskinlere-ozel', label: 'Yetiskinlere Ozel', badge: '18+' },
 ]
 
 const genreTitlePools: Record<string, string[]> = {
@@ -144,6 +162,169 @@ const genreTitlePools: Record<string, string[]> = {
   'music-rhythm': ['Hi-Fi Rush', 'Crypt of the NecroDancer', 'Metal Hellsinger', 'Beat Saber', 'Taiko no Tatsujin Rhythm Festival', 'Muse Dash', 'Rhythm Doctor', 'Thumper'],
   'open-world': ['The Elder Scrolls V Skyrim', 'Grand Theft Auto V', 'Red Dead Redemption 2', 'The Legend of Zelda Tears of the Kingdom', 'Horizon Forbidden West', 'Assassin\'s Creed Mirage', 'Far Cry 6', 'Ghost of Tsushima'],
   'interactive-art': ['Journey', 'Abzu', 'Gris', 'The Artful Escape', 'Before Your Eyes', 'Gorogoa', 'Flower', 'Sky Children of the Light'],
+}
+
+const extraGenreTitlePools: Record<string, string[]> = {
+  'pinball': ['Metroid Prime Pinball', 'Pinball Dreams', 'Pinball Hall of Fame'],
+  'platform': ['Super Mario Odyssey', 'Sackboy A Big Adventure', 'Astro Bot'],
+  'puzzle': ['The Turing Test', 'Superliminal', 'The Pedestrian'],
+  'racing-driving': ['Burnout Paradise Remastered', 'GRID Legends', 'Project CARS 2'],
+  'roguelike': ['Vampire Survivors', 'Noita', 'Spelunky 2'],
+  'role-playing': ['Final Fantasy X', 'Kingdom Hearts II', 'Mass Effect 2'],
+  'sandbox': ['No Mans Sky', 'Stardew Valley', 'Subnautica Below Zero'],
+  'shooter': ['Half-Life 2', 'Halo 3', 'BioShock Infinite'],
+  'simulation': ['The Sims 2', 'Microsoft Flight Simulator X', 'Farming Simulator 22'],
+  'social': ['Lethal Company', 'Jackbox Party Pack 3', 'Goose Goose Duck'],
+  'sports': ['Pro Evolution Soccer 6', 'FIFA 12', 'EA Sports FC 24'],
+  'stealth': ['Metal Gear Solid 3 Snake Eater', 'Splinter Cell Chaos Theory', 'Hitman Blood Money'],
+  'strategy-tactical': ['Warcraft III', 'Command and Conquer Generals', 'Age of Mythology'],
+  'survival': ['DayZ', 'Project Zomboid', 'The Long Dark'],
+  'tower-defense': ['GemCraft Chasing Shadows', 'Sanctum 2', 'Defense Grid The Awakening'],
+  'trivia': ['Buzz Quiz TV', 'Trivia Pursuit Live', 'Knowledge Master'],
+  'vehicular-combat': ['Twisted Metal Black', 'Vigilante 8 2nd Offense', 'Destruction AllStars'],
+  'visual-novel': ['The Great Ace Attorney Chronicles', '428 Shibuya Scramble', 'Chaos Child'],
+  'management': ['RollerCoaster Tycoon 3', 'Theme Hospital', 'Prison Architect'],
+  'music-rhythm': ['Guitar Hero III Legends of Rock', 'DJMax Respect V', 'osu!'],
+  'open-world': ['The Legend of Zelda Breath of the Wild', 'Spider-Man Miles Morales', 'Sleeping Dogs Definitive Edition'],
+  'interactive-art': ['The Unfinished Swan', 'Bound', 'Sayonara Wild Hearts'],
+}
+
+const genrePoolAliases: Record<string, string> = {
+  'first-person-shooter': 'shooter',
+  'third-person-shooter': 'shooter',
+  'hack-slash': 'role-playing',
+  'metroidvania': 'platform',
+  'action-rpg': 'role-playing',
+  'jrpg': 'role-playing',
+  'turn-based-rpg': 'role-playing',
+  'party-based-rpg': 'role-playing',
+  'turn-based-strategy': 'strategy-tactical',
+  'real-time-strategy': 'strategy-tactical',
+  'city-builder': 'management',
+  'grand-strategy-4x': 'strategy-tactical',
+  'card-board': 'trivia',
+  'sports-manager': 'sports',
+  'racing-simulation': 'racing-driving',
+  'fishing-hunting': 'survival',
+  'mystery-detective': 'puzzle',
+  'sci-fi-cyberpunk': 'open-world',
+  'anime': 'visual-novel',
+  'casual': 'social',
+  'hidden-object': 'puzzle',
+  'horror': 'survival',
+  'birinci-sahis-nisanci': 'shooter',
+  'ucuncu-sahis-nisanci': 'shooter',
+  'arcade-ve-ritim': 'music-rhythm',
+  'platform-ve-runner': 'platform',
+  'shoot-em-up': 'shooter',
+  'dovus-ve-dovus-sanatlari': 'vehicular-combat',
+  'gizli-nesne': 'puzzle',
+  'basit-eglence': 'social',
+  'macera-ryo': 'role-playing',
+  'gorsel-romanlar': 'visual-novel',
+  'zengin-hikaye': 'role-playing',
+  'aksiyon-rol-yapma': 'role-playing',
+  'strateji-ve-taktiksel-rol-yapma': 'strategy-tactical',
+  'jryo': 'role-playing',
+  'rogue-like-ve-rogue-lite': 'roguelike',
+  'sira-tabanli-rol-yapma': 'role-playing',
+  'parti-tabanli': 'role-playing',
+  'insa-ve-otomasyon-simulatorleri': 'management',
+  'hobi-ve-is-simulatorleri': 'simulation',
+  'iliski-simulatorleri': 'social',
+  'ciftcilik-ve-uretim-simulatorleri': 'simulation',
+  'uzay-ve-ucus-simulatorleri': 'simulation',
+  'yasam-ve-surukleyici-simulasyonlar': 'simulation',
+  'sandbox-ve-fizik-simulasyonlari': 'sandbox',
+  'sira-tabanli-strateji': 'strategy-tactical',
+  'gercek-zamanli-strateji': 'strategy-tactical',
+  'kule-savunmasi': 'tower-defense',
+  'kart-ve-kutu': 'trivia',
+  'sehir-ve-yerlesim-insasi-oyunlari': 'management',
+  'buyuk-strateji-ve-4x': 'strategy-tactical',
+  'askeri-strateji': 'strategy-tactical',
+  'spor-simulatorleri-ve-menajerligi': 'sports',
+  'yaris': 'racing-driving',
+  'yaris-simulasyonu': 'racing-driving',
+  'balikcilik-ve-avlanma': 'survival',
+  'takim-sporlari': 'sports',
+  'bireysel-sporlar': 'sports',
+  'bilim-kurgu-ve-cyberpunk': 'open-world',
+  'bosluk': 'simulation',
+  'hayatta-kalma': 'survival',
+  'gizem-ve-dedektiflik': 'puzzle',
+  'yetiskinlere-ozel': 'visual-novel',
+}
+
+const allGenreTitlePools: Record<string, string[]> = Object.fromEntries([
+  ...Object.entries(genreTitlePools).map(([slug, titles]) => [slug, [...titles, ...(extraGenreTitlePools[slug] ?? [])]]),
+  ...Object.entries(genrePoolAliases).map(([slug, source]) => [
+    slug,
+    [...(genreTitlePools[source] ?? []), ...(extraGenreTitlePools[source] ?? [])],
+  ]),
+])
+
+function normalizeTitleKey(value: string) {
+  return value
+    .toLowerCase()
+    .normalize('NFKD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, '')
+}
+
+function uniqueTitles(titles: string[]) {
+  const seen = new Set<string>()
+  const out: string[] = []
+
+  for (const title of titles) {
+    if (!title) continue
+    const key = normalizeTitleKey(title)
+    if (!key || seen.has(key)) continue
+    seen.add(key)
+    out.push(title)
+  }
+
+  return out
+}
+
+const MIN_GAMES_PER_GENRE = 50
+
+function hashSeed(value: string) {
+  let h = 2166136261
+  for (let i = 0; i < value.length; i += 1) {
+    h ^= value.charCodeAt(i)
+    h = Math.imul(h, 16777619)
+  }
+  return Math.abs(h >>> 0)
+}
+
+function ensureMinimumUniqueFromPool(
+  titles: string[],
+  minCount: number,
+  fallbackPool: string[],
+  seedKey: string,
+) {
+  const unique = uniqueTitles(titles)
+  if (unique.length >= minCount) return unique.slice(0, minCount)
+
+  const seen = new Set(unique)
+  const pool = uniqueTitles(fallbackPool)
+  if (pool.length === 0) return unique
+
+  const seed = hashSeed(seedKey) % pool.length
+  for (let i = 0; unique.length < minCount && i < pool.length; i += 1) {
+    const title = pool[(seed + i) % pool.length]
+    if (!seen.has(title)) {
+      seen.add(title)
+      unique.push(title)
+    }
+  }
+
+  return unique
+}
+
+function sourceGenreOf(slug: string) {
+  return genrePoolAliases[slug] ?? slug
 }
 
 function slugify(value: string) {
@@ -234,6 +415,53 @@ function inferGenreFromTitle(title: string): string {
   return 'open-world'
 }
 
+function buildExternalGenreTitlePools() {
+  const buckets: Record<string, string[]> = {}
+
+  for (const [slug] of externalDataEntries) {
+    const title = titleFromSlugKey(slug)
+    const genre = inferGenreFromTitle(title)
+    if (!buckets[genre]) buckets[genre] = []
+    buckets[genre].push(title)
+  }
+
+  return buckets
+}
+
+const externalGenreTitlePools = buildExternalGenreTitlePools()
+
+const sourceScopedTitlePools: Record<string, string[]> = Object.fromEntries(
+  uniqueTitles(gameGenres.map((g) => sourceGenreOf(g.slug))).map((source) => {
+    const scoped = uniqueTitles([
+      ...Object.entries(allGenreTitlePools)
+        .filter(([slug]) => sourceGenreOf(slug) === source)
+        .flatMap(([, titles]) => titles),
+      ...(externalGenreTitlePools[source] ?? []),
+    ])
+    return [source, scoped]
+  }),
+)
+
+const ensuredGenreTitlePools: Record<string, string[]> = Object.fromEntries(
+  Object.entries(allGenreTitlePools).map(([slug, titles]) => {
+    const sourceSlug = sourceGenreOf(slug)
+    const merged = [
+      ...titles,
+      ...(externalGenreTitlePools[slug] ?? []),
+      ...(externalGenreTitlePools[sourceSlug] ?? []),
+    ]
+    return [
+      slug,
+      ensureMinimumUniqueFromPool(
+        merged,
+        MIN_GAMES_PER_GENRE,
+        sourceScopedTitlePools[sourceSlug] ?? merged,
+        slug,
+      ),
+    ]
+  }),
+)
+
 const generatedFromExternal: BaseGameItem[] = externalDataEntries.map(([slug, external], index) => {
   const title = titleFromSlugKey(slug)
   const genre = inferGenreFromTitle(title)
@@ -253,18 +481,31 @@ const generatedFromExternal: BaseGameItem[] = externalDataEntries.map(([slug, ex
   }
 })
 
+const generatedFromExpansion: BaseGameItem[] = gameExpansionTitles.map((title, index) => {
+  const genre = inferGenreFromTitle(title)
+  return {
+    slug: slugify(title),
+    title,
+    genre,
+    platforms: platformSets[index % platformSets.length],
+    releaseYear: 2000 + (index % 26),
+    score: Number((7.1 + ((index % 14) * 0.12)).toFixed(1)),
+    summary: `${title}, genis oyun arsivimize yeni eklenen populer yapimlardan biri.`,
+  }
+})
+
 const baseGames: BaseGameItem[] = gameGenres.flatMap((genre, index) =>
   createGenreGames(
     genre.slug,
     genre.label,
     2026 - (index % 4),
     Number((7.2 + ((index % 6) * 0.12)).toFixed(1)),
-    genreTitlePools[genre.slug] ?? [],
+    ensuredGenreTitlePools[genre.slug] ?? [],
   ),
 )
 
 const mergedBaseGamesMap = new Map<string, BaseGameItem>()
-for (const game of [...baseGames, ...generatedFromExternal]) {
+for (const game of [...baseGames, ...generatedFromExternal, ...generatedFromExpansion]) {
   if (!mergedBaseGamesMap.has(game.slug)) mergedBaseGamesMap.set(game.slug, game)
 }
 
@@ -279,17 +520,27 @@ const mergedBaseGames = [...mergedBaseGamesMap.values()].map((game) => {
   return { ...game, platforms: forced }
 })
 
-export const games: GameItem[] = mergedBaseGames.map((game) => ({
-  ...game,
-  ...(resolveExternalData(game) ?? {
-    metacriticScore: null,
-    howLongToBeatMainHours: null,
-    howLongToBeatMainExtraHours: null,
-    howLongToBeatCompletionistHours: null,
-    metacriticUrl: `https://www.metacritic.com/search/${encodeURIComponent(game.title)}/`,
-    howLongToBeatUrl: `https://howlongtobeat.com/?q=${encodeURIComponent(game.title)}`,
-    gamespotArticleUrl: `https://www.gamespot.com/search/?q=${encodeURIComponent(game.title)}`,
-  }),
-  youtubeTrailerUrl: `https://www.youtube.com/results?search_query=${encodeURIComponent(`${game.title} trailer`)}`,
-  youtubeGameplayUrl: `https://www.youtube.com/results?search_query=${encodeURIComponent(`${game.title} gameplay`)}`,
-}))
+export const games: GameItem[] = mergedBaseGames.map((game) => {
+  const external = resolveExternalData(game)
+  const safeMetacriticUrl = `https://www.google.com/search?q=${encodeURIComponent(`site:metacritic.com ${game.title}`)}`
+  const safeHltbUrl = `https://www.google.com/search?q=${encodeURIComponent(`site:howlongtobeat.com ${game.title}`)}`
+  const safeGameSpotUrl = `https://www.google.com/search?q=${encodeURIComponent(`site:gamespot.com ${game.title}`)}`
+
+  return {
+    ...game,
+    ...(external ?? {
+      metacriticScore: null,
+      howLongToBeatMainHours: null,
+      howLongToBeatMainExtraHours: null,
+      howLongToBeatCompletionistHours: null,
+      metacriticUrl: safeMetacriticUrl,
+      howLongToBeatUrl: safeHltbUrl,
+      gamespotArticleUrl: safeGameSpotUrl,
+    }),
+    metacriticUrl: safeMetacriticUrl,
+    howLongToBeatUrl: safeHltbUrl,
+    gamespotArticleUrl: safeGameSpotUrl,
+    youtubeTrailerUrl: `https://www.youtube.com/results?search_query=${encodeURIComponent(`${game.title} trailer`)}`,
+    youtubeGameplayUrl: `https://www.youtube.com/results?search_query=${encodeURIComponent(`${game.title} gameplay`)}`,
+  }
+})
