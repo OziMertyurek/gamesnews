@@ -1,3 +1,8 @@
+import { buildCache } from './_cache.js'
+
+const CACHE_TTL_MS = Number(process.env.STEAM_OWNED_GAMES_CACHE_TTL_MS ?? 30 * 60 * 1000)
+const cache = buildCache({ namespace: 'steam-owned-games', ttlMs: CACHE_TTL_MS, maxEntries: 2000 })
+
 function parseSteamId(input) {
   const value = String(input ?? '').trim()
   if (!value) return null
@@ -13,44 +18,53 @@ async function resolveSteamId(apiKey, steamIdOrProfile) {
 
   const trimmed = String(steamIdOrProfile ?? '').trim()
   const vanityMatch = trimmed.match(/steamcommunity\.com\/id\/([^/]+)/i)
-  const vanity = vanityMatch?.[1] ?? trimmed
+  const vanity = (vanityMatch?.[1] ?? trimmed).toLowerCase()
   if (!vanity) throw new Error('Steam ID veya profil linki gerekli.')
 
-  const params = new URLSearchParams({
-    key: apiKey,
-    vanityurl: vanity,
-    format: 'json',
-  })
-  const url = `https://api.steampowered.com/ISteamUser/ResolveVanityURL/v1/?${params.toString()}`
-  const response = await fetch(url)
-  if (!response.ok) throw new Error('ResolveVanityURL istegi basarisiz.')
-  const payload = await response.json()
-  const resolved = payload?.response
-  if (resolved?.success === 1 && resolved.steamid) return resolved.steamid
-  throw new Error('Steam vanity link cozulemedi. 17 haneli SteamID64 kullan.')
+  const key = `resolve:${vanity}`
+  const result = await cache.getOrSet(key, async () => {
+    const params = new URLSearchParams({
+      key: apiKey,
+      vanityurl: vanity,
+      format: 'json',
+    })
+    const url = `https://api.steampowered.com/ISteamUser/ResolveVanityURL/v1/?${params.toString()}`
+    const response = await fetch(url)
+    if (!response.ok) throw new Error('ResolveVanityURL istegi basarisiz.')
+    const payload = await response.json()
+    const resolved = payload?.response
+    if (resolved?.success === 1 && resolved.steamid) return resolved.steamid
+    throw new Error('Steam vanity link cozulemedi. 17 haneli SteamID64 kullan.')
+  }, 24 * 60 * 60 * 1000)
+
+  return result.value
 }
 
 async function getOwnedGames(apiKey, steamId) {
-  const params = new URLSearchParams({
-    key: apiKey,
-    steamid: steamId,
-    include_appinfo: 'true',
-    include_played_free_games: 'true',
-    format: 'json',
+  const key = `owned:${steamId}`
+  const result = await cache.getOrSet(key, async () => {
+    const params = new URLSearchParams({
+      key: apiKey,
+      steamid: steamId,
+      include_appinfo: 'true',
+      include_played_free_games: 'true',
+      format: 'json',
+    })
+    const url = `https://api.steampowered.com/IPlayerService/GetOwnedGames/v1/?${params.toString()}`
+    const response = await fetch(url)
+    if (!response.ok) throw new Error('GetOwnedGames istegi basarisiz.')
+    const payload = await response.json()
+    const games = payload?.response?.games ?? []
+    return games.map((game) => ({
+      appId: game.appid,
+      name: game.name,
+      playtimeHours: Number(((game.playtime_forever ?? 0) / 60).toFixed(1)),
+      iconUrl: game.img_icon_url
+        ? `https://media.steampowered.com/steamcommunity/public/images/apps/${game.appid}/${game.img_icon_url}.jpg`
+        : null,
+    }))
   })
-  const url = `https://api.steampowered.com/IPlayerService/GetOwnedGames/v1/?${params.toString()}`
-  const response = await fetch(url)
-  if (!response.ok) throw new Error('GetOwnedGames istegi basarisiz.')
-  const payload = await response.json()
-  const games = payload?.response?.games ?? []
-  return games.map((game) => ({
-    appId: game.appid,
-    name: game.name,
-    playtimeHours: Number(((game.playtime_forever ?? 0) / 60).toFixed(1)),
-    iconUrl: game.img_icon_url
-      ? `https://media.steampowered.com/steamcommunity/public/images/apps/${game.appid}/${game.img_icon_url}.jpg`
-      : null,
-  }))
+  return { games: result.value, cacheHit: result.hit }
 }
 
 export async function handler(event) {
@@ -83,14 +97,15 @@ export async function handler(event) {
     if (!steamIdOrProfile) return { statusCode: 400, body: JSON.stringify({ error: 'SteamID64 veya profil linki gerekli.' }) }
 
     const steamId = await resolveSteamId(apiKey, steamIdOrProfile)
-    const games = await getOwnedGames(apiKey, steamId)
+    const owned = await getOwnedGames(apiKey, steamId)
 
     return {
       statusCode: 200,
       headers: {
         'Access-Control-Allow-Origin': '*',
+        'X-AAG-Cache': owned.cacheHit ? 'HIT' : 'MISS',
       },
-      body: JSON.stringify({ steamId, games }),
+      body: JSON.stringify({ steamId, games: owned.games }),
     }
   } catch (error) {
     const message = error instanceof Error ? error.message : 'Steam verisi cekilemedi.'

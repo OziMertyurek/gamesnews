@@ -1,5 +1,6 @@
 import { gameExternalData } from './gameExternalData'
 import { gameExpansionTitles } from './gameExpansionTitles'
+import { realGameCatalog } from './realGameCatalog'
 
 export type Platform = 'pc' | 'ps' | 'xbox' | 'nintendo'
 
@@ -272,6 +273,26 @@ function normalizeTitleKey(value: string) {
     .replace(/[^a-z0-9]+/g, '')
 }
 
+const releaseYearByTitle = new Map<string, number>()
+for (const item of realGameCatalog) {
+  const key = normalizeTitleKey(item[0])
+  const prev = releaseYearByTitle.get(key)
+  if (!key) continue
+  if (!prev || item[1] < prev) {
+    releaseYearByTitle.set(key, item[1])
+  }
+}
+
+const manualReleaseYearOverrides: Record<string, number> = {
+  'portal2': 2011,
+  'thetalosprinciple2': 2023,
+  'baldursgate3': 2023,
+}
+
+for (const [key, year] of Object.entries(manualReleaseYearOverrides)) {
+  releaseYearByTitle.set(key, year)
+}
+
 function uniqueTitles(titles: string[]) {
   const seen = new Set<string>()
   const out: string[] = []
@@ -465,7 +486,7 @@ const ensuredGenreTitlePools: Record<string, string[]> = Object.fromEntries(
 const generatedFromExternal: BaseGameItem[] = externalDataEntries.map(([slug, external], index) => {
   const title = titleFromSlugKey(slug)
   const genre = inferGenreFromTitle(title)
-  const releaseYear = 2000 + (index % 26)
+  const releaseYear = releaseYearByTitle.get(normalizeTitleKey(title)) ?? (2000 + (index % 26))
   const score = external.metacriticScore !== null
     ? Number((external.metacriticScore / 10).toFixed(1))
     : Number((7.0 + ((index % 15) * 0.1)).toFixed(1))
@@ -481,6 +502,20 @@ const generatedFromExternal: BaseGameItem[] = externalDataEntries.map(([slug, ex
   }
 })
 
+const generatedFromRealCatalog: BaseGameItem[] = realGameCatalog.map((entry, index) => {
+  const [title, releaseYear] = entry
+  const genre = inferGenreFromTitle(title)
+  return {
+    slug: slugify(title),
+    title,
+    genre,
+    platforms: platformSets[index % platformSets.length],
+    releaseYear,
+    score: Number((7.0 + ((index % 18) * 0.1)).toFixed(1)),
+    summary: `${title}, genis oyun arsivimizde yer alan populer yapimlardan biri.`,
+  }
+})
+
 const generatedFromExpansion: BaseGameItem[] = gameExpansionTitles.map((title, index) => {
   const genre = inferGenreFromTitle(title)
   return {
@@ -488,7 +523,7 @@ const generatedFromExpansion: BaseGameItem[] = gameExpansionTitles.map((title, i
     title,
     genre,
     platforms: platformSets[index % platformSets.length],
-    releaseYear: 2000 + (index % 26),
+    releaseYear: releaseYearByTitle.get(normalizeTitleKey(title)) ?? (2000 + (index % 26)),
     score: Number((7.1 + ((index % 14) * 0.12)).toFixed(1)),
     summary: `${title}, genis oyun arsivimize yeni eklenen populer yapimlardan biri.`,
   }
@@ -505,8 +540,23 @@ const baseGames: BaseGameItem[] = gameGenres.flatMap((genre, index) =>
 )
 
 const mergedBaseGamesMap = new Map<string, BaseGameItem>()
-for (const game of [...baseGames, ...generatedFromExternal, ...generatedFromExpansion]) {
-  if (!mergedBaseGamesMap.has(game.slug)) mergedBaseGamesMap.set(game.slug, game)
+for (const game of [...generatedFromRealCatalog, ...generatedFromExternal, ...generatedFromExpansion, ...baseGames]) {
+  const titleKey = normalizeTitleKey(game.title)
+  if (!titleKey) continue
+  const existing = mergedBaseGamesMap.get(titleKey)
+  if (!existing) {
+    mergedBaseGamesMap.set(titleKey, game)
+    continue
+  }
+
+  const existingYear = releaseYearByTitle.get(normalizeTitleKey(existing.title)) ?? existing.releaseYear
+  const nextYear = releaseYearByTitle.get(titleKey) ?? game.releaseYear
+  const existingScore = existing.score
+  const nextScore = game.score
+  const replace = nextScore > existingScore || (nextScore === existingScore && nextYear < existingYear)
+  if (replace) {
+    mergedBaseGamesMap.set(titleKey, game)
+  }
 }
 
 const platformOverrides: Record<string, Platform[]> = {
@@ -516,8 +566,9 @@ const platformOverrides: Record<string, Platform[]> = {
 const mergedBaseGames = [...mergedBaseGamesMap.values()].map((game) => {
   const key = slugify(game.title)
   const forced = platformOverrides[key]
-  if (!forced) return game
-  return { ...game, platforms: forced }
+  const correctedYear = releaseYearByTitle.get(normalizeTitleKey(game.title)) ?? game.releaseYear
+  if (!forced) return { ...game, releaseYear: correctedYear }
+  return { ...game, platforms: forced, releaseYear: correctedYear }
 })
 
 export const games: GameItem[] = mergedBaseGames.map((game) => {

@@ -62,8 +62,9 @@ const genreBaseHours: Record<string, number> = {
 export default function GameDetailPage() {
   const { slug } = useParams<{ slug: string }>()
   const game = games.find((item) => item.slug === slug)
+  const safeGame = game ?? games[0]
   const user = getCurrentUser()
-  const awards = useMemo(() => (game ? getGameAwardSummary(game.title) : null), [game])
+  const awards = useMemo(() => getGameAwardSummary(safeGame.title), [safeGame.title])
 
   const [comments, setComments] = useState<GameComment[]>([])
   const [rating, setRating] = useState(5)
@@ -94,13 +95,11 @@ export default function GameDetailPage() {
     if (!game) return
     const key = `aag-system-profile-${game.slug}`
     const raw = localStorage.getItem(key)
-    if (!raw) {
-      setUserSystem(defaultUserSystemProfile)
-      return
-    }
+    if (!raw) return
 
     try {
       const parsed = JSON.parse(raw) as Partial<UserSystemProfile> & { cpuTier?: number; gpuTier?: number }
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setUserSystem({
         cpuModel: parsed.cpuModel || defaultUserSystemProfile.cpuModel,
         gpuModel: parsed.gpuModel || defaultUserSystemProfile.gpuModel,
@@ -110,7 +109,7 @@ export default function GameDetailPage() {
         resolution: parsed.resolution === '4k' || parsed.resolution === '1440p' ? parsed.resolution : '1080p',
       })
     } catch {
-      setUserSystem(defaultUserSystemProfile)
+      // Bozuk profile verisinde varsayilan deger korunur.
     }
   }, [game])
 
@@ -122,6 +121,7 @@ export default function GameDetailPage() {
   useEffect(() => {
     if (!game) return
     let active = true
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setRequirementsLoading(true)
     setRequirementsError('')
     setSteamRequirements(null)
@@ -145,35 +145,25 @@ export default function GameDetailPage() {
     }
   }, [game])
 
-  if (!game) {
-    return (
-      <div className="card p-12 text-center">
-        <h1 className="text-2xl font-bold text-white mb-2">Oyun bulunamadi</h1>
-        <p className="text-gray-400 mb-6">Aradigin oyun su anda listede yok.</p>
-        <Link to="/games" className="btn-primary inline-flex">Oyunlara Don</Link>
-      </div>
-    )
-  }
-
   const estimateMainHours = () => {
-    const base = genreBaseHours[game.genre] ?? 14
-    const scoreBoost = Math.max(0, game.score - 7) * 2.2
+    const base = genreBaseHours[safeGame.genre] ?? 14
+    const scoreBoost = Math.max(0, safeGame.score - 7) * 2.2
     return Math.round(base + scoreBoost)
   }
 
   const estimatedMain = estimateMainHours()
   const estimatedMainExtra = Math.round(estimatedMain * 1.45)
-  const metacriticDisplay = game.metacriticScore !== null ? `${game.metacriticScore} / 100` : `${Math.round(game.score * 10)} / 100 (Site Puani)`
-  const hltbMainDisplay = game.howLongToBeatMainHours !== null ? `${game.howLongToBeatMainHours} saat` : `~${estimatedMain} saat (Tahmini)`
-  const hltbMainExtraDisplay = game.howLongToBeatMainExtraHours !== null ? `${game.howLongToBeatMainExtraHours} saat` : `~${estimatedMainExtra} saat (Tahmini)`
+  const metacriticDisplay = safeGame.metacriticScore !== null ? `${safeGame.metacriticScore} / 100` : `${Math.round(safeGame.score * 10)} / 100 (Site Puani)`
+  const hltbMainDisplay = safeGame.howLongToBeatMainHours !== null ? `${safeGame.howLongToBeatMainHours} saat` : `~${estimatedMain} saat (Tahmini)`
+  const hltbMainExtraDisplay = safeGame.howLongToBeatMainExtraHours !== null ? `${safeGame.howLongToBeatMainExtraHours} saat` : `~${estimatedMainExtra} saat (Tahmini)`
 
-  const compatibility = useMemo(() => evaluateCompatibility(game, userSystem), [game, userSystem])
+  const compatibility = useMemo(() => evaluateCompatibility(safeGame, userSystem), [safeGame, userSystem])
 
   const cpuMatchedScore = useMemo(() => getCpuScoreByModel(userSystem.cpuModel), [userSystem.cpuModel])
   const gpuMatchedScore = useMemo(() => getGpuScoreByModel(userSystem.gpuModel), [userSystem.gpuModel])
   const platformDetailItems = useMemo(() => {
     const baseRows = new Map<string, { label: string; store: string; details: string[]; icon: string }>()
-    for (const platform of game.platforms) {
+    for (const platform of safeGame.platforms) {
       const label = platformLabels[platform] ?? platform
       if (label === 'PC') baseRows.set(label, { label, store: 'PC Store', details: [], icon: 'PC' })
       if (label === 'PlayStation') baseRows.set(label, { label, store: 'PlayStation Store', details: [], icon: 'PS' })
@@ -207,9 +197,19 @@ export default function GameDetailPage() {
     return order
       .map((label) => baseRows.get(label))
       .filter((item): item is { label: string; store: string; details: string[]; icon: string } => Boolean(item))
-  }, [steamRequirements, game.platforms])
+  }, [steamRequirements, safeGame.platforms])
 
   const platformSummary = platformDetailItems.map((item) => item.label).join(', ')
+
+  if (!game) {
+    return (
+      <div className="card p-12 text-center">
+        <h1 className="text-2xl font-bold text-white mb-2">Oyun bulunamadi</h1>
+        <p className="text-gray-400 mb-6">Aradigin oyun su anda listede yok.</p>
+        <Link to="/games" className="btn-primary inline-flex">Oyunlara Don</Link>
+      </div>
+    )
+  }
 
   const statusBadgeClass =
     compatibility.status === 'karsilar'
@@ -226,7 +226,7 @@ export default function GameDetailPage() {
         : 'Karsilamiyor'
 
   const shareSummary =
-    `${game.title} | Durum: ${statusLabel} | Hedef FPS: ${compatibility.targetFps} | ` +
+    `${safeGame.title} | Durum: ${statusLabel} | Hedef FPS: ${compatibility.targetFps} | ` +
     `Dusuk:${compatibility.avgFpsLow} Orta:${compatibility.avgFpsMedium} Yuksek:${compatibility.avgFpsHigh} | ` +
     `Onerilen Ayar: ${compatibility.suggestedPreset}`
 
@@ -235,28 +235,28 @@ export default function GameDetailPage() {
       <div className="flex items-center gap-2 text-sm text-gray-500 mb-4">
         <Link to="/games" className="hover:text-gray-300 transition-colors">Oyunlar</Link>
         <span>/</span>
-        <span className="text-gray-300">{game.title}</span>
+        <span className="text-gray-300">{safeGame.title}</span>
       </div>
 
       <article className="card p-8">
-        <p className="text-sm text-blue-400 font-semibold mb-3">{game.genre.toUpperCase()}</p>
-        <h1 className="text-3xl font-bold text-white mb-2">{game.title}</h1>
+        <p className="text-sm text-blue-400 font-semibold mb-3">{safeGame.genre.toUpperCase()}</p>
+        <h1 className="text-3xl font-bold text-white mb-2">{safeGame.title}</h1>
         <div className="flex flex-wrap gap-2 mb-4">
           {awards && awards.gotyWinnerYears.length > 0 && <span className="badge bg-amber-950 text-amber-200">GOTY Kazanan</span>}
           {awards && awards.gotyNomineeYears.length > 0 && <span className="badge bg-blue-950 text-blue-200">GOTY Aday</span>}
           {awards && awards.categoryWins.length > 0 && <span className="badge bg-emerald-950 text-emerald-200">Kategori Odulu: {awards.categoryWins.length}</span>}
           {awards && awards.categoryNominations.length > 0 && <span className="badge bg-indigo-950 text-indigo-200">Kategori Adayligi: {awards.categoryNominations.length}</span>}
         </div>
-        <p className="text-gray-300 mb-6 max-w-3xl">{game.summary}</p>
+        <p className="text-gray-300 mb-6 max-w-3xl">{safeGame.summary}</p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           <div className="bg-gray-800 rounded-lg p-4">
             <p className="text-xs text-gray-500 mb-1">Cikis Yili</p>
-            <p className="text-white font-semibold">{game.releaseYear}</p>
+            <p className="text-white font-semibold">{safeGame.releaseYear}</p>
           </div>
           <div className="bg-gray-800 rounded-lg p-4">
             <p className="text-xs text-gray-500 mb-1">Puan</p>
-            <p className="text-white font-semibold">{game.score} / 10</p>
+            <p className="text-white font-semibold">{safeGame.score} / 10</p>
           </div>
           <div className="bg-gray-800 rounded-lg p-4">
             <p className="text-xs text-gray-500 mb-1">Platformlar</p>

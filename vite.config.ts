@@ -186,6 +186,20 @@ function classifyPlatforms(labels: string[]) {
   }
 }
 
+interface WikidataEntityClaim {
+  mainsnak?: {
+    datavalue?: {
+      value?: {
+        id?: string
+      }
+    }
+  }
+}
+
+interface WikidataEntityDataResponse {
+  entities?: Record<string, { claims?: { P400?: WikidataEntityClaim[] } }>
+}
+
 async function getWikidataPlatforms(title: string) {
   const searchUrl = `https://www.wikidata.org/w/api.php?action=wbsearchentities&search=${encodeURIComponent(title)}&language=en&format=json&type=item`
   const searchRes = await fetch(searchUrl)
@@ -211,8 +225,8 @@ async function getWikidataPlatforms(title: string) {
   const entityUrl = `https://www.wikidata.org/wiki/Special:EntityData/${qid}.json`
   const entityRes = await fetch(entityUrl)
   if (!entityRes.ok) return [] as string[]
-  const entityJson = await entityRes.json() as Record<string, any>
-  const claims = entityJson?.entities?.[qid]?.claims?.P400 as Array<any> | undefined
+  const entityJson = await entityRes.json() as WikidataEntityDataResponse
+  const claims = entityJson.entities?.[qid]?.claims?.P400
   if (!claims?.length) return [] as string[]
 
   const ids = [...new Set(claims.map((claim) => claim?.mainsnak?.datavalue?.value?.id).filter(Boolean))] as string[]

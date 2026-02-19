@@ -1,4 +1,9 @@
-﻿function withCors(res) {
+import { buildCache } from './_cache.js'
+
+const CACHE_TTL_MS = Number(process.env.GAME_REQUIREMENTS_CACHE_TTL_MS ?? 45 * 60 * 1000)
+const cache = buildCache({ namespace: 'game-requirements', ttlMs: CACHE_TTL_MS, maxEntries: 1500 })
+
+function withCors(res) {
   res.setHeader('Access-Control-Allow-Origin', '*')
   res.setHeader('Access-Control-Allow-Methods', 'POST,OPTIONS')
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type')
@@ -84,131 +89,147 @@ function classifyPlatforms(labels) {
 }
 
 async function findSteamAppByTitle(title) {
-  const params = new URLSearchParams({
-    term: String(title ?? '').trim(),
-    l: 'english',
-    cc: 'us',
+  const key = `steam-search:${normalize(title)}`
+  const result = await cache.getOrSet(key, async () => {
+    const params = new URLSearchParams({
+      term: String(title ?? '').trim(),
+      l: 'english',
+      cc: 'us',
+    })
+    const response = await fetch(`https://store.steampowered.com/api/storesearch/?${params.toString()}`)
+    if (!response.ok) throw new Error('Steam storesearch istegi basarisiz.')
+
+    const payload = await response.json()
+    const items = Array.isArray(payload?.items) ? payload.items : []
+    if (!items.length) return null
+
+    const best = items
+      .map((item) => ({ item, score: scoreCandidate(title, item?.name) }))
+      .sort((a, b) => b.score - a.score)[0]?.item
+
+    if (!best?.id) return null
+    return { appId: Number(best.id), appName: String(best.name ?? title) }
   })
-  const response = await fetch(`https://store.steampowered.com/api/storesearch/?${params.toString()}`)
-  if (!response.ok) throw new Error('Steam storesearch istegi basarisiz.')
-
-  const payload = await response.json()
-  const items = Array.isArray(payload?.items) ? payload.items : []
-  if (!items.length) return null
-
-  const best = items
-    .map((item) => ({ item, score: scoreCandidate(title, item?.name) }))
-    .sort((a, b) => b.score - a.score)[0]?.item
-
-  if (!best?.id) return null
-  return { appId: Number(best.id), appName: String(best.name ?? title) }
+  return result.value
 }
 
 async function getSteamRequirementsByAppId(appId) {
-  const params = new URLSearchParams({ appids: String(appId), l: 'english', cc: 'us' })
-  const response = await fetch(`https://store.steampowered.com/api/appdetails?${params.toString()}`)
-  if (!response.ok) throw new Error('Steam appdetails istegi basarisiz.')
+  const key = `steam-appdetails:${appId}`
+  const result = await cache.getOrSet(key, async () => {
+    const params = new URLSearchParams({ appids: String(appId), l: 'english', cc: 'us' })
+    const response = await fetch(`https://store.steampowered.com/api/appdetails?${params.toString()}`)
+    if (!response.ok) throw new Error('Steam appdetails istegi basarisiz.')
 
-  const payload = await response.json()
-  const root = payload?.[String(appId)]
-  const data = root?.data
-  if (!root?.success || !data) return null
+    const payload = await response.json()
+    const root = payload?.[String(appId)]
+    const data = root?.data
+    if (!root?.success || !data) return null
 
-  const pcReq = data.pc_requirements || {}
-  const minLines = stripHtmlToLines(pcReq.minimum || '')
-  const recLines = stripHtmlToLines(pcReq.recommended || '')
+    const pcReq = data.pc_requirements || {}
+    const minLines = stripHtmlToLines(pcReq.minimum || '')
+    const recLines = stripHtmlToLines(pcReq.recommended || '')
 
-  return {
-    appId,
-    appName: String(data.name ?? ''),
-    minimumLines: minLines,
-    recommendedLines: recLines,
-  }
+    return {
+      appId,
+      appName: String(data.name ?? ''),
+      minimumLines: minLines,
+      recommendedLines: recLines,
+    }
+  })
+  return result.value
 }
 
 async function getWikidataPlatforms(title) {
-  const searchUrl = `https://www.wikidata.org/w/api.php?action=wbsearchentities&search=${encodeURIComponent(title)}&language=en&format=json&type=item`
-  const searchRes = await fetch(searchUrl)
-  if (!searchRes.ok) return []
-  const searchJson = await searchRes.json()
-  const list = Array.isArray(searchJson?.search) ? searchJson.search : []
-  if (!list.length) return []
+  const key = `wikidata-platforms:${normalize(title)}`
+  const result = await cache.getOrSet(key, async () => {
+    const searchUrl = `https://www.wikidata.org/w/api.php?action=wbsearchentities&search=${encodeURIComponent(title)}&language=en&format=json&type=item`
+    const searchRes = await fetch(searchUrl)
+    if (!searchRes.ok) return []
+    const searchJson = await searchRes.json()
+    const list = Array.isArray(searchJson?.search) ? searchJson.search : []
+    if (!list.length) return []
 
-  const best = list
-    .map((item) => {
-      const label = String(item?.label ?? '')
-      const desc = String(item?.description ?? '').toLowerCase()
-      let bonus = 0
-      if (desc.includes('video game')) bonus += 200
-      if (desc.includes('expansion')) bonus -= 120
-      return { item, score: scoreCandidate(title, label) + bonus }
-    })
-    .sort((a, b) => b.score - a.score)[0]?.item
+    const best = list
+      .map((item) => {
+        const label = String(item?.label ?? '')
+        const desc = String(item?.description ?? '').toLowerCase()
+        let bonus = 0
+        if (desc.includes('video game')) bonus += 200
+        if (desc.includes('expansion')) bonus -= 120
+        return { item, score: scoreCandidate(title, label) + bonus }
+      })
+      .sort((a, b) => b.score - a.score)[0]?.item
 
-  const qid = best?.id
-  if (!qid) return []
+    const qid = best?.id
+    if (!qid) return []
 
-  const entityUrl = `https://www.wikidata.org/wiki/Special:EntityData/${qid}.json`
-  const entityRes = await fetch(entityUrl)
-  if (!entityRes.ok) return []
-  const entityJson = await entityRes.json()
-  const claims = entityJson?.entities?.[qid]?.claims?.P400
-  if (!Array.isArray(claims) || !claims.length) return []
+    const entityUrl = `https://www.wikidata.org/wiki/Special:EntityData/${qid}.json`
+    const entityRes = await fetch(entityUrl)
+    if (!entityRes.ok) return []
+    const entityJson = await entityRes.json()
+    const claims = entityJson?.entities?.[qid]?.claims?.P400
+    if (!Array.isArray(claims) || !claims.length) return []
 
-  const ids = [...new Set(claims
-    .map((claim) => claim?.mainsnak?.datavalue?.value?.id)
-    .filter(Boolean))]
+    const ids = [...new Set(claims
+      .map((claim) => claim?.mainsnak?.datavalue?.value?.id)
+      .filter(Boolean))]
 
-  if (!ids.length) return []
+    if (!ids.length) return []
 
-  const labelsUrl = `https://www.wikidata.org/w/api.php?action=wbgetentities&ids=${ids.join('|')}&props=labels&languages=en&format=json`
-  const labelsRes = await fetch(labelsUrl)
-  if (!labelsRes.ok) return []
-  const labelsJson = await labelsRes.json()
-  const entities = labelsJson?.entities || {}
+    const labelsUrl = `https://www.wikidata.org/w/api.php?action=wbgetentities&ids=${ids.join('|')}&props=labels&languages=en&format=json`
+    const labelsRes = await fetch(labelsUrl)
+    if (!labelsRes.ok) return []
+    const labelsJson = await labelsRes.json()
+    const entities = labelsJson?.entities || {}
 
-  const labels = ids
-    .map((id) => entities?.[id]?.labels?.en?.value)
-    .filter(Boolean)
+    const labels = ids
+      .map((id) => entities?.[id]?.labels?.en?.value)
+      .filter(Boolean)
 
-  return [...new Set(labels)]
+    return [...new Set(labels)]
+  })
+  return result.value
 }
 
 async function getPcStoresFromCheapShark(title) {
-  const storesRes = await fetch('https://www.cheapshark.com/api/1.0/stores')
-  if (!storesRes.ok) return []
-  const stores = await storesRes.json()
-  const storeMap = new Map((Array.isArray(stores) ? stores : []).map((s) => [String(s.storeID), String(s.storeName)]))
+  const key = `pc-stores:${normalize(title)}`
+  const result = await cache.getOrSet(key, async () => {
+    const storesRes = await fetch('https://www.cheapshark.com/api/1.0/stores')
+    if (!storesRes.ok) return []
+    const stores = await storesRes.json()
+    const storeMap = new Map((Array.isArray(stores) ? stores : []).map((s) => [String(s.storeID), String(s.storeName)]))
 
-  const gamesUrl = `https://www.cheapshark.com/api/1.0/games?title=${encodeURIComponent(title)}&limit=10`
-  const gamesRes = await fetch(gamesUrl)
-  if (!gamesRes.ok) return []
-  const games = await gamesRes.json()
-  const best = (Array.isArray(games) ? games : [])
-    .map((g) => ({ g, score: scoreCandidate(title, g?.external) }))
-    .sort((a, b) => b.score - a.score)[0]?.g
+    const gamesUrl = `https://www.cheapshark.com/api/1.0/games?title=${encodeURIComponent(title)}&limit=10`
+    const gamesRes = await fetch(gamesUrl)
+    if (!gamesRes.ok) return []
+    const games = await gamesRes.json()
+    const best = (Array.isArray(games) ? games : [])
+      .map((g) => ({ g, score: scoreCandidate(title, g?.external) }))
+      .sort((a, b) => b.score - a.score)[0]?.g
 
-  const gameId = best?.gameID
-  if (!gameId) return []
+    const gameId = best?.gameID
+    if (!gameId) return []
 
-  const dealsRes = await fetch(`https://www.cheapshark.com/api/1.0/games?id=${gameId}`)
-  if (!dealsRes.ok) return []
-  const dealsJson = await dealsRes.json()
-  const deals = Array.isArray(dealsJson?.deals) ? dealsJson.deals : []
+    const dealsRes = await fetch(`https://www.cheapshark.com/api/1.0/games?id=${gameId}`)
+    if (!dealsRes.ok) return []
+    const dealsJson = await dealsRes.json()
+    const deals = Array.isArray(dealsJson?.deals) ? dealsJson.deals : []
 
-  const pcPreferred = ['Steam', 'Epic Games Store', 'GOG', 'Ubisoft Store', 'EA App', 'Humble Store', 'Fanatical', 'GreenManGaming']
-  const names = [...new Set(deals
-    .map((d) => storeMap.get(String(d?.storeID ?? '')))
-    .filter(Boolean))]
+    const preferred = ['Steam', 'Epic Games Store', 'GOG', 'Ubisoft Store', 'EA App', 'Humble Store', 'Fanatical', 'GreenManGaming']
+    const names = [...new Set(deals
+      .map((d) => storeMap.get(String(d?.storeID ?? '')))
+      .filter(Boolean))]
 
-  return names
-    .sort((a, b) => {
-      const ai = pcPreferred.findIndex((x) => a.includes(x))
-      const bi = pcPreferred.findIndex((x) => b.includes(x))
-      const aa = ai === -1 ? 999 : ai
-      const bb = bi === -1 ? 999 : bi
-      return aa - bb || a.localeCompare(b)
-    })
+    return names
+      .sort((a, b) => {
+        const ai = preferred.findIndex((x) => a.includes(x))
+        const bi = preferred.findIndex((x) => b.includes(x))
+        const aa = ai === -1 ? 999 : ai
+        const bb = bi === -1 ? 999 : bi
+        return aa - bb || a.localeCompare(b)
+      })
+  })
+  return result.value
 }
 
 export default async function handler(req, res) {
@@ -225,34 +246,42 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: 'title veya appId gerekli.' })
     }
 
-    let target = null
-    if (appIdInput && Number.isFinite(appIdInput)) {
-      target = { appId: appIdInput, appName: title || '' }
-    } else {
-      target = await findSteamAppByTitle(title)
-    }
+    const cacheKey = `payload:${normalize(title)}:${appIdInput ?? ''}`
+    const payloadResult = await cache.getOrSet(cacheKey, async () => {
+      let target = null
+      if (appIdInput && Number.isFinite(appIdInput)) {
+        target = { appId: appIdInput, appName: title || '' }
+      } else {
+        target = await findSteamAppByTitle(title)
+      }
 
-    const [steamReq, wikidataPlatforms, pcStores] = await Promise.all([
-      target ? getSteamRequirementsByAppId(target.appId).catch(() => null) : Promise.resolve(null),
-      title ? getWikidataPlatforms(title).catch(() => []) : Promise.resolve([]),
-      title ? getPcStoresFromCheapShark(title).catch(() => []) : Promise.resolve([]),
-    ])
+      const [steamReq, wikidataPlatforms, pcStores] = await Promise.all([
+        target ? getSteamRequirementsByAppId(target.appId).catch(() => null) : Promise.resolve(null),
+        title ? getWikidataPlatforms(title).catch(() => []) : Promise.resolve([]),
+        title ? getPcStoresFromCheapShark(title).catch(() => []) : Promise.resolve([]),
+      ])
 
-    if (!steamReq && wikidataPlatforms.length === 0 && pcStores.length === 0) {
+      if (!steamReq && wikidataPlatforms.length === 0 && pcStores.length === 0) return null
+
+      const grouped = classifyPlatforms(wikidataPlatforms)
+      grouped.pcStores = pcStores
+
+      return {
+        source: 'steam+wikidata+cheapshark',
+        appId: steamReq?.appId ?? target?.appId ?? null,
+        appName: steamReq?.appName || target?.appName || title,
+        minimumLines: steamReq?.minimumLines ?? [],
+        recommendedLines: steamReq?.recommendedLines ?? [],
+        platformDetails: grouped,
+      }
+    })
+
+    res.setHeader('X-AAG-Cache', payloadResult.hit ? 'HIT' : 'MISS')
+    if (!payloadResult.value) {
       return res.status(404).json({ error: 'Yeterli platform/gereksinim verisi bulunamadi.' })
     }
 
-    const grouped = classifyPlatforms(wikidataPlatforms)
-    grouped.pcStores = pcStores
-
-    return res.status(200).json({
-      source: 'steam+wikidata+cheapshark',
-      appId: steamReq?.appId ?? target?.appId ?? null,
-      appName: steamReq?.appName || target?.appName || title,
-      minimumLines: steamReq?.minimumLines ?? [],
-      recommendedLines: steamReq?.recommendedLines ?? [],
-      platformDetails: grouped,
-    })
+    return res.status(200).json(payloadResult.value)
   } catch (error) {
     const message = error instanceof Error ? error.message : 'Gereksinim verisi cekilemedi.'
     return res.status(500).json({ error: message })
