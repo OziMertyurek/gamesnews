@@ -200,6 +200,7 @@ export default function GameDetailPage() {
   }, [steamRequirements, safeGame.platforms])
 
   const platformSummary = platformDetailItems.map((item) => item.label).join(', ')
+  const hasHltbLink = Boolean(safeGame.howLongToBeatUrl)
 
   if (!game) {
     return (
@@ -289,7 +290,11 @@ export default function GameDetailPage() {
 
         <div className="mt-6 flex flex-wrap gap-3">
           <a className="btn-ghost" href={game.metacriticUrl} target="_blank" rel="noreferrer">{game.metacriticScore === null ? 'Metacritic Ara' : 'Metacritic'}</a>
-          <a className="btn-ghost" href={game.howLongToBeatUrl} target="_blank" rel="noreferrer">HowLongToBeat</a>
+          {hasHltbLink ? (
+            <a className="btn-ghost" href={game.howLongToBeatUrl} target="_blank" rel="noreferrer">HowLongToBeat</a>
+          ) : (
+            <span className="btn-ghost opacity-50 cursor-not-allowed">HLTB Yok</span>
+          )}
           <a className="btn-ghost" href={game.gamespotArticleUrl} target="_blank" rel="noreferrer">GameSpot Haberi</a>
           <a className="btn-primary" href={game.youtubeTrailerUrl} target="_blank" rel="noreferrer">Trailer</a>
           <a className="btn-primary" href={game.youtubeGameplayUrl} target="_blank" rel="noreferrer">Gameplay</a>

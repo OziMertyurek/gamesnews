@@ -573,9 +573,9 @@ const mergedBaseGames = [...mergedBaseGamesMap.values()].map((game) => {
 
 export const games: GameItem[] = mergedBaseGames.map((game) => {
   const external = resolveExternalData(game)
-  const safeMetacriticUrl = `https://www.google.com/search?q=${encodeURIComponent(`site:metacritic.com ${game.title}`)}`
-  const safeHltbUrl = `https://www.google.com/search?q=${encodeURIComponent(`site:howlongtobeat.com ${game.title}`)}`
-  const safeGameSpotUrl = `https://www.google.com/search?q=${encodeURIComponent(`site:gamespot.com ${game.title}`)}`
+  const fallbackMetacriticUrl = `https://www.metacritic.com/search/${encodeURIComponent(game.title)}/?page=1&category=13`
+  const fallbackHltbUrl = ''
+  const fallbackGameSpotUrl = `https://www.gamespot.com/search/?q=${encodeURIComponent(game.title)}`
 
   return {
     ...game,
@@ -584,13 +584,13 @@ export const games: GameItem[] = mergedBaseGames.map((game) => {
       howLongToBeatMainHours: null,
       howLongToBeatMainExtraHours: null,
       howLongToBeatCompletionistHours: null,
-      metacriticUrl: safeMetacriticUrl,
-      howLongToBeatUrl: safeHltbUrl,
-      gamespotArticleUrl: safeGameSpotUrl,
+      metacriticUrl: fallbackMetacriticUrl,
+      howLongToBeatUrl: fallbackHltbUrl,
+      gamespotArticleUrl: fallbackGameSpotUrl,
     }),
-    metacriticUrl: safeMetacriticUrl,
-    howLongToBeatUrl: safeHltbUrl,
-    gamespotArticleUrl: safeGameSpotUrl,
+    metacriticUrl: external?.metacriticUrl || fallbackMetacriticUrl,
+    howLongToBeatUrl: external?.howLongToBeatUrl || fallbackHltbUrl,
+    gamespotArticleUrl: external?.gamespotArticleUrl || fallbackGameSpotUrl,
     youtubeTrailerUrl: `https://www.youtube.com/results?search_query=${encodeURIComponent(`${game.title} trailer`)}`,
     youtubeGameplayUrl: `https://www.youtube.com/results?search_query=${encodeURIComponent(`${game.title} gameplay`)}`,
   }
