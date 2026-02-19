@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'react'
+﻿import { useEffect, useMemo, useRef, useState } from 'react'
 import { Link, NavLink, useNavigate } from 'react-router-dom'
 import { getCurrentUser, listPublicUsers, logoutUser } from '../../lib/auth'
 import { gameGenres, games } from '../../data/siteContent'
@@ -35,7 +35,7 @@ interface SearchItem {
 }
 
 const productMenu: NavItem = {
-  label: 'Ürünler',
+  label: 'Cihazlar',
   items: platforms.map((p) => ({ label: platformLabels[p], to: `/products/${p}` })),
 }
 
@@ -55,9 +55,9 @@ function kindLabel(kind: SearchKind) {
     case 'oyun':
       return 'Oyun'
     case 'urun':
-      return 'Ürün'
+      return 'ÃœrÃ¼n'
     default:
-      return 'Sonuç'
+      return 'SonuÃ§'
   }
 }
 
@@ -241,7 +241,7 @@ export default function Navbar() {
             setAuthVersion((value) => value + 1)
           }}
         >
-          Çıkış
+          Ã‡Ä±kÄ±ÅŸ
         </button>
       </div>
     )
@@ -257,10 +257,26 @@ export default function Navbar() {
 
   return (
     <header ref={headerRef} className="bg-gray-900 border-b border-gray-800 sticky top-0 z-50">
-      <div className="container mx-auto px-4 max-w-7xl">
-        <div className="flex items-center justify-between h-16">
-          <Link to="/" className="flex items-center gap-2">
-            <span className="text-2xl font-black text-blue-500">AllAroundGame</span>
+      <div className="w-full px-4 relative">
+        <Link to="/" className="hidden md:flex absolute left-4 top-0 h-full w-52 items-center justify-center z-10" aria-label="AllAroundGame">
+          <img
+            src="/site-logo.png"
+            alt="AllAroundGame"
+            className="h-full w-full object-contain p-2"
+            loading="eager"
+            decoding="async"
+          />
+        </Link>
+
+        <div className="flex items-center justify-between h-20 md:pl-52">
+          <Link to="/" className="flex items-center gap-2 md:hidden" aria-label="AllAroundGame">
+            <img
+              src="/site-logo.png"
+              alt="AllAroundGame"
+              className="h-12 w-auto object-contain"
+              loading="eager"
+              decoding="async"
+            />
           </Link>
 
           <nav className="hidden md:flex items-center gap-1">
@@ -316,7 +332,7 @@ export default function Navbar() {
                 }`
               }
             >
-              Ödüller
+              Ã–dÃ¼ller
             </NavLink>
 
             <NavLink
@@ -327,7 +343,7 @@ export default function Navbar() {
                 }`
               }
             >
-              İletişim
+              Ä°letiÅŸim
             </NavLink>
           </nav>
 
@@ -350,7 +366,7 @@ export default function Navbar() {
 
         <div
           ref={searchRef}
-          className={`overflow-hidden transition-all duration-300 ease-out ${
+          className={`md:pl-52 overflow-hidden transition-all duration-300 ease-out ${
             searchCollapsed
               ? 'max-h-0 pb-0 opacity-0 -translate-y-1 pointer-events-none overflow-hidden'
               : 'max-h-24 pb-3 opacity-100 translate-y-0 overflow-visible'
@@ -371,14 +387,14 @@ export default function Navbar() {
                   runSearchTarget(searchResults[0])
                 }
               }}
-              placeholder="Profil, kategori, oyun veya ürün ara..."
+              placeholder="Profil, kategori, oyun veya Ã¼rÃ¼n ara..."
               className="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-2.5 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-blue-500"
             />
 
             {searchOpen && searchQuery.trim().length >= 2 && (
               <div className="absolute left-0 right-0 top-full mt-2 bg-gray-900 border border-gray-700 rounded-xl shadow-xl overflow-hidden z-50">
                 {searchResults.length === 0 ? (
-                  <p className="px-4 py-3 text-sm text-gray-400">Sonuç bulunamadı.</p>
+                  <p className="px-4 py-3 text-sm text-gray-400">SonuÃ§ bulunamadÄ±.</p>
                 ) : (
                   <ul>
                     {searchResults.map((item) => (
@@ -401,7 +417,7 @@ export default function Navbar() {
 
         {mobileOpen && (
           <nav className="md:hidden pb-4 border-t border-gray-800 mt-1 pt-3 space-y-1">
-            <p className="px-3 py-1 text-xs font-semibold text-gray-500 uppercase tracking-wider">Ürünler</p>
+            <p className="px-3 py-1 text-xs font-semibold text-gray-500 uppercase tracking-wider">Cihazlar</p>
             {productMenu.items.map((sub) => (
               <NavLink
                 key={sub.to}
@@ -417,8 +433,8 @@ export default function Navbar() {
               </NavLink>
             ))}
             <NavLink to="/games" className="block px-4 py-2 text-sm rounded-lg mx-1 text-gray-300 hover:text-white hover:bg-gray-800" onClick={() => setMobileOpen(false)}>Oyunlar</NavLink>
-            <NavLink to="/oduller" className="block px-4 py-2 text-sm rounded-lg mx-1 text-gray-300 hover:text-white hover:bg-gray-800" onClick={() => setMobileOpen(false)}>Ödüller</NavLink>
-            <NavLink to="/iletisim" className="block px-4 py-2 text-sm rounded-lg mx-1 text-gray-300 hover:text-white hover:bg-gray-800" onClick={() => setMobileOpen(false)}>İletişim</NavLink>
+            <NavLink to="/oduller" className="block px-4 py-2 text-sm rounded-lg mx-1 text-gray-300 hover:text-white hover:bg-gray-800" onClick={() => setMobileOpen(false)}>Ã–dÃ¼ller</NavLink>
+            <NavLink to="/iletisim" className="block px-4 py-2 text-sm rounded-lg mx-1 text-gray-300 hover:text-white hover:bg-gray-800" onClick={() => setMobileOpen(false)}>Ä°letiÅŸim</NavLink>
             <div className="px-2 pt-2">{authBlock}</div>
           </nav>
         )}
@@ -426,3 +442,4 @@ export default function Navbar() {
     </header>
   )
 }
+

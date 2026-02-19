@@ -6,7 +6,13 @@ export default function Footer() {
       <div className="container mx-auto px-4 max-w-7xl py-8">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2">
-            <span className="text-xl font-black text-blue-500">AllAroundGame</span>
+            <img
+              src="/site-logo.png"
+              alt="AllAroundGame"
+              className="h-8 w-auto object-contain"
+              loading="lazy"
+              decoding="async"
+            />
             <span className="text-gray-500 text-sm ml-2">Türkiye'nin oyun platformu</span>
           </div>
           <nav className="flex flex-wrap gap-4 text-sm text-gray-400">

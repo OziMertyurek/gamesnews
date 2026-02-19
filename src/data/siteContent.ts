@@ -207,6 +207,52 @@ function createGenreGames(genre: string, label: string, startYear: number, baseS
   })
 }
 
+function titleFromSlugKey(slug: string) {
+  return slug
+    .split('-')
+    .map((part) => {
+      if (/^(ii|iii|iv|v|vi|vii|viii|ix|x)$/i.test(part)) return part.toUpperCase()
+      if (/^\d+$/.test(part)) return part
+      return part.charAt(0).toUpperCase() + part.slice(1)
+    })
+    .join(' ')
+}
+
+function inferGenreFromTitle(title: string): string {
+  const t = title.toLowerCase()
+  if (/fifa|nba|nhl|madden|wrc|f1 |topspin|mlb|football|tennis|ufc|skate|golf/.test(t)) return 'sports'
+  if (/forza|gran turismo|need for speed|assetto|trackmania|motogp|ride |nascar|kart/.test(t)) return 'racing-driving'
+  if (/resident evil|silent hill|outlast|amnesia|alan wake|dead space|horror|mortuary/.test(t)) return 'horror'
+  if (/counter-strike|valorant|doom|battlefield|call of duty|halo|titanfall|apex|overwatch|rainbow six|wolfenstein/.test(t)) return 'shooter'
+  if (/civilization|total war|xcom|crusader kings|hearts of iron|strategy|anno|factorio|rimworld/.test(t)) return 'strategy-tactical'
+  if (/baldur|witcher|cyberpunk|persona|elden ring|final fantasy|dragon|fallout|skyrim|rpg/.test(t)) return 'role-playing'
+  if (/portal|talos principle|witness|tetris|cocoon|viewfinder|baba is you|puzzle/.test(t)) return 'puzzle'
+  if (/hades|dead cells|rogue|slay the spire|binding of isaac/.test(t)) return 'roguelike'
+  if (/zelda|gta|red dead|assassin|far cry|ghost of tsushima|horizon/.test(t)) return 'open-world'
+  if (/cities skylines|planet zoo|truck simulator|flight simulator|sims|house flipper|simulator/.test(t)) return 'simulation'
+  if (/journey|abzu|gris|artful escape|flower/.test(t)) return 'interactive-art'
+  return 'open-world'
+}
+
+const generatedFromExternal: BaseGameItem[] = externalDataEntries.map(([slug, external], index) => {
+  const title = titleFromSlugKey(slug)
+  const genre = inferGenreFromTitle(title)
+  const releaseYear = 2000 + (index % 26)
+  const score = external.metacriticScore !== null
+    ? Number((external.metacriticScore / 10).toFixed(1))
+    : Number((7.0 + ((index % 15) * 0.1)).toFixed(1))
+
+  return {
+    slug,
+    title,
+    genre,
+    platforms: platformSets[index % platformSets.length],
+    releaseYear,
+    score,
+    summary: `${title}, genis oyun arsivimizde yer alan populer yapimlardan biri.`,
+  }
+})
+
 const baseGames: BaseGameItem[] = gameGenres.flatMap((genre, index) =>
   createGenreGames(
     genre.slug,
@@ -217,7 +263,23 @@ const baseGames: BaseGameItem[] = gameGenres.flatMap((genre, index) =>
   ),
 )
 
-export const games: GameItem[] = baseGames.map((game) => ({
+const mergedBaseGamesMap = new Map<string, BaseGameItem>()
+for (const game of [...baseGames, ...generatedFromExternal]) {
+  if (!mergedBaseGamesMap.has(game.slug)) mergedBaseGamesMap.set(game.slug, game)
+}
+
+const platformOverrides: Record<string, Platform[]> = {
+  'the-talos-principle-2': ['pc', 'ps', 'xbox'],
+}
+
+const mergedBaseGames = [...mergedBaseGamesMap.values()].map((game) => {
+  const key = slugify(game.title)
+  const forced = platformOverrides[key]
+  if (!forced) return game
+  return { ...game, platforms: forced }
+})
+
+export const games: GameItem[] = mergedBaseGames.map((game) => ({
   ...game,
   ...(resolveExternalData(game) ?? {
     metacriticScore: null,
