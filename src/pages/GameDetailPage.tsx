@@ -10,6 +10,7 @@ import {
   togglePlayedInSiteGames,
   type GameComment,
 } from '../lib/community'
+import { syncPublicCommentAdd, syncPublicCommentDelete, syncPublicExtras } from '../lib/publicProfileSync'
 import { getGameAwardSummary } from '../lib/awards'
 import {
   cpuModels,
@@ -352,6 +353,7 @@ export default function GameDetailPage() {
               onClick={() => {
                 const next = togglePlayedInSiteGames(user.email, game.slug)
                 setPlayedOnSite(next)
+                void syncPublicExtras(user.email)
               }}
             >
               {playedOnSite ? 'Oynadım Olarak İşaretli' : 'Bu Oyunu Oynadım'}
@@ -558,6 +560,7 @@ export default function GameDetailPage() {
                 rating,
                 content: content.trim(),
               })
+              void syncPublicCommentAdd(created)
               setComments((prev) => [created, ...prev])
               setContent('')
               setRating(5)
@@ -598,6 +601,7 @@ export default function GameDetailPage() {
                     onClick={() => {
                       deleteGameComment(game.slug, comment.id, user.email)
                       setComments((prev) => prev.filter((value) => value.id !== comment.id))
+                      void syncPublicCommentDelete(comment.id)
                     }}
                   >
                     Sil

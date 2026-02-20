@@ -25,9 +25,28 @@ create table if not exists public.review_approvals (
   created_at timestamptz not null default now()
 );
 
+create table if not exists public.profile_public_data (
+  profile_id uuid primary key references public.profiles(id) on delete cascade,
+  steam_profile_url text not null default '',
+  played_game_slugs text[] not null default '{}',
+  steam_games jsonb not null default '[]'::jsonb,
+  updated_at timestamptz not null default now()
+);
+
+create table if not exists public.profile_comments (
+  id uuid primary key default gen_random_uuid(),
+  profile_id uuid not null references public.profiles(id) on delete cascade,
+  game_slug text not null,
+  rating int not null default 0,
+  content text not null default '',
+  created_at timestamptz not null default now()
+);
+
 alter table public.profiles enable row level security;
 alter table public.admin_audit_logs enable row level security;
 alter table public.review_approvals enable row level security;
+alter table public.profile_public_data enable row level security;
+alter table public.profile_comments enable row level security;
 
 -- Profiles: users can read/update only their own profile
 drop policy if exists profiles_select_own on public.profiles;
@@ -101,6 +120,57 @@ for update
 to authenticated
 using (false)
 with check (false);
+
+drop policy if exists profile_public_data_no_direct_select on public.profile_public_data;
+create policy profile_public_data_no_direct_select
+on public.profile_public_data
+for select
+to authenticated
+using (false);
+
+drop policy if exists profile_public_data_no_direct_insert on public.profile_public_data;
+create policy profile_public_data_no_direct_insert
+on public.profile_public_data
+for insert
+to authenticated
+with check (false);
+
+drop policy if exists profile_public_data_no_direct_update on public.profile_public_data;
+create policy profile_public_data_no_direct_update
+on public.profile_public_data
+for update
+to authenticated
+using (false)
+with check (false);
+
+drop policy if exists profile_comments_no_direct_select on public.profile_comments;
+create policy profile_comments_no_direct_select
+on public.profile_comments
+for select
+to authenticated
+using (false);
+
+drop policy if exists profile_comments_no_direct_insert on public.profile_comments;
+create policy profile_comments_no_direct_insert
+on public.profile_comments
+for insert
+to authenticated
+with check (false);
+
+drop policy if exists profile_comments_no_direct_update on public.profile_comments;
+create policy profile_comments_no_direct_update
+on public.profile_comments
+for update
+to authenticated
+using (false)
+with check (false);
+
+drop policy if exists profile_comments_no_direct_delete on public.profile_comments;
+create policy profile_comments_no_direct_delete
+on public.profile_comments
+for delete
+to authenticated
+using (false);
 
 -- Immutable audit log
 drop policy if exists admin_audit_update_none on public.admin_audit_logs;

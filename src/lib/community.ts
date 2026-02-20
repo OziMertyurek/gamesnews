@@ -137,3 +137,8 @@ export function getCommentsByUser(userEmail: string) {
     .filter((comment) => comment.userEmail.toLowerCase() === normalized)
     .sort((a, b) => (a.createdAt < b.createdAt ? 1 : -1))
 }
+
+export function getTotalCommentCount() {
+  const store = readJson<CommentStore>(COMMENTS_KEY, {})
+  return Object.values(store).reduce((sum, list) => sum + list.length, 0)
+}

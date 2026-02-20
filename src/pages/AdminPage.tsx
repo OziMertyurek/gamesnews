@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import {
+  getAdminDashboardStats,
   approveNeedsReviewForAdmin,
   getCurrentAdmin,
   listAdminAuditLogForAdmin,
@@ -11,6 +12,8 @@ import {
 } from '../lib/auth'
 import { allConsoleExclusiveGames } from '../lib/consoleExclusives'
 import { consoleExclusiveNeedsReview } from '../data/consoleExclusiveNeedsReview'
+import { games } from '../data/siteContent'
+import { getTotalCommentCount } from '../lib/community'
 
 interface AuditRow {
   id: string
@@ -33,6 +36,7 @@ export default function AdminPage() {
   const [auditRows, setAuditRows] = useState<AuditRow[]>([])
   const [reviewStatus, setReviewStatus] = useState('')
   const [reviewSavingSlug, setReviewSavingSlug] = useState<string | null>(null)
+  const [dashboardStats, setDashboardStats] = useState({ totalUsers: 0, activeUsers: 0 })
 
   const loadUsers = async () => {
     const rows = await listAllUsersForAdmin()
@@ -53,6 +57,7 @@ export default function AdminPage() {
     void loadUsers()
     void loadApprovals()
     void loadAudit()
+    getAdminDashboardStats().then(setDashboardStats).catch(() => setDashboardStats({ totalUsers: 0, activeUsers: 0 }))
   }, [])
 
   const handleRoleChange = async (email: string, role: 'user' | 'admin') => {
@@ -104,15 +109,20 @@ export default function AdminPage() {
     const playstation = allConsoleExclusiveGames.filter((g) => g.platform_family === 'playstation').length
     const xbox = allConsoleExclusiveGames.filter((g) => g.platform_family === 'xbox').length
     const nintendo = allConsoleExclusiveGames.filter((g) => g.platform_family === 'nintendo').length
+    const totalComments = getTotalCommentCount()
+    const totalGames = new Set([...games.map((g) => g.slug), ...allConsoleExclusiveGames.map((g) => g.slug)]).size
     return {
       total: allConsoleExclusiveGames.length,
       playstation,
       xbox,
       nintendo,
       review: pendingNeedsReview.length,
-      users: users.length,
+      users: dashboardStats.totalUsers || users.length,
+      activeUsers: dashboardStats.activeUsers,
+      totalComments,
+      totalGames,
     }
-  }, [users.length, pendingNeedsReview.length])
+  }, [users.length, pendingNeedsReview.length, dashboardStats.totalUsers, dashboardStats.activeUsers])
 
   return (
     <div className="space-y-6">
@@ -140,13 +150,16 @@ export default function AdminPage() {
         </div>
       </section>
 
-      <section className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-6 gap-4">
+      <section className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-10 gap-4">
         <article className="card p-4"><p className="text-xs text-gray-500">Toplam Exclusive</p><p className="text-xl text-white font-bold">{stats.total}</p></article>
         <article className="card p-4"><p className="text-xs text-gray-500">PlayStation</p><p className="text-xl text-white font-bold">{stats.playstation}</p></article>
         <article className="card p-4"><p className="text-xs text-gray-500">Xbox</p><p className="text-xl text-white font-bold">{stats.xbox}</p></article>
         <article className="card p-4"><p className="text-xs text-gray-500">Nintendo</p><p className="text-xl text-white font-bold">{stats.nintendo}</p></article>
         <article className="card p-4"><p className="text-xs text-gray-500">Needs Review</p><p className="text-xl text-white font-bold">{stats.review}</p></article>
-        <article className="card p-4"><p className="text-xs text-gray-500">Kullanici</p><p className="text-xl text-white font-bold">{stats.users}</p></article>
+        <article className="card p-4"><p className="text-xs text-gray-500">Toplam Kullanici</p><p className="text-xl text-white font-bold">{stats.users}</p></article>
+        <article className="card p-4"><p className="text-xs text-gray-500">Toplam Yorum</p><p className="text-xl text-white font-bold">{stats.totalComments}</p></article>
+        <article className="card p-4"><p className="text-xs text-gray-500">Toplam Oyun</p><p className="text-xl text-white font-bold">{stats.totalGames}</p></article>
+        <article className="card p-4"><p className="text-xs text-gray-500">Online Kullanici</p><p className="text-xl text-white font-bold">{stats.activeUsers}</p></article>
       </section>
 
       <section className="card p-6">

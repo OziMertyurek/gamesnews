@@ -4,6 +4,7 @@ import { getCurrentUser, logoutUser } from '../lib/auth'
 import { getCommentsByUser, getUserProfileExtras, saveSteamConnection, saveSteamGames } from '../lib/community'
 import { fetchSteamOwnedGames } from '../lib/steam'
 import { games } from '../data/siteContent'
+import { syncPublicExtras } from '../lib/publicProfileSync'
 
 export default function ProfilePage() {
   const navigate = useNavigate()
@@ -109,6 +110,7 @@ export default function ProfilePage() {
             className="btn-primary"
             onClick={async () => {
               saveSteamConnection(user.email, { steamProfileUrl: steamProfileUrl.trim(), steamId: steamId.trim(), steamApiKey: steamApiKey.trim() })
+              await syncPublicExtras(user.email)
               setSyncMessage('Steam baglanti bilgileri kaydedildi.')
               setRefreshKey((value) => value + 1)
             }}
@@ -125,6 +127,7 @@ export default function ProfilePage() {
                 const result = await fetchSteamOwnedGames(steamApiKey, steamId || steamProfileUrl)
                 saveSteamConnection(user.email, { steamProfileUrl: steamProfileUrl.trim(), steamId: result.steamId, steamApiKey: steamApiKey.trim() })
                 saveSteamGames(user.email, result.games)
+                await syncPublicExtras(user.email)
                 setSyncMessage(`${result.games.length} oyun cekildi.`)
                 setRefreshKey((value) => value + 1)
               } catch (error) {

@@ -58,6 +58,10 @@ async function getAccessToken() {
   return data.session?.access_token ?? ''
 }
 
+export async function getCurrentAccessToken() {
+  return getAccessToken()
+}
+
 export async function signupUser(user: AuthUser): Promise<{ ok: boolean; error?: string }> {
   try {
     const client = await ensureSupabase()
@@ -292,4 +296,13 @@ export async function approveNeedsReviewForAdmin(slug: string, title: string) {
   })
   if (!result.ok) return { ok: false, error: result.error }
   return { ok: true }
+}
+
+export async function getAdminDashboardStats(): Promise<{ totalUsers: number; activeUsers: number }> {
+  const result = await fetchAdminApi('/api/admin-dashboard-stats', { method: 'GET' })
+  if (!result.ok) return { totalUsers: 0, activeUsers: 0 }
+  return {
+    totalUsers: Number(result.payload?.totalUsers ?? 0),
+    activeUsers: Number(result.payload?.activeUsers ?? 0),
+  }
 }
