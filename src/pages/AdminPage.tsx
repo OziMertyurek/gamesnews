@@ -1,13 +1,98 @@
-import { useMemo } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { getCurrentAdmin, listAllUsersForAdmin, logoutAdmin } from '../lib/auth'
+import {
+  approveNeedsReviewForAdmin,
+  getCurrentAdmin,
+  listAdminAuditLogForAdmin,
+  listAllUsersForAdmin,
+  listApprovedNeedsReviewForAdmin,
+  logoutAdmin,
+  updateUserRoleForAdmin,
+} from '../lib/auth'
 import { allConsoleExclusiveGames } from '../lib/consoleExclusives'
 import { consoleExclusiveNeedsReview } from '../data/consoleExclusiveNeedsReview'
+
+interface AuditRow {
+  id: string
+  created_at: string
+  admin_email: string
+  action: string
+  target: string
+  detail: string
+}
 
 export default function AdminPage() {
   const navigate = useNavigate()
   const admin = getCurrentAdmin()
-  const users = useMemo(() => listAllUsersForAdmin(), [])
+  const [users, setUsers] = useState<Array<{ name: string; email: string; role: 'user' | 'admin' }>>([])
+  const [savingEmail, setSavingEmail] = useState<string | null>(null)
+  const [statusMessage, setStatusMessage] = useState('')
+  const [searchTerm, setSearchTerm] = useState('')
+  const [roleFilter, setRoleFilter] = useState<'all' | 'user' | 'admin'>('all')
+  const [approvedSlugs, setApprovedSlugs] = useState<string[]>([])
+  const [auditRows, setAuditRows] = useState<AuditRow[]>([])
+
+  const loadUsers = async () => {
+    const rows = await listAllUsersForAdmin()
+    setUsers(rows)
+  }
+
+  const loadAudit = async () => {
+    const rows = await listAdminAuditLogForAdmin()
+    setAuditRows(rows as AuditRow[])
+  }
+
+  const loadApprovals = async () => {
+    const rows = await listApprovedNeedsReviewForAdmin()
+    setApprovedSlugs(rows)
+  }
+
+  useEffect(() => {
+    void loadUsers()
+    void loadApprovals()
+    void loadAudit()
+  }, [])
+
+  const handleRoleChange = async (email: string, role: 'user' | 'admin') => {
+    setStatusMessage('')
+    setSavingEmail(email)
+    const result = await updateUserRoleForAdmin(email, role)
+
+    if (!result.ok) {
+      setStatusMessage(result.error ?? 'Rol guncellenemedi.')
+      setSavingEmail(null)
+      return
+    }
+
+    setStatusMessage('Rol guncellendi.')
+    await Promise.all([loadUsers(), loadAudit()])
+    setSavingEmail(null)
+  }
+
+  const pendingNeedsReview = useMemo(
+    () => consoleExclusiveNeedsReview.filter((row) => !approvedSlugs.includes(row.slug)),
+    [approvedSlugs],
+  )
+
+  const handleApproveNeedsReview = async (slug: string, title: string) => {
+    const result = await approveNeedsReviewForAdmin(slug, title)
+    if (!result.ok) {
+      setStatusMessage(result.error ?? 'Onay islemi basarisiz.')
+      return
+    }
+    await Promise.all([loadApprovals(), loadAudit()])
+    setStatusMessage('Needs review kaydi onaylandi.')
+  }
+
+  const filteredUsers = useMemo(() => {
+    const q = searchTerm.trim().toLowerCase()
+    return users.filter((user) => {
+      const roleOk = roleFilter === 'all' || user.role === roleFilter
+      if (!roleOk) return false
+      if (!q) return true
+      return user.name.toLowerCase().includes(q) || user.email.toLowerCase().includes(q)
+    })
+  }, [users, searchTerm, roleFilter])
 
   const stats = useMemo(() => {
     const playstation = allConsoleExclusiveGames.filter((g) => g.platform_family === 'playstation').length
@@ -18,17 +103,17 @@ export default function AdminPage() {
       playstation,
       xbox,
       nintendo,
-      review: consoleExclusiveNeedsReview.length,
+      review: pendingNeedsReview.length,
       users: users.length,
     }
-  }, [users.length])
+  }, [users.length, pendingNeedsReview.length])
 
   return (
     <div className="space-y-6">
       <section className="card p-6">
         <div className="flex items-center justify-between gap-3">
           <div>
-            <h1 className="text-3xl font-bold text-white">Yönetici Paneli</h1>
+            <h1 className="text-3xl font-bold text-white">Yonetici Paneli</h1>
             <p className="text-sm text-gray-400 mt-1">
               Oturum: {admin?.name} ({admin?.email})
             </p>
@@ -44,7 +129,7 @@ export default function AdminPage() {
               navigate('/admin/login')
             }}
           >
-            Admin Çıkış
+            Admin Cikis
           </button>
         </div>
       </section>
@@ -55,12 +140,33 @@ export default function AdminPage() {
         <article className="card p-4"><p className="text-xs text-gray-500">Xbox</p><p className="text-xl text-white font-bold">{stats.xbox}</p></article>
         <article className="card p-4"><p className="text-xs text-gray-500">Nintendo</p><p className="text-xl text-white font-bold">{stats.nintendo}</p></article>
         <article className="card p-4"><p className="text-xs text-gray-500">Needs Review</p><p className="text-xl text-white font-bold">{stats.review}</p></article>
-        <article className="card p-4"><p className="text-xs text-gray-500">Kullanıcı</p><p className="text-xl text-white font-bold">{stats.users}</p></article>
+        <article className="card p-4"><p className="text-xs text-gray-500">Kullanici</p><p className="text-xl text-white font-bold">{stats.users}</p></article>
       </section>
 
       <section className="card p-6">
-        <h2 className="text-xl text-white font-semibold">Kullanıcı Hesapları</h2>
-        <p className="text-sm text-gray-400 mt-1">Sitede oluşturulan hesapların listesi.</p>
+        <h2 className="text-xl text-white font-semibold">Kullanici Hesaplari</h2>
+        <p className="text-sm text-gray-400 mt-1">Sitede olusturulan hesaplarin listesi.</p>
+        {statusMessage ? <p className="mt-3 text-sm text-blue-300">{statusMessage}</p> : null}
+
+        <div className="mt-4 grid gap-3 md:grid-cols-3">
+          <input
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            placeholder="Isim veya e-posta ara"
+            className="bg-slate-900 border border-slate-700 rounded-md px-3 py-2 text-sm text-white"
+          />
+          <select
+            value={roleFilter}
+            onChange={(e) => setRoleFilter(e.target.value as 'all' | 'user' | 'admin')}
+            className="bg-slate-900 border border-slate-700 rounded-md px-3 py-2 text-sm text-white"
+          >
+            <option value="all">Tum roller</option>
+            <option value="user">Sadece user</option>
+            <option value="admin">Sadece admin</option>
+          </select>
+          <p className="text-sm text-gray-400 self-center">Gorunen: {filteredUsers.length}</p>
+        </div>
+
         <div className="mt-4 overflow-x-auto">
           <table className="min-w-full text-sm">
             <thead>
@@ -68,16 +174,96 @@ export default function AdminPage() {
                 <th className="py-2 pr-4">Ad</th>
                 <th className="py-2 pr-4">E-posta</th>
                 <th className="py-2 pr-4">Rol</th>
+                <th className="py-2 pr-4">Islem</th>
               </tr>
             </thead>
             <tbody>
-              {users.map((user) => (
+              {filteredUsers.map((user) => (
                 <tr key={user.email} className="border-b border-gray-800">
                   <td className="py-2 pr-4 text-white">{user.name}</td>
                   <td className="py-2 pr-4 text-gray-300">{user.email}</td>
-                  <td className="py-2 pr-4 text-gray-300">{user.role}</td>
+                  <td className="py-2 pr-4 text-gray-300">
+                    <select
+                      className="bg-slate-900 border border-slate-700 rounded-md px-2 py-1 text-sm text-white"
+                      value={user.role}
+                      disabled={savingEmail === user.email}
+                      onChange={(e) => {
+                        void handleRoleChange(user.email, e.target.value === 'admin' ? 'admin' : 'user')
+                      }}
+                    >
+                      <option value="user">user</option>
+                      <option value="admin">admin</option>
+                    </select>
+                  </td>
+                  <td className="py-2 pr-4 text-gray-300">
+                    {savingEmail === user.email ? 'Kaydediliyor...' : '-'}
+                  </td>
                 </tr>
               ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section className="card p-6">
+        <h2 className="text-xl text-white font-semibold">Needs Review Onay</h2>
+        <p className="text-sm text-gray-400 mt-1">Eksik gorsel veya dogrulama bekleyen kayitlar.</p>
+        <div className="mt-4 space-y-3">
+          {pendingNeedsReview.length === 0 ? (
+            <p className="text-sm text-green-300">Bekleyen kayit yok.</p>
+          ) : (
+            pendingNeedsReview.map((item) => (
+              <article key={item.slug} className="rounded-lg border border-slate-700 bg-slate-900/40 p-3 flex flex-wrap items-center justify-between gap-3">
+                <div>
+                  <p className="text-white font-semibold">{item.title}</p>
+                  <p className="text-xs text-gray-400">{item.slug} - {item.platform_family} - reason: {item.reason}</p>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Link to={`/games/${item.slug}`} className="btn-ghost">Detay</Link>
+                  <button
+                    className="btn-primary"
+                    onClick={() => {
+                      void handleApproveNeedsReview(item.slug, item.title)
+                    }}
+                  >
+                    Onayla
+                  </button>
+                </div>
+              </article>
+            ))
+          )}
+        </div>
+      </section>
+
+      <section className="card p-6">
+        <h2 className="text-xl text-white font-semibold">Audit Log</h2>
+        <p className="text-sm text-gray-400 mt-1">Yonetici islemleri kaydi.</p>
+        <div className="mt-4 overflow-x-auto">
+          <table className="min-w-full text-sm">
+            <thead>
+              <tr className="text-left text-gray-400 border-b border-gray-700">
+                <th className="py-2 pr-4">Zaman</th>
+                <th className="py-2 pr-4">Admin</th>
+                <th className="py-2 pr-4">Aksiyon</th>
+                <th className="py-2 pr-4">Hedef</th>
+                <th className="py-2 pr-4">Detay</th>
+              </tr>
+            </thead>
+            <tbody>
+              {auditRows.slice(0, 50).map((row) => (
+                <tr key={row.id} className="border-b border-gray-800">
+                  <td className="py-2 pr-4 text-gray-300">{new Date(row.created_at).toLocaleString()}</td>
+                  <td className="py-2 pr-4 text-gray-300">{row.admin_email}</td>
+                  <td className="py-2 pr-4 text-gray-300">{row.action}</td>
+                  <td className="py-2 pr-4 text-gray-300">{row.target}</td>
+                  <td className="py-2 pr-4 text-gray-300">{row.detail}</td>
+                </tr>
+              ))}
+              {auditRows.length === 0 ? (
+                <tr>
+                  <td className="py-3 text-gray-400" colSpan={5}>Henuz audit kaydi yok.</td>
+                </tr>
+              ) : null}
             </tbody>
           </table>
         </div>

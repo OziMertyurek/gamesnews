@@ -2,6 +2,7 @@ import { useState } from 'react'
 import type { FormEvent } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { loginAdmin } from '../lib/auth'
+import { toFriendlyAuthError } from '../lib/errorMessages'
 
 export default function AdminLoginPage() {
   const navigate = useNavigate()
@@ -9,12 +10,12 @@ export default function AdminLoginPage() {
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
 
-  function onSubmit(event: FormEvent<HTMLFormElement>) {
+  async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
     setError('')
-    const result = loginAdmin(email, password)
+    const result = await loginAdmin(email, password)
     if (!result.ok) {
-      setError(result.error ?? 'Admin girişi başarısız.')
+      setError(toFriendlyAuthError(result.error ?? 'Admin girisi basarisiz.'))
       return
     }
     navigate('/admin')
@@ -23,7 +24,7 @@ export default function AdminLoginPage() {
   return (
     <div className="max-w-lg mx-auto card p-6">
       <h1 className="text-2xl font-bold text-white">Admin Login</h1>
-      <p className="text-gray-400 mt-2">Yönetim paneline erişmek için giriş yap.</p>
+      <p className="text-gray-400 mt-2">Yonetim paneline erismek icin giris yap.</p>
       <form className="space-y-4 mt-6" onSubmit={onSubmit}>
         <div>
           <label className="block text-sm text-gray-300 mb-1">Admin E-posta</label>
@@ -36,7 +37,7 @@ export default function AdminLoginPage() {
           />
         </div>
         <div>
-          <label className="block text-sm text-gray-300 mb-1">Şifre</label>
+          <label className="block text-sm text-gray-300 mb-1">Sifre</label>
           <input
             type="password"
             required
@@ -46,7 +47,7 @@ export default function AdminLoginPage() {
           />
         </div>
         {error && <p className="text-sm text-red-400">{error}</p>}
-        <button type="submit" className="btn-primary w-full justify-center">Yönetici Girişi</button>
+        <button type="submit" className="btn-primary w-full justify-center">Yonetici Girisi</button>
       </form>
     </div>
   )

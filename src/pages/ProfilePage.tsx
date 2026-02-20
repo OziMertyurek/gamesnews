@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { getCurrentUser, logoutUser } from '../lib/auth'
-import { getUserProfileExtras, saveSteamConnection, saveSteamGames } from '../lib/community'
+import { getCommentsByUser, getUserProfileExtras, saveSteamConnection, saveSteamGames } from '../lib/community'
 import { fetchSteamOwnedGames } from '../lib/steam'
 import { games } from '../data/siteContent'
 
@@ -31,11 +31,16 @@ export default function ProfilePage() {
     return games.filter((game) => extras.playedGameSlugs.includes(game.slug))
   }, [extras])
 
+  const myComments = useMemo(() => {
+    if (!userEmail) return []
+    return getCommentsByUser(userEmail)
+  }, [userEmail, refreshKey])
+
   if (!user) {
     return (
       <div className="card p-10 text-center max-w-xl mx-auto">
-        <h1 className="text-2xl font-bold text-white">Profil için giriş gerekli</h1>
-        <p className="text-gray-400 mt-2">Profilini görmek için önce login ol.</p>
+        <h1 className="text-2xl font-bold text-white">Profil icin giris gerekli</h1>
+        <p className="text-gray-400 mt-2">Profilini gormek icin once login ol.</p>
         <div className="flex gap-3 justify-center mt-5">
           <Link to="/login" className="btn-primary">Login</Link>
           <Link to="/signup" className="btn-ghost">Sign Up</Link>
@@ -64,19 +69,19 @@ export default function ProfilePage() {
         <div className="mt-6">
           <button
             className="btn-ghost"
-            onClick={() => {
-              logoutUser()
+            onClick={async () => {
+              await logoutUser()
               navigate('/login')
             }}
           >
-            Çıkış Yap
+            Cikis Yap
           </button>
         </div>
       </section>
 
       <section className="card p-6">
         <h2 className="text-lg font-semibold text-white">Steam Profili</h2>
-        <p className="text-gray-400 mt-2 text-sm">Steam API key ve profil/SteamID64 ile kütüphaneni çekebilirsin. Bilgiler yalnızca tarayıcında saklanır.</p>
+        <p className="text-gray-400 mt-2 text-sm">Steam API key ve profil/SteamID64 ile kutuphaneni cekebilirsin. Bilgiler yalnizca tarayicinda saklanir.</p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mt-4">
           <input
@@ -104,11 +109,11 @@ export default function ProfilePage() {
             className="btn-primary"
             onClick={async () => {
               saveSteamConnection(user.email, { steamProfileUrl: steamProfileUrl.trim(), steamId: steamId.trim(), steamApiKey: steamApiKey.trim() })
-              setSyncMessage('Steam bağlantı bilgileri kaydedildi.')
+              setSyncMessage('Steam baglanti bilgileri kaydedildi.')
               setRefreshKey((value) => value + 1)
             }}
           >
-            Steam Bağlantısını Kaydet
+            Steam Baglantisini Kaydet
           </button>
           <button
             className="btn-ghost"
@@ -116,20 +121,20 @@ export default function ProfilePage() {
             onClick={async () => {
               try {
                 setLoadingSteam(true)
-                setSyncMessage('Steam kütüphanesi çekiliyor...')
+                setSyncMessage('Steam kutuphanesi cekiliyor...')
                 const result = await fetchSteamOwnedGames(steamApiKey, steamId || steamProfileUrl)
                 saveSteamConnection(user.email, { steamProfileUrl: steamProfileUrl.trim(), steamId: result.steamId, steamApiKey: steamApiKey.trim() })
                 saveSteamGames(user.email, result.games)
-                setSyncMessage(`${result.games.length} oyun çekildi.`)
+                setSyncMessage(`${result.games.length} oyun cekildi.`)
                 setRefreshKey((value) => value + 1)
               } catch (error) {
-                setSyncMessage(error instanceof Error ? error.message : 'Steam verisi çekilemedi.')
+                setSyncMessage(error instanceof Error ? error.message : 'Steam verisi cekilemedi.')
               } finally {
                 setLoadingSteam(false)
               }
             }}
           >
-            {loadingSteam ? 'Çekiliyor...' : 'Steam Oyunlarını Çek'}
+            {loadingSteam ? 'Cekiliyor...' : 'Steam Oyunlarini Cek'}
           </button>
         </div>
 
@@ -138,7 +143,7 @@ export default function ProfilePage() {
       </section>
 
       <section className="card p-6">
-        <h2 className="text-lg font-semibold text-white">Steam Kütüphanem</h2>
+        <h2 className="text-lg font-semibold text-white">Steam Kutuphanem</h2>
         {extras && extras.steamGames.length > 0 ? (
           <div className="mt-4 overflow-x-auto">
             <table className="min-w-full text-sm">
@@ -159,12 +164,12 @@ export default function ProfilePage() {
             </table>
           </div>
         ) : (
-          <p className="text-sm text-gray-400 mt-3">Steam kütüphanesi henüz bağlanmadı.</p>
+          <p className="text-sm text-gray-400 mt-3">Steam kutuphanesi henuz baglanmadi.</p>
         )}
       </section>
 
       <section className="card p-6">
-        <h2 className="text-lg font-semibold text-white">Sitede Oynadıklarım</h2>
+        <h2 className="text-lg font-semibold text-white">Sitede Oynadiklarim</h2>
         {playedGames.length > 0 ? (
           <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-3">
             {playedGames.map((game) => (
@@ -175,7 +180,32 @@ export default function ProfilePage() {
             ))}
           </div>
         ) : (
-          <p className="text-sm text-gray-400 mt-3">Henüz oyun eklemedin. Oyun detayında "Bu Oyunu Oynadım" butonunu kullan.</p>
+          <p className="text-sm text-gray-400 mt-3">Henuz oyun eklemedin. Oyun detayinda "Bu Oyunu Oynadim" butonunu kullan.</p>
+        )}
+      </section>
+
+      <section className="card p-6">
+        <h2 className="text-lg font-semibold text-white">Yorumlarim</h2>
+        {myComments.length > 0 ? (
+          <div className="mt-4 space-y-3">
+            {myComments.map((comment) => {
+              const game = games.find((item) => item.slug === comment.gameSlug)
+              return (
+                <article key={comment.id} className="rounded-lg bg-gray-800 p-4">
+                  <div className="flex items-center justify-between gap-3">
+                    <Link to={`/games/${comment.gameSlug}`} className="text-white font-medium hover:text-blue-300">
+                      {game?.title ?? comment.gameSlug}
+                    </Link>
+                    <p className="text-xs text-gray-400">{comment.rating}/5</p>
+                  </div>
+                  <p className="text-sm text-gray-200 mt-2">{comment.content}</p>
+                  <p className="text-xs text-gray-500 mt-2">{new Date(comment.createdAt).toLocaleString('tr-TR')}</p>
+                </article>
+              )
+            })}
+          </div>
+        ) : (
+          <p className="text-sm text-gray-400 mt-3">Henuz yorum yapmadin.</p>
         )}
       </section>
     </div>

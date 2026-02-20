@@ -1,6 +1,7 @@
 ﻿import { Link, Outlet } from 'react-router-dom'
 import Navbar from './Navbar'
 import Footer from './Footer'
+import CookieBanner from './CookieBanner'
 import { getCurrentAdmin } from '../../lib/auth'
 
 function SideAdSlot({ title, side }: { title: string; side: 'left' | 'right' }) {
@@ -39,6 +40,7 @@ export default function Layout() {
         </div>
       </main>
       <Footer />
+      <CookieBanner />
     </div>
   )
 }

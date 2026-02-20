@@ -1,7 +1,8 @@
-﻿import { useState } from 'react'
+import { useState } from 'react'
 import type { FormEvent } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { loginAdmin, loginUser } from '../lib/auth'
+import { loginUser } from '../lib/auth'
+import { toFriendlyAuthError } from '../lib/errorMessages'
 
 export default function LoginPage() {
   const navigate = useNavigate()
@@ -9,19 +10,13 @@ export default function LoginPage() {
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
 
-  function onSubmit(e: FormEvent<HTMLFormElement>) {
+  async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
     setError('')
 
-    const adminResult = loginAdmin(email, password)
-    if (adminResult.ok) {
-      navigate('/admin')
-      return
-    }
-
-    const result = loginUser(email, password)
+    const result = await loginUser(email, password)
     if (!result.ok) {
-      setError(result.error ?? 'Giris basarisiz.')
+      setError(toFriendlyAuthError(result.error ?? 'Giris basarisiz.'))
       return
     }
     navigate('/profil')
@@ -51,7 +46,7 @@ export default function LoginPage() {
         Hesabin yok mu? <Link to="/signup" className="text-blue-400 hover:text-blue-300">Sign Up</Link>
       </p>
       <p className="text-sm text-gray-500 mt-2">
-        Admin girisi icin bu sayfayi veya <Link to="/admin/login" className="text-blue-400 hover:text-blue-300">/admin/login</Link> adresini kullanabilirsin.
+        Admin girisi icin <Link to="/admin/login" className="text-blue-400 hover:text-blue-300">/admin/login</Link> adresini kullan.
       </p>
     </div>
   )

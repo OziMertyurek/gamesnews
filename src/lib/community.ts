@@ -126,3 +126,14 @@ export function deleteGameComment(gameSlug: string, commentId: string, userEmail
   store[gameSlug] = list.filter((comment) => !(comment.id === commentId && comment.userEmail === userEmail))
   writeJson(COMMENTS_KEY, store)
 }
+
+export function getCommentsByUser(userEmail: string) {
+  const normalized = userEmail.trim().toLowerCase()
+  if (!normalized) return []
+
+  const store = readJson<CommentStore>(COMMENTS_KEY, {})
+  return Object.values(store)
+    .flat()
+    .filter((comment) => comment.userEmail.toLowerCase() === normalized)
+    .sort((a, b) => (a.createdAt < b.createdAt ? 1 : -1))
+}

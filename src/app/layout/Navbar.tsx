@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom'
-import { getCurrentUser, listPublicUsers, logoutUser } from '../../lib/auth'
+import { getCurrentUser, logoutUser } from '../../lib/auth'
 
-type SearchKind = 'profil' | 'kategori' | 'oyun'
+type SearchKind = 'kategori' | 'oyun'
 
 interface SearchItem {
   id: string
@@ -21,8 +21,6 @@ function normalize(value: string) {
 
 function kindLabel(kind: SearchKind) {
   switch (kind) {
-    case 'profil':
-      return 'Profil'
     case 'kategori':
       return 'Kategori'
     case 'oyun':
@@ -156,22 +154,10 @@ export default function Navbar() {
 
   const user = getCurrentUser()
 
-  const profileItems = useMemo(() => {
+  const searchItems = useMemo(() => {
     void authVersion
-
-    return listPublicUsers().map((profile) => ({
-      id: `profile-${profile.email}`,
-      kind: 'profil',
-      title: profile.name,
-      subtitle: profile.email,
-      to: `/kullanici/${encodeURIComponent(profile.email)}`,
-    }))
-  }, [authVersion])
-
-  const searchItems = useMemo(
-    () => [...profileItems, ...catalogSearchItems],
-    [profileItems, catalogSearchItems],
-  )
+    return catalogSearchItems
+  }, [catalogSearchItems, authVersion])
 
   const searchResults = useMemo(() => {
     const q = normalize(searchQuery.trim())
@@ -187,7 +173,6 @@ export default function Navbar() {
         if (title.startsWith(q)) score += 40
         if (title.includes(q)) score += 20
         if (subtitle.includes(q)) score += 8
-        if (item.kind === 'profil') score += 6
         if (item.kind === 'oyun') score += 4
 
         return { item, score }
@@ -213,8 +198,8 @@ export default function Navbar() {
         <NavLink to="/profil" className="btn-ghost text-sm py-1.5 px-3">Profil</NavLink>
         <button
           className="btn-ghost text-sm py-1.5 px-3"
-          onClick={() => {
-            logoutUser()
+          onClick={async () => {
+            await logoutUser()
             setAuthVersion((value) => value + 1)
           }}
         >
@@ -363,7 +348,7 @@ export default function Navbar() {
                   runSearchTarget(searchResults[0])
                 }
               }}
-              placeholder="Profil, kategori veya oyun ara..."
+              placeholder="Kategori veya oyun ara..."
               className="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-2.5 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-blue-500"
             />
 
