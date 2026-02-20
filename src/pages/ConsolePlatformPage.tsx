@@ -1,105 +1,57 @@
-import { Link, useLocation } from 'react-router-dom'
-import { consoleResearchContent } from '../data/consoleResearchContent'
-import { games } from '../data/siteContent'
-import { dedupeGamesByTitle } from '../lib/gameCatalog'
+﻿import { Link, useParams } from 'react-router-dom'
+import NotFoundPage from './NotFoundPage'
+import { getConsoleExclusiveGamesByPlatform } from '../lib/consoleExclusives'
+import { isPlatformFamily, themeByPlatform, type PlatformFamily } from '../lib/platformTheme'
 
-const consoleMap: Record<string, { title: string }> = {
-  nintendo: {
-    title: 'Nintendo',
-  },
-  playstation: {
-    title: 'PlayStation',
-  },
-  xbox: {
-    title: 'Xbox',
-  },
+const platformMeta: Record<PlatformFamily, { title: string }> = {
+  nintendo: { title: 'Nintendo' },
+  playstation: { title: 'PlayStation' },
+  xbox: { title: 'Xbox' },
 }
 
 export default function ConsolePlatformPage() {
-  const location = useLocation()
-  const slug = location.pathname.split('/').pop() ?? ''
-  const current = consoleMap[slug] ?? {
-    title: 'Konsollar',
+  const { platformFamily } = useParams<{ platformFamily?: string }>()
+
+  if (!isPlatformFamily(platformFamily)) {
+    return <NotFoundPage />
   }
-  const report = slug === 'nintendo' || slug === 'playstation' || slug === 'xbox'
-    ? consoleResearchContent[slug]
-    : null
-  const platformBySlug = {
-    nintendo: 'nintendo',
-    playstation: 'ps',
-    xbox: 'xbox',
-  } as const
 
-  const selectedPlatform = slug === 'nintendo' || slug === 'playstation' || slug === 'xbox'
-    ? platformBySlug[slug]
-    : null
-
-  const allConsoleGames = selectedPlatform
-    ? dedupeGamesByTitle(games
-      .filter((game) => Array.isArray(game.platforms) && game.platforms.includes(selectedPlatform))
-      .sort((a, b) => a.title.localeCompare(b.title, 'tr', { sensitivity: 'base' })))
-    : []
+  const current = platformMeta[platformFamily]
+  const theme = themeByPlatform[platformFamily]
+  const platformExclusiveGames = getConsoleExclusiveGamesByPlatform(platformFamily)
 
   return (
-    <div className="space-y-6">
-      <div className="flex items-center gap-2 text-sm text-gray-500">
-        <Link to="/" className="hover:text-gray-300 transition-colors">Anasayfa</Link>
+    <div className={`space-y-6 rounded-2xl p-4 md:p-6 ${theme.pageBg} min-h-screen text-white`}>
+      <div className="flex items-center gap-2 text-sm text-gray-200">
+        <Link to="/" className="hover:text-white transition-colors">Anasayfa</Link>
         <span>/</span>
-        <span className="text-gray-300">Konsollar</span>
+        <span className="text-gray-100">Consoles</span>
         <span>/</span>
-        <span className="text-blue-300">{current.title}</span>
+        <span className={theme.accent}>{current.title}</span>
       </div>
 
       <section className="card p-6">
-        <h1 className="text-3xl font-bold text-white">{current.title}</h1>
+        <h1 className={`text-3xl font-bold ${theme.accent}`}>{current.title} Exclusive Oyunlar</h1>
+        <p className="mt-2 text-sm text-gray-300">Toplam oyun: {platformExclusiveGames.length}</p>
       </section>
 
-      {report && (
-        <>
-          <section className="card p-6">
-            <h2 className="text-xl font-semibold text-white">Zaman Çizelgesi (Özet)</h2>
-            <ul className="mt-3 space-y-1 text-sm text-gray-300">
-              {report.timeline.map((item) => (
-                <li key={item}>- {item}</li>
-              ))}
-            </ul>
-          </section>
-
-          <section className="card p-6">
-            <h2 className="text-xl font-semibold text-white">Tüm Oyunlar</h2>
-            <p className="mt-2 text-sm text-gray-400">Toplam oyun: {allConsoleGames.length}</p>
-            {allConsoleGames.length > 0 ? (
-              <div className="mt-4 overflow-x-auto">
-                <table className="min-w-full text-sm">
-                  <thead>
-                    <tr className="text-left text-gray-400 border-b border-gray-700">
-                      <th className="py-2 pr-4">Oyun</th>
-                      <th className="py-2 pr-4">Yıl</th>
-                      <th className="py-2 pr-4">Tür</th>
-                      <th className="py-2 pr-4">Puan</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {allConsoleGames.map((game) => (
-                      <tr key={game.slug} className="border-b border-gray-800">
-                        <td className="py-2 pr-4 text-white">
-                          <Link to={`/games/${game.slug}`} className="hover:text-blue-300 transition-colors">
-                            {game.title}
-                          </Link>
-                        </td>
-                        <td className="py-2 pr-4 text-gray-300">{game.releaseYear}</td>
-                        <td className="py-2 pr-4 text-gray-300">{game.genre}</td>
-                        <td className="py-2 pr-4 text-gray-300">{game.score}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            ) : (
-              <p className="mt-3 text-sm text-gray-400">Bu platform için oyun verisi bulunamadı.</p>
-            )}
-          </section>
-        </>
+      {platformExclusiveGames.length > 0 ? (
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+          {platformExclusiveGames.map((game) => (
+            <Link to={`/games/${game.slug}`} key={game.slug} className="card p-5 transition-transform hover:scale-[1.01] block">
+              <p className="text-xs text-gray-400 mb-2">{game.release_year}</p>
+              <h2 className="text-lg font-semibold text-white">{game.title}</h2>
+              <p className="mt-2 text-sm text-gray-300">{game.platforms.join(', ')}</p>
+              <span className={`mt-3 inline-block text-sm ${theme.accent} hover:underline`}>
+                Detaya Git
+              </span>
+            </Link>
+          ))}
+        </div>
+      ) : (
+        <section className="card p-6">
+          <p className="text-sm text-gray-300">Bu platform için exclusive oyun bulunamadı.</p>
+        </section>
       )}
     </div>
   )

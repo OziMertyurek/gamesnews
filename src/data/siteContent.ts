@@ -1,6 +1,7 @@
-﻿import { gameExternalData } from './gameExternalData'
+import { gameExternalData } from './gameExternalData'
 import { gameExpansionTitles } from './gameExpansionTitles'
 import { realGameCatalog } from './realGameCatalog'
+import type { ExclusiveMetadata } from '../lib/exclusive'
 
 export type Platform = 'pc' | 'ps' | 'xbox' | 'nintendo'
 
@@ -21,6 +22,13 @@ export interface GameItem {
   gamespotArticleUrl: string
   youtubeTrailerUrl: string
   youtubeGameplayUrl: string
+  platform_family?: ExclusiveMetadata['platform_family']
+  is_exclusive?: boolean
+  exclusive_type?: ExclusiveMetadata['exclusive_type']
+  exclusive_until?: string | null
+  store_links?: ReadonlyArray<{ label: string; url: string; details?: readonly string[]; icon?: string }>
+  source_urls?: readonly string[]
+  image_url?: string | null
 }
 
 export interface GameGenre {
@@ -539,8 +547,26 @@ const baseGames: BaseGameItem[] = gameGenres.flatMap((genre, index) =>
   ),
 )
 
+const exclusiveSeedGames: BaseGameItem[] = [
+  { slug: 'playstation-phantom-sigil', title: 'Phantom Sigil', genre: 'open-world', platforms: ['ps'], releaseYear: 2024, score: 8.8, summary: 'Phantom Sigil, PlayStation tarafinda ozel olarak konumlanan hikaye odakli aksiyon oyunudur.', platform_family: 'playstation', is_exclusive: true, exclusive_type: 'full', exclusive_until: null },
+  { slug: 'playstation-ember-protocol', title: 'Ember Protocol', genre: 'shooter', platforms: ['ps'], releaseYear: 2025, score: 8.4, summary: 'Ember Protocol, PlayStation oyunculari icin hizli tempolu taktiksel nisanci deneyimi sunar.', platform_family: 'playstation', is_exclusive: true, exclusive_type: 'console', exclusive_until: null },
+  { slug: 'playstation-echoes-of-atlas', title: 'Echoes of Atlas', genre: 'role-playing', platforms: ['ps'], releaseYear: 2026, score: 8.6, summary: 'Echoes of Atlas, PlayStation ekosisteminde zaman sinirli cikis yapan bir aksiyon-RYO oyunu.', platform_family: 'playstation', is_exclusive: true, exclusive_type: 'timed', exclusive_until: '2026-12-31' },
+  { slug: 'playstation-neon-vertex', title: 'Neon Vertex', genre: 'racing-driving', platforms: ['ps'], releaseYear: 2023, score: 8.2, summary: 'Neon Vertex, platform odakli ozel iceriklerle PlayStation yariscilarina hitap eder.', platform_family: 'playstation', is_exclusive: true, exclusive_type: 'platform', exclusive_until: null },
+  { slug: 'playstation-iron-veil', title: 'Iron Veil', genre: 'stealth', platforms: ['ps'], releaseYear: 2022, score: 8.1, summary: 'Iron Veil, gizlilik odakli gorev yapisi ve PlayStation ozel optimizasyonlariyla gelir.', platform_family: 'playstation', is_exclusive: true, exclusive_type: 'console', exclusive_until: null },
+  { slug: 'xbox-orbit-breaker', title: 'Orbit Breaker', genre: 'shooter', platforms: ['xbox'], releaseYear: 2024, score: 8.5, summary: 'Orbit Breaker, Xbox tarafinda premium konsol ozel nisanci olarak listelenir.', platform_family: 'xbox', is_exclusive: true, exclusive_type: 'full', exclusive_until: null },
+  { slug: 'xbox-cobalt-frontier', title: 'Cobalt Frontier', genre: 'open-world', platforms: ['xbox'], releaseYear: 2025, score: 8.3, summary: 'Cobalt Frontier, Xbox oyuncularina acik dunya ve kesif odakli bir deneyim sunar.', platform_family: 'xbox', is_exclusive: true, exclusive_type: 'console', exclusive_until: null },
+  { slug: 'xbox-shiverline', title: 'Shiverline', genre: 'horror', platforms: ['xbox'], releaseYear: 2026, score: 8.0, summary: 'Shiverline, Xbox tarafinda sinirli sureli ozel yayinlanan bir korku oyunu.', platform_family: 'xbox', is_exclusive: true, exclusive_type: 'timed', exclusive_until: '2026-10-15' },
+  { slug: 'xbox-forge-division', title: 'Forge Division', genre: 'strategy-tactical', platforms: ['xbox'], releaseYear: 2023, score: 8.2, summary: 'Forge Division, taktiksel savas mekanikleriyle Xbox platform odakli icerik sunar.', platform_family: 'xbox', is_exclusive: true, exclusive_type: 'platform', exclusive_until: null },
+  { slug: 'xbox-ashen-code', title: 'Ashen Code', genre: 'role-playing', platforms: ['xbox'], releaseYear: 2022, score: 8.1, summary: 'Ashen Code, konsol odakli RYO yapisiyla Xbox kutuphanesinde one cikar.', platform_family: 'xbox', is_exclusive: true, exclusive_type: 'console', exclusive_until: null },
+  { slug: 'nintendo-skyline-chronicle', title: 'Skyline Chronicle', genre: 'platform', platforms: ['nintendo'], releaseYear: 2024, score: 8.7, summary: 'Skyline Chronicle, Nintendo ekosistemine ozel platform ve macera odakli bir yapimdir.', platform_family: 'nintendo', is_exclusive: true, exclusive_type: 'full', exclusive_until: null },
+  { slug: 'nintendo-garden-spirits', title: 'Garden Spirits', genre: 'simulation', platforms: ['nintendo'], releaseYear: 2025, score: 8.4, summary: 'Garden Spirits, Nintendo kullanicilarina ozel rahatlatici simulasyon oynanisi sunar.', platform_family: 'nintendo', is_exclusive: true, exclusive_type: 'console', exclusive_until: null },
+  { slug: 'nintendo-blade-kites', title: 'Blade Kites', genre: 'action-rpg', platforms: ['nintendo'], releaseYear: 2026, score: 8.3, summary: 'Blade Kites, Nintendo icin once ozel yayinlanan ve sureli exclusive model kullanan bir aksiyon oyunu.', platform_family: 'nintendo', is_exclusive: true, exclusive_type: 'timed', exclusive_until: '2026-09-01' },
+  { slug: 'nintendo-mecha-parade', title: 'Mecha Parade', genre: 'sports', platforms: ['nintendo'], releaseYear: 2023, score: 8.0, summary: 'Mecha Parade, platforma ozel icerikler ve mini oyunlarla Nintendo icin tasarlandi.', platform_family: 'nintendo', is_exclusive: true, exclusive_type: 'platform', exclusive_until: null },
+  { slug: 'nintendo-luna-harbor', title: 'Luna Harbor', genre: 'puzzle', platforms: ['nintendo'], releaseYear: 2022, score: 8.1, summary: 'Luna Harbor, Nintendo cihazlarina optimize edilmis bulmaca deneyimi sunar.', platform_family: 'nintendo', is_exclusive: true, exclusive_type: 'console', exclusive_until: null },
+]
+
 const mergedBaseGamesMap = new Map<string, BaseGameItem>()
-for (const game of [...generatedFromRealCatalog, ...generatedFromExternal, ...generatedFromExpansion, ...baseGames]) {
+for (const game of [...generatedFromRealCatalog, ...generatedFromExternal, ...generatedFromExpansion, ...baseGames, ...exclusiveSeedGames]) {
   const titleKey = normalizeTitleKey(game.title)
   if (!titleKey) continue
   const existing = mergedBaseGamesMap.get(titleKey)
@@ -595,4 +621,5 @@ export const games: GameItem[] = mergedBaseGames.map((game) => {
     youtubeGameplayUrl: `https://www.youtube.com/results?search_query=${encodeURIComponent(`${game.title} gameplay`)}`,
   }
 })
+
 

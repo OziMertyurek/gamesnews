@@ -21,6 +21,9 @@ import {
   type UserSystemProfile,
 } from '../lib/systemRequirements'
 import { fetchGameRequirements, type GameRequirementsPayload } from '../lib/gameRequirements'
+import { exclusiveTypeLabel } from '../lib/exclusive'
+import { themeByPlatform } from '../lib/platformTheme'
+import { findConsoleGameBySlug, mapConsoleGameToDetail } from '../lib/consoleCatalog'
 
 const platformLabels: Record<string, string> = {
   pc: 'PC',
@@ -61,7 +64,9 @@ const genreBaseHours: Record<string, number> = {
 
 export default function GameDetailPage() {
   const { slug } = useParams<{ slug: string }>()
-  const game = games.find((item) => item.slug === slug)
+  const gameFromCatalog = games.find((item) => item.slug === slug)
+  const consoleEntry = slug ? findConsoleGameBySlug(slug) : null
+  const game = gameFromCatalog ?? (consoleEntry ? mapConsoleGameToDetail(consoleEntry) : undefined)
   const safeGame = game ?? games[0]
   const user = getCurrentUser()
   const awards = useMemo(() => getGameAwardSummary(safeGame.title), [safeGame.title])
@@ -120,6 +125,12 @@ export default function GameDetailPage() {
 
   useEffect(() => {
     if (!game) return
+    if (game.is_exclusive) {
+      setRequirementsLoading(false)
+      setRequirementsError('')
+      setSteamRequirements(null)
+      return
+    }
     let active = true
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setRequirementsLoading(true)
@@ -153,7 +164,7 @@ export default function GameDetailPage() {
 
   const estimatedMain = estimateMainHours()
   const estimatedMainExtra = Math.round(estimatedMain * 1.45)
-  const metacriticDisplay = safeGame.metacriticScore !== null ? `${safeGame.metacriticScore} / 100` : `${Math.round(safeGame.score * 10)} / 100 (Site Puani)`
+  const metacriticDisplay = safeGame.metacriticScore !== null ? `${safeGame.metacriticScore} / 100` : 'Bulunamadı'
   const hltbMainDisplay = safeGame.howLongToBeatMainHours !== null ? `${safeGame.howLongToBeatMainHours} saat` : `~${estimatedMain} saat (Tahmini)`
   const hltbMainExtraDisplay = safeGame.howLongToBeatMainExtraHours !== null ? `${safeGame.howLongToBeatMainExtraHours} saat` : `~${estimatedMainExtra} saat (Tahmini)`
 
@@ -200,7 +211,27 @@ export default function GameDetailPage() {
   }, [steamRequirements, safeGame.platforms])
 
   const platformSummary = platformDetailItems.map((item) => item.label).join(', ')
+  const platformRows = useMemo(() => {
+    if (safeGame.store_links && safeGame.store_links.length > 0) {
+      return safeGame.store_links.map((item) => ({
+        label: item.label,
+        store: item.label,
+        details: [...(item.details ?? [])],
+        icon: item.icon ?? 'ST',
+        url: item.url,
+      }))
+    }
+    return platformDetailItems.map((item) => ({
+      label: item.label,
+      store: item.store,
+      details: item.details,
+      icon: item.icon,
+      url: undefined as string | undefined,
+    }))
+  }, [safeGame.store_links, platformDetailItems])
   const hasHltbLink = Boolean(safeGame.howLongToBeatUrl)
+  const isExclusive = Boolean(safeGame.is_exclusive)
+  const detailTheme = isExclusive && safeGame.platform_family ? themeByPlatform[safeGame.platform_family] : null
 
   if (!game) {
     return (
@@ -232,7 +263,7 @@ export default function GameDetailPage() {
     `Önerilen Ayar: ${compatibility.suggestedPreset}`
 
   return (
-    <div>
+    <div className={detailTheme ? `${detailTheme.pageBg} rounded-2xl p-4 md:p-6 min-h-screen text-white` : ''}>
       <div className="flex items-center gap-2 text-sm text-gray-500 mb-4">
         <Link to="/games" className="hover:text-gray-300 transition-colors">Oyunlar</Link>
         <span>/</span>
@@ -240,7 +271,7 @@ export default function GameDetailPage() {
       </div>
 
       <article className="card p-8">
-        <p className="text-sm text-blue-400 font-semibold mb-3">{safeGame.genre.toUpperCase()}</p>
+        <p className={`text-sm font-semibold mb-3 ${detailTheme?.accent ?? 'text-blue-400'}`}>{safeGame.genre.toUpperCase()}</p>
         <h1 className="text-3xl font-bold text-white mb-2">{safeGame.title}</h1>
         <div className="flex flex-wrap gap-2 mb-4">
           {awards && awards.gotyWinnerYears.length > 0 && <span className="badge bg-amber-950 text-amber-200">GOTY Kazanan</span>}
@@ -257,17 +288,21 @@ export default function GameDetailPage() {
           </div>
           <div className="bg-gray-800 rounded-lg p-4">
             <p className="text-xs text-gray-500 mb-1">Puan</p>
-            <p className="text-white font-semibold">{safeGame.score} / 10</p>
+            <p className="text-white font-semibold">{safeGame.score > 0 ? `${safeGame.score} / 10` : 'Bulunamadı'}</p>
           </div>
           <div className="bg-gray-800 rounded-lg p-4">
             <p className="text-xs text-gray-500 mb-1">Platformlar</p>
             <p className="text-white font-semibold">{platformSummary || game.platforms.map((platform) => platformLabels[platform] ?? platform).join(', ')}</p>
             <div className="mt-2 space-y-1">
-              {platformDetailItems.map((item) => (
+              {platformRows.map((item) => (
                 <div key={item.label} className="flex items-start gap-2 text-xs text-gray-300">
                   <span className="inline-flex h-5 min-w-5 items-center justify-center rounded bg-blue-950 text-[10px] font-semibold text-blue-200 px-1">{item.icon}</span>
                   <p>
-                    <span className="text-gray-400">{item.store}</span>
+                    {item.url ? (
+                      <a href={item.url} target="_blank" rel="noreferrer" className="text-blue-300 hover:underline">{item.store}</a>
+                    ) : (
+                      <span className="text-gray-400">{item.store}</span>
+                    )}
                     {item.details.length > 0 ? ` (${item.details.join(', ')})` : ''}
                   </p>
                 </div>
@@ -286,6 +321,19 @@ export default function GameDetailPage() {
             <p className="text-xs text-gray-500 mb-1">HowLongToBeat (Main + Extra)</p>
             <p className="text-white font-semibold">{hltbMainExtraDisplay}</p>
           </div>
+          {isExclusive && (
+            <div className="bg-gray-800 rounded-lg p-4">
+              <p className="text-xs text-gray-500 mb-1">Exclusive Türü</p>
+              <p className={`font-semibold ${detailTheme?.accent ?? 'text-white'}`}>
+                {safeGame.exclusive_type ? (exclusiveTypeLabel[safeGame.exclusive_type] ?? 'Exclusive') : 'Exclusive'}
+              </p>
+              {safeGame.exclusive_type === 'timed' && safeGame.exclusive_until && (
+                <span className="mt-2 inline-flex rounded-full bg-amber-900/60 px-2 py-1 text-xs text-amber-200">
+                  Exclusive until: {safeGame.exclusive_until}
+                </span>
+              )}
+            </div>
+          )}
         </div>
 
         <div className="mt-6 flex flex-wrap gap-3">
@@ -312,6 +360,7 @@ export default function GameDetailPage() {
         </div>
       </article>
 
+      {!isExclusive && (
       <section className="card p-6 mt-6">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <h2 className="text-xl font-semibold text-white">Sistem Gereksinimleri</h2>
@@ -490,6 +539,7 @@ export default function GameDetailPage() {
           Not: FPS değeri tahmindir. Gerçek performans sürücü, patch, sahne yoğunluğu ve arka plan uygulamalarına göre değişir.
         </p>
       </section>
+      )}
 
       <section className="card p-6 mt-6">
         <h2 className="text-xl font-semibold text-white">Yorumlar</h2>

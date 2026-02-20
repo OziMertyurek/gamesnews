@@ -48,7 +48,7 @@ export default function Navbar() {
   const [searchCollapsed, setSearchCollapsed] = useState(false)
   const [catalogSearchItems, setCatalogSearchItems] = useState<SearchItem[]>([])
   const [consolesOpen, setConsolesOpen] = useState(false)
-  const consolesActive = location.pathname.startsWith('/konsollar/')
+  const consolesActive = location.pathname.startsWith('/konsollar/') || location.pathname.startsWith('/consoles/')
 
   const loadCatalogSearchItems = useCallback(async () => {
     if (searchCatalogLoadingRef.current || catalogSearchItems.length > 0) return
@@ -288,9 +288,9 @@ export default function Navbar() {
                   consolesOpen ? 'opacity-100 pointer-events-auto translate-y-0' : 'opacity-0 pointer-events-none -translate-y-1'
                 }`}
               >
-                <NavLink to="/konsollar/nintendo" className="block px-3 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-white rounded-t-lg" onClick={() => setConsolesOpen(false)}>Nintendo</NavLink>
-                <NavLink to="/konsollar/playstation" className="block px-3 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-white" onClick={() => setConsolesOpen(false)}>PlayStation</NavLink>
-                <NavLink to="/konsollar/xbox" className="block px-3 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-white rounded-b-lg" onClick={() => setConsolesOpen(false)}>Xbox</NavLink>
+                <NavLink to="/consoles/nintendo" className="block px-3 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-white rounded-t-lg" onClick={() => setConsolesOpen(false)}>Nintendo</NavLink>
+                <NavLink to="/consoles/xbox" className="block px-3 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-white" onClick={() => setConsolesOpen(false)}>Xbox</NavLink>
+                <NavLink to="/consoles/playstation" className="block px-3 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-white rounded-b-lg" onClick={() => setConsolesOpen(false)}>PlayStation</NavLink>
               </div>
             </div>
 
@@ -396,9 +396,9 @@ export default function Navbar() {
             <NavLink to="/games" className="block px-4 py-2 text-sm rounded-lg mx-1 text-gray-300 hover:text-white hover:bg-gray-800" onClick={() => setMobileOpen(false)}>Oyunlar</NavLink>
             <div className="px-4 pt-1">
               <p className="text-[11px] uppercase tracking-wide text-gray-500">Konsollar</p>
-              <NavLink to="/konsollar/nintendo" className="block px-2 py-1.5 text-sm rounded-lg text-gray-300 hover:text-white hover:bg-gray-800" onClick={() => setMobileOpen(false)}>Nintendo</NavLink>
-              <NavLink to="/konsollar/playstation" className="block px-2 py-1.5 text-sm rounded-lg text-gray-300 hover:text-white hover:bg-gray-800" onClick={() => setMobileOpen(false)}>PlayStation</NavLink>
-              <NavLink to="/konsollar/xbox" className="block px-2 py-1.5 text-sm rounded-lg text-gray-300 hover:text-white hover:bg-gray-800" onClick={() => setMobileOpen(false)}>Xbox</NavLink>
+              <NavLink to="/consoles/nintendo" className="block px-2 py-1.5 text-sm rounded-lg text-gray-300 hover:text-white hover:bg-gray-800" onClick={() => setMobileOpen(false)}>Nintendo</NavLink>
+              <NavLink to="/consoles/xbox" className="block px-2 py-1.5 text-sm rounded-lg text-gray-300 hover:text-white hover:bg-gray-800" onClick={() => setMobileOpen(false)}>Xbox</NavLink>
+              <NavLink to="/consoles/playstation" className="block px-2 py-1.5 text-sm rounded-lg text-gray-300 hover:text-white hover:bg-gray-800" onClick={() => setMobileOpen(false)}>PlayStation</NavLink>
             </div>
             <NavLink to="/oduller" className="block px-4 py-2 text-sm rounded-lg mx-1 text-gray-300 hover:text-white hover:bg-gray-800" onClick={() => setMobileOpen(false)}>Ödüller</NavLink>
             <NavLink to="/iletisim" className="block px-4 py-2 text-sm rounded-lg mx-1 text-gray-300 hover:text-white hover:bg-gray-800" onClick={() => setMobileOpen(false)}>İletişim</NavLink>
