@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom'
-import { getCurrentUser, logoutUser } from '../../lib/auth'
+import { getCurrentUser, logoutUser, searchPublicProfiles } from '../../lib/auth'
 
-type SearchKind = 'kategori' | 'oyun'
+type SearchKind = 'profil' | 'kategori' | 'oyun'
 
 interface SearchItem {
   id: string
@@ -21,6 +21,8 @@ function normalize(value: string) {
 
 function kindLabel(kind: SearchKind) {
   switch (kind) {
+    case 'profil':
+      return 'Profil'
     case 'kategori':
       return 'Kategori'
     case 'oyun':
@@ -45,6 +47,7 @@ export default function Navbar() {
   const [searchOpen, setSearchOpen] = useState(false)
   const [searchCollapsed, setSearchCollapsed] = useState(false)
   const [catalogSearchItems, setCatalogSearchItems] = useState<SearchItem[]>([])
+  const [profileSearchItems, setProfileSearchItems] = useState<SearchItem[]>([])
   const [consolesOpen, setConsolesOpen] = useState(false)
   const consolesActive = location.pathname.startsWith('/konsollar/') || location.pathname.startsWith('/consoles/')
 
@@ -80,6 +83,17 @@ export default function Navbar() {
       searchCatalogLoadingRef.current = false
     }
   }, [catalogSearchItems.length])
+
+  const loadProfileSearchItems = useCallback(async (query: string) => {
+    const rows = await searchPublicProfiles(query)
+    setProfileSearchItems(rows.map((profile) => ({
+      id: `profile-${profile.id}`,
+      kind: 'profil',
+      title: profile.name,
+      subtitle: 'Kullanici Profili',
+      to: `/kullanici/id/${encodeURIComponent(profile.id)}`,
+    })))
+  }, [])
 
   useEffect(() => {
     const onStorage = () => setAuthVersion((value) => value + 1)
@@ -156,8 +170,8 @@ export default function Navbar() {
 
   const searchItems = useMemo(() => {
     void authVersion
-    return catalogSearchItems
-  }, [catalogSearchItems, authVersion])
+    return [...profileSearchItems, ...catalogSearchItems]
+  }, [catalogSearchItems, profileSearchItems, authVersion])
 
   const searchResults = useMemo(() => {
     const q = normalize(searchQuery.trim())
@@ -173,6 +187,7 @@ export default function Navbar() {
         if (title.startsWith(q)) score += 40
         if (title.includes(q)) score += 20
         if (subtitle.includes(q)) score += 8
+        if (item.kind === 'profil') score += 10
         if (item.kind === 'oyun') score += 4
 
         return { item, score }
@@ -340,6 +355,7 @@ export default function Navbar() {
                 setSearchOpen(true)
                 if (event.target.value.trim().length > 0) {
                   void loadCatalogSearchItems()
+                  void loadProfileSearchItems(event.target.value)
                 }
               }}
               onKeyDown={(event) => {
@@ -348,7 +364,7 @@ export default function Navbar() {
                   runSearchTarget(searchResults[0])
                 }
               }}
-              placeholder="Kategori veya oyun ara..."
+              placeholder="Profil, kategori veya oyun ara..."
               className="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-2.5 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-blue-500"
             />
 

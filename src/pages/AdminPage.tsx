@@ -31,6 +31,8 @@ export default function AdminPage() {
   const [roleFilter, setRoleFilter] = useState<'all' | 'user' | 'admin'>('all')
   const [approvedSlugs, setApprovedSlugs] = useState<string[]>([])
   const [auditRows, setAuditRows] = useState<AuditRow[]>([])
+  const [reviewStatus, setReviewStatus] = useState('')
+  const [reviewSavingSlug, setReviewSavingSlug] = useState<string | null>(null)
 
   const loadUsers = async () => {
     const rows = await listAllUsersForAdmin()
@@ -75,13 +77,17 @@ export default function AdminPage() {
   )
 
   const handleApproveNeedsReview = async (slug: string, title: string) => {
+    setReviewStatus('')
+    setReviewSavingSlug(slug)
     const result = await approveNeedsReviewForAdmin(slug, title)
     if (!result.ok) {
-      setStatusMessage(result.error ?? 'Onay islemi basarisiz.')
+      setReviewStatus(result.error ?? 'Onay islemi basarisiz.')
+      setReviewSavingSlug(null)
       return
     }
     await Promise.all([loadApprovals(), loadAudit()])
-    setStatusMessage('Needs review kaydi onaylandi.')
+    setReviewStatus('Kayit onaylandi ve listeden kaldirildi.')
+    setReviewSavingSlug(null)
   }
 
   const filteredUsers = useMemo(() => {
@@ -208,6 +214,7 @@ export default function AdminPage() {
       <section className="card p-6">
         <h2 className="text-xl text-white font-semibold">Needs Review Onay</h2>
         <p className="text-sm text-gray-400 mt-1">Eksik gorsel veya dogrulama bekleyen kayitlar.</p>
+        {reviewStatus ? <p className="mt-2 text-sm text-blue-300">{reviewStatus}</p> : null}
         <div className="mt-4 space-y-3">
           {pendingNeedsReview.length === 0 ? (
             <p className="text-sm text-green-300">Bekleyen kayit yok.</p>
@@ -222,11 +229,12 @@ export default function AdminPage() {
                   <Link to={`/games/${item.slug}`} className="btn-ghost">Detay</Link>
                   <button
                     className="btn-primary"
+                    disabled={reviewSavingSlug === item.slug}
                     onClick={() => {
                       void handleApproveNeedsReview(item.slug, item.title)
                     }}
                   >
-                    Onayla
+                    {reviewSavingSlug === item.slug ? 'Kaydediliyor...' : 'Onayla'}
                   </button>
                 </div>
               </article>

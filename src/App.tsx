@@ -37,7 +37,7 @@ function App() {
           <Route path="login" element={<LoginPage />} />
           <Route path="signup" element={<SignupPage />} />
           <Route path="profil" element={<ProfilePage />} />
-          <Route path="kullanici/:email" element={<UserProfilePage />} />
+          <Route path="kullanici/id/:id" element={<UserProfilePage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>

@@ -8,8 +8,8 @@ export interface AuthUser {
 }
 
 export interface PublicUser {
+  id: string
   name: string
-  email: string
 }
 
 const CURRENT_USER_KEY = 'gn_current_user'
@@ -126,6 +126,39 @@ export function listPublicUsers(): PublicUser[] {
 
 export function getPublicUserByEmail(_email: string): PublicUser | null {
   return null
+}
+
+export async function searchPublicProfiles(query: string): Promise<PublicUser[]> {
+  const trimmed = query.trim()
+  if (trimmed.length < 2) return []
+  try {
+    const response = await fetch(`/api/public-profiles?q=${encodeURIComponent(trimmed)}`)
+    const payload = await response.json().catch(() => ({}))
+    if (!response.ok) return []
+    const rows = Array.isArray(payload?.profiles) ? payload.profiles : []
+    return rows.map((row: Record<string, unknown>) => ({
+      id: String(row.id ?? ''),
+      name: String(row.name ?? 'Kullanici'),
+    }))
+  } catch {
+    return []
+  }
+}
+
+export async function getPublicProfileById(id: string): Promise<PublicUser | null> {
+  const key = id.trim()
+  if (!key) return null
+  try {
+    const response = await fetch(`/api/public-profiles?id=${encodeURIComponent(key)}`)
+    const payload = await response.json().catch(() => ({}))
+    if (!response.ok || !payload?.profile) return null
+    return {
+      id: String(payload.profile.id ?? ''),
+      name: String(payload.profile.name ?? 'Kullanici'),
+    }
+  } catch {
+    return null
+  }
 }
 
 export async function loginAdmin(email: string, password: string): Promise<{ ok: boolean; error?: string }> {
