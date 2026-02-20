@@ -289,6 +289,17 @@ export default function GameDetailPage() {
         </div>
 
         <div className="mt-6 flex flex-wrap gap-3">
+          {game.storeLinks.map((link) => (
+            <a
+              key={`${game.slug}-${link.label}-${link.url}`}
+              className="btn-ghost"
+              href={link.url}
+              target="_blank"
+              rel="noreferrer"
+            >
+              {link.label} Mağaza
+            </a>
+          ))}
           <a className="btn-ghost" href={game.metacriticUrl} target="_blank" rel="noreferrer">{game.metacriticScore === null ? 'Metacritic Ara' : 'Metacritic'}</a>
           {hasHltbLink ? (
             <a className="btn-ghost" href={game.howLongToBeatUrl} target="_blank" rel="noreferrer">HowLongToBeat</a>
@@ -310,6 +321,25 @@ export default function GameDetailPage() {
             </button>
           )}
         </div>
+
+        {game.dlcs.length > 0 && (
+          <div className="mt-6 bg-gray-800 rounded-lg p-4">
+            <p className="text-xs text-gray-500 mb-2">DLC'ler</p>
+            <div className="flex flex-col gap-2">
+              {game.dlcs.map((dlc) => (
+                <a
+                  key={`${game.slug}-${dlc.title}-${dlc.url}`}
+                  className="text-sm text-blue-300 hover:text-blue-200 transition-colors"
+                  href={dlc.url}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {dlc.title} ({dlc.store})
+                </a>
+              ))}
+            </div>
+          </div>
+        )}
       </article>
 
       <section className="card p-6 mt-6">

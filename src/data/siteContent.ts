@@ -1,8 +1,23 @@
 ﻿import { gameExternalData } from './gameExternalData'
 import { gameExpansionTitles } from './gameExpansionTitles'
 import { realGameCatalog } from './realGameCatalog'
+import {
+  steamDlcByParentTitleKey,
+  steamStoreByTitleKey,
+} from './steamCatalogData'
 
 export type Platform = 'pc' | 'ps' | 'xbox' | 'nintendo'
+
+export interface GameStoreLink {
+  label: string
+  url: string
+}
+
+export interface GameDlcItem {
+  title: string
+  store: string
+  url: string
+}
 
 export interface GameItem {
   slug: string
@@ -21,6 +36,8 @@ export interface GameItem {
   gamespotArticleUrl: string
   youtubeTrailerUrl: string
   youtubeGameplayUrl: string
+  storeLinks: GameStoreLink[]
+  dlcs: GameDlcItem[]
 }
 
 export interface GameGenre {
@@ -40,6 +57,8 @@ type BaseGameItem = Omit<
   | 'gamespotArticleUrl'
   | 'youtubeTrailerUrl'
   | 'youtubeGameplayUrl'
+  | 'storeLinks'
+  | 'dlcs'
 >
 
 const platformSets: Platform[][] = [
@@ -287,6 +306,7 @@ const manualReleaseYearOverrides: Record<string, number> = {
   'portal2': 2011,
   'thetalosprinciple2': 2023,
   'baldursgate3': 2023,
+  'banishersghostsofneweden': 2024,
 }
 
 for (const [key, year] of Object.entries(manualReleaseYearOverrides)) {
@@ -367,6 +387,8 @@ const legacySlugAliases: Record<string, string> = {
 }
 
 const externalDataEntries = Object.entries(gameExternalData)
+const steamStoreEntries = Object.entries(steamStoreByTitleKey)
+const steamDlcEntries = Object.entries(steamDlcByParentTitleKey)
 
 function resolveExternalData(game: BaseGameItem) {
   const titleSlug = slugify(game.title)
@@ -392,6 +414,30 @@ function resolveExternalData(game: BaseGameItem) {
   })
 
   return fuzzyMatch?.[1]
+}
+
+function resolveSteamStoreByTitleKey(titleKey: string) {
+  const direct = Object.prototype.hasOwnProperty.call(steamStoreByTitleKey, titleKey)
+    ? steamStoreByTitleKey[titleKey]
+    : undefined
+  if (direct) return direct
+  if (titleKey.length < 6) return undefined
+
+  const fuzzy = steamStoreEntries.find(([key]) => key.includes(titleKey) || titleKey.includes(key))
+  return fuzzy?.[1]
+}
+
+function resolveSteamDlcsByTitleKey(titleKey: string) {
+  const direct = Object.prototype.hasOwnProperty.call(steamDlcByParentTitleKey, titleKey)
+    ? steamDlcByParentTitleKey[titleKey]
+    : undefined
+  if (direct && direct.length > 0) return direct
+  if (titleKey.length < 6) return []
+
+  const fuzzy = steamDlcEntries.find(
+    ([key, entries]) => (key.includes(titleKey) || titleKey.includes(key)) && entries.length > 0,
+  )
+  return fuzzy?.[1] ?? []
 }
 
 function createGenreGames(genre: string, label: string, startYear: number, baseScore: number, titles: string[]): BaseGameItem[] {
@@ -576,6 +622,9 @@ export const games: GameItem[] = mergedBaseGames.map((game) => {
   const fallbackMetacriticUrl = `https://www.metacritic.com/search/${encodeURIComponent(game.title)}/?page=1&category=13`
   const fallbackHltbUrl = ''
   const fallbackGameSpotUrl = `https://www.gamespot.com/search/?q=${encodeURIComponent(game.title)}`
+  const titleKey = normalizeTitleKey(game.title)
+  const steamStore = resolveSteamStoreByTitleKey(titleKey)
+  const dlcs = resolveSteamDlcsByTitleKey(titleKey)
 
   return {
     ...game,
@@ -593,6 +642,12 @@ export const games: GameItem[] = mergedBaseGames.map((game) => {
     gamespotArticleUrl: external?.gamespotArticleUrl || fallbackGameSpotUrl,
     youtubeTrailerUrl: `https://www.youtube.com/results?search_query=${encodeURIComponent(`${game.title} trailer`)}`,
     youtubeGameplayUrl: `https://www.youtube.com/results?search_query=${encodeURIComponent(`${game.title} gameplay`)}`,
+    storeLinks: steamStore ? [{ label: 'Steam', url: steamStore.url }] : [],
+    dlcs: dlcs.map((dlc) => ({
+      title: dlc.title,
+      store: dlc.store,
+      url: dlc.url,
+    })),
   }
 })
 

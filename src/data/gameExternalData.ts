@@ -2222,5 +2222,14 @@ export const gameExternalData: Record<string, GameExternalData> = {
     "howLongToBeatCompletionistHours": 14,
     "howLongToBeatUrl": "https://howlongtobeat.com/game/32537",
     "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Outlast%202"
+  },
+  "banishers-ghosts-of-new-eden": {
+    "metacriticScore": 78,
+    "metacriticUrl": "https://www.metacritic.com/game/banishers-ghosts-of-new-eden/",
+    "howLongToBeatMainHours": 23,
+    "howLongToBeatMainExtraHours": 46,
+    "howLongToBeatCompletionistHours": 62,
+    "howLongToBeatUrl": "https://howlongtobeat.com/game/118229",
+    "gamespotArticleUrl": "https://www.gamespot.com/search/?q=Banishers%3A%20Ghosts%20of%20New%20Eden"
   }
 }

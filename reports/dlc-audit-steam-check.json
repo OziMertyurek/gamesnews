@@ -1,0 +1,350 @@
+{
+  "summary": {
+    "total": 31,
+    "found": 11,
+    "notFound": 20,
+    "appTypeCounts": {
+      "dlc": 2,
+      "game": 9
+    }
+  },
+  "results": [
+    {
+      "queryTitle": "Age of Empires II: The Conquerors",
+      "notFound": true
+    },
+    {
+      "queryTitle": "Baldur's Gate II: Throne of Bhaal",
+      "notFound": true
+    },
+    {
+      "queryTitle": "Battle Realms: Winter of the Wolf",
+      "notFound": true
+    },
+    {
+      "queryTitle": "Battlefield 1942: The Road to Rome",
+      "notFound": true
+    },
+    {
+      "queryTitle": "Black & White: Creature Isle",
+      "notFound": true
+    },
+    {
+      "queryTitle": "Civilization III: Play the World",
+      "notFound": true
+    },
+    {
+      "queryTitle": "Civilization VI: Rise and Fall",
+      "appid": 645402,
+      "steamName": "Sid Meier’s Civilization® VI: Rise and Fall",
+      "score": 0.625,
+      "apiItemType": "app",
+      "appType": "dlc",
+      "isFree": false,
+      "categories": [
+        "Single-player",
+        "Multi-player",
+        "PvP",
+        "Online PvP",
+        "LAN PvP",
+        "Shared/Split Screen PvP",
+        "Shared/Split Screen",
+        "Cross-Platform Multiplayer",
+        "Downloadable Content",
+        "Steam Achievements"
+      ],
+      "genres": [
+        "Strategy"
+      ],
+      "requiredAge": 0,
+      "steamUrl": "https://store.steampowered.com/app/645402/"
+    },
+    {
+      "queryTitle": "Command & Conquer: Yuri's Revenge",
+      "notFound": true
+    },
+    {
+      "queryTitle": "Company of Heroes: Tales of Valor",
+      "appid": 20540,
+      "steamName": "Company of Heroes: Tales of Valor",
+      "score": 1.5,
+      "apiItemType": "app",
+      "appType": "game",
+      "isFree": false,
+      "categories": [
+        "Single-player",
+        "Multi-player",
+        "Steam Cloud",
+        "Family Sharing"
+      ],
+      "genres": [
+        "Strategy"
+      ],
+      "requiredAge": "17",
+      "steamUrl": "https://store.steampowered.com/app/20540/"
+    },
+    {
+      "queryTitle": "Crossfire",
+      "appid": 2644230,
+      "steamName": "Critter Crossfire",
+      "score": 0.5,
+      "apiItemType": "app",
+      "appType": "game",
+      "isFree": false,
+      "categories": [
+        "Single-player",
+        "Multi-player",
+        "PvP",
+        "Shared/Split Screen PvP",
+        "Shared/Split Screen",
+        "Steam Achievements",
+        "Full controller support",
+        "Camera Comfort",
+        "Custom Volume Controls",
+        "Adjustable Difficulty"
+      ],
+      "genres": [
+        "Indie",
+        "Strategy"
+      ],
+      "requiredAge": 0,
+      "steamUrl": "https://store.steampowered.com/app/2644230/"
+    },
+    {
+      "queryTitle": "Dark Age of Camelot: Shrouded Isles",
+      "notFound": true
+    },
+    {
+      "queryTitle": "Delta Force: Task Force Dagger",
+      "appid": 32650,
+      "steamName": "Delta Force: Task Force Dagger",
+      "score": 1.5,
+      "apiItemType": "app",
+      "appType": "game",
+      "isFree": false,
+      "categories": [
+        "Single-player",
+        "Multi-player",
+        "Family Sharing"
+      ],
+      "genres": [
+        "Action"
+      ],
+      "requiredAge": 0,
+      "steamUrl": "https://store.steampowered.com/app/32650/"
+    },
+    {
+      "queryTitle": "Diablo II: Lord of Destruction",
+      "notFound": true
+    },
+    {
+      "queryTitle": "Dishonored Death of the Outsider",
+      "appid": 614570,
+      "steamName": "Dishonored®: Death of the Outsider™",
+      "score": 1.5,
+      "apiItemType": "app",
+      "appType": "game",
+      "isFree": false,
+      "categories": [
+        "Single-player",
+        "Steam Achievements",
+        "Color Alternatives",
+        "Adjustable Difficulty",
+        "Playable without Timed Input",
+        "Stereo Sound",
+        "Surround Sound",
+        "Partial Controller Support",
+        "Steam Cloud",
+        "Family Sharing"
+      ],
+      "genres": [
+        "Action"
+      ],
+      "requiredAge": "17",
+      "steamUrl": "https://store.steampowered.com/app/614570/"
+    },
+    {
+      "queryTitle": "EverQuest: The Ruins of Kunark",
+      "notFound": true
+    },
+    {
+      "queryTitle": "EverQuest: The Shadows of Luclin",
+      "notFound": true
+    },
+    {
+      "queryTitle": "Ground Control: Dark Conspiracy",
+      "notFound": true
+    },
+    {
+      "queryTitle": "Half-Life: Blue Shift",
+      "appid": 130,
+      "steamName": "Half-Life: Blue Shift",
+      "score": 1.5,
+      "apiItemType": "app",
+      "appType": "game",
+      "isFree": false,
+      "categories": [
+        "Single-player",
+        "Custom Volume Controls",
+        "Adjustable Difficulty",
+        "Playable without Timed Input",
+        "Save Anytime",
+        "Family Sharing"
+      ],
+      "genres": [
+        "Action"
+      ],
+      "requiredAge": 0,
+      "steamUrl": "https://store.steampowered.com/app/130/"
+    },
+    {
+      "queryTitle": "Half-Life: Opposing Force",
+      "appid": 50,
+      "steamName": "Half-Life: Opposing Force",
+      "score": 1.5,
+      "apiItemType": "app",
+      "appType": "game",
+      "isFree": false,
+      "categories": [
+        "Single-player",
+        "Multi-player",
+        "Custom Volume Controls",
+        "Adjustable Difficulty",
+        "Playable without Timed Input",
+        "Save Anytime",
+        "Valve Anti-Cheat enabled",
+        "Family Sharing"
+      ],
+      "genres": [
+        "Action"
+      ],
+      "requiredAge": 0,
+      "steamUrl": "https://store.steampowered.com/app/50/"
+    },
+    {
+      "queryTitle": "Halo 3 ODST",
+      "appid": 1064272,
+      "steamName": "Halo 3: ODST",
+      "score": 1.5,
+      "apiItemType": "app",
+      "appType": "dlc",
+      "isFree": false,
+      "categories": [
+        "Single-player",
+        "Multi-player",
+        "PvP",
+        "Online PvP",
+        "Co-op",
+        "Online Co-op",
+        "Downloadable Content",
+        "Full controller support",
+        "Family Sharing"
+      ],
+      "genres": [
+        "Action"
+      ],
+      "requiredAge": 0,
+      "steamUrl": "https://store.steampowered.com/app/1064272/"
+    },
+    {
+      "queryTitle": "Heroes Chronicles",
+      "notFound": true
+    },
+    {
+      "queryTitle": "Heroes of Might and Magic III: The Shadow of Death",
+      "notFound": true
+    },
+    {
+      "queryTitle": "Heroes of Might and Magic V: Tribes of the East",
+      "appid": 15370,
+      "steamName": "Heroes of Might & Magic V: Tribes of the East",
+      "score": 0.889,
+      "apiItemType": "app",
+      "appType": "game",
+      "isFree": false,
+      "categories": [
+        "Single-player",
+        "Family Sharing"
+      ],
+      "genres": [
+        "Strategy"
+      ],
+      "requiredAge": 0,
+      "steamUrl": "https://store.steampowered.com/app/15370/"
+    },
+    {
+      "queryTitle": "Homeworld: Cataclysm",
+      "notFound": true
+    },
+    {
+      "queryTitle": "Icewind Dale: Heart of Winter",
+      "notFound": true
+    },
+    {
+      "queryTitle": "Infamous: Festival of Blood",
+      "notFound": true
+    },
+    {
+      "queryTitle": "Mount & Blade: Warband",
+      "appid": 48700,
+      "steamName": "Mount & Blade: Warband",
+      "score": 1.5,
+      "apiItemType": "app",
+      "appType": "game",
+      "isFree": false,
+      "categories": [
+        "Single-player",
+        "Multi-player",
+        "Steam Achievements",
+        "Steam Trading Cards",
+        "Steam Workshop",
+        "Family Sharing"
+      ],
+      "genres": [
+        "Action",
+        "RPG"
+      ],
+      "requiredAge": 0,
+      "steamUrl": "https://store.steampowered.com/app/48700/"
+    },
+    {
+      "queryTitle": "Stronghold Crusader",
+      "appid": 232890,
+      "steamName": "Stronghold Crusader 2",
+      "score": 0.667,
+      "apiItemType": "app",
+      "appType": "game",
+      "isFree": false,
+      "categories": [
+        "Single-player",
+        "Multi-player",
+        "PvP",
+        "Online PvP",
+        "Co-op",
+        "Online Co-op",
+        "Steam Achievements",
+        "Steam Trading Cards",
+        "Steam Workshop",
+        "Steam Cloud"
+      ],
+      "genres": [
+        "Simulation",
+        "Strategy"
+      ],
+      "requiredAge": 0,
+      "steamUrl": "https://store.steampowered.com/app/232890/"
+    },
+    {
+      "queryTitle": "Total War: Shogun 2: Fall of the Samurai",
+      "notFound": true
+    },
+    {
+      "queryTitle": "Warcraft III The Frozen Throne",
+      "notFound": true
+    },
+    {
+      "queryTitle": "World of Warcraft: Battle for Azeroth",
+      "notFound": true
+    }
+  ]
+}
