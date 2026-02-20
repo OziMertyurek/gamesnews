@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+﻿import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom'
 import { getCurrentUser, logoutUser, searchPublicProfiles } from '../../lib/auth'
 
@@ -90,7 +90,7 @@ export default function Navbar() {
       id: `profile-${profile.id}`,
       kind: 'profil',
       title: profile.name,
-      subtitle: 'Kullanici Profili',
+      subtitle: 'Kullanıcı Profili',
       to: `/kullanici/id/${encodeURIComponent(profile.id)}`,
     })))
   }, [])

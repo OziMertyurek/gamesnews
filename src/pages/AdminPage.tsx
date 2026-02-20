@@ -150,11 +150,7 @@ export default function AdminPage() {
         </div>
       </section>
 
-      <section className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-10 gap-4">
-        <article className="card p-4"><p className="text-xs text-gray-500">Toplam Exclusive</p><p className="text-xl text-white font-bold">{stats.total}</p></article>
-        <article className="card p-4"><p className="text-xs text-gray-500">PlayStation</p><p className="text-xl text-white font-bold">{stats.playstation}</p></article>
-        <article className="card p-4"><p className="text-xs text-gray-500">Xbox</p><p className="text-xl text-white font-bold">{stats.xbox}</p></article>
-        <article className="card p-4"><p className="text-xs text-gray-500">Nintendo</p><p className="text-xl text-white font-bold">{stats.nintendo}</p></article>
+      <section className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-6 gap-4">
         <article className="card p-4"><p className="text-xs text-gray-500">Needs Review</p><p className="text-xl text-white font-bold">{stats.review}</p></article>
         <article className="card p-4"><p className="text-xs text-gray-500">Toplam Kullanici</p><p className="text-xl text-white font-bold">{stats.users}</p></article>
         <article className="card p-4"><p className="text-xs text-gray-500">Toplam Yorum</p><p className="text-xl text-white font-bold">{stats.totalComments}</p></article>
